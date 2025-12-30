@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 *Note:* This code reads the same dataset in that we used last time and then creates two new columns based on an old one. Make sure to run this chunk before trying to make your graph! 
 
 ```{r}
-season_summary = readr::read_csv("https://math.carleton.edu/aluby/stat220/survivor_season_summary.csv") |>
+season_summary = readr::read_csv("https://raw.githubusercontent.com/stat220-w26/stat220-w26.github.io/refs/heads/main/data/survivor_season_summary.csv") |>
   separate(timeslot, into = c("day_of_week", "time"))
 ```
 

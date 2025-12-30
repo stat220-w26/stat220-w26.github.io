@@ -1,6 +1,5 @@
 ---
 title: Intro to `ggplot2`
-output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -30,7 +29,7 @@ The data we're using today contains information about all seasons of *Survivor* 
 ```{r}
 #| eval: TRUE
 
-season_summary = readr::read_csv("https://math.carleton.edu/aluby/stat220/survivor_season_summary.csv")
+season_summary = readr::read_csv("https://raw.githubusercontent.com/stat220-w26/stat220-w26.github.io/refs/heads/main/data/survivor_season_summary.csv")
 ```
 
 - `season`: the number of each season
