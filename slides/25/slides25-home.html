@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8cab17c520dfb5fd83702a774e8ef3fe.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.23">
+<meta name="author" content="Prof Amanda Luby">
+<title>Stat 220 – Intro to  Databases</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+<style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #97947a;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #97947a;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2; background-color: #2b2b2b; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #dcc6e0; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #ffd700; } /* Attribute */
+    code span.bn { color: #dcc6e0; } /* BaseN */
+    code span.bu { color: #f5ab35; } /* BuiltIn */
+    code span.cf { color: #ffa07a; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffa07a; } /* Constant */
+    code span.co { color: #d4d0ab; } /* Comment */
+    code span.cv { color: #d4d0ab; font-style: italic; } /* CommentVar */
+    code span.do { color: #d4d0ab; font-style: italic; } /* Documentation */
+    code span.dt { color: #dcc6e0; } /* DataType */
+    code span.dv { color: #dcc6e0; } /* DecVal */
+    code span.er { color: #dcc6e0; } /* Error */
+    code span.ex { color: #ffd700; } /* Extension */
+    code span.fl { color: #f5ab35; } /* Float */
+    code span.fu { color: #ffd700; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; } /* Keyword */
+    code span.op { color: #00e0e0; } /* Operator */
+    code span.ot { color: #ffa07a; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.sc { color: #00e0e0; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #f5ab35; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
+  </style>
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-99734ba7138dc437be0395c978baeb51.css">
+<link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+<link href="../../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
+<script src="../../site_libs/countdown-0.4.0/countdown.js"></script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="../img/sql-images.001.png" data-background-opacity="0.8" data-background-position="right" data-background-size="60%" data-slide-number="none" class="quarto-title-block center"><h1 class="title">Intro to <br>Databases</h1>
+  <p class="subtitle">Day 24</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Prof Amanda Luby 
+</div>
+        <p class="quarto-title-affiliation">
+            Carleton College <br> Stat 220 - Spring 2025
+          </p>
+    </div>
+</div>
+
+</section><section id="warm-up-on-your-own" class="slide level2"><h2>Warm Up: on your own</h2>
+<div class="task">
+<p>Using <code><a href="https://moderndive.github.io/nycflights23/reference/flights.html">nycflights23::flights</a></code>, answer the following using {dplyr} code</p>
+<ul>
+<li>How many flights flew to MSP from JFK in 2023?</li>
+<li>What was the average flight delay for MSP flights in Sept 2023?</li>
+<li>What percentage of MSP flights in 2023 were delayed by 15 minutes or more?</li>
+</ul>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_e67f9a19" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls">
+<button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
+</div>
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section><section id="nycflights23flights-is-a-subset-of-all-flights-data" class="slide level2"><h2>
+<code>nycflights23::flights</code> is a subset of all flights data</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>nycflights23<span class="sc">::</span>flights <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a></a>  <span class="fu">select</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a></a>  <span class="fu">distinct</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+   year
+  &lt;int&gt;
+1  2023</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>nycflights23<span class="sc">::</span>flights <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+       n
+   &lt;int&gt;
+1 435352</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>nycflights23<span class="sc">::</span>flights <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a></a>  <span class="fu">select</span>(origin) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a></a>  <span class="fu">distinct</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 1
+  origin
+  &lt;chr&gt; 
+1 EWR   
+2 JFK   
+3 LGA   </code></pre>
+</div>
+</div>
+</div>
+</section><section id="we-can-also-connect-to-a-database-containing-more-flights-data" class="slide level2"><h2>We can also connect to a database containing more flights data:</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(mdsr)</span>
+<span id="cb7-2"><a></a><span class="fu">library</span>(DBI)</span>
+<span id="cb7-3"><a></a>db <span class="ot">&lt;-</span> <span class="fu">dbConnect_scidb</span>(<span class="st">"airlines"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>flights <span class="ot">&lt;-</span> <span class="fu">tbl</span>(db, <span class="st">"flights"</span>)</span>
+<span id="cb8-2"><a></a>carriers <span class="ot">&lt;-</span> <span class="fu">tbl</span>(db, <span class="st">"carriers"</span>)</span>
+<span id="cb8-3"><a></a>airports <span class="ot">&lt;-</span> <span class="fu">tbl</span>(db, <span class="st">"airports"</span>)</span>
+<span id="cb8-4"><a></a></span>
+<span id="cb8-5"><a></a><span class="fu">class</span>(flights)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>[1] "tbl_MariaDBConnection" "tbl_dbi"               "tbl_sql"              
+[4] "tbl_lazy"              "tbl"      </code></pre>
+</section><section id="we-can-access-information-about-flights-with-dplyr-commands" class="slide level2 smaller"><h2>We can access information about <code>flights</code> with {dplyr} commands:</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>flights <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a></a>  <span class="fu">select</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a></a>  <span class="fu">distinct</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code># Source:   SQL [?? x 1]
+# Database: mysql  [mdsr_public@mdsr.crcbo51tmesf.us-east-2.rds.amazonaws.com:3306/airlines]
+   year
+  &lt;int&gt;
+1  2013
+2  2014
+3  2015</code></pre>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>flights <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code># Source:   SQL [?? x 1]
+# Database: mysql  [mdsr_public@mdsr.crcbo51tmesf.us-east-2.rds.amazonaws.com:3306/airlines]
+         n
+   &lt;int64&gt;
+1 18008372</code></pre>
+
+</div>
+<aside><div>
+<p><em>Warning:</em> slow!</p>
+</div></aside></section><section id="we-can-access-information-about-flights-with-dplyr-commands-1" class="slide level2 smaller"><h2>We can access information about <code>flights</code> with {dplyr} commands:</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>flights <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">select</span>(origin) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">distinct</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code># Source:   SQL [?? x 1]
+# Database: mysql  [mdsr_public@mdsr.crcbo51tmesf.us-east-2.rds.amazonaws.com:3306/airlines]
+   origin
+   &lt;chr&gt; 
+ 1 ABE   
+ 2 ABI   
+ 3 ABQ   
+ 4 ABR   
+ 5 ABY   
+ 6 ACK   
+ 7 ACT   
+ 8 ACV   
+ 9 ACY   
+10 ADK   
+# ℹ more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
+
+<aside><div>
+<p><em>Warning:</em> slow!</p>
+</div></aside></section><section id="what-is-happening" class="slide level2"><h2>What is happening?</h2>
+<p><img data-src="../img/sql-images.001.png"></p>
+</section><section id="what-is-happening-1" class="slide level2"><h2>What is happening?</h2>
+<p><img data-src="../img/sql-images.002.png"></p>
+</section><section id="what-is-happening-2" class="slide level2"><h2>What is happening?</h2>
+<p><img data-src="../img/sql-images.003.png"></p>
+</section><section id="if-we-want-to-load-results-into-rs-memory-use-collect" class="slide level2"><h2>If we want to load results into R’s memory, use <code>collect()</code>
+</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>origins <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a></a>  <span class="fu">select</span>(origin) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a></a>  <span class="fu">distinct</span>()</span>
+<span id="cb16-4"><a></a></span>
+<span id="cb16-5"><a></a><span class="fu">class</span>(origins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>[1] "tbl_MariaDBConnection" "tbl_dbi"               "tbl_sql"              
+[4] "tbl_lazy"              "tbl"   </code></pre>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>origins_tbl <span class="ot">&lt;-</span> <span class="fu">collect</span>(origins)</span>
+<span id="cb18-2"><a></a><span class="fu">class</span>(origins_tbl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>[1] "tbl_df"     "tbl"        "data.frame"</code></pre>
+</section><section id="under-the-hood" class="slide level2"><h2>Under the hood:</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>flights <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a></a>  <span class="fu">select</span>(origin) <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a></a>  <span class="fu">distinct</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>is generating the following SQL code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="sc">&lt;</span>SQL<span class="sc">&gt;</span></span>
+<span id="cb21-2"><a></a>SELECT DISTINCT <span class="st">`</span><span class="at">origin</span><span class="st">`</span></span>
+<span id="cb21-3"><a></a>FROM <span class="st">`</span><span class="at">flights</span><span class="st">`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="sql" class="slide level2"><h2>SQL</h2>
+<p>SQL stands for <strong>S</strong>tructured <strong>Q</strong>uery <strong>L</strong>anguage and is a language for database management systems developed in the 1970’s</p>
+<ul>
+<li class="fragment">Up to this point, we’ve been working with <em>small</em> data
+<ul>
+<li class="fragment">Can be saved on our personal computers</li>
+<li class="fragment">Can be loaded directly into R’s memory</li>
+</ul>
+</li>
+<li class="fragment">Moving into <em>medium</em> data:
+<ul>
+<li class="fragment">Can be saved on our personal computers</li>
+<li class="fragment">
+<strong>Can’t</strong> be loaded or worked with in R’s memory</li>
+</ul>
+</li>
+</ul></section><section id="sql-1" class="slide level2"><h2>SQL</h2>
+<p>There are many “dialects” of SQL, but they’re all very similar</p>
+<ul>
+<li class="fragment">Oracle/MySQL</li>
+<li class="fragment">Microsoft SQL Server</li>
+<li class="fragment">SQLite</li>
+<li class="fragment">MariaDB is a community version of MySQL</li>
+</ul>
+<div class="fragment">
+<p>The “dialect” we’ll use is MySQL/MariaDB</p>
+</div>
+</section><section id="sql-2" class="slide level2"><h2>SQL</h2>
+<ul>
+<li class="fragment">Point of the next few days is to show you the basics and build a little bit of familiarity with the commands</li>
+<li class="fragment">The good news: “thinking” in SQL is similar to “thinking” in {dplyr} (even though the syntax is different)</li>
+</ul></section><section id="sql-in-r" class="slide level2"><h2>SQL in R</h2>
+<p>To run SQL in R, use</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">dbGetQuery</span>(db, <span class="st">"&lt;INSERT SQL QUERY HERE&gt;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">dbGetQuery</span>(db, </span>
+<span id="cb23-2"><a></a><span class="st">"SELECT DISTINCT `origin`</span></span>
+<span id="cb23-3"><a></a><span class="st">FROM `flights`"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    origin
+1      ABE
+2      ABI
+3      ABQ
+4      ABR
+5      ABY
+6      ACK
+7      ACT
+8      ACV
+9      ACY
+10     ADK
+11     ADQ
+12     AEX
+13     AGS
+14     AKN
+15     ALB
+16     ALO
+17     AMA
+18     ANC
+19     APN
+20     ART
+21     ASE
+22     ATL
+23     ATW
+24     AUS
+25     AVL
+26     AVP
+27     AZA
+28     AZO
+29     BDL
+30     BET
+31     BFL
+32     BGM
+33     BGR
+34     BHM
+35     BIL
+36     BIS
+37     BJI
+38     BKG
+39     BLI
+40     BMI
+41     BNA
+42     BOI
+43     BOS
+44     BPT
+45     BQK
+46     BQN
+47     BRD
+48     BRO
+49     BRW
+50     BTM
+51     BTR
+52     BTV
+53     BUF
+54     BUR
+55     BWI
+56     BZN
+57     CAE
+58     CAK
+59     CDC
+60     CDV
+61     CEC
+62     CHA
+63     CHO
+64     CHS
+65     CIC
+66     CID
+67     CIU
+68     CLD
+69     CLE
+70     CLL
+71     CLT
+72     CMH
+73     CMI
+74     CMX
+75     CNY
+76     COD
+77     COS
+78     COU
+79     CPR
+80     CRP
+81     CRW
+82     CSG
+83     CVG
+84     CWA
+85     CYS
+86     DAB
+87     DAL
+88     DAY
+89     DBQ
+90     DCA
+91     DEN
+92     DFW
+93     DHN
+94     DIK
+95     DLG
+96     DLH
+97     DRO
+98     DRT
+99     DSM
+100    DTW
+101    DVL
+102    EAU
+103    ECP
+104    EGE
+105    EKO
+106    ELM
+107    ELP
+108    ERI
+109    ESC
+110    EUG
+111    EVV
+112    EWN
+113    EWR
+114    EYW
+115    FAI
+116    FAR
+117    FAT
+118    FAY
+119    FCA
+120    FLG
+121    FLL
+122    FNT
+123    FOE
+124    FSD
+125    FSM
+126    FWA
+127    GCC
+128    GCK
+129    GEG
+130    GFK
+131    GGG
+132    GJT
+133    GNV
+134    GPT
+135    GRB
+136    GRI
+137    GRK
+138    GRR
+139    GSO
+140    GSP
+141    GST
+142    GTF
+143    GTR
+144    GUC
+145    GUM
+146    HDN
+147    HIB
+148    HLN
+149    HNL
+150    HOB
+151    HOU
+152    HPN
+153    HRL
+154    HSV
+155    HYA
+156    HYS
+157    IAD
+158    IAG
+159    IAH
+160    ICT
+161    IDA
+162    ILG
+163    ILM
+164    IMT
+165    IND
+166    INL
+167    IPL
+168    ISN
+169    ISP
+170    ITH
+171    ITO
+172    IYK
+173    JAC
+174    JAN
+175    JAX
+176    JFK
+177    JLN
+178    JMS
+179    JNU
+180    KOA
+181    KTN
+182    LAN
+183    LAR
+184    LAS
+185    LAW
+186    LAX
+187    LBB
+188    LBE
+189    LCH
+190    LEX
+191    LFT
+192    LGA
+193    LGB
+194    LIH
+195    LIT
+196    LMT
+197    LNK
+198    LRD
+199    LSE
+200    LWS
+201    MAF
+202    MBS
+203    MCI
+204    MCN
+205    MCO
+206    MDT
+207    MDW
+208    MEI
+209    MEM
+210    MFE
+211    MFR
+212    MGM
+213    MHK
+214    MHT
+215    MIA
+216    MKE
+217    MKG
+218    MLB
+219    MLI
+220    MLU
+221    MMH
+222    MOB
+223    MOD
+224    MOT
+225    MQT
+226    MRY
+227    MSN
+228    MSO
+229    MSP
+230    MSY
+231    MTJ
+232    MVY
+233    MYR
+234    OAJ
+235    OAK
+236    OGG
+237    OKC
+238    OMA
+239    OME
+240    ONT
+241    ORD
+242    ORF
+243    ORH
+244    OTH
+245    OTZ
+246    PAH
+247    PBG
+248    PBI
+249    PDX
+250    PHF
+251    PHL
+252    PHX
+253    PIA
+254    PIB
+255    PIH
+256    PIT
+257    PLN
+258    PNS
+259    PPG
+260    PSC
+261    PSE
+262    PSG
+263    PSP
+264    PUB
+265    PVD
+266    PWM
+267    RAP
+268    RDD
+269    RDM
+270    RDU
+271    RFD
+272    RHI
+273    RIC
+274    RKS
+275    RNO
+276    ROA
+277    ROC
+278    ROW
+279    RST
+280    RSW
+281    SAF
+282    SAN
+283    SAT
+284    SAV
+285    SBA
+286    SBN
+287    SBP
+288    SCC
+289    SCE
+290    SDF
+291    SEA
+292    SFO
+293    SGF
+294    SGU
+295    SHD
+296    SHV
+297    SIT
+298    SJC
+299    SJT
+300    SJU
+301    SLC
+302    SMF
+303    SMX
+304    SNA
+305    SPI
+306    SPN
+307    SPS
+308    SRQ
+309    STC
+310    STL
+311    STT
+312    STX
+313    SUN
+314    SUX
+315    SWF
+316    SYR
+317    TLH
+318    TOL
+319    TPA
+320    TRI
+321    TTN
+322    TUL
+323    TUS
+324    TVC
+325    TWF
+326    TXK
+327    TYR
+328    TYS
+329    UST
+330    VEL
+331    VLD
+332    VPS
+333    WRG
+334    WYS
+335    XNA
+336    YAK
+337    YUM</code></pre>
+</div>
+</div>
+</div>
+</section><section><section id="a-quick-overview-of-sql-commands" class="title-slide slide level1 center"><h1>A quick overview of SQL commands</h1>
+
+</section><section id="select-and-from" class="slide level2"><h2>
+<code>SELECT</code> and <code>FROM</code>
+</h2>
+<p>are required for every query. The simplest query we can write is:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>SELECT <span class="sc">*</span> FROM flights;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>which means “select everything from the flights dataset”.</p>
+<p><strong>DO NOT EXECUTE THIS QUERY!</strong> This will cause all 169 million records to be dumped! This will not only crash your machine, but also tie up the server for everyone else.</p>
+<p>A safe version is:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>SELECT <span class="sc">*</span> FROM flights LIMIT <span class="dv">0</span>,<span class="dv">10</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section><section id="limit" class="slide level2"><h2><code>LIMIT</code></h2>
+<p>is similar to <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> or <code>slice()</code></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">dbGetQuery</span>(db, </span>
+<span id="cb27-2"><a></a><span class="st">"SELECT DISTINCT `origin`</span></span>
+<span id="cb27-3"><a></a><span class="st">FROM `flights`</span></span>
+<span id="cb27-4"><a></a><span class="st">LIMIT 0,5"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>  origin
+1    ABE
+2    ABI
+3    ABQ
+4    ABR
+5    ABY</code></pre>
+</section><section id="create-new-variables-with-select-and-as" class="slide level2"><h2>Create new variables with <code>SELECT</code> and <code>AS</code>
+</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>SELECT <span class="fu">SUM</span>(<span class="dv">1</span>) AS numFlights</span>
+<span id="cb29-2"><a></a>FROM flights</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>  numFlights
+1   18008372</code></pre>
+</section><section id="grouped-operations-with-group-by" class="slide level2"><h2>Grouped operations with <code>GROUP BY</code>
+</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>SELECT </span>
+<span id="cb31-2"><a></a>  origin, <span class="fu">SUM</span>(<span class="dv">1</span>) AS numFlights,</span>
+<span id="cb31-3"><a></a>  <span class="fu">AVG</span>(arr_delay) AS avg_arr_delay</span>
+<span id="cb31-4"><a></a>FROM flights</span>
+<span id="cb31-5"><a></a>GROUP BY origin</span>
+<span id="cb31-6"><a></a>LIMIT <span class="dv">0</span>, <span class="dv">6</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>  origin numFlights avg_arr_delay
+1    ABE       7251        5.5627
+2    ABI       8116        6.3329
+3    ABQ      74195        5.8051
+4    ABR       2239        1.3198
+5    ABY       3002        5.2652
+6    ACK       1295        7.6131</code></pre>
+</section><section id="order-output-with-order-by" class="slide level2"><h2>Order output with <code>ORDER BY</code>
+</h2>
+<p>Similar to <code>arrange()</code> in {dplyr}</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>SELECT </span>
+<span id="cb33-2"><a></a>  origin, <span class="fu">SUM</span>(<span class="dv">1</span>) AS numFlights,</span>
+<span id="cb33-3"><a></a>  <span class="fu">AVG</span>(arr_delay) AS avg_arr_delay</span>
+<span id="cb33-4"><a></a>FROM flights</span>
+<span id="cb33-5"><a></a>GROUP BY origin</span>
+<span id="cb33-6"><a></a>ORDER BY avg_arr_delay DESC</span>
+<span id="cb33-7"><a></a>LIMIT <span class="dv">0</span>, <span class="dv">6</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>  origin numFlights avg_arr_delay
+1    PPG        334       33.6946
+2    STC        550       22.8691
+3    OTH       1262       20.5713
+4    FOE        449       19.7127
+5    CEC       2143       18.4951
+6    ILG       1155       16.5394</code></pre>
+</section><section id="filter-output-with-where" class="slide level2"><h2>Filter output with <code>WHERE</code>
+</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>SELECT </span>
+<span id="cb35-2"><a></a>  origin, <span class="fu">SUM</span>(<span class="dv">1</span>) AS numFlights,</span>
+<span id="cb35-3"><a></a>  <span class="fu">AVG</span>(arr_delay) AS avg_arr_delay</span>
+<span id="cb35-4"><a></a>FROM flights</span>
+<span id="cb35-5"><a></a>WHERE dest <span class="ot">=</span> <span class="st">'MSP'</span></span>
+<span id="cb35-6"><a></a>  AND numFlights <span class="sc">&gt;</span> <span class="dv">365</span> <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb35-7"><a></a>GROUP BY origin</span>
+<span id="cb35-8"><a></a>ORDER BY avg_arr_delay DESC</span>
+<span id="cb35-9"><a></a>LIMIT <span class="dv">0</span>, <span class="dv">6</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>  origin numFlights avg_arr_delay
+1    ASE         43       28.0930
+2    HRL        131       27.0687
+3    ORF        483       17.8240
+4    EGE         31       17.4516
+5    TTN        290       17.1552
+6    ORD      18382       12.7469</code></pre>
+</section><section id="filter-output-on-multiple-conditions" class="slide level2"><h2>Filter output on multiple conditions</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>SELECT </span>
+<span id="cb37-2"><a></a>  origin, <span class="fu">SUM</span>(<span class="dv">1</span>) AS numFlights,</span>
+<span id="cb37-3"><a></a>  <span class="fu">AVG</span>(arr_delay) AS avg_arr_delay</span>
+<span id="cb37-4"><a></a>FROM flights</span>
+<span id="cb37-5"><a></a>WHERE dest <span class="ot">=</span> <span class="st">'MSP'</span></span>
+<span id="cb37-6"><a></a>  AND numFlights <span class="sc">&gt;</span> <span class="dv">365</span> <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb37-7"><a></a>GROUP BY origin</span>
+<span id="cb37-8"><a></a>ORDER BY avg_arr_delay DESC</span>
+<span id="cb37-9"><a></a>LIMIT <span class="dv">0</span>, <span class="dv">6</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>Error: Unknown column 'numFlights' in 'WHERE' [1054]</code></pre>
+<p>Doesn’t work, since <code>numFlights</code> is a column we created in <code>SELECT</code></p>
+</section><section id="filter-output-with-having" class="slide level2"><h2>Filter output with <code>HAVING</code>
+</h2>
+<p>If we want to filter based on a column we created, put it in the <code>HAVING</code> clause instead</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>SELECT </span>
+<span id="cb39-2"><a></a>  origin, <span class="fu">SUM</span>(<span class="dv">1</span>) AS numFlights,</span>
+<span id="cb39-3"><a></a>  <span class="fu">AVG</span>(arr_delay) AS avg_arr_delay</span>
+<span id="cb39-4"><a></a>FROM flights</span>
+<span id="cb39-5"><a></a>WHERE dest <span class="ot">=</span> <span class="st">'MSP'</span></span>
+<span id="cb39-6"><a></a>GROUP BY origin</span>
+<span id="cb39-7"><a></a>HAVING numFlights <span class="sc">&gt;</span> <span class="dv">365</span> <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb39-8"><a></a>ORDER BY avg_arr_delay DESC</span>
+<span id="cb39-9"><a></a>LIMIT <span class="dv">0</span>, <span class="dv">6</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>  origin numFlights avg_arr_delay
+1    ORD      18382       12.7469
+2    MDW       9510        9.6110
+3    DEN      17054        9.0643
+4    CID       2106        8.2042
+5    RIC       1009        7.8840
+6    DFW       8404        7.2574</code></pre>
+</section><section id="sql-commands-must-be-written-in-a-specific-order" class="slide level2 scrollable"><h2>SQL commands must be written in a specific order:</h2>
+<ol type="1">
+<li class="fragment"><code>SELECT</code></li>
+<li class="fragment"><code>FROM</code></li>
+<li class="fragment">
+<code>JOIN</code> (next class)</li>
+<li class="fragment"><code>WHERE</code></li>
+<li class="fragment"><code>GROUP BY</code></li>
+<li class="fragment"><code>HAVING</code></li>
+<li class="fragment"><code>ORDER BY</code></li>
+<li class="fragment"><code>LIMIT</code></li>
+</ol></section><section id="your-turn" class="slide level2"><h2>Your turn</h2>
+<p>Try the exercises in the <code>25-databases</code> activity. We’ll start Friday off by talking about them</p>
+
+
+</section></section>
+</div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><a href="https://stat220-s25.github.io">🔗 stat220-s25.github.io</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script><script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../../site_libs/revealjs/plugin/search/search.js"></script><script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script><script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script><script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/stat220-w26\.github\.io\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+
+
+</body></html>
