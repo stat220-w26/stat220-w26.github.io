@@ -3,12 +3,15 @@ title: "Stat220: Introduction to Data Science"
 subtitle: "Winter 2026"
 execute:
   freeze: true
+typst-logo:
+  path: "logo.png"
 format: 
   html: default
   syllabus-typst: default
 ---
 
 ::: {.boxed-text}
+
 +--------------+------------------------------------------------------+------------+
 | Meetings     | MWF 3a                                               | CMC 306    |
 |              |                                                      |            |
@@ -18,11 +21,12 @@ format:
 +--------------+------------------------------------------------------+------------+
 |              | aluby\@carleton.edu                                  |            |
 +--------------+------------------------------------------------------+------------+
-| Office Hours | Mon 1:30-2:30 \| Tues 3-4 \| Wed 12:30-1:30 \| Fri 10-11 (appt) | CMC 307    |
+| Office Hours | Mon 1:30-2:30 \| Tues 3-4 \|                         | CMC 307    |
+|              | Wed 12:30-1:30 \| Fri 10-11 (appt)                   |            |
 |              |                                                      |            |
 |              | By appt through my Google Calendar                   |            |
 +--------------+------------------------------------------------------+------------+
-| Website      | github.com/stat220-w26                              |            |
+| Website      | github.com/stat220-w26                               |            |
 +--------------+------------------------------------------------------+------------+
 | Texts        | *R for Data Science* (2nd Ed)                        |            |
 |              |                                                      |            |
@@ -45,13 +49,13 @@ format:
 |              | Wilke                                                |            |
 |              |                                                      |            |
 +--------------+------------------------------------------------------+------------+
-| Software     | Maize RStudio Server maize.mathcs.carleton.edu       |            |
+| Software     | Maize RStudio Server <maize.mathcs.carleton.edu>     |            |
 +--------------+------------------------------------------------------+------------+
-|              | R (optional) free from r-project.org                 |            |
+|              | R (optional) free from <r-project.org>               |            |
 +--------------+------------------------------------------------------+------------+
-|              | RStudio (optional) free from rstudio.com/downloads   |            |
+|              | RStudio (optional) free from <rstudio.com/downloads> |            |
 +--------------+------------------------------------------------------+------------+
-: {tbl-colwidths="\[25,50,25\]"}
+: {tbl-colwidths="\[20,70,10\]"}
 :::
 
 ```{=typst}
