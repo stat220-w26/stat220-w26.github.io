@@ -85,6 +85,7 @@ library(mdsr)
 library(DBI)
 db <- dbConnect_scidb("airlines")
 ```
+
 ```{r}
 #| eval: false
 flights <- tbl(db, "flights")
@@ -906,7 +907,7 @@ survivoR::confessionals %>%
 ::::: columns
 ::: {.column width="50%"}
 ```{sql}
-#| eval: false
+--| eval: false
 
 SELECT *
 FROM table1

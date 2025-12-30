@@ -171,7 +171,7 @@ gss_cat %>%
     geom_point()
 ```
 
-`r flipbookr:::chunq_reveal("gss-religion-tv", font_size_code="70%", title = "Which religions watch the least TV?")`
+`r flipbookr::chunq_reveal("gss-religion-tv", font_size_code="70%", title = "Which religions watch the least TV?")`
 
 
 ## Which do you prefer?

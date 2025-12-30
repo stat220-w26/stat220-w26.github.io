@@ -97,7 +97,7 @@ theme_set(theme_gray(
 #| echo: false
 #| fig-width: 6
 
-season_summary = readr::read_csv("https://math.carleton.edu/aluby/stat220/survivor_season_summary.csv") |>
+season_summary = readr::read_csv(here::here(here::here(), "data/survivor_season_summary.csv")) |>
   separate(timeslot, into = c("day_of_week", "time"))
 
 
