@@ -1,0 +1,60 @@
+---
+title: "Portfolio Project 1"
+subtitle: "Graph replication + redesign"
+format: html
+---
+
+# Overview
+
+In your first portfolio project, you'll apply what you've learned about `ggplot2` and design principles to replicate and redesign a published graph. This part of your portfolio consists of three parts:
+
+1.  Replicating an existing graph using `ggplot2`. Depending on the graph you choose, this may require some creativity in recreating data.
+2.  Using design principles from class, re-design the original graph to be better. This should include, at minimum, a change to the geometry or aesthetic layer. 
+3.  A written summary (no more than 1 printed page) including (1) an evaluation of the original graph and (2) reasoning for your design choices in improving the graph. This should include references to readings and discussions from class.
+
+# Options and Examples
+
+The list below includes some good places to get started finding a graph. You do not have to choose a graph from one of these sources. It can be hard to find associated data with some published graphs, so don't spend too much time trying to find data for a specific graph before moving on.
+
+-   [Our World In Data](https://ourworldindata.org/)
+-   [FiveThirtyEight](https://data.fivethirtyeight.com/) + Associated [R Package](https://github.com/rudeboybert/fivethirtyeight) (See available data [here](https://fivethirtyeight-r.netlify.app/articles/fivethirtyeight.html)).
+-   [HelpMeViz](https://policyviz.com/helpmeviz/)
+-   [DataIsPlural](https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0)
+-   [TidyTuesday](https://github.com/rfordatascience/tidytuesday) -- If you choose this option, please be **especially kind** in your critique. This is a weekly R community activity, and many submissions are by beginners.
+-   [r/dataisbeautiful](https://www.reddit.com/r/dataisbeautiful/)
+-   [r/dataisugly](https://www.reddit.com/r/dataisugly/)
+
+# Submission
+
+Your submission should include two visualizations (replication and improvement), a written overview of your work, and all associated code. You should work in a `rmarkdown` or `quarto` file. Your knitted/rendered file can be either pdf or html. I will distribute GitHub skeleton repos that you should fill in as you work. You should commit your final code and output file to your repo and link your repo to gradescope to submit.
+
+# Rubric
+
+A **successful** project will:
+
+- [ ] Include all necessary components pushed to GitHub and linked to gradescope
+- [ ] Contain code, plots, and written summary in a single .rmd document
+- [ ] The .rmd file contains all necessary code for recreation
+- [ ] The .rmd file does not include unnecessary code
+- [ ] Provide a thoughtful summary and critique
+- [ ] The replication matches the original graph on the first 6 layers of the grammar of graphics (data, aesthetics, geometries, facets, statistics, and coordinates)
+- [ ] The replication matches the original graph on *some* of the theme layer (labels, background colors, color palette, etc.)
+- [ ] The improved graph has made changes to the geometry or aesthetic layer
+    -   Aesthetics should faithfully represent the representation of the underlying data
+- [ ]  Meet minimum submission quality standards
+    -   Very few grammatical mistakes, spelling mistakes, or typos
+    -   Appropriate labels and font sizes
+    -   A readable theme
+    -   The rendered document does not contain any unnecessary content (package loading messages, warnings, etc.)
+
+An **excellent** project will meet all of the requirements for a successful project, plus
+
+- [ ] Also match the original graph on *most* of the theme layer (labels, background colors, color palette, etc.)
+- [ ] The improved graph has made changes to at least three of the layers of the grammar of graphics (data, aesthetics, geometries, facets, statistics, coordinates, and theme)
+    -   All changes to aesthetics, geometries, etc. should be faithful representations of the underlying data (e.g. changes for the sake of making a change don't count!)
+
+For this portfolio project, you may work individually or in pairs. If you choose to work in a pair, let me know by *Friday of Week 3*. Both partners should have a record of committing and pushing to the repo.
+
+# FAQ
+
+If you have any questions, please post them to the #portfolio-projects channel on slack.

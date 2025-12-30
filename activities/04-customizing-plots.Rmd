@@ -1,0 +1,26 @@
+---
+title: "04: Customizing plots"
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggthemes)
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load Data
+
+*Note:* This code reads the same dataset in that we used last time and then creates two new columns based on an old one. Make sure to run this chunk before trying to make your graph! 
+
+```{r}
+season_summary = readr::read_csv("https://math.carleton.edu/aluby/stat220/survivor_season_summary.csv") |>
+  separate(timeslot, into = c("day_of_week", "time"))
+```
+
+## Make histogram
+
+```{r}
+# Include your code here
+
+```

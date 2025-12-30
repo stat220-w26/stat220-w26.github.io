@@ -1,0 +1,460 @@
+---
+title: "Data Wrangling: <br>Tidy Data <br>+Code Style"
+subtitle: Day 09
+title-slide-attributes:
+  data-background-image: ../img/horst_tidydata_4.jpg
+  data-background-size: 70%
+  data-background-position: bottom right
+  data-background-opacity: "0.8"
+  data-slide-number: none
+format: 
+  revealjs:
+    incremental: true
+    code-copy: true
+auto-stretch: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+library(countdown)
+library(tidyverse)
+library(lubridate)
+library(ymlthis)
+library(palmerpenguins)
+library(patchwork)
+library(graphics)
+library(tidyverse)
+library(maps)
+library(mapproj)
+library(ggthemes)
+library(nycflights23)
+library(bakeoff)
+library(here)
+
+slides_theme = theme_minimal(
+  base_family = "Atkinson Hyperlegible",
+  base_size = 16)
+
+theme_set(slides_theme)
+
+bakeoff_ratings <- read_csv(here("data", "bakeoff_messy_ratings.csv"))
+colleges <- read_csv("https://aloy.rbind.io/data/scorecard_sample2019.csv")
+```
+
+
+
+
+## Last time: Bakeoff ratings
+
+-   Ratings data for each episodes in series 1-8
+
+. . .
+
+```{r}
+#| echo: false
+bakeoff_ratings
+```
+
+::: aside
+Source: [bakeoff](https://bakeoff.netlify.app/) R package
+:::
+
+## Last Time: `tidy`ing the data
+
+```{r}
+#| code-line-numbers: "1|2|3-5"
+#| echo: true
+#| output-location: fragment
+bakeoff_ratings %>%
+  pivot_longer(cols = e1:e10, names_to = "episode", values_to = "rating") %>%
+  mutate(
+    episode = parse_number(episode) 
+  )
+```
+
+## Try it: `messyratings2`
+
+::: {.task .nonincremental}
+Tidy this data set by
+
+1.  Selecting the `series` and `e*_7day` columns
+2.  Pivoting the data to add a column for `episode` and a column for `rating` (we'll clean up the episode column later)
+:::
+
+```{r echo=TRUE}
+messy_ratings2 <- read_csv("https://stat220-s25.github.io/data/messy_ratings2.csv")
+messy_ratings2
+```
+
+
+```{r echo=FALSE}
+countdown(8)
+```
+
+
+## Cleaning `episode`
+
+```{r}
+#| echo: true
+#| code-line-numbers: "2|3-5"
+#| output-location: column-fragment
+ratings2 <- messy_ratings2 %>%
+  select(series, contains("7day")) %>%
+  pivot_longer(contains("7day"), 
+               names_to = "episode", 
+               values_to = "rating")
+ratings2
+```
+
+## `separate()`
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+-   `data` (as usual)
+:::
+
+::: {.column width="50%"}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "2"
+
+
+separate(
+  data, 
+  col, 
+  into = c("col1", "col2"),
+  sep 
+  )
+```
+:::
+:::::
+
+## `separate()`
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+-   `data` (as usual)
+-   `col`: column to separate
+:::
+
+::: {.column width="50%"}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "3"
+
+
+separate(
+  data, 
+  col, 
+  into = c("col1", "col2"),
+  sep 
+  )
+```
+:::
+:::::
+
+## `separate()`
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+-   `data` (as usual)
+-   `col`: column to separate
+-   `into`: names of new columns to create
+:::
+
+::: {.column width="50%"}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "4"
+
+
+separate(
+  data, 
+  col, 
+  into = c("col1", "col2"),
+  sep 
+  )
+```
+:::
+:::::
+
+## `separate()`
+
+::::: columns
+::: {.column .nonincremental width="50%"}
+-   `data` (as usual)
+-   `col`: column to separate
+-   `into`: names of new columns to create
+-   `sep`: separator between columns
+:::
+
+::: {.column width="50%"}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "5"
+
+
+separate(
+  data, 
+  col, 
+  into = c("col1", "col2"),
+  sep 
+  )
+```
+:::
+:::::
+
+## Cleaning `episode`
+
+```{r}
+#| echo: true
+#| code-line-numbers: "2|3|4"
+#| output-location: column-fragment
+ratings2 %>%
+  separate( 
+    col = episode, 
+    into = c("episode", "period") 
+  )
+```
+
+## Wrap it up
+
+::: {.task .nonincremental}
+-   Clean the `episode` and `period` column using `parse_number`
+-   Make a *line plot* with episode on the x-axis, rating on the y-axis, colored by series. (You may also need to map the `group` aesthetic to series)
+:::
+
+```{r}
+#| include: false
+
+
+ratings2 %>%
+  separate( 
+    col = episode, 
+    into = c("episode", "period") 
+  ) %>%
+  mutate(
+    episode = parse_number(episode),
+    period = parse_number(period)
+  ) %>%
+  ggplot(aes(x = episode, y = rating, col = series, group = series)) + 
+  geom_line() + 
+  scale_color_viridis_c()
+```
+
+# Code Style {.maize}
+
+## Which is easier to read?
+
+::: panel-tabset
+### Option A
+
+```{r}
+#| echo: true
+
+group_by(colleges,region) %>% mutate(z_cost=(cost - mean(cost, na.rm=TRUE)) / sd(cost,na.rm = TRUE)) %>% ungroup() 
+```
+
+### Option B
+
+```{r}
+#| echo: true
+
+colleges %>%
+  group_by(region) %>%
+  mutate(z_cost = (cost - mean(cost, na.rm = TRUE)) / sd(cost, na.rm = TRUE)) %>%
+  ungroup() 
+```
+:::
+
+## Which is easier to read?
+
+::: panel-tabset
+### Option A
+
+```{r}
+#| echo: true
+#| eval: false
+
+palmerpenguins::penguins |>
+  filter(species == "Adelie") |>
+  ggplot(aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point() + 
+  scale_color_viridis_d(option = "magma",end = .75) + 
+  theme_bw(base_family = "Times") + 
+  theme(legend.position = "none",
+        panel.grid.minor = element_blank(),
+        panel.grid.major.x = element_blank(),
+        axis.title.x = element_text(color = "darkred"))
+  
+```
+
+### Option B
+
+```{r}
+#| echo: true
+#| eval: false
+
+palmerpenguins::penguins |> filter(species=="Adelie") |> ggplot(aes(x =bill_length_mm, y= bill_depth_mm)) + geom_point() + scale_color_viridis_d(option = "magma",end = .75) + 
+  theme_bw(base_family = "Times") + 
+  theme(legend.position = "none", panel.grid.minor=element_blank(), panel.grid.major.x = element_blank(),
+        axis.title.x = element_text(color="darkred"))
+```
+:::
+
+## <https://style.tidyverse.org>
+
+```{r}
+#| echo: false
+knitr::include_url({"https://style.tidyverse.org"})
+```
+
+## Example: Pipes and whitespace
+
+|> should always have a space before it, and should usually be followed by a new line. After the first step, each line should be indented by two spaces. 
+
+Good: 
+
+```{r}
+#| echo: true
+#| eval: false
+iris |>
+  summarize(across(where(is.numeric), mean), .by = Species) |>
+  pivot_longer(!Species, names_to = "measure", values_to = "value") |>
+  arrange(value)
+```
+
+Bad: 
+
+```{r}
+#| echo: true
+#| eval: false
+iris|> summarize(across(where(is.numeric), mean), .by = Species) |>
+pivot_longer(!Species, names_to = "measure", values_to = "value")|>
+arrange(value)
+```
+
+
+## Example: long lines
+
+If the arguments to a function don’t all fit on one line, put each argument on its own line and indent:
+
+Good: 
+
+```{r}
+#| echo: true
+#| eval: false
+iris |>
+  summarise(
+    Sepal.Length = mean(Sepal.Length, na.rm = TRUE),
+    Sepal.Width = mean(Sepal.Width, na.rm = TRUE),
+    .by = Species
+  )
+```
+
+Bad: 
+
+```{r}
+#| echo: true
+#| eval: false
+iris |>
+  summarise(Sepal.Length = mean(Sepal.Length, na.rm = TRUE), Sepal.Width = mean(Sepal.Width, na.rm = TRUE), .by = Species)
+```
+
+## ggplot2 whitespace and indenting {.smaller}
+
+`+` should always have a space before it, and should be followed by a new line. After the first step, each line should be indented by two spaces.
+
+If you are creating a ggplot off of a dplyr pipeline, there should only be one level of indentation.
+
+Good: 
+
+```{r}
+#| echo: true
+#| eval: false
+iris |>
+  filter(Species == "setosa") |>
+  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) +
+  geom_point()
+```
+
+Bad:
+
+```{r}
+#| echo: true
+#| eval: false
+iris |>
+  filter(Species == "setosa") |>
+  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) +
+    geom_point()
+```
+
+Bad:
+
+```{r}
+#| echo: true
+#| eval: false
+iris |>
+  filter(Species == "setosa") |>
+  ggplot(aes(x = Sepal.Width, y = Sepal.Length)) + geom_point()
+```
+
+## ggplot2 long lines
+
+If the arguments to a ggplot2 layer don’t all fit on one line, put each argument on its own line and indent:
+
+Good: 
+
+```{r}
+#| echo: true
+#| eval: false
+iris |>
+  ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+  geom_point() +
+  labs(
+    x = "Sepal width, in cm",
+    y = "Sepal length, in cm",
+    title = "Sepal length vs. width of irises"
+  )
+```
+
+Bad: 
+
+```{r}
+#| echo: true
+#| eval: false
+iris |>
+  ggplot(aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+  geom_point() +
+  labs(x = "Sepal width, in cm", y = "Sepal length, in cm", title = "Sepal length vs. width of irises")
+```
+
+## Code style summary
+
+- All code style guides are opinionated and subjective
+- Using consistent style makes it easier for collaborators (including future you!) to read and understand your code
+- Try to follow the tidyverse style guide in this class
+
+## A shortcut 
+
+In RStudio, 
+
+1. Highlight the code that you want to reformat
+2. Go to "code --> reformat code" 
+3. Marvel in wonder 
+
+. . . 
+
+### Try it
+
+::: {.task .nonincremental}
+Reformat your code from the flights activity so far according to the tidyverse style guide
+:::
+

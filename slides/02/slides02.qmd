@@ -1,0 +1,296 @@
+---
+title: Github + <br> Reproducible <br> Reporting
+subtitle: Day 02
+title-slide-attributes:
+  data-background-image: ../img/horst_workflow.jpg
+  data-background-size: 60%
+  data-background-position: right
+  data-background-opacity: "0.5"
+  data-slide-number: none
+format: 
+  revealjs:
+    incremental: true
+auto-stretch: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(countdown)
+library(tidyverse)
+library(lubridate)
+library(ymlthis)
+
+```
+
+## Plan for today:
+
+1.  Questions from syllabus quiz
+2.  Github
+    -   Accessing your private repos
+    -   knit 🧶 commit ✅ push ⤴️
+3.  Reproducible Reporting
+
+## Questions from syllabus quiz
+
+-   Will the course build off of Stat120 concepts?
+-   Clarification of what gets submitted to gradescope and what to GitHub
+-   RMarkdown versus Quarto?
+-   Examples of previous final projects? 
+-   Info about portfolio projects? 
+
+# Github {.maize}
+
+## Git + GitHub
+
+::::: columns
+::: {.column width="50%"}
+-   **Git** is a version control system - like "Track Changes", on steroids
+-   It's not the only version control system, but it's a very popular one
+:::
+
+::: {.column width="50%"}
+-   **GitHub** is the home for your Git-based projects on the internet—like DropBox but much, much better
+-   We will use GitHub as a platform for web hosting and collaboration
+:::
+:::::
+
+## Why do we need it? {background-image="../img/phd_comics_vc.gif" background-size="contain" background-position="right"}
+
+## Versioning 
+
+![](../img/lego-steps.png){.r-stretch}
+
+## Versioning (with human-readable messages)
+
+![](../img/lego-steps-commit-messages.png){.r-stretch}
+
+## {background-image="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/33f12eb3-e65b-46df-9a2e-e4b24a4b59cd_rw_3840.png?h=6f05681451d60f6ba15ae8f7cef56ba2" background-size="contain"}
+
+## {background-image="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/78587c8b-fa99-4c94-bce2-026cf4e588b5_rw_3840.png?h=fe974bfc95ca6dc2261541a3dfc562ec" background-size="contain"}
+
+## How does it work for Stat220?
+
+![](../img/whole-game-01.png){.r-stretch}
+
+## How does it work for Stat220?
+
+![](../img/whole-game-02.png){.r-stretch}
+
+
+## How does it work for Stat220?
+
+![](../img/whole-game-03.png){.r-stretch}
+
+## How does it work for Stat220?
+
+![](../img/whole-game-04.png){.r-stretch}
+
+## {background-image="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/68739659-fb6f-41e8-9813-32e1de3d82c0_rw_3840.png?h=5c36d3c50c350a440567a1f8f72ac028" background-size="contain"}
+
+## Let's try it! {.scrollable}
+
+:::: nonincremental
+::: task 
+
+-   Follow the "Individual Assignment" directions at <https://stat220-s25.github.io/computing/git-stat220.html> to access your `day02` repo and create an R project
+-   Edit the .Rmd file:
+    -   Change "author" to your name
+    -   Use `#` to add descriptive section headers for each code chunk
+    -   Add a sentence or two describing the summary statistics of the dataset
+-   knit 🧶 commit ✅ push ⤴️
+-   View on `github.com` and confirm you can see your changes
+
+:::
+::::
+
+```{r echo=FALSE}
+countdown(minutes = 15, seconds = 0)
+```
+
+# Reproducible Reporting {.maize}
+
+## Why do we need it?
+
+Oops! I gave you the wrong set of data.
+
+## Why do we need it?
+
+::: popup
+Karl -- this is very interesting , however you used an old version of the data (n=143 rather than n=226). I'm really sorry you did all that work on the incomplete dataset.
+
+Bruce
+:::
+
+::: aside
+Adapted from [Karl Broman](https://www.biostat.wisc.edu/~kbroman/presentations/repro_research_JSM2016.pdf)
+:::
+
+## Other examples:
+
+-   The results in Table 1 don’t seem to correspond to those in Figure 2.
+-   In what order do I run these scripts?
+-   Where did we get this data file?
+-   Why did I omit those samples?
+-   How did I make that figure?
+-   “Your script is now giving an error.”
+-   “The attached is similar to the code we used.”
+
+::: aside
+Adapted from [Karl Broman](https://www.biostat.wisc.edu/~kbroman/presentations/repro_research_JSM2016.pdf)
+:::
+
+## Reproducible data science
+
+::::: columns
+::: {.column width="50%"}
+**Short Term Impact**
+
+-   Are the tables and figures reproducible from the code and data?
+-   Does the code actually do what you think it does?
+-   In addition to what was done, is it clear **why** it was done? (e.g., how were parameter settings chosen?)
+:::
+
+::: {.column width="50%"}
+**Long Term Impact**
+
+-   Can the code be used for other data?
+-   Can you extend the code to other things?
+:::
+:::::
+
+## The toolkit
+
+```{r echo=FALSE}
+knitr::include_graphics("../img/01-repro-toolkit.png")
+```
+
+-   Scriptability $\rightarrow$ R
+
+-   Code environment $\rightarrow$ RStudio
+
+-   Literate programming (code, narrative, output in one place) $\rightarrow$ R Markdown
+
+-   Version control $\rightarrow$ Git / GitHub
+
+##  {background-image="../img/horst_rmarkdown_wizards.png" background-size="contain"}
+
+## What is R Markdown?
+
+1.  An authoring framework for data science.
+
+2.  A document format (`.Rmd`).
+
+3.  An R package named `rmarkdown`.
+
+4.  A file format for making dynamic documents with R.
+
+5.  A tool for integrating prose, code, and results.
+
+6.  A computational document.
+
+## What about `quarto`? {background-image="../img/horst_quarto_inout.png" background-position="bottom" background-size="70%"}
+
+-   "Next Gen" RMarkdown
+-   More compatibility with other languages (python, observable.js, etc.)
+-   *not* an R package/separate software
+-   I'm going to distribute HW, etc. via RMarkdown, but you are welcome to use either!
+
+## The setup chunk
+
+::::: columns
+::: {.column width="50%"}
+````         
+```{r setup, include=FALSE}`r ''`
+knitr::opts_chunk$set(
+  collapse = TRUE,   
+  comment = "#>", 
+  out.width = "100%" 
+)
+```
+````
+:::
+
+::: {.column width="50%"}
+-   A special chunk label: `setup`
+-   Typically #1
+-   All following chunks will use these options (i.e., sets global chunk options)
+-   **Tip**: set `include=FALSE`
+-   You can (and should) use individual chunk options too
+:::
+:::::
+
+## Parameters
+
+```{r echo = FALSE}
+yml_empty() %>% 
+  yml_title("Survivor") %>% 
+  yml_output(html_document(toc = TRUE,
+                           toc_float = TRUE,
+                           theme = "flatly")) %>% 
+  yml_params(
+    season = '20'
+  ) %>% 
+  asis_yaml_output()
+```
+
+## Your Task
+
+:::: nonincremental
+
+::: task 
+There's an example HTML report on the schedule
+
+Your task is to reproduce it in `02-example-lego.rmd` (or .qmd, if you prefer).
+
+To be as reproducible as possible, you'll need to use:
+
+-   YAML metadata
+-   YAML parameters
+-   Code chunks with appropriate options
+-   Inline R code
+:::
+
+::::
+
+## Hints {.scrollable .smaller}
+
+::: nonincremental
+1.  To begin, use inline R code to replace “hard coding” the quantities that are highlighted below.
+
+![](../img/03-repro-inline.png)
+
+      
+For example, instead of typing 19798 you would include `nrow(sets)`
+as an inline code chunk. Make sure the report knits and you get the
+right values.
+
+
+2.  Next, add a parameter to your YAML header that stores the location of the data set. Make sure the report knits.
+
+3.  Change the code chunk where you load the data set to use the `data` parameter you just defined rather than the hard-coded URL. Make sure the report knits.
+
+4.  Now, let’s make a parameter for the source of the data set so you don’t have to search where every mention of it in the report, it will be with the other metadata (where it belongs). To do this, add a parameter that gives the source of your data (call it `data_source`) and set it equal to “the [2022-09-09 repository](https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-09-06) on [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday).” Make sure the report knits.
+
+5. At this point it looks like everything is working—awesome job! To put it to the test, let’s update the parameters of your report and knit it to see if everything changes as we would expect. Here are the new parameter values:
+
+``` yaml
+data: "http://math.carleton.edu/aluby/stat220/lego_subset.csv"
+data_source: "Amanda's website"
+```
+
+
+6. (optional) If you have time, or would like to try outside of class, I've created a practice gradescope assignment space. First, add .pdf output to your document and knit to PDF. Commit the PDF and push to github. Then, log into gradescope (you may have to go through the link on moodle the first time) and link your github repo to the submission space.
+
+``` yaml
+output: 
+  html_document:
+    default
+  pdf_document:
+    default
+```
+:::

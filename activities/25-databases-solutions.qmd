@@ -1,0 +1,188 @@
+---
+title: "25-databases"
+format: html
+execute:
+  eval: false
+---
+
+```{r}
+library(tidyverse)
+library(mdsr)
+```
+
+# Working with a remote database
+
+```{r}
+#| eval: false
+db <- dbConnect_scidb("airlines")
+flights <- tbl(db, "flights")
+carriers <- tbl(db, "carriers")
+airports <- tbl(db, "airports")
+```
+
+```{r}
+#| eval: false
+
+flights %>%
+  head(5)
+```
+
+
+1. Of all destinations from MSP, which were the 10 most common in 2015? 
+
+```{r}
+#| eval: false
+
+flights %>%
+  filter(origin == "MSP", year == 2015) %>%
+  group_by(dest) %>%
+  summarize(
+    n = n()
+  ) %>%
+  arrange(desc(n)) %>%
+  head(10)
+```
+
+2. Which airport had the highest average arrival delay time in 2015? What about the lowest? 
+
+```{r}
+#| eval: false
+
+flights %>%
+  group_by(dest) %>%
+  summarize(
+    avg_arr_delay = mean(arr_delay, na.rm = TRUE)
+  ) %>%
+  arrange(desc(avg_arr_delay)) %>%
+  head(10)
+```
+
+3. How many flights were there in 2015 between MSP and FAI (Fairbanks International Airport?) 
+
+```{r}
+#| eval: false
+
+flights %>%
+  filter(year == 2015) %>%
+  filter((dest == "FAI" & origin == "MSP") | (origin == "FAI" & dest == "MSP")) %>%
+  summarize(
+    n = n()
+  )
+```
+
+4. List the airline and flight number for all flights between MSP and FAI in September 2015
+
+```{r}
+#| eval: false
+
+flights %>%
+  filter(year == 2015, month == 9) %>%
+  filter((dest == "FAI" & origin == "MSP") | (origin == "FAI" & dest == "MSP")) %>%
+  select(carrier, flight)
+```
+
+# Practice with SQL commands
+
+Repeat 1-4, but writing SQL commands
+
+```{r}
+#| eval: false
+
+dbGetQuery(db, "SELECT faa, name FROM airports LIMIT 0,5")
+```
+1. Of all destinations from MSP, which were the 10 most common in 2015? 
+
+```{r}
+#| eval: false
+
+dbGetQuery(db, 
+"SELECT dest, SUM(1) AS numFlights
+FROM flights 
+WHERE origin = 'MSP' AND year = 2015
+GROUP BY dest
+ORDER BY numFlights DESC
+LIMIT 0,10")
+```
+
+2. Which airport had the highest average arrival delay time in 2015? What about the lowest? 
+
+```{r}
+#| eval: false
+
+dbGetQuery(db, 
+"SELECT dest, AVG(arr_delay) AS avg_arr_delay
+FROM flights 
+WHERE year = 2015
+GROUP BY dest
+ORDER BY avg_arr_delay DESC
+LIMIT 0,10")
+
+dbGetQuery(db, 
+"SELECT dest, AVG(arr_delay) AS avg_arr_delay
+FROM flights 
+WHERE year = 2015
+GROUP BY dest
+ORDER BY avg_arr_delay 
+LIMIT 0,10")
+```
+
+3. How many flights were there in 2015 between MSP and FAI (Fairbanks International Airport?) 
+
+```{r}
+#| eval: false
+
+dbGetQuery(db, 
+"SELECT COUNT(*) AS N
+FROM flights 
+WHERE (dest = 'MSP' AND origin = 'FAI') OR (dest = 'FAI' AND origin = 'MSP')
+")
+```
+
+4. List the airline and flight number for all flights between MSP and FAI in September 2015
+
+```{r}
+#| eval: false
+
+dbGetQuery(db, 
+"SELECT carrier, flight 
+FROM flights
+WHERE year = 2015 AND month = 9 AND ((dest = 'MSP' AND origin = 'FAI') OR (dest = 'FAI' AND origin = 'MSP'))
+")
+
+```
+
+## Explain/test the following and translate to {dplyr} code
+
+
+1. 
+```
+SELECT 
+  year, month, day, origin, dest,
+  flight, carrier
+FROM flights
+WHERE year = 2013 AND month = 6 AND day = 26
+AND origin = 'BDL'
+LIMIT 0, 6;
+```
+
+2. 
+
+```
+SELECT 
+  name AS airport_name, 
+  CONCAT('(', lat, ', ', lon, ')') AS coords
+FROM airports
+LIMIT 0, 6;
+```
+
+3. 
+
+```
+SELECT
+  DISTINCT STR_TO_DATE(CONCAT(year, '-', month, '-', day), '%Y-%m-%d') 
+    AS theDate
+FROM flights
+WHERE year = 2013 AND month = 6 AND day BETWEEN 26 and 30
+  AND origin = 'BDL'
+LIMIT 0, 6;
+```
