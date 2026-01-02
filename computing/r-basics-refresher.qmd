@@ -11,14 +11,14 @@ library(fontawesome)
 
 ## Loading R packages
 
-In your previous statistics course at Carleton, you likely loaded at least one add-on R package. In this course, we'll use a lot of tools found in the `tidyverse` of R packages. To load many of these packages at once, you can use the `library(<package_name>)` command. So to load the `tidyverse` we run:
+In your previous statistics course at Carleton, you likely loaded at least one add-on R package. In this course, we'll use a lot of tools found in the `tidyverse` suite of R packages. To load many of these packages at once, you can use the `library(<package_name>)` command. So to load the `tidyverse` we run:
 
 ```{r}
 library(tidyverse)
 ```
 
 :::{.callout-note}
-Above we see a lot of extra info printed when we load the `tidyverse`. These messages are just telling you what packages are now available to you and warning you that a few functions (e.g., `filter`) has been replaced by the `tidyverse` version. We'll see how to suppress these messages later.
+Above we see a lot of extra info printed when we load the `tidyverse`. These messages are just telling you what packages are now available to you and warning you that a few functions (e.g., `filter`) have been replaced by the `tidyverse` version. We'll see how to suppress these messages later.
 :::
 
 ## Creating and naming objects
@@ -66,7 +66,7 @@ There are also a lot of naming styles out there, and if you have coded in anothe
 knitr::include_graphics("https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/dbb99049-2916-4bc8-824f-1816f5c4f06d_rw_1920.png?h=f0b45a30ba31ad414562d1085cd6c172")
 ```
 
-I generally following the [tidyverse style guide](https://style.tidyverse.org), so you'll see that I use only lowercase letters, numbers, and `_` (snake case).
+I generally follow the [tidyverse style guide](https://style.tidyverse.org), so you'll see that I use only lowercase letters, numbers, and `_` (snake case).
 
 
 ## Overviews of data frames

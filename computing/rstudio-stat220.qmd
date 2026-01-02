@@ -2,7 +2,7 @@
 title: "Using RStudio in Stat 220" 
 ---
 
-There will be a lot of RStudio content thrown your way this term, most in the form of .Rmd (R Markdown) files. To stay organized, I *strongly* suggest you create a **stat220** folder that contains the following subfolders:
+There will be a lot of RStudio content thrown your way this term, most in the form of .qmd (Quarto) files. To stay organized, I *strongly* suggest you create a **stat220** folder that contains the following subfolders:
 
 -   **stat220** folder
     -   **Assignments subfolder:** This folder will contain subfolders for each assignment. Each assignment subfolder (e.g. homework1, homework2, ...) will be a Github connected RStudio project that you will create **once an assignment is posted.**

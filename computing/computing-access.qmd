@@ -1,5 +1,5 @@
 ---
-title: "Computing Access" 
+title: "Computing Setup" 
 ---
 
 ## R/RStudio
@@ -33,9 +33,7 @@ For a fresh download:
 
 -   Download the free RStudio desktop version from <https://posit.co/download/rstudio-desktop/>
 
-Use the default download and install options for each. For R,
-download the "precompiled binary" distribution rather than the
-source code.
+Use the default download and install options for each. 
 
 
 ------------------------------------------------------------------------
