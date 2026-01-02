@@ -427,7 +427,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><section id="loading-r-packages" class="level2"><h2 class="anchored" data-anchor-id="loading-r-packages">Loading R packages</h2>
-<p>In your previous statistics course at Carleton, you likely loaded at least one add-on R package. In this course, we’ll use a lot of tools found in the <code>tidyverse</code> of R packages. To load many of these packages at once, you can use the <code>library(&lt;package_name&gt;)</code> command. So to load the <code>tidyverse</code> we run:</p>
+<p>In your previous statistics course at Carleton, you likely loaded at least one add-on R package. In this course, we’ll use a lot of tools found in the <code>tidyverse</code> suite of R packages. To load many of these packages at once, you can use the <code>library(&lt;package_name&gt;)</code> command. So to load the <code>tidyverse</code> we run:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
@@ -462,7 +462,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Above we see a lot of extra info printed when we load the <code>tidyverse</code>. These messages are just telling you what packages are now available to you and warning you that a few functions (e.g., <code>filter</code>) has been replaced by the <code>tidyverse</code> version. We’ll see how to suppress these messages later.</p>
+<p>Above we see a lot of extra info printed when we load the <code>tidyverse</code>. These messages are just telling you what packages are now available to you and warning you that a few functions (e.g., <code>filter</code>) have been replaced by the <code>tidyverse</code> version. We’ll see how to suppress these messages later.</p>
 </div>
 </div>
 </section><section id="creating-and-naming-objects" class="level2"><h2 class="anchored" data-anchor-id="creating-and-naming-objects">Creating and naming objects</h2>
@@ -506,7 +506,7 @@ Note
 </div>
 </div>
 </div>
-<p>I generally following the <a href="https://style.tidyverse.org">tidyverse style guide</a>, so you’ll see that I use only lowercase letters, numbers, and <code>_</code> (snake case).</p>
+<p>I generally follow the <a href="https://style.tidyverse.org">tidyverse style guide</a>, so you’ll see that I use only lowercase letters, numbers, and <code>_</code> (snake case).</p>
 </section><section id="overviews-of-data-frames" class="level2"><h2 class="anchored" data-anchor-id="overviews-of-data-frames">Overviews of data frames</h2>
 <p>Above, you loaded in a data set called <code>office_ratings</code>. Data sets are stored as a special data structure called a <strong>data frame</strong>. Data frames are the most-commonly used data structure for data analysis in R. For now, think of them like spreadsheets.</p>
 <p>Once you have your data frame, you can get a quick overview of it using a few commands (below I use <code>data_set</code> as a generic placeholder for the data frame’s name):</p>
