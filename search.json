@@ -2291,7 +2291,7 @@
     "href": "slides/01/slides01.html#sneak-peek-class-survey-data",
     "title": "Welcome to Stat 220",
     "section": "Sneak peek: class survey data",
-    "text": "Sneak peek: class survey data\n\n\n# A tibble: 10 × 3\n   class_year sleep northfield_food       \n   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;                 \n 1 Sophomore      6 Desi Diner            \n 2 Senior         6 El tri                \n 3 Senior         8 El Triunfo            \n 4 Senior         7 Desi Diner            \n 5 Senior         7 El Tri                \n 6 Junior         7 Desi diner            \n 7 Sophomore      7 Desi Diner            \n 8 First year    NA Pho                   \n 9 Junior         7 Reunion or Blue Monday\n10 Sophomore      9 DoorDash"
+    "text": "Sneak peek: class survey data\n\n\n# A tibble: 10 × 3\n   class_year sleep northfield_food\n   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;          \n 1 Sophomore    6   Desi Diner     \n 2 Sophomore    7   Desi Diner     \n 3 Senior       7   Desi Diner     \n 4 Senior       8.5 Reunion        \n 5 Senior       6   &lt;NA&gt;           \n 6 Senior       7   El Tri         \n 7 First year   8   culvers        \n 8 Senior       8   El Triunfo     \n 9 Junior       8   Desi Diner     \n10 Junior       7   Driving by car."
   },
   {
     "objectID": "slides/01/slides01.html#section",
@@ -2396,7 +2396,7 @@
     "href": "slides/01/slides01.html#section-4",
     "title": "Welcome to Stat 220",
     "section": "",
-    "text": "Course website\n\nhttps://stat220-s25.github.io\n\n\naccess slides\nsee schedule\n\nCourse github organization\n\nhttps://github.com/stat220-s25\n\n\naccess repositories for homework and projects"
+    "text": "Course website\n\nhttps://stat220-w26.github.io\n\n\naccess slides\nsee schedule\n\nCourse github organization\n\nhttps://github.com/stat220-26\n\n\naccess repositories for homework and projects"
   },
   {
     "objectID": "slides/01/slides01.html#office-hours-tentative",
