@@ -290,7 +290,7 @@ Read the full syllabus by next class
 ### Course github organization
 
 ::: {.large style="text-align: center;"}
-<https://github.com/stat220-26>
+<https://github.com/stat220-w26>
 :::
 
 -   access repositories for homework and projects
