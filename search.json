@@ -2291,7 +2291,7 @@
     "href": "slides/01/slides01.html#sneak-peek-class-survey-data",
     "title": "Welcome to Stat 220",
     "section": "Sneak peek: class survey data",
-    "text": "Sneak peek: class survey data\n\n\n# A tibble: 10 × 3\n   class_year sleep northfield_food\n   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;          \n 1 Senior       6   &lt;NA&gt;           \n 2 First year  NA   Pho            \n 3 Sophomore    7   New Buffet     \n 4 Junior       7   Desi diner     \n 5 Sophomore    7   Desi Diner     \n 6 Junior       7   Driving by car.\n 7 Junior       7   Coco's         \n 8 Senior       6   El tri         \n 9 Junior       8   Desi Diner     \n10 Senior       8.5 Reunion"
+    "text": "Sneak peek: class survey data\n\n\n# A tibble: 10 × 3\n   class_year sleep northfield_food       \n   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;                 \n 1 Sophomore      6 Desi Diner            \n 2 Senior         6 El tri                \n 3 Senior         8 El Triunfo            \n 4 Senior         7 Desi Diner            \n 5 Senior         7 El Tri                \n 6 Junior         7 Desi diner            \n 7 Sophomore      7 Desi Diner            \n 8 First year    NA Pho                   \n 9 Junior         7 Reunion or Blue Monday\n10 Sophomore      9 DoorDash"
   },
   {
     "objectID": "slides/01/slides01.html#section",
@@ -2417,7 +2417,7 @@
     "href": "slides/01/slides01.html#what-will-you-do-in-this-course",
     "title": "Welcome to Stat 220",
     "section": "What will you do in this course?",
-    "text": "What will you do in this course?\n\n\nGraded work:\n\nHomework\nLab Quizzes\nPortfolio Projects\nFinal Project\n\n\nUngraded work:\n\nDaily prep for class: read/watch/review/try\nEngagement in small and large group discussions"
+    "text": "What will you do in this course?\n\n\nGraded work:\n\nHomework\nLab Quizzes\nPortfolio Projects\nFinal Project\n\n\nUngraded work:\n\nDaily prep for class: read/watch/review/try\nIn-class exercises\nEngagement in small and large group discussions"
   },
   {
     "objectID": "slides/01/slides01.html#what-will-a-typical-dayweek-look-like",
@@ -7447,6 +7447,17 @@
     "title": "Stat220: Introduction to Data Science",
     "section": "Plus/minus grades",
     "text": "Plus/minus grades\n“Plus” and “minus” grades will be given if you complete all the requirements for a base letter grade and make sufficient progress toward the next grade. Below is an overview:\n\nIf “B” base grade:\n\nand A in two bins: “B+”\nand A in three bins: “A-”\n\nIf “C” base grade:\n\nand at least B in two bins: “C+”\nand at least B in three bins: “B-”\n\nIf “D” base grade:\n\nand at least C in two bins: “D+”\nand at least C in three bins: “C-”\n\nIf “F” base grade:\n\nand at least D in two bins: “D-”\n\n\nExample: Mira finishes the course with 88% of homework problems successfully completed, 85% of lab quiz problems successfully completed, 3/4 portfolio projects marked “excellent”, and a “Successful” final project. Mira satisfies everything in the “B” row, and meets the “A” threshold for two bins (homework and portfolio projects). Mira earns a B+. If Mira instead receives “excellent” marks on the final project, Mira earns an A-.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#attendance-and-participation-policy",
+    "href": "course-syllabus.html#attendance-and-participation-policy",
+    "title": "Stat220: Introduction to Data Science",
+    "section": "Attendance and participation policy",
+    "text": "Attendance and participation policy\nI expect daily attendance and participation. Missing &gt;5 class meetings or ongoing, consistent issues with being on-task will result in a 1/3 grade deduction.",
     "crumbs": [
       "Course information",
       "Syllabus"
