@@ -231,6 +231,7 @@ map_dbl(quiz_scores, mean)
 ...or as a character string
 
 ```{r}
+#| eval: false
 map_chr(quiz_scores, mean)
 ```
 
