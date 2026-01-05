@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8cab17c520dfb5fd83702a774e8ef3fe.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.23">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Prof Amanda Luby">
   <title>Stat 220 – Welcome to Stat 220</title>
@@ -28,6 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #97947a;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #97947a;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2; background-color: #2b2b2b; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #dcc6e0; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #ffd700; } /* Attribute */
+    code span.bn { color: #dcc6e0; } /* BaseN */
+    code span.bu { color: #f5ab35; } /* BuiltIn */
+    code span.cf { color: #ffa07a; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffa07a; } /* Constant */
+    code span.co { color: #d4d0ab; } /* Comment */
+    code span.cv { color: #d4d0ab; font-style: italic; } /* CommentVar */
+    code span.do { color: #d4d0ab; font-style: italic; } /* Documentation */
+    code span.dt { color: #dcc6e0; } /* DataType */
+    code span.dv { color: #dcc6e0; } /* DecVal */
+    code span.er { color: #dcc6e0; } /* Error */
+    code span.ex { color: #ffd700; } /* Extension */
+    code span.fl { color: #f5ab35; } /* Float */
+    code span.fu { color: #ffd700; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; } /* Keyword */
+    code span.op { color: #00e0e0; } /* Operator */
+    code span.ot { color: #ffa07a; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.sc { color: #00e0e0; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #f5ab35; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-99734ba7138dc437be0395c978baeb51.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -141,7 +207,7 @@
 Prof Amanda Luby 
 </div>
         <p class="quarto-title-affiliation">
-            Carleton College <br> Stat 220 - Spring 2025
+            Carleton College <br> Stat 220 - Winter 2026
           </p>
     </div>
 </div>
@@ -155,21 +221,36 @@ Prof Amanda Luby
 <section id="about-me" class="slide level2">
 <h2>About me</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:60%;">
 <ul>
-<li class="fragment">First year at Carleton!</li>
-<li class="fragment">Taught at Swarthmore for 5 years before moving here this fall</li>
+<li class="fragment">Second year at Carleton!</li>
+<li class="fragment">Taught at Swarthmore for 5 years before moving here</li>
 <li class="fragment">PhD in Statistics &amp; Data Science from Carnegie Mellon University</li>
 <li class="fragment">Grew up in Minnesota, went to St Ben’s as an undergrad</li>
+<li class="fragment">When I’m not writing R code, making graphs, or chasing after my toddler, I like to read and have been trying to do more fiber crafts</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<p><img data-src="../img/about-me.jpeg"></p>
+</div><div class="column" style="width:40%;">
+<p><img data-src="../img/about-me.jpg"></p>
 </div></div>
 </section>
-<section id="what-is-data-science" class="slide level2">
-<h2>What is “data science”?</h2>
-<div class="fragment">
-<p><img data-src="gtrends-data-sci.png"></p>
+<section id="proud-of-nervous-about" class="slide level2 center">
+<h2>Proud of/ Nervous about</h2>
+</section>
+<section id="in-groups-of-3-4" class="slide level2 scrollable">
+<h2>In groups of 3-4</h2>
+<div class="task">
+<ol type="1">
+<li>Introduce yourselves: name, year, academic interest, personal interest</li>
+<li>Share a bit about why you’re taking this class</li>
+</ol>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_02686ad7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
 </div>
 </section>
 <section id="what-is-this-class-about" class="slide level2">
@@ -183,7 +264,133 @@ Prof Amanda Luby
 <li class="fragment"><strong>Document</strong> your code and <strong>collaborate</strong> on coding projects</li>
 </ul>
 </section>
-<section id="section" class="slide level2" data-background-image="../img/data_scientist_infographic.png" data-background-position="right" data-background-size="50%">
+<section id="sneak-peek-class-survey-data" class="slide level2">
+<h2>Sneak peek: class survey data</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 3
+   class_year sleep northfield_food
+   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;          
+ 1 Senior       6   &lt;NA&gt;           
+ 2 First year  NA   Pho            
+ 3 Sophomore    7   New Buffet     
+ 4 Junior       7   Desi diner     
+ 5 Sophomore    7   Desi Diner     
+ 6 Junior       7   Driving by car.
+ 7 Junior       7   Coco's         
+ 8 Senior       6   El tri         
+ 9 Junior       8   Desi Diner     
+10 Senior       8.5 Reunion        </code></pre>
+</div>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p>You took a survey</p>
+<p><img data-src="../img/01-google-forms-logo.png"></p>
+</div><div class="column" style="width:33%;">
+<p>Google saved your responses in a sheet</p>
+<p><img data-src="../img/01-google-sheets.png"></p>
+</div><div class="column" style="width:33%;">
+<p>I read your data into R, cleaned it, and saved it as a CSV</p>
+<p><img data-src="../img/01-rstudio-logo.png"></p>
+</div></div>
+</section>
+<section id="multiple-choice-question-where-you-could-only-pick-one-option" class="slide level2">
+<h2>Multiple choice question where you could only pick one option</h2>
+<p>What class year are you?</p>
+<ul>
+<li>First year</li>
+<li>Sophomore</li>
+<li>Junior</li>
+<li>Senior</li>
+</ul>
+</section>
+<section id="visualize" class="slide level2">
+<h2>Visualize</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>survey <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a></a>  <span class="fu">count</span>(class_year) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> class_year, <span class="at">x =</span> prop, <span class="at">fill =</span> class_year)) <span class="sc">+</span> </span>
+<span id="cb2-5"><a></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb2-6"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>), <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">1</span>, .<span class="dv">2</span>, .<span class="dv">3</span>, .<span class="dv">4</span>, .<span class="dv">5</span>)) <span class="sc">+</span> </span>
+<span id="cb2-7"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-8"><a></a>    <span class="at">title =</span> <span class="st">"Class year among Stat220 Students"</span>,</span>
+<span id="cb2-9"><a></a>    <span class="at">y =</span> <span class="st">""</span>,</span>
+<span id="cb2-10"><a></a>    <span class="at">x =</span> <span class="st">"Proportion"</span>,</span>
+<span id="cb2-11"><a></a>    <span class="at">caption =</span> <span class="st">"Self-reported data collected from Stat220 students by 10am on Jan 5"</span></span>
+<span id="cb2-12"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb2-13"><a></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">end =</span> .<span class="dv">75</span>, <span class="at">option =</span> <span class="st">"plasma"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides01_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="question-where-you-could-enter-a-number" class="slide level2">
+<h2>Question where you could enter a number</h2>
+<p>How many hours of sleep per night do you typically get during the term?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">summary</span>(survey<span class="sc">$</span>sleep)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  6.000   7.000   7.000   7.219   8.000   9.000       1 </code></pre>
+</div>
+</div>
+</section>
+<section id="open-ended-question" class="slide level2">
+<h2>Open-ended question</h2>
+<p>Where can you find the best food in Northfield?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>survey<span class="sc">$</span>northfield_food</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Driving by car."        "Pho"                    "DoorDash"              
+ [4] NA                       "Reunion"                "culvers"               
+ [7] "Desi diner"             "Reunion or Blue Monday" "El Tri"                
+[10] "Desi Diner"             "Coco's"                 "Desi Diner"            
+[13] "El Triunfo"             "Desi Diner"             "Desi Diner"            
+[16] "New Buffet"             "El tri"                </code></pre>
+</div>
+</div>
+</section>
+<section id="visualize-1" class="slide level2">
+<h2>Visualize</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>survey <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a></a>  <span class="fu">count</span>(northfield_food) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> northfield_food, <span class="at">x =</span> prop, <span class="at">fill =</span> northfield_food)) <span class="sc">+</span> </span>
+<span id="cb7-5"><a></a>  <span class="fu">geom_col</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb7-6"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">percent_format</span>(<span class="at">accuracy =</span> <span class="dv">1</span>), <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">1</span>, .<span class="dv">2</span>, .<span class="dv">3</span>, .<span class="dv">4</span>, .<span class="dv">5</span>)) <span class="sc">+</span> </span>
+<span id="cb7-7"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-8"><a></a>    <span class="at">title =</span> <span class="st">"Where can you find the best food in Northfield?"</span>,</span>
+<span id="cb7-9"><a></a>    <span class="at">y =</span> <span class="st">""</span>,</span>
+<span id="cb7-10"><a></a>    <span class="at">x =</span> <span class="st">"Proportion"</span>,</span>
+<span id="cb7-11"><a></a>    <span class="at">caption =</span> <span class="st">"Self-reported data collected from Stat220 students by 10am on Jan 5"</span></span>
+<span id="cb7-12"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb7-13"><a></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">end =</span> .<span class="dv">75</span>, <span class="at">option =</span> <span class="st">"plasma"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides01_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section-1" class="slide level2" data-background-image="../img/data_scientist_infographic.png" data-background-position="right" data-background-size="50%">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -212,10 +419,10 @@ Prof Amanda Luby
 <p>-Hadley Wickham, <a href="https://www.r-bloggers.com/advice-to-young-and-old-programmers-a-conversation-with-hadley-wickham/">Advice to Young (and Old) Programmers: A Conversation with Hadley Wickham</a></p>
 </blockquote>
 </section>
-<section id="section-1" class="slide level2" data-background-image="../img/wordcloud-nervous.png" data-background-size="contain">
+<section id="section-2" class="slide level2" data-background-image="../img/wordcloud-nervous.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-2" class="slide level2 smaller">
+<section id="section-3" class="slide level2 smaller">
 <h2></h2>
 <div class="columns">
 <div class="column center" style="width:60%;">
@@ -240,7 +447,7 @@ Prof Amanda Luby
 <li class="fragment"><p>Browser based RStudio instance(s) provided by Carleton</p></li>
 <li class="fragment"><p>Requires internet connection to access</p></li>
 <li class="fragment"><p>Provides consistency in hardware and software environments</p></li>
-<li class="fragment"><p>Local R installations are also fine! But it may be harder for me to provide support</p></li>
+<li class="fragment"><p>Local R installations are also great! If you already have one, you should use it. You may need to install packages as we go.</p></li>
 </ul>
 </section></section>
 <section>
@@ -252,9 +459,9 @@ Prof Amanda Luby
 <h2>On your own:</h2>
 <div class="task">
 <ol type="1">
-<li>Log into the maize server: maize.mathcs.carleton.edu</li>
-<li>Follow the directions at <a href="https://stat220-w25.github.io/computing/rstudio-stat220" class="uri">https://stat220-w25.github.io/computing/rstudio-stat220</a> to create an “activities” folder</li>
-<li>Open <code>01-example-unvotes</code> from <a href="https://stat220-s25.github.io" class="uri">https://stat220-s25.github.io</a>, copy and paste the .Rmd into a new file in RStudio</li>
+<li>Log into the maize server: &lt;maize.mathcs.carleton.edu&gt;</li>
+<li>Follow the directions at <a href="https://stat220-w26.github.io/computing/rstudio-stat220" class="uri">https://stat220-w26.github.io/computing/rstudio-stat220</a> to create an “activities” folder</li>
+<li>Open <code>01-example-unvotes</code> from <a href="https://stat220-w26.github.io" class="uri">https://stat220-w26.github.io</a>, and follow the directions to open the file in Rstudio</li>
 <li>Skim the file <em>without</em> running any code:
 <ul>
 <li>Where is the <em>code</em>?</li>
@@ -265,7 +472,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_35aa87b7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_37f3e2ca" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -292,7 +499,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_0be81f4f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_0db20543" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">04</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -304,18 +511,17 @@ Prof Amanda Luby
 <h1>Syllabus highlights</h1>
 <p>Read the full syllabus by next class</p>
 </section>
-<section id="course-website" class="slide level2">
-<h2>Course website</h2>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<h3 id="course-website">Course website</h3>
 <div class="large" style="text-align: center;">
 <p><a href="https://stat220-s25.github.io" class="uri">https://stat220-s25.github.io</a></p>
-</div>
-<div class="hand" style="text-align: center;">
-<p>aka “the one link to rule them all”</p>
 </div>
 <ul>
 <li class="fragment">access slides</li>
 <li class="fragment">see schedule</li>
 </ul>
+<h3 id="course-github-organization">Course github organization</h3>
 <div class="large" style="text-align: center;">
 <p><a href="https://github.com/stat220-s25" class="uri">https://github.com/stat220-s25</a></p>
 </div>
@@ -337,34 +543,34 @@ Prof Amanda Luby
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Monday</td>
-<td style="text-align: left;">4:15-5:15</td>
+<td style="text-align: left;">1:30-2:30</td>
 <td style="text-align: left;">Drop-in</td>
 <td style="text-align: left;">CMC 307</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Tuesday</td>
-<td style="text-align: left;">10:30-11:30</td>
+<td style="text-align: left;">3-4</td>
 <td style="text-align: left;">Drop-in</td>
 <td style="text-align: left;">CMC 307</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Wednesday</td>
-<td style="text-align: left;">2:15-3:15</td>
+<td style="text-align: left;">12:30-1:30</td>
 <td style="text-align: left;">Drop-in</td>
 <td style="text-align: left;">CMC 307</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Friday</td>
-<td style="text-align: left;">11-12</td>
-<td style="text-align: left;">Drop-in</td>
-<td style="text-align: left;">CMC 307</td>
+<td style="text-align: left;">10-11</td>
+<td style="text-align: left;">Appts</td>
+<td style="text-align: left;">CMC 223</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="where-is-amanda-this-term" class="slide level2 center">
+<section id="where-is-amanda-this-term" class="slide level2">
 <h2>Where is Amanda this term?</h2>
-<p><img data-src="../img/amanda-spring-schedule.png" style="width:80.0%"></p>
+<img data-src="../img/w26-schedule.png" class="r-stretch">
 </section>
 <section id="what-will-you-do-in-this-course" class="slide level2">
 <h2>What will you do in this course?</h2>
@@ -376,7 +582,6 @@ Prof Amanda Luby
 <li class="fragment">Lab Quizzes</li>
 <li class="fragment">Portfolio Projects</li>
 <li class="fragment">Final Project</li>
-<li class="fragment">In-class exercises</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <p><strong>Ungraded work:</strong></p>
@@ -418,20 +623,18 @@ Prof Amanda Luby
 <h2>Grading system</h2>
 <p>Homework and lab quiz problems will be graded as <em>successful</em>, <em>half credit</em>, or <em>not successful</em>. Projects will be graded as <em>excellent</em>, <em>successful</em>, or <em>not successful</em>. You will have the opportunity to resubmit the lab quizzes outside of class.</p>
 <p>To earn a course grade, you must meet <strong>all</strong> of the requirements in a given row:</p>
-<table class="caption-top" style="width:100%;">
+<table class="caption-top">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
 <th></th>
 <th>Homework Problems</th>
-<th>In class activities</th>
 <th>Lab Quiz Problems</th>
 <th>Portfolio Projects (4 total)</th>
 <th>Final Project</th>
@@ -442,14 +645,12 @@ Prof Amanda Luby
 <td>A</td>
 <td>85%</td>
 <td>90%</td>
-<td>90%</td>
 <td>2 Excellent + 2 Successful</td>
 <td>Excellent</td>
 </tr>
 <tr class="even">
 <td>B</td>
 <td>75%</td>
-<td>80%</td>
 <td>80%</td>
 <td>4 Successful</td>
 <td>Successful</td>
@@ -458,7 +659,6 @@ Prof Amanda Luby
 <td>C</td>
 <td>65%</td>
 <td>70%</td>
-<td>70%</td>
 <td>3 Successful</td>
 <td>Successful</td>
 </tr>
@@ -466,13 +666,13 @@ Prof Amanda Luby
 <td>D</td>
 <td>55%</td>
 <td>50%</td>
-<td>50%</td>
 <td>2 Successful</td>
 <td>Successful</td>
 </tr>
 </tbody>
 </table>
 <p>“+” and “-” grades are determined by partially meeting the requirements in a given row.</p>
+<p><em>Note:</em> I expect daily attendance and participation. Missing &gt;5 class meetings or consistent issues with being on-task will result in a 1/3 grade deduction.</p>
 </section>
 <section id="benefits" class="slide level2">
 <h2>Benefits</h2>
@@ -497,7 +697,7 @@ Prof Amanda Luby
 <ul>
 <li class="fragment">Revise a portfolio project that did not earn a “successful” or “excellent”</li>
 <li class="fragment">72-hour extension on a homework assignment or portfolio project submission (the request must be submitted before the deadline)</li>
-<li class="fragment">72-hour extension on lab quiz resubmissions (the request must be submitted before the deadline)</li>
+<li class="fragment">Retake a lab quiz [*]</li>
 <li class="fragment">By passing the syllabus quiz, you’ll activate your 5 tokens for the term. I will track token balances in the moodle gradebook (updated weekly, typically Thursdays)</li>
 </ul>
 </section>
@@ -541,7 +741,7 @@ Prof Amanda Luby
 <li class="fragment"><p>Guiding principles:</p>
 <ul>
 <li class="fragment"><p>(1) <em>Cognitive dimension:</em> Working with AI should not reduce your ability to think clearly. AI should facilitate—rather than hinder—learning.</p></li>
-<li class="fragment"><p>(2) <em>Ethical dimension</em><strong>:</strong> Students using AI should be transparent about their use and make sure it aligns with academic integrity.</p></li>
+<li class="fragment"><p>(2) <em>Ethical dimension</em><strong>:</strong> If you use AI, you should be transparent about it and make sure it aligns with academic integrity.</p></li>
 </ul></li>
 <li class="fragment"><p><strong>❌ AI tools for writing code:</strong> You may not use generative AI to take a “first pass” at a coding task. Do not type coursework prompts directly into AI tools.</p></li>
 <li class="fragment"><p><strong>✅ AI tools for debugging code:</strong> You may make use of the technology to get help with error messages or trying to fix issues. Rule of thumb: never type code into or out of an AI interface</p></li>
@@ -554,13 +754,13 @@ Prof Amanda Luby
 <section id="github" class="slide level2 smaller">
 <h2>GitHub</h2>
 <div class="large" style="text-align: center;">
-<p><a href="https://github.com/stat220-w25" class="uri">https://github.com/stat220-w25</a></p>
+<p>https://github.com/stat220-w26</p>
 </div>
 <ul>
 <li class="fragment"><p>GitHub organization for the course</p></li>
 <li class="fragment"><p>All of your work and your membership (enrollment) in the organization is private</p></li>
 <li class="fragment"><p>Each assignment is a private repo on GitHub, I distribute the assignments on GitHub.</p></li>
-<li class="fragment"><p>You will work on your assignment, then “knit 🧶 commit ✅ push ⤴️”</p></li>
+<li class="fragment"><p>You will work on your assignment, then “render ➡️ commit ✅ push ⤴️”</p></li>
 <li class="fragment"><p>You’ll then be able to submit your PDF via gradescope</p></li>
 </ul>
 <div class="fragment">
@@ -577,7 +777,7 @@ Prof Amanda Luby
 <p>Some brief advice about selecting your account names (particularly for GitHub),</p>
 <ul>
 <li class="fragment"><p>Incorporate your actual name! People like to know who they’re dealing with and makes your username easier for people to guess or remember</p></li>
-<li class="fragment"><p>Reuse your username from other contexts, e.g., Twitter or Slack</p></li>
+<li class="fragment"><p>Reuse your username from other contexts, e.g., your Carleton email or gmail account</p></li>
 <li class="fragment"><p>Pick a username you will be comfortable revealing to your future boss</p></li>
 <li class="fragment"><p>Shorter is better than longer, but be as unique as possible</p></li>
 <li class="fragment"><p>Make it timeless. Avoid highlighting your current university, employer, or place of residence</p></li>
@@ -590,21 +790,23 @@ Prof Amanda Luby
 </section>
 <section id="your-tasks-before-next-class" class="slide level2 scrollable">
 <h2>Your tasks before next class</h2>
+<div class="task">
 <ol type="1">
-<li class="fragment"><p>Create a GitHub account if you don’t have one</p></li>
-<li class="fragment"><p>Complete the welcome survey if you haven’t already</p></li>
-<li class="fragment"><p>Join the slack workspace and post an <code>#intro</code> message</p></li>
-<li class="fragment"><p>Read the syllabus and pass syllabus quiz</p></li>
-<li class="fragment"><p>Make sure you can log in to the maize server or update your local R/RStudio versions</p></li>
-<li class="fragment"><p>Complete the readings for next class</p></li>
+<li><p>Create a GitHub account if you don’t have one</p></li>
+<li><p>Complete the welcome survey if you haven’t already</p></li>
+<li><p>Join the slack workspace and post an <code>#intro</code> message</p></li>
+<li><p>Read the syllabus and pass syllabus quiz</p></li>
+<li><p>Make sure you can log in to the maize server or update your local R/RStudio versions</p></li>
+<li><p>Complete the readings for next class</p></li>
 </ol>
+</div>
 
 
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p><a href="https://stat220-s25.github.io">🔗 stat220-s25.github.io</a></p>
+<p><a href="https://stat220-w26.github.io">🔗 stat220-w26.github.io</a></p>
 </div>
 </div></div>
 

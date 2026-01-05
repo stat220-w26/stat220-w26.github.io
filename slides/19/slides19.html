@@ -6,9 +6,9 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8cab17c520dfb5fd83702a774e8ef3fe.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.23">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="author" content="Prof Amanda Luby">
 <title>Stat 220 – APIs</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -206,7 +206,7 @@
 Prof Amanda Luby 
 </div>
         <p class="quarto-title-affiliation">
-            Carleton College <br> Stat 220 - Spring 2025
+            Carleton College <br> Stat 220 - Winter 2026
           </p>
     </div>
 </div>
@@ -852,7 +852,7 @@ First 10 features:
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">countdown</span>(<span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="countdown" id="timer_a6a6d8af" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_18aa61f9" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -1398,7 +1398,7 @@ First 10 features:
         return(dat2)
     }
 }
-&lt;bytecode: 0x12a8ab5c8&gt;
+&lt;bytecode: 0x126979040&gt;
 &lt;environment: namespace:tidycensus&gt;</code></pre>
 </div>
 </div>
@@ -1454,7 +1454,7 @@ Census API call: https://api.census.gov/data/2020/acs/acs5?get=B01003_001E%2CB01
 </div></div>
 </section><section id="sending-our-census-query" class="slide level2"><h2>Sending our census query</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>hmong_state_request <span class="ot">&lt;-</span> <span class="fu">request</span>(<span class="st">"https://api.census.gov/data"</span>) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>hmong_state_request <span class="ot">&lt;-</span> <span class="fu">request</span>(<span class="st">"https://api.census.gov/data"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb28-2"><a></a>    <span class="fu">req_url_path_append</span>(<span class="st">"2019"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb28-3"><a></a>    <span class="fu">req_url_path_append</span>(<span class="st">"acs"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb28-4"><a></a>    <span class="fu">req_url_path_append</span>(<span class="st">"acs1"</span>) <span class="sc">%&gt;%</span> </span>
@@ -1491,11 +1491,6 @@ Census API call: https://api.census.gov/data/2020/acs/acs5?get=B01003_001E%2CB01
 </h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>hmong_state_request</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;httr2_request&gt;
-GET https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&amp;for=state:*&amp;key=4a23445200c9bbf05cd62ecfbd97364355936ed0
-Body: empty</code></pre>
-</div>
 </div>
 <pre><code>&lt;httr2_request&gt;
 GET
@@ -1508,8 +1503,8 @@ Body: empty</code></pre>
 <li class="fragment">To iterate over multiple years, or multiple geometries, or ….</li>
 </ul></section><section id="actually-getting-the-data" class="slide level2"><h2>Actually getting the data</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>hmong_state_response <span class="ot">&lt;-</span> <span class="fu">req_perform</span>(hmong_state_request)</span>
-<span id="cb34-2"><a></a>hmong_state_response</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>hmong_state_response <span class="ot">&lt;-</span> <span class="fu">req_perform</span>(hmong_state_request)</span>
+<span id="cb33-2"><a></a>hmong_state_response</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <pre><code>&lt;httr2_response&gt;
 GET
@@ -1519,12 +1514,12 @@ Content-Type: application/json
 Body: In memory (1691 bytes)</code></pre>
 </section><section id="actually-getting-the-data-in-the-form-we-can-work-with" class="slide level2"><h2>Actually getting the data in the form we can work with</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>hmong_state_tbl <span class="ot">&lt;-</span> hmong_state_response <span class="sc">%&gt;%</span></span>
-<span id="cb36-2"><a></a>  <span class="fu">resp_body_json</span>(<span class="at">simplifyVector =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb36-3"><a></a>  janitor<span class="sc">::</span><span class="fu">row_to_names</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb36-4"><a></a>  <span class="fu">as_tibble</span>()</span>
-<span id="cb36-5"><a></a></span>
-<span id="cb36-6"><a></a>hmong_state_tbl</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>hmong_state_tbl <span class="ot">&lt;-</span> hmong_state_response <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a></a>  <span class="fu">resp_body_json</span>(<span class="at">simplifyVector =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-3"><a></a>  janitor<span class="sc">::</span><span class="fu">row_to_names</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-4"><a></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb35-5"><a></a></span>
+<span id="cb35-6"><a></a>hmong_state_tbl</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 52 × 4
    NAME      B02015_009E B02015_009M state
@@ -1578,7 +1573,7 @@ Body: In memory (1691 bytes)</code></pre>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p><a href="https://stat220-s25.github.io">🔗 stat220-s25.github.io</a></p>
+<p><a href="https://stat220-w26.github.io">🔗 stat220-w26.github.io</a></p>
 </div>
 </div></div>
 
