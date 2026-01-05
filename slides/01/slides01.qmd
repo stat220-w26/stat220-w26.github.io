@@ -24,6 +24,10 @@ library(gtrendsR)
 library(countdown)
 library(tidyverse)
 library(lubridate)
+library(scales)
+library(here)
+
+theme_set(theme_minimal(base_size = 16))
 ```
 
 # Intros
@@ -31,49 +35,32 @@ library(lubridate)
 ## About me
 
 ::::: columns
-::: {.column width="50%"}
+::: {.column width="60%"}
 -   Second year at Carleton!
--   Taught at Swarthmore for 5 years before moving here 
+-   Taught at Swarthmore for 5 years before moving here
 -   PhD in Statistics & Data Science from Carnegie Mellon University
 -   Grew up in Minnesota, went to St Ben's as an undergrad
 -   When I'm not writing R code, making graphs, or chasing after my toddler, I like to read and have been trying to do more fiber crafts
 :::
 
-::: {.column width="50%"}
-![](../img/about-me.jpeg)
+::: {.column width="40%"}
+![](../img/about-me.jpg)
 :::
 :::::
 
-## What is "data science"?
+## Proud of/ Nervous about {.center}
 
-. . .
+## In groups of 3-4
 
-![](gtrends-data-sci.png)
+::: {.task .nonincremental}
+1.  Introduce yourselves: name, year, academic interest, personal interest
+2.  Share a bit about why you're taking this class
+:::
 
 ```{r}
-#| eval: false
-#| include: false
+#| echo: false
 
-ds_trend <- gtrends(c("data science", "theoretical statistics", "applied statistics"),  time = "all")[[1]]
-# not letting me search for a single term
-
-format_date <- stamp("August 1, 2021")
-ds_trend |>
-  mutate(
-    hits = as.numeric(ifelse(hits == "<1", 0, hits))
-  ) |>
-  ggplot(aes(x = date, y = hits, col = keyword, grp = keyword)) +
-  geom_line() +
-  theme_minimal() +
-  labs(
-    title = "Daily searches for 'data science'",
-    subtitle = str_c(format_date(min(ds_trend$date)), " - ",  format_date(max(ds_trend$date))),
-    y = "Relative search interest",
-    x = "",
-    caption = str_c("Source: Google trends, retrieved ", format_date(Sys.time()))
-  )
-
-ggsave(, filename = "slides/01/gtrends-data-sci.png", width = 8, height = 4)
+countdown::countdown(8)
 ```
 
 ## What is this class about?
@@ -84,6 +71,103 @@ ggsave(, filename = "slides/01/gtrends-data-sci.png", width = 8, height = 4)
 -   **Visualize** data to provide insight
 -   **Communicate** your findings
 -   **Document** your code and **collaborate** on coding projects
+
+## Sneak peek: class survey data
+
+```{r}
+#| echo: false
+#| message: false
+survey <- read_csv(here(here(), "data/class_survey_sm.csv"))
+survey |> sample_n(10)
+```
+
+## 
+
+:::::: columns
+::: {.column width="33%"}
+You took a survey
+
+![](../img/01-google-forms-logo.png)
+:::
+
+::: {.column width="33%"}
+Google saved your responses in a sheet
+
+![](../img/01-google-sheets.png)
+:::
+
+::: {.column width="33%"}
+I read your data into R, cleaned it, and saved it as a CSV
+
+![](../img/01-rstudio-logo.png)
+:::
+::::::
+
+## Multiple choice question where you could only pick one option
+
+What class year are you?
+
+::: nonincremental
+-   First year
+-   Sophomore
+-   Junior
+-   Senior
+:::
+
+## Visualize
+
+```{r}
+#| code-fold: true
+survey |>
+  count(class_year) |>
+  mutate(prop = n/sum(n)) |>
+  ggplot(aes(y = class_year, x = prop, fill = class_year)) + 
+  geom_col(show.legend = FALSE) + 
+  scale_x_continuous(labels = percent_format(accuracy = 1), breaks = c(0, .1, .2, .3, .4, .5)) + 
+  labs(
+    title = "Class year among Stat220 Students",
+    y = "",
+    x = "Proportion",
+    caption = "Self-reported data collected from Stat220 students by 10am on Jan 5"
+  ) + 
+  scale_fill_viridis_d(end = .75, option = "plasma")
+```
+
+## Question where you could enter a number
+
+How many hours of sleep per night do you typically get during the term?
+
+```{r}
+summary(survey$sleep)
+```
+
+## Open-ended question
+
+Where can you find the best food in Northfield?
+
+```{r}
+survey$northfield_food
+```
+
+## Visualize
+
+```{r}
+#| code-fold: true
+
+survey |>
+  count(northfield_food) |>
+  mutate(prop = n/sum(n)) |>
+  ggplot(aes(y = northfield_food, x = prop, fill = northfield_food)) + 
+  geom_col(show.legend = FALSE) + 
+  scale_x_continuous(labels = percent_format(accuracy = 1), breaks = c(0, .1, .2, .3, .4, .5)) + 
+  labs(
+    title = "Where can you find the best food in Northfield?",
+    y = "",
+    x = "Proportion",
+    caption = "Self-reported data collected from Stat220 students by 10am on Jan 5"
+  ) + 
+  scale_fill_viridis_d(end = .75, option = "plasma")
+```
 
 ##  {background-image="../img/data_scientist_infographic.png" background-position="right" background-size="50%"}
 
@@ -117,10 +201,10 @@ Image by Adam Loy <br> adapted from work of Joe Blitzstein, Hanspeter Pfister,<b
 
 ##  {background-image="../img/wordcloud-nervous.png" background-size="contain"}
 
-## {.smaller}
+##  {.smaller}
 
 ::::: columns
-::: {.column width="60%" .center}
+::: {.column .center width="60%"}
 ![](../img/horst_error.jpeg){fig-align="left"}
 :::
 
@@ -145,14 +229,14 @@ Hadley Wickham, [Advice to Young (and Old) Programmers: A Conversation with Hadl
 
 -   Provides consistency in hardware and software environments
 
--   Local R installations are also great! If you already have one, you should use it. You may need to install packages as we go. 
+-   Local R installations are also great! If you already have one, you should use it. You may need to install packages as we go.
 
 # A first example: UN Votes
 
 ## On your own:
 
 ::: {.task .nonincremental}
-1.  Log into the maize server: <maize.mathcs.carleton.edu>
+1.  Log into the maize server: \<maize.mathcs.carleton.edu\>
 2.  Follow the directions at <https://stat220-w26.github.io/computing/rstudio-stat220> to create an "activities" folder
 3.  Open `01-example-unvotes` from <https://stat220-w26.github.io>, and follow the directions to open the file in Rstudio
 4.  Skim the file *without* running any code:
@@ -192,18 +276,18 @@ countdown(minutes = 4, seconds = 0)
 
 Read the full syllabus by next class
 
-## Course website
+## 
+
+### Course website
 
 ::: {.large style="text-align: center;"}
 <https://stat220-s25.github.io>
 :::
 
-::: {.hand style="text-align: center;"}
-aka "the one link to rule them all"
-:::
-
 -   access slides
 -   see schedule
+
+### Course github organization
 
 ::: {.large style="text-align: center;"}
 <https://github.com/stat220-s25>
@@ -213,18 +297,16 @@ aka "the one link to rule them all"
 
 ## Office hours (*tentative*)
 
-| Day       | Time        | Type    | Location |
-|:----------|:------------|:--------|:---------|
-| Monday    | 1:30-2:30   | Drop-in | CMC 307  |
-| Tuesday   | 3-4         | Drop-in | CMC 307  |
-| Wednesday | 12:30-1:30  | Drop-in | CMC 307  |
-| Friday    | 10-11       | Appts   | CMC 223  |
+| Day       | Time       | Type    | Location |
+|:----------|:-----------|:--------|:---------|
+| Monday    | 1:30-2:30  | Drop-in | CMC 307  |
+| Tuesday   | 3-4        | Drop-in | CMC 307  |
+| Wednesday | 12:30-1:30 | Drop-in | CMC 307  |
+| Friday    | 10-11      | Appts   | CMC 223  |
 
-## Where is Amanda this term? {.center}
+## Where is Amanda this term?
 
-
-![](../img/w26-schedule.png)
-
+![](../img/w26-schedule.png){.r-stretch}
 
 ## What will you do in this course?
 
@@ -236,7 +318,6 @@ aka "the one link to rule them all"
 -   Lab Quizzes
 -   Portfolio Projects
 -   Final Project
--   In-class exercises
 :::
 
 ::: {.column width="50%"}
@@ -277,18 +358,20 @@ aka "the one link to rule them all"
 
 ## Grading system {.smaller}
 
-Homework and lab quiz problems will be graded as *successful*, *half credit*,  or *not successful*.  Projects will be graded as *excellent*, *successful*, or *not successful*. You will have the opportunity to resubmit the lab quizzes outside of class.
+Homework and lab quiz problems will be graded as *successful*, *half credit*, or *not successful*. Projects will be graded as *excellent*, *successful*, or *not successful*. You will have the opportunity to resubmit the lab quizzes outside of class.
 
 To earn a course grade, you must meet **all** of the requirements in a given row:
 
-|   | Homework Problems | In class activities | Lab Quiz Problems | Portfolio Projects (4 total) | Final Project |
-|---------------|---------------|---------------|---------------|---------------|---------------|
-| A | 85% | 90% | 90% | 2 Excellent + 2 Successful | Excellent |
-| B | 75% | 80% | 80% | 4 Successful | Successful |
-| C | 65% | 70% | 70% | 3 Successful | Successful |
-| D | 55% | 50% | 50% | 2 Successful | Successful |
+|   | Homework Problems | Lab Quiz Problems | Portfolio Projects (4 total) | Final Project |
+|------------|------------|------------|------------|------------|
+| A | 85% | 90% | 2 Excellent + 2 Successful | Excellent |
+| B | 75% | 80% | 4 Successful | Successful |
+| C | 65% | 70% | 3 Successful | Successful |
+| D | 55% | 50% | 2 Successful | Successful |
 
 "+" and "-" grades are determined by partially meeting the requirements in a given row.
+
+*Note:* I expect daily attendance and participation. Missing \>5 class meetings or consistent issues with being on-task will result in a 1/3 grade deduction.
 
 ## Benefits
 
@@ -298,7 +381,7 @@ To earn a course grade, you must meet **all** of the requirements in a given row
 
 ## Possible drawbacks
 
--   No traditional partial credit! 
+-   No traditional partial credit!
 -   Half-credit is for *completed* and *mostly correct*
 -   Revisions take time
 -   Categories don't "average out"
@@ -309,7 +392,7 @@ You can use a token to:
 
 -   Revise a portfolio project that did not earn a "successful" or "excellent"
 -   72-hour extension on a homework assignment or portfolio project submission (the request must be submitted before the deadline)
--   72-hour extension on lab quiz resubmissions (the request must be submitted before the deadline)
+-   Retake a lab quiz \[\*\]
 -   By passing the syllabus quiz, you'll activate your 5 tokens for the term. I will track token balances in the moodle gradebook (updated weekly, typically Thursdays)
 
 ## Collaboration policy {.smaller}
@@ -331,7 +414,7 @@ You can use a token to:
 
     -   \(1\) *Cognitive dimension:* Working with AI should not reduce your ability to think clearly. AI should facilitate—rather than hinder—learning.
 
-    -   \(2\) *Ethical dimension***:** Students using AI should be transparent about their use and make sure it aligns with academic integrity.
+    -   \(2\) *Ethical dimension***:** If you use AI, you should be transparent about it and make sure it aligns with academic integrity.
 
 -   **❌ AI tools for writing code:** You may not use generative AI to take a "first pass" at a coding task. Do not type coursework prompts directly into AI tools.
 
@@ -343,11 +426,10 @@ You can use a token to:
 Adapted from Mine Çetinkaya-Rundel
 :::
 
-
 ## GitHub {.smaller}
 
 ::: {.large style="text-align: center;"}
-<https://github.com/stat220-w25>
+https://github.com/stat220-w26
 :::
 
 -   GitHub organization for the course
@@ -356,7 +438,7 @@ Adapted from Mine Çetinkaya-Rundel
 
 -   Each assignment is a private repo on GitHub, I distribute the assignments on GitHub.
 
--   You will work on your assignment, then "knit 🧶 commit ✅ push ⤴️"
+-   You will work on your assignment, then "render ➡️ commit ✅ push ⤴️"
 
 -   You'll then be able to submit your PDF via gradescope
 
@@ -388,6 +470,7 @@ Some brief advice about selecting your account names (particularly for GitHub),
 
 ## Your tasks before next class
 
+::: {.task .nonincremental}
 1.  Create a GitHub account if you don't have one
 
 2.  Complete the welcome survey if you haven't already
@@ -399,3 +482,5 @@ Some brief advice about selecting your account names (particularly for GitHub),
 5.  Make sure you can log in to the maize server or update your local R/RStudio versions
 
 6.  Complete the readings for next class
+:::
+
