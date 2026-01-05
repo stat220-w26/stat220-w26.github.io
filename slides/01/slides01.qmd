@@ -281,7 +281,7 @@ Read the full syllabus by next class
 ### Course website
 
 ::: {.large style="text-align: center;"}
-<https://stat220-s25.github.io>
+<https://stat220-w26.github.io>
 :::
 
 -   access slides
@@ -290,7 +290,7 @@ Read the full syllabus by next class
 ### Course github organization
 
 ::: {.large style="text-align: center;"}
-<https://github.com/stat220-s25>
+<https://github.com/stat220-26>
 :::
 
 -   access repositories for homework and projects
