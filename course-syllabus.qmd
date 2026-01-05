@@ -154,6 +154,10 @@ Your course grade is assigned using the table below. Each row indicates the mini
 
 *Example:* Mira finishes the course with 88% of homework problems successfully completed, 85% of lab quiz problems successfully completed, 3/4 portfolio projects marked "excellent", and a "Successful" final project. Mira satisfies everything in the "B" row, and meets the "A" threshold for two bins (homework and portfolio projects). Mira earns a B+. If Mira instead receives "excellent" marks on the final project, Mira earns an A-.
 
+## Attendance and participation policy
+
+I expect daily attendance and participation. Missing \>5 class meetings or ongoing, consistent issues with being on-task will result in a 1/3 grade deduction.
+
 ## Important points about this grading system
 
 -   Different categories of coursework do not "average together": you can't make up for less-than-great work on portfolio projects by doing very well on quizzes, for instance. Each course grade requires *consistent quality across all bins* to earn the grade
