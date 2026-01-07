@@ -385,18 +385,16 @@ right values.
 5. At this point it looks like everything is working—awesome job! To put it to the test, let’s update the parameters of your report and knit it to see if everything changes as we would expect. Here are the new parameter values:
 
 ``` yaml
-data: "http://math.carleton.edu/aluby/stat220/lego_subset.csv"
-data_source: "Amanda's website"
+data: "https://raw.githubusercontent.com/stat220-w26/stat220-w26.github.io/refs/heads/main/data/lego_subset.csv"
+data_source: "Stat220 website"
 ```
 
 
 6. (optional) If you have time, or would like to try outside of class, I've created a practice gradescope assignment space. First, add .pdf output to your document and knit to PDF. Commit the PDF and push to github. Then, log into gradescope (you may have to go through the link on moodle the first time) and link your github repo to the submission space.
 
 ``` yaml
-output: 
-  html_document:
-    default
-  pdf_document:
-    default
+format: 
+  html: default
+  pdf: default
 ```
 :::
