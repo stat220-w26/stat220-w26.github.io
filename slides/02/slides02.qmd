@@ -98,11 +98,11 @@ library(ymlthis)
 ::: task 
 
 -   Follow the "Individual Assignment" directions at <https://stat220-s25.github.io/computing/git-stat220.html> to access your `day02` repo and create an R project
--   Edit the .Rmd file:
+-   Edit the .qmd file:
     -   Change "author" to your name
     -   Use `#` to add descriptive section headers for each code chunk
     -   Add a sentence or two describing the summary statistics of the dataset
--   knit 🧶 commit ✅ push ⤴️
+-   render ➡️ commit ✅ push ⤴️
 -   View on `github.com` and confirm you can see your changes
 
 :::
@@ -173,19 +173,19 @@ knitr::include_graphics("../img/01-repro-toolkit.png")
 
 -   Code environment $\rightarrow$ RStudio
 
--   Literate programming (code, narrative, output in one place) $\rightarrow$ R Markdown
+-   Literate programming (code, narrative, output in one place) $\rightarrow$ Quarto
 
 -   Version control $\rightarrow$ Git / GitHub
 
 ##  {background-image="../img/horst_rmarkdown_wizards.png" background-size="contain"}
 
-## What is R Markdown?
+## What is Quarto?
 
 1.  An authoring framework for data science.
 
-2.  A document format (`.Rmd`).
+2.  A document format (`.qmd`).
 
-3.  An R package named `rmarkdown`.
+3.  A software package
 
 4.  A file format for making dynamic documents with R.
 
@@ -193,36 +193,125 @@ knitr::include_graphics("../img/01-repro-toolkit.png")
 
 6.  A computational document.
 
-## What about `quarto`? {background-image="../img/horst_quarto_inout.png" background-position="bottom" background-size="70%"}
+## Anatomy of a quarto doc
 
--   "Next Gen" RMarkdown
--   More compatibility with other languages (python, observable.js, etc.)
--   *not* an R package/separate software
--   I'm going to distribute HW, etc. via RMarkdown, but you are welcome to use either!
+## Chunk Options
 
-## The setup chunk
+```{r}
+#| echo: false
 
-::::: columns
-::: {.column width="50%"}
-````         
-```{r setup, include=FALSE}`r ''`
-knitr::opts_chunk$set(
-  collapse = TRUE,   
-  comment = "#>", 
-  out.width = "100%" 
-)
+test_function = function(x){
+  print(x)
+  message("This is a message.")
+  warning("This is a warning!")
+}
+
+```
+
+::: {.panel-tabset}
+## Default
+
+What's in .qmd: 
+
+````
+```
+test_function(20)
 ```
 ````
+
+How it looks in rendered file: 
+
+```{r}
+test_function(20)
+```
+
+## message
+
+What's in .qmd: 
+
+````
+```
+#| message: false
+test_function(20)
+```
+````
+
+How it looks in rendered file: 
+
+```{r}
+#| message: false
+test_function(20)
+```
+
+## warning
+
+What's in .qmd: 
+
+````
+```
+#| warning: false
+test_function(20)
+```
+````
+
+How it looks in rendered file: 
+
+```{r}
+#| warning: false
+test_function(20)
+```
+
+## echo
+
+What's in .qmd: 
+
+````
+```
+#| echo: false
+test_function(20)
+```
+````
+
+How it looks in rendered file: 
+
+```{r}
+#| echo: false
+test_function(20)
+```
+
+## eval
+
+What's in .qmd: 
+
+````
+```
+#| eval: false
+test_function(20)
+```
+````
+
+How it looks in rendered file: 
+
+```{r}
+#| eval: false
+test_function(20)
+```
+
 :::
 
-::: {.column width="50%"}
--   A special chunk label: `setup`
--   Typically #1
--   All following chunks will use these options (i.e., sets global chunk options)
--   **Tip**: set `include=FALSE`
--   You can (and should) use individual chunk options too
-:::
-:::::
+## Global options
+
+Sometimes, you'll want to set every chunk option at once. You can do so in the YAML header using `execute`:
+
+```{r}
+#| eval: FALSE
+---
+title: "My report"
+author: "Amanda Luby"
+execute:
+  echo: false
+---
+```
 
 ## Parameters
 
