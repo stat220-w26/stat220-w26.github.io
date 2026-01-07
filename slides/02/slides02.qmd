@@ -109,10 +109,12 @@ library(ymlthis)
 ::: callout-warning
 ## Help! I don't have a `day02` repo
 
+::: nonincremental
 - Never received github invite &rarr; Fill out the Welcome survey
 - Never accepted GitHub invite  &rarr; Look for it in your email and accept it
 - Opening repo in Rstudio failes &rarr; Review/redo the steps in Git/Github for Stat220 for setting up PAT
 - Still no luck? &rarr; Come to office hours or make an appointment with me! 
+:::
 :::
 
 ```{r echo=FALSE}
