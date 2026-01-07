@@ -45,7 +45,7 @@ unscaled_cancer <- read_csv("https://raw.githubusercontent.com/UBC-DSCI/introduc
 ## Bakeoff data (season 14 only)
 
 ```{r}
-bakeoff = read_csv("https://stat220-s25.github.io/data/bakeoff-episodes.csv") |>
+bakeoff = read_csv("https://stat220-w26.github.io/data/bakeoff-episodes.csv") |>
   filter(series == 14)
 
 bakeoff
@@ -377,7 +377,7 @@ map(penguins, summarize_depends)
 
 ```{r}
 #| echo: false
-load(url("https://stat220-s25.github.io/data/combining-data-examples.Rda"))
+load(url("https://stat220-w26.github.io/data/combining-data-examples.Rda"))
 ```
 
 ```{r}

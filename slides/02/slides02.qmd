@@ -32,16 +32,14 @@ library(ymlthis)
 1.  Questions from syllabus quiz
 2.  Github
     -   Accessing your private repos
-    -   knit 🧶 commit ✅ push ⤴️
+    -   render ➡️ commit ✅ push ⤴️
 3.  Reproducible Reporting
 
 ## Questions from syllabus quiz
 
--   Will the course build off of Stat120 concepts?
--   Clarification of what gets submitted to gradescope and what to GitHub
--   RMarkdown versus Quarto?
--   Examples of previous final projects? 
--   Info about portfolio projects? 
+- Software packages for local installation
+- Will the lab quizzes require memorizing R code?
+- Tokens
 
 # Github {.maize}
 
@@ -92,7 +90,7 @@ library(ymlthis)
 
 ## {background-image="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/68739659-fb6f-41e8-9813-32e1de3d82c0_rw_3840.png?h=5c36d3c50c350a440567a1f8f72ac028" background-size="contain"}
 
-## Let's try it! {.scrollable}
+## Let's try it! {.smaller}
 
 :::: nonincremental
 ::: task 
@@ -107,6 +105,15 @@ library(ymlthis)
 
 :::
 ::::
+
+::: callout-warning
+## Help! I don't have a `day02` repo
+
+- Never received github invite &rarr; Fill out the Welcome survey
+- Never accepted GitHub invite  &rarr; Look for it in your email and accept it
+- Opening repo in Rstudio failes &rarr; Review/redo the steps in Git/Github for Stat220 for setting up PAT
+- Still no luck? &rarr; Come to office hours or make an appointment with me! 
+:::
 
 ```{r echo=FALSE}
 countdown(minutes = 15, seconds = 0)
@@ -315,7 +322,9 @@ execute:
 
 ## Parameters
 
-```{r echo = FALSE}
+```{r}
+#| echo: false
+#| warning: false
 yml_empty() %>% 
   yml_title("Survivor") %>% 
   yml_output(html_document(toc = TRUE,
@@ -327,14 +336,14 @@ yml_empty() %>%
   asis_yaml_output()
 ```
 
-## Your Task
+## Your Task {.smaller}
 
 :::: nonincremental
 
 ::: task 
 There's an example HTML report on the schedule
 
-Your task is to reproduce it in `02-example-lego.rmd` (or .qmd, if you prefer).
+Your task is to reproduce it in `02-example-lego.qmd` 
 
 To be as reproducible as possible, you'll need to use:
 
@@ -345,6 +354,14 @@ To be as reproducible as possible, you'll need to use:
 :::
 
 ::::
+
+::: callout-tip
+## Where do I find `02-example-lego.qmd`?
+
+If you have a `day02` repo, use that! 
+
+If you don't have a `day02` repo, you can find `02-example-lego.qmd` on the schedule
+:::
 
 ## Hints {.scrollable .smaller}
 

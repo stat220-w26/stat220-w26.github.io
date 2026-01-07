@@ -2,7 +2,11 @@
 title: "02: Lego Report"
 ---
 
-*Note:* Use this file as starter code. Your goal is to create a knitted report file that matches the file at stat220-s25.github.io/files/02-lego-report.html
+*Note:* Use this file as starter code. Your goal is to create a knitted report file that matches the file at <https://stat220-s25.github.io/files/02-lego-report.html>
+
+::: callout-tip
+If you need a refresher for how to access the quarto file from this document, see [Activity01](01-un-votes.html)
+:::
 
 ```{r}
 # Source: TidyTuesday 9/6/2022
