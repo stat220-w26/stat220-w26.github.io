@@ -9,9 +9,7 @@ title: "Useful links"
 +----------------------------+-----------------------------------------------------------------------------+
 | Gradebook                  | 🔗 on [Moodle](https://moodle.carleton.edu/course/view.php?id=44937)        |
 +----------------------------+-----------------------------------------------------------------------------+
-| Spend a Token              | 🔗 [Spend a token](https://forms.gle/oxmKhV9Lf6APQ1M16)                     |
-+----------------------------+-----------------------------------------------------------------------------+
-| Submit in-class activities | 🔗 [Submission Form](https://forms.gle/GHSAL9GdXoLP3S81A)                   |
+| Spend a Token              | 🔗 [Spend a token](https://forms.gle/aa59m9WVn7u2Bhwo8)                     |
 +----------------------------+-----------------------------------------------------------------------------+
 | Textbooks                  | 🔗 [Modern Data Science with R (MDS)](https://mdsr-book.github.io/mdsr3e/)  |
 |                            |                                                                             |
