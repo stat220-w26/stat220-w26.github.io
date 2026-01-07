@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8cab17c520dfb5fd83702a774e8ef3fe.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.23">
 
   <meta name="author" content="Prof Amanda Luby">
   <title>Stat 220 – Github +   Reproducible   Reporting</title>
@@ -220,7 +220,7 @@ Prof Amanda Luby
 <li class="fragment">Github
 <ul>
 <li class="fragment">Accessing your private repos</li>
-<li class="fragment">knit 🧶 commit ✅ push ⤴️</li>
+<li class="fragment">render ➡️ commit ✅ push ⤴️</li>
 </ul></li>
 <li class="fragment">Reproducible Reporting</li>
 </ol>
@@ -228,11 +228,9 @@ Prof Amanda Luby
 <section id="questions-from-syllabus-quiz" class="slide level2">
 <h2>Questions from syllabus quiz</h2>
 <ul>
-<li class="fragment">Will the course build off of Stat120 concepts?</li>
-<li class="fragment">Clarification of what gets submitted to gradescope and what to GitHub</li>
-<li class="fragment">RMarkdown versus Quarto?</li>
-<li class="fragment">Examples of previous final projects?</li>
-<li class="fragment">Info about portfolio projects?</li>
+<li class="fragment">Software packages for local installation</li>
+<li class="fragment">Will the lab quizzes require memorizing R code?</li>
+<li class="fragment">Tokens</li>
 </ul>
 </section>
 <section>
@@ -291,24 +289,42 @@ Prof Amanda Luby
 <section id="section-2" class="slide level2" data-background-image="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/68739659-fb6f-41e8-9813-32e1de3d82c0_rw_3840.png?h=5c36d3c50c350a440567a1f8f72ac028" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="lets-try-it" class="slide level2 scrollable">
+<section id="lets-try-it" class="slide level2 smaller">
 <h2>Let’s try it!</h2>
 <div class="task">
 <ul>
 <li>Follow the “Individual Assignment” directions at <a href="https://stat220-s25.github.io/computing/git-stat220.html" class="uri">https://stat220-s25.github.io/computing/git-stat220.html</a> to access your <code>day02</code> repo and create an R project</li>
-<li>Edit the .Rmd file:
+<li>Edit the .qmd file:
 <ul>
 <li>Change “author” to your name</li>
 <li>Use <code>#</code> to add descriptive section headers for each code chunk</li>
 <li>Add a sentence or two describing the summary statistics of the dataset</li>
 </ul></li>
-<li>knit 🧶 commit ✅ push ⤴️</li>
+<li>render ➡️ commit ✅ push ⤴️</li>
 <li>View on <code>github.com</code> and confirm you can see your changes</li>
 </ul>
 </div>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Help! I don’t have a <code>day02</code> repo</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li class="fragment">Never received github invite → Fill out the Welcome survey</li>
+<li class="fragment">Never accepted GitHub invite → Look for it in your email and accept it</li>
+<li class="fragment">Opening repo in Rstudio failes → Review/redo the steps in Git/Github for Stat220 for setting up PAT</li>
+<li class="fragment">Still no luck? → Come to office hours or make an appointment with me!</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_89030ce5" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_42d45a15" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -381,82 +397,149 @@ Prof Amanda Luby
 <ul>
 <li class="fragment"><p>Scriptability <span class="math inline">\(\rightarrow\)</span> R</p></li>
 <li class="fragment"><p>Code environment <span class="math inline">\(\rightarrow\)</span> RStudio</p></li>
-<li class="fragment"><p>Literate programming (code, narrative, output in one place) <span class="math inline">\(\rightarrow\)</span> R Markdown</p></li>
+<li class="fragment"><p>Literate programming (code, narrative, output in one place) <span class="math inline">\(\rightarrow\)</span> Quarto</p></li>
 <li class="fragment"><p>Version control <span class="math inline">\(\rightarrow\)</span> Git / GitHub</p></li>
 </ul>
 </section>
 <section id="section-3" class="slide level2" data-background-image="../img/horst_rmarkdown_wizards.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="what-is-r-markdown" class="slide level2 scrollable">
-<h2>What is R Markdown?</h2>
+<section id="what-is-quarto" class="slide level2 scrollable">
+<h2>What is Quarto?</h2>
 <ol type="1">
 <li class="fragment"><p>An authoring framework for data science.</p></li>
-<li class="fragment"><p>A document format (<code>.Rmd</code>).</p></li>
-<li class="fragment"><p>An R package named <code>rmarkdown</code>.</p></li>
+<li class="fragment"><p>A document format (<code>.qmd</code>).</p></li>
+<li class="fragment"><p>A software package</p></li>
 <li class="fragment"><p>A file format for making dynamic documents with R.</p></li>
 <li class="fragment"><p>A tool for integrating prose, code, and results.</p></li>
 <li class="fragment"><p>A computational document.</p></li>
 </ol>
 </section>
-<section id="what-about-quarto" class="slide level2" data-background-image="../img/horst_quarto_inout.png" data-background-position="bottom" data-background-size="70%">
-<h2>What about <code>quarto</code>?</h2>
-<ul>
-<li class="fragment">“Next Gen” RMarkdown</li>
-<li class="fragment">More compatibility with other languages (python, observable.js, etc.)</li>
-<li class="fragment"><em>not</em> an R package/separate software</li>
-<li class="fragment">I’m going to distribute HW, etc. via RMarkdown, but you are welcome to use either!</li>
-</ul>
+<section id="anatomy-of-a-quarto-doc" class="slide level2">
+<h2>Anatomy of a quarto doc</h2>
 </section>
-<section id="the-setup-chunk" class="slide level2">
-<h2>The setup chunk</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<pre><code>```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,   
-  comment = "#&gt;", 
-  out.width = "100%" 
-)
+<section id="chunk-options" class="slide level2">
+<h2>Chunk Options</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Default</a></li><li><a href="#tabset-1-2">message</a></li><li><a href="#tabset-1-3">warning</a></li><li><a href="#tabset-1-4">echo</a></li><li><a href="#tabset-1-5">eval</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p>What’s in .qmd:</p>
+<pre><code>```
+test_function(20)
 ```</code></pre>
-</div><div class="column" style="width:50%;">
-<ul>
-<li class="fragment">A special chunk label: <code>setup</code></li>
-<li class="fragment">Typically #1</li>
-<li class="fragment">All following chunks will use these options (i.e., sets global chunk options)</li>
-<li class="fragment"><strong>Tip</strong>: set <code>include=FALSE</code></li>
-<li class="fragment">You can (and should) use individual chunk options too</li>
-</ul>
-</div></div>
+<p>How it looks in rendered file:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">test_function</span>(<span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>This is a message.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in test_function(20): This is a warning!</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<p>What’s in .qmd:</p>
+<pre><code>```
+#| message: false
+test_function(20)
+```</code></pre>
+<p>How it looks in rendered file:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">test_function</span>(<span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in test_function(20): This is a warning!</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<p>What’s in .qmd:</p>
+<pre><code>```
+#| warning: false
+test_function(20)
+```</code></pre>
+<p>How it looks in rendered file:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">test_function</span>(<span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-4">
+<p>What’s in .qmd:</p>
+<pre><code>```
+#| echo: false
+test_function(20)
+```</code></pre>
+<p>How it looks in rendered file:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>This is a message.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in test_function(20): This is a warning!</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-5">
+<p>What’s in .qmd:</p>
+<pre><code>```
+#| eval: false
+test_function(20)
+```</code></pre>
+<p>How it looks in rendered file:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">test_function</span>(<span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="global-options" class="slide level2">
+<h2>Global options</h2>
+<p>Sometimes, you’ll want to set every chunk option at once. You can do so in the YAML header using <code>execute</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="sc">---</span></span>
+<span id="cb19-2"><a></a>title<span class="sc">:</span> <span class="st">"My report"</span></span>
+<span id="cb19-3"><a></a>author<span class="sc">:</span> <span class="st">"Amanda Luby"</span></span>
+<span id="cb19-4"><a></a>execute<span class="sc">:</span></span>
+<span id="cb19-5"><a></a>  echo<span class="sc">:</span> false</span>
+<span id="cb19-6"><a></a><span class="sc">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="parameters" class="slide level2">
 <h2>Parameters</h2>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: `vec_depth()` was deprecated in purrr 1.0.0.
-ℹ Please use `pluck_depth()` instead.
-ℹ The deprecated feature was likely used in the ymlthis package.
-  Please report the issue at &lt;https://github.com/r-lib/ymlthis/issues&gt;.</code></pre>
-</div>
 <div class="cell-output-display">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a></a><span class="pp">---</span></span>
-<span id="cb3-2"><a></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Survivor</span></span>
-<span id="cb3-3"><a></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb3-4"><a></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
-<span id="cb3-5"><a></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb3-6"><a></a><span class="at">    </span><span class="fu">toc_float</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb3-7"><a></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> flatly</span></span>
-<span id="cb3-8"><a></a><span class="fu">params</span><span class="kw">:</span></span>
-<span id="cb3-9"><a></a><span class="at">  </span><span class="fu">season</span><span class="kw">:</span><span class="at"> </span><span class="st">'20'</span></span>
-<span id="cb3-10"><a></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a></a><span class="pp">---</span></span>
+<span id="cb20-2"><a></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Survivor</span></span>
+<span id="cb20-3"><a></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb20-4"><a></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb20-5"><a></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb20-6"><a></a><span class="at">    </span><span class="fu">toc_float</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb20-7"><a></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> flatly</span></span>
+<span id="cb20-8"><a></a><span class="fu">params</span><span class="kw">:</span></span>
+<span id="cb20-9"><a></a><span class="at">  </span><span class="fu">season</span><span class="kw">:</span><span class="at"> </span><span class="st">'20'</span></span>
+<span id="cb20-10"><a></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
-<section id="your-task" class="slide level2">
+<section id="your-task" class="slide level2 smaller">
 <h2>Your Task</h2>
 <div class="task">
 <p>There’s an example HTML report on the schedule</p>
-<p>Your task is to reproduce it in <code>02-example-lego.rmd</code> (or .qmd, if you prefer).</p>
+<p>Your task is to reproduce it in <code>02-example-lego.qmd</code></p>
 <p>To be as reproducible as possible, you’ll need to use:</p>
 <ul>
 <li>YAML metadata</li>
@@ -464,6 +547,20 @@ knitr::opts_chunk$set(
 <li>Code chunks with appropriate options</li>
 <li>Inline R code</li>
 </ul>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Where do I find <code>02-example-lego.qmd</code>?</strong></p>
+</div>
+<div class="callout-content">
+<p>If you have a <code>day02</code> repo, use that!</p>
+<p>If you don’t have a <code>day02</code> repo, you can find <code>02-example-lego.qmd</code> on the schedule</p>
+</div>
+</div>
 </div>
 </section>
 <section id="hints" class="slide level2 scrollable smaller">
@@ -479,16 +576,16 @@ knitr::opts_chunk$set(
 <li><p>Now, let’s make a parameter for the source of the data set so you don’t have to search where every mention of it in the report, it will be with the other metadata (where it belongs). To do this, add a parameter that gives the source of your data (call it <code>data_source</code>) and set it equal to “the <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-09-06">2022-09-09 repository</a> on <a href="https://github.com/rfordatascience/tidytuesday">Tidy Tuesday</a>.” Make sure the report knits.</p></li>
 <li><p>At this point it looks like everything is working—awesome job! To put it to the test, let’s update the parameters of your report and knit it to see if everything changes as we would expect. Here are the new parameter values:</p></li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a></a><span class="fu">data</span><span class="kw">:</span><span class="at"> </span><span class="st">"http://math.carleton.edu/aluby/stat220/lego_subset.csv"</span></span>
-<span id="cb4-2"><a></a><span class="fu">data_source</span><span class="kw">:</span><span class="at"> </span><span class="st">"Amanda's website"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a></a><span class="fu">data</span><span class="kw">:</span><span class="at"> </span><span class="st">"http://math.carleton.edu/aluby/stat220/lego_subset.csv"</span></span>
+<span id="cb21-2"><a></a><span class="fu">data_source</span><span class="kw">:</span><span class="at"> </span><span class="st">"Amanda's website"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="6" type="1">
 <li>(optional) If you have time, or would like to try outside of class, I’ve created a practice gradescope assignment space. First, add .pdf output to your document and knit to PDF. Commit the PDF and push to github. Then, log into gradescope (you may have to go through the link on moodle the first time) and link your github repo to the submission space.</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
-<span id="cb5-3"><a></a><span class="at">    default</span></span>
-<span id="cb5-4"><a></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span></span>
-<span id="cb5-5"><a></a><span class="at">    default</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb22-1"><a></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb22-2"><a></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb22-3"><a></a><span class="at">    default</span></span>
+<span id="cb22-4"><a></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span></span>
+<span id="cb22-5"><a></a><span class="at">    default</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section></section>
