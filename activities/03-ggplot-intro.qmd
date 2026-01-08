@@ -196,5 +196,5 @@ ggplot(data = mpg) +
 ```
 
 
-**When you're done:** make sure to submit your .rmd at the [in-class activity submission google form](https://forms.gle/GHSAL9GdXoLP3S81A). 
+**When you're done:** post your completed graph for the last question on the "Week 1 - Friday" discussion thread on Ed. 
 
