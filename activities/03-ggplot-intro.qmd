@@ -1,19 +1,22 @@
 ---
 title: Intro to `ggplot2`
+execute:
+  eval: false
+  echo: true
+  message: false
+  warning: false
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(
-  eval = FALSE,
-  echo = TRUE,   
-  message = FALSE, 
-  warning = FALSE 
-)
-
+#| eval: true
 q <- 0
 ```
 
-*Note:* the `setup` chunk includes the line `eval = FALSE`. Make sure to delete this when you are ready to knit your file.
+::: callout-tip
+## Note: 
+
+The YAML header includes the line `eval: false`. Make sure to delete this when you are ready to render your file.
+:::
 
 ```{r}
 #| out.width: 50%
@@ -57,6 +60,12 @@ Run `summary(season_summary$viewers_reunion)` and describe what you find.
 
 **`r (q <- q+1)`.** Another handy function is `unique()`. Run `unique()` on the `timeslot` variable to see all the different times that Survivor has aired over the years. 
 
+::: callout-important
+## Wait!
+
+Stop here and wait for the next round of groups before moving on
+:::
+
 ## Round 2: Scatterplots
 
 First, let’s create a scatterplot of `viewers_finale` (the number of viewers for the last episode of the season) vs. `viewers_premiere` (the number of viewers for the first episode of the season).
@@ -92,6 +101,12 @@ ggplot(data = ___, x = ___, y = ___)
 ggplot(data = ___)
 ```
 
+::: callout-important
+## Wait!
+
+Stop here and wait for the next round of groups before moving on
+:::
+
 ## Round 3: Additional Aesthetics
 
 `x` and `y` are not the only aesthetic mappings possible. In this section you’ll explore the `color`, `size`, `shape`, and `alpha` (i.e. transparency) aesthetics.
@@ -114,6 +129,12 @@ ggplot(data = ___) +
 **`r (q <- q+1)`.** Look back at your scatterplots from the last few questions. Explain the differences when you map aesthetics to discrete and continuous variables.
 
 **`r (q <- q+1)`.** Create a scatterplot of `viewers_finale` vs. `viewers_premiere`. Use `alpha` to represent the `season`.
+
+::: callout-important
+## Wait!
+
+Stop here and wait for the next round of groups before moving on
+:::
 
 ## Round 4: Visualizing Distributions
 
@@ -150,6 +171,12 @@ ggplot(___) +
 ```{r}
 # Put your violin plot code here
 ```
+
+::: callout-important
+## Wait!
+
+Stop here and wait for the next round of groups before moving on
+:::
 
 ## Round 5: Bar and column charts + Labeling
 
@@ -196,5 +223,13 @@ ggplot(data = mpg) +
 ```
 
 
-**When you're done:** post your completed graph for the last question on the "Week 1 - Friday" discussion thread on Ed. 
+::: callout-important
+## When you're done
+
+Make a post on the "Week 1 - Friday" discussion thread on Ed. 
+
+- Option 1: If you have any lingering questions about ggplot, feel free to post them
+- Option 2: You can also post your final graph for the last question! 
+:::
+
 

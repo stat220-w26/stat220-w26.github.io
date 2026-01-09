@@ -31,6 +31,18 @@ slides_theme = theme_minimal(
 theme_set(slides_theme)
 ```
 
+## Communication in Stat220
+
+Until HW2 is due on Wednesday, trying out both Slack and Ed
+
+::: nonincremental
+- For help with R or homework &rarr; slack/Ed
+- For quick communication  &rarr; slack/Ed
+- For personal situations &rarr; email
+:::
+
+I check Slack/Ed 2x daily and respond to everything, so you can expect a response within 24 hours during the work week. I try to respond to emails daily but Stat220 gets "lumped" with everything else. I'll try to respond within 48 hours during the week.
+
 ## Plan for today:
 
 1.  Quick grammar of graphics recap
@@ -59,11 +71,11 @@ penguins %>%
   kableExtra::scroll_box(width = "70%")
 ```
 
-## Aesthetic {background-image="../img/02-ggplot-layers.png" background-size="60%" background-position="right" background-opacity="0.5"}
+## Aesthetic Mapping {background-image="../img/02-ggplot-layers.png" background-size="60%" background-position="right" background-opacity="0.5"}
 
 :::: columns
 ::: {.column width="50%"}
-A visual property of the objects in the plot
+Visual properties that the data is mapped to
 
 -   x → body mass
 
@@ -79,7 +91,7 @@ A visual property of the objects in the plot
 ::: {.column width="50%"}
 How the data are represented
 
--   points!
+-   individual penguins → points
 :::
 ::::
 
@@ -91,6 +103,10 @@ How the data are represented
 ggplot(data = <dataset_name>) + 
   <geom_function>(mapping = aes(<mappings>))
 ```
+
+- data: `data = `
+- aesthetic: `mapping = aes(...)`
+- geometry: `geom_function`
 
 ## Examples
 
@@ -187,10 +203,19 @@ ggplot(penguins, aes(x = body_mass_g)) +
 
 ## How it works
 
+::: nonincremental
+
 1.  Draw a card
 2.  Find your number's location
 3.  Introduce yourselves
 4.  Get to work!
+:::
+
+::: callout-important
+## Wait!
+
+If you finish the problems in one section, please wait to move on until the next round of groups
+:::
 
 ## Round 1: View the data + pipes
 
