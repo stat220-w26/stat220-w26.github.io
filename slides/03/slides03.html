@@ -215,6 +215,16 @@ Prof Amanda Luby
 </div>
 
 </section>
+<section id="communication-in-stat220" class="slide level2">
+<h2>Communication in Stat220</h2>
+<p>Until HW2 is due on Wednesday, trying out both Slack and Ed</p>
+<ul>
+<li>For help with R or homework → slack/Ed</li>
+<li>For quick communication → slack/Ed</li>
+<li>For personal situations → email</li>
+</ul>
+<p>I check Slack/Ed 2x daily and respond to everything, so you can expect a response within 24 hours during the work week. I try to respond to emails daily but Stat220 gets “lumped” with everything else. I’ll try to respond within 48 hours during the week.</p>
+</section>
 <section id="plan-for-today" class="slide level2 scrollable">
 <h2>Plan for today:</h2>
 <ol type="1">
@@ -3704,11 +3714,11 @@ Prof Amanda Luby
 </div>
 </div>
 </section>
-<section id="aesthetic" class="slide level2" data-background-image="../img/02-ggplot-layers.png" data-background-size="60%" data-background-position="right" data-background-opacity="0.5">
-<h2>Aesthetic</h2>
+<section id="aesthetic-mapping" class="slide level2" data-background-image="../img/02-ggplot-layers.png" data-background-size="60%" data-background-position="right" data-background-opacity="0.5">
+<h2>Aesthetic Mapping</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>A visual property of the objects in the plot</p>
+<p>Visual properties that the data is mapped to</p>
 <ul>
 <li class="fragment"><p>x → body mass</p></li>
 <li class="fragment"><p>y → flipper length</p></li>
@@ -3722,7 +3732,7 @@ Prof Amanda Luby
 <div class="column" style="width:50%;">
 <p>How the data are represented</p>
 <ul>
-<li class="fragment">points!</li>
+<li class="fragment">individual penguins → points</li>
 </ul>
 </div></div>
 </section>
@@ -3732,6 +3742,11 @@ Prof Amanda Luby
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>dataset_name<span class="sc">&gt;</span>) <span class="sc">+</span> </span>
 <span id="cb1-2"><a></a>  <span class="er">&lt;</span>geom_function<span class="sc">&gt;</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="sc">&lt;</span>mappings<span class="sc">&gt;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<ul>
+<li class="fragment">data: <code>data =</code></li>
+<li class="fragment">aesthetic: <code>mapping = aes(...)</code></li>
+<li class="fragment">geometry: <code>geom_function</code></li>
+</ul>
 </section>
 <section id="examples" class="slide level2">
 <h2>Examples</h2>
@@ -3818,17 +3833,30 @@ Prof Amanda Luby
 <section id="how-it-works" class="slide level2 scrollable">
 <h2>How it works</h2>
 <ol type="1">
-<li class="fragment">Draw a card</li>
-<li class="fragment">Find your number’s location</li>
-<li class="fragment">Introduce yourselves</li>
-<li class="fragment">Get to work!</li>
+<li>Draw a card</li>
+<li>Find your number’s location</li>
+<li>Introduce yourselves</li>
+<li>Get to work!</li>
 </ol>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Wait!</strong></p>
+</div>
+<div class="callout-content">
+<p>If you finish the problems in one section, please wait to move on until the next round of groups</p>
+</div>
+</div>
+</div>
 </section>
 <section id="round-1-view-the-data-pipes" class="slide level2">
 <h2>Round 1: View the data + pipes</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_21f57c52" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_b6c680e4" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -3839,7 +3867,7 @@ Prof Amanda Luby
 <h2>Round 2: Scatterplots</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_4d28ce75" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_7abaa84c" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -3850,7 +3878,7 @@ Prof Amanda Luby
 <h2>Round 3: Additional Aesthetics</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_c88a0096" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_15de124f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -3861,7 +3889,7 @@ Prof Amanda Luby
 <h2>Round 4: Visualizing Distributions</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_23a1089e" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_81052a55" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -3872,7 +3900,7 @@ Prof Amanda Luby
 <h2>Round 5: Bar and column charts + Labeling</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_d00b0fbb" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_a1e138d0" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
