@@ -2,11 +2,13 @@
 title: "04: Customizing plots"
 ---
 
-```{r setup, include=FALSE}
+::: callout-tip
+If you need a refresher for how to access the quarto file from this document, see [Activity01](01-un-votes.html)
+:::
+
+```{r}
 library(tidyverse)
 library(ggthemes)
-
-knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Load Data
@@ -18,9 +20,10 @@ season_summary = readr::read_csv("https://raw.githubusercontent.com/stat220-w26/
   separate(timeslot, into = c("day_of_week", "time"))
 ```
 
-## Make histogram
+## Replicate histogram
 
 ```{r}
 # Include your code here
 
 ```
+

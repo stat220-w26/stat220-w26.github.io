@@ -79,6 +79,25 @@ theme_set(theme_gray(
 -   Changing themes
 -   Adding annotations
 
+## Survivor 
+
+From Season02 to Season 20, Survivor aired on Thursdays. After Season 20, it switched to airing on Wednesdays. Thursday is better for my schedule, so I'd like to make an argument for switching back to Thursdays.
+
+```{r}
+#| echo: false
+#| fig-width: 8
+
+season_summary = readr::read_csv(here::here(here::here(), "data/survivor_season_summary.csv")) |>
+  separate(timeslot, into = c("day_of_week", "time"))
+
+
+
+hist1 = ggplot(season_summary) + 
+  geom_histogram(aes(x = imdb_mean, fill = day_of_week), bins = 15) 
+
+hist1
+```
+
 ## Warm Up {.smaller}
 
 :::::: columns
@@ -86,9 +105,9 @@ theme_set(theme_gray(
 ::: {.task .nonincremental}
 1.  Log into maize
     -   If you have to type your PAT in everytime you push to GitHub, follow the directions at [Getting Set up with Git and GitHub](https://stat220-w25.github.io/computing/git-stat220.html#getting-setup-with-git-and-github) #4 to tell RStudio to save your credentials
-2.  Find the `.rmd` template for today at the course website
-3.  Choose your favorite way to open it up in maize/Rstudio
-4.  Work with a neighbor to recreate this graph --\> (use 15 bins)
+2.  Find the `.qmd` template for today at the course website
+3.  Open it up in maize/Rstudio
+4.  Work with a neighbor to recreate this graph &rarr; (use 15 bins)
 :::
 ::::
 
@@ -129,7 +148,7 @@ hist1
 We're not quite satisfied....
 
 -   I want the bars to have a border that stands out
--   Let's try a facetted graph
+-   I find stacked histograms hard to read
 -   I don't like the default color scheme
 -   I don't like the gray background
 :::
@@ -225,24 +244,12 @@ ggplot(season_summary) +
 RColorBrewer::display.brewer.all()
 ```
 
-## Example (built-in scale)
+## Aside: types of color scales
 
-```{r}
-#| echo: true
-#| code-line-numbers: "7"
-#| output-location: column
-
-ggplot(season_summary) + 
-  geom_histogram(
-    aes(x = imdb_mean, fill = day_of_week), 
-    bins = 15,
-    color = "white"
-    ) + 
-  scale_fill_viridis_d(option = "mako")
-```
+![](../img/color-scales-intro.avif)
 
 ::: aside
-To see all the options built into R (or add-on packages): [Color Palette Finder](https://r-graph-gallery.com/color-palette-finder)
+Source: [Datawrapper Blog](https://www.datawrapper.de/blog/which-color-scale-to-use-in-data-vis)
 :::
 
 ## Example (manual color palette)
@@ -430,6 +437,14 @@ countdown(0, 30)
 -   Get rid of .5's in x-axis
 -   Annotations
 
+## 
+
+![](../img/ggplot2-theme-elements-reference-v2.png)
+
+::: {.aside}
+Source: [Isabella Benabaye](https://isabella-b.com/blog/ggplot2-theme-elements-reference/)
+:::
+
 ## `?theme`
 
 ```{r}
@@ -602,6 +617,40 @@ ggplot(season_summary) +
            col = "navyblue")
 ```
 
+## Increase text size
+
+```{r}
+#| echo: true
+#| code-line-numbers: "9"
+#| output-location: column
+
+ggplot(season_summary) + 
+  geom_histogram(
+    aes(x = imdb_mean, fill = day_of_week), 
+    bins = 15,
+    color = "white"
+    ) + 
+  scale_fill_manual(values = c("gold2", "navyblue")) + 
+  scale_x_continuous(breaks = c(6, 7, 8, 9)) +
+  theme_minimal(base_size = 20) + 
+  theme(
+    legend.position = c(.15, .85),
+    legend.background = element_blank(),
+    panel.grid.minor = element_blank()
+  ) + 
+  labs(
+    x = "Season Average IMDB Rating",
+    y = "",
+    fill = "",
+    title = "Survivor is better on Thursdays"
+  ) +
+  annotate("text", 
+           x = 6, 
+           y = 3, 
+           label = "Lowest ratings \n occur on \n Wednesdays",
+           col = "navyblue")
+```
+
 # Plot Design {.maize}
 
 ## Which do you prefer? 
@@ -627,11 +676,11 @@ ggplot(season_summary) +
 4. Tell a story
 5. Leave out non-story details
 
-## Show the data, don't distort it
+## 1. Show the data, don't distort it
 
-![](../img/fuel_standards_distortion.png){fig-align="center"}
+![](../img/bad-female-height.jpg){.r-stretch}
 
-## Show the data, don't distort it
+## 1. Show the data, don't distort it
 
 ::::: columns
 ::: {.column .nonincremental width="50%"}
@@ -645,7 +694,23 @@ But it isn't the whole story
 :::
 :::::
 
-## Choose the right plot
+## 2. Choose the right plot: Which slice is the biggest/smallest?
+
+![](../img/data-to-viz-pie-areas.png){fig-align="center" width="800"}
+
+```{r}
+countdown(0, 30)
+```
+
+. . .
+
+![](../img/data-to-vizbar-areas.png){fig-align="center" width="800"}
+
+::: aside
+[The issue with pie chart](https://www.data-to-viz.com/caveat/pie.html) by Data to Viz
+:::
+
+## 2. Choose the right plot
 
 ::::: columns
 ::: {.column .nonincremental width="30%"}
@@ -662,27 +727,11 @@ But it isn't the whole story
 :::
 :::::
 
-## Example: Which slice is the biggest/smallest?
-
-![](../img/data-to-viz-pie-areas.png){fig-align="center" width="800"}
-
-```{r}
-countdown(0, 30)
-```
-
-. . .
-
-![](../img/data-to-vizbar-areas.png){fig-align="center" width="800"}
-
-::: aside
-[The issue with pie chart](https://www.data-to-viz.com/caveat/pie.html) by Data to Viz
-:::
-
-## Use color meaningfully and with restraint
+## 3. Use color meaningfully and with restraint
 
 ![](../img/bluecrab-orangecrab.png){fig-align="center"}
 
-## Use color meaningfully and with restraint
+## 3. Use color meaningfully and with restraint
 
 ```{r}
 ggplot(season_summary, aes(x = viewers_mean, y = imdb_mean, col = season_name)) + 
@@ -690,7 +739,40 @@ ggplot(season_summary, aes(x = viewers_mean, y = imdb_mean, col = season_name)) 
   theme_minimal()
 ```
 
-## Tell a story
+## 4. Tell a story
+
+```{r}
+#| echo: false
+
+library(gapminder)
+
+p_mess <- ggplot(gapminder, aes(x = year, y = lifeExp, group = country)) +
+  geom_line(color = "grey30") +
+  theme_minimal() +
+  labs(
+    title = "Life Expectancy (1952-2007)",
+    x = "Year", y = "Life Expectancy"
+  )
+
+
+p_story <- ggplot(gapminder, aes(x = year, y = lifeExp, group = country)) +
+  geom_line(color = "grey85", linewidth = 0.5) +
+  geom_line(data = filter(gapminder, country == "Rwanda"), 
+            color = "#D55E00", linewidth = 1.5) +
+  theme_minimal() +
+  labs(
+    title = "The impact of the 1994 genocide",
+    subtitle = "Life expectancy in Rwanda dropped 20+ years",
+    x = "Year", y = "Life Expectancy"
+  ) +
+ # annotate("text", x = 1994, y = 35, label = "Rwanda", 
+  #         color = "#D55E00", vjust = 1.5, fontface = "bold")
+  gghighlight::gghighlight(country == "Rwanda", line_label_type = )
+
+p_mess + p_story
+```
+
+## 4. Tell a story
 
 One way to do this is by highlighting the important parts
 
@@ -702,13 +784,14 @@ knitr::include_graphics("../img/fdv-flight-delays.png")
 
 ```
 
-## Leave out non-story details
+
+## 5. Leave out non-story details
 
 Is this train schedule easy to read?
 
 ![](../img/design-distraction-grid.png)
 
-## Avoid distractions
+## 5. Leave out non-story details
 
 Does removing gridlines make it *somewhat* easier?
 
@@ -737,18 +820,16 @@ knitr::include_graphics("../img/ga-barchart-bungle.jpeg")
 
 ## Good graphs can also break these guidelines
 
-:::{layout-ncol=3}
+:::{layout-ncol=2}
 
-![](../img/monachalabi-vacation-1.png)
+![](../img/dear-data-1.png)
 
-![](../img/monachalabi-vacation-2.png)
-
-![](../img/monachalabi-vacation-3.png)
+![](../img/dear-data-2.png)
 
 :::
 
 ::: aside
-Source: Mona Chalabi `@monachalabi`
+Source: [Dear Data Project](https://www.dear-data.com/theproject)
 :::
 
 ## Good graphs can also break these guidelines
