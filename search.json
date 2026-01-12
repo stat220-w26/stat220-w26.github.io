@@ -348,130 +348,88 @@
     "text": "Create a list of reactive values/expressions that should be created outside the render* statements. Recall that reactive values are the inputs/objects that observers watch for updates.\nFor each reactive expression you identify in step #6, identify which output (the histogram or the confidence interval) should observe that expression and update when it is changed?\nUse your answers to steps #6-7 to reorganize the server-side code for this Shiny app. (You don’t need to change the inputs!) To do this, first create any reactive expressions. Next, adapt the renderPlot() and renderPrint() chunks to use your reactive expressions. Remember to run your app regularly to help pinpoint bugs.\nCompare and contrast the performance and readability of the revised app’s code to the original “non-modularized” version.\n\n\n\n\n\n\n\nWarningStop here\n\n\n\nStop here and let Amanda know that you’ve finished."
   },
   {
-    "objectID": "activities/07-dplyr1.html",
-    "href": "activities/07-dplyr1.html",
-    "title": "\ndplyr 1: Verbs",
+    "objectID": "activities/22-interactivity.html",
+    "href": "activities/22-interactivity.html",
+    "title": "22-interactivity",
     "section": "",
-    "text": "Click the “code” button above to copy and paste the source code into your RStudio editor."
+    "text": "library(tidyverse)\nlibrary(palmerpenguins)\nlibrary(DT)\nlibrary(plotly)\nlibrary(flexdashboard)\nlibrary(leaflet)\n\nPlotly 1\nLoad the palmerpenguins data set and create a scatterplot of body_mass_g vs. flipper_length_mm from the penguins data set. Use color and shape to specify the species.\nOnce you have a static graphic you’re happy with, load plotly and convert it to an interactive graphic.\n\nWhat tools tips are included by default?\nChange the default tooltip to include “Species”\n(If time) use stringr so that the tooltip shows: “Species: Adelie” instead of just “Adelie”\nPlotly 2\nCreate a bar chart of species from the penguins data set, then convert it to an interactive bar chart.\n\nWhat tools tips are included by default?\nWhat would you change?\nLeaflet\n\nFind the names of the 3 islands in penguins\n\nFind appropriate lat/long locations for each of the islands in penguins using the internet\nCreate a leaflet map with markers for each island (Tip: Start with the world map with no zoom)\nInclude a popup with the island name\nDT Table\n\nCreate a {DT} table of the penguins dataset\nAdd the option to filter, and make the font size 14pt\nPutting it all together\nnew file –&gt; rmarkdown –&gt; from template –&gt; flexdashboard (with bslib theme)\n\nMake all graphs plotly’s with appropriate tooltips\nReplace the data output with your {DT} datatable\nInclude your leaflet map on a new page\n\nAdd value boxes on the same page as your map that show the number of penguins that live on each island\nChange the theme of the dashboard"
   },
   {
-    "objectID": "activities/07-dplyr1.html#part-1",
-    "href": "activities/07-dplyr1.html#part-1",
-    "title": "\ndplyr 1: Verbs",
-    "section": "Part 1",
-    "text": "Part 1\n\nFind all flights that had an arrival delay of two or more hours.\nFind all flights to MSP\nFind all flights that arrived more than two hours late, but left less than one hour late\n(if time) Find all flights that were delayed by at least an hour, but made up over 30 minutes in flight"
-  },
-  {
-    "objectID": "activities/07-dplyr1.html#part-2",
-    "href": "activities/07-dplyr1.html#part-2",
-    "title": "\ndplyr 1: Verbs",
-    "section": "Part 2",
-    "text": "Part 2\nUse arrange to answer the following questions:\n\nWhich flights traveled the farthest?\nWhich traveled the shortest?\nWhich flights lasted the longest?\nWhich lasted the shortest?"
-  },
-  {
-    "objectID": "activities/07-dplyr1.html#part-3",
-    "href": "activities/07-dplyr1.html#part-3",
-    "title": "\ndplyr 1: Verbs",
-    "section": "Part 3",
-    "text": "Part 3\nCreate a new column in flights giving the average speed of the flight while it was in the air. What are the units of this variable? Make the variable in terms of miles per hour."
-  },
-  {
-    "objectID": "activities/07-dplyr1.html#part-5",
-    "href": "activities/07-dplyr1.html#part-5",
-    "title": "\ndplyr 1: Verbs",
-    "section": "Part 5",
-    "text": "Part 5\nSuppose that you don’t think the FAA gives enough information in their definition of a delayed flight, so you come up with the following delay categories:\n\n\ndep_delay &lt;= 0 -&gt; none\n\ndep_delay between 1 and 15 minutes -&gt; minimal\n\ndep_delay between 16 and 30 minutes -&gt; delayed\n\ndep_delay between 31 and 60 minutes -&gt; major\n\ndep_delay over 60 minutes -&gt; extreme\n\nUse mutate() and case_when() to create a delay_category variable in the flights data frame.\nand we can check with select():"
-  },
-  {
-    "objectID": "activities/07-dplyr1.html#part-6",
-    "href": "activities/07-dplyr1.html#part-6",
-    "title": "\ndplyr 1: Verbs",
-    "section": "Part 6",
-    "text": "Part 6\nChain the last two parts together, so that the resulting dataset contains both avg_speed and delay_category. Pipe this new dataset into ggplot() to answer the question “is there a relationship between average speed and how late a flight is delayed?” You should use the delay_category variable you created to answer this question.\nIf you have time, create a new graph which only contains flights to MSP. Does your conclusion change?\n\n\n\n\n\n\nAdapted from Adam Loy’s materials"
-  },
-  {
-    "objectID": "activities/17-iteration.html",
-    "href": "activities/17-iteration.html",
-    "title": "17: Iteration",
+    "objectID": "activities/19-apis.html",
+    "href": "activities/19-apis.html",
+    "title": "19-apis",
     "section": "",
-    "text": "library(tidyverse)"
+    "text": "Install tidycensus if not on maize:\n\ninstall.packages(\"tidycensus\")\n\n\nlibrary(tidycensus)\nlibrary(tidyverse)\n\n\n\nacs_mn_2020 &lt;- tidycensus::get_acs(\n    year = 2020,\n    state = \"MN\",\n    geography = \"county\",\n    variables = c(\"B01003_001\", \"B19013_001\"),\n    output = \"wide\",\n    geometry = TRUE\n)\n\n\n\nCreate a new text file in the same folder as your .rmd\nCopy and paste your census key into the empty file\nSave the file as census_api_key.txt\n\n\n\nmy_key &lt;- readLines(\"census_api_key.txt\")\n\nand tell tidycensus what your API key is with:\n\ncensus_api_key(my_key)\n\nDo not commit and push census_api_key.txt to github\n\nacs_mn_2020 |&gt;\n  mutate(\n    name = str_remove(NAME, \", Minnesota\"),\n    name = str_remove(name, \" County\")\n  ) |&gt; \n  ggplot(aes(x = B19013_001E, \n                          xmin = B19013_001E - B19013_001M, \n                          xmax = B19013_001E + B19013_001M, \n                          y = fct_reorder(name, B19013_001E))) + \n  geom_point() + \n  geom_errorbarh() + \n  labs(\n    x = \"\",\n    y = \"\"\n  )\n\n\nhttps://data.census.gov/\nhttps://www.census.gov/acs/www/data/data-tables-and-tools/subject-tables/\n\n\nSearch for two new variables using load_variables (Can you explain what they are?)\nRun another call to tidycensus::get_acs using your two variables"
   },
   {
-    "objectID": "activities/17-iteration.html#your-turn-for-loop",
-    "href": "activities/17-iteration.html#your-turn-for-loop",
-    "title": "17: Iteration",
-    "section": "Your turn: For loop",
-    "text": "Your turn: For loop\nLoad the palmerpenguins package.\nWrite a for loop that calculates the mean of the numeric variables in the penguins data set and stores the means in a named vector."
-  },
-  {
-    "objectID": "activities/17-iteration.html#your-turn-summarytable-for-loop",
-    "href": "activities/17-iteration.html#your-turn-summarytable-for-loop",
-    "title": "17: Iteration",
-    "section": "Your turn: summary/table for loop",
-    "text": "Your turn: summary/table for loop\nRevisit the {palmerpenguins} penguins data.\nWrite a for loop that calculates the summary() of a numeric variable and the table() of a factor variable.\nStore the results in a list (it will have length 8)."
-  },
-  {
-    "objectID": "activities/17-iteration.html#your-turn-across",
-    "href": "activities/17-iteration.html#your-turn-across",
-    "title": "17: Iteration",
-    "section": "Your turn: across",
-    "text": "Your turn: across\nUse summarize and across to find the range of any quantitative variables, and the number of levels of any factor variables in the penguins dataset."
-  },
-  {
-    "objectID": "activities/18-iteration-2.html",
-    "href": "activities/18-iteration-2.html",
-    "title": "18: Iteration II",
+    "objectID": "activities/19-apis.html#example-call",
+    "href": "activities/19-apis.html#example-call",
+    "title": "19-apis",
     "section": "",
-    "text": "library(tidyverse)"
+    "text": "acs_mn_2020 &lt;- tidycensus::get_acs(\n    year = 2020,\n    state = \"MN\",\n    geography = \"county\",\n    variables = c(\"B01003_001\", \"B19013_001\"),\n    output = \"wide\",\n    geometry = TRUE\n)"
   },
   {
-    "objectID": "activities/18-iteration-2.html#try-it-map",
-    "href": "activities/18-iteration-2.html#try-it-map",
-    "title": "18: Iteration II",
-    "section": "Try it: map\n",
-    "text": "Try it: map\n\n\nEdit the code chunk below so it returns a numeric vector (remove eval: false)\nEdit the code chunk so it only maps to the numeric columns (3-12) of unscaled cancer\n\n\nmap(unscaled_cancer, mean)\n\n\n\nmap the summary function to all columns in the {palmerpenguins} penguins data\n\n\n# your code here"
-  },
-  {
-    "objectID": "activities/18-iteration-2.html#your-turn-penguins-and-map",
-    "href": "activities/18-iteration-2.html#your-turn-penguins-and-map",
-    "title": "18: Iteration II",
-    "section": "Your turn: penguins and map\n",
-    "text": "Your turn: penguins and map\n\nUsing the penguins data, use map to calculate the range of a numeric variable and the table of a factor variable. (It may be helpful to first write a custom function for this output)\nYour result should be a list (it will have length 8).\n\n# your code here"
-  },
-  {
-    "objectID": "activities/18-iteration-2.html#more-practice-survivor-data",
-    "href": "activities/18-iteration-2.html#more-practice-survivor-data",
-    "title": "18: Iteration II",
-    "section": "More practice: survivor data",
-    "text": "More practice: survivor data\n\nus_castaway_results \n\n# A tibble: 870 × 7\n   castaway_id castaway season_name      season place jury  finalist\n   &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt;   \n 1 US0001      Sonja    Survivor: Borneo      1    16 FALSE FALSE   \n 2 US0002      B.B.     Survivor: Borneo      1    15 FALSE FALSE   \n 3 US0003      Stacey   Survivor: Borneo      1    14 FALSE FALSE   \n 4 US0004      Ramona   Survivor: Borneo      1    13 FALSE FALSE   \n 5 US0005      Dirk     Survivor: Borneo      1    12 FALSE FALSE   \n 6 US0006      Joel     Survivor: Borneo      1    11 FALSE FALSE   \n 7 US0007      Gretchen Survivor: Borneo      1    10 FALSE FALSE   \n 8 US0008      Greg     Survivor: Borneo      1     9 TRUE  FALSE   \n 9 US0009      Jenna    Survivor: Borneo      1     8 TRUE  FALSE   \n10 US0010      Gervase  Survivor: Borneo      1     7 TRUE  FALSE   \n# ℹ 860 more rows\n\n\n\nWrite a function called finalists that takes the input of a survivor season (as a numeric) and outputs a string of the finalists’ names for that season. The finalists’ names should be separated with a comma.\nUse map_chr to return a character vector of finalists for seasons 31-40."
-  },
-  {
-    "objectID": "activities/18-iteration-2.html#your-turn-sample_finalists",
-    "href": "activities/18-iteration-2.html#your-turn-sample_finalists",
-    "title": "18: Iteration II",
-    "section": "Your turn: sample_finalists\n",
-    "text": "Your turn: sample_finalists\n\nSome survivor seasons only had 16 players, while others had 22. This could result in some seasons being slightly under/overrepresented in our sample. Let’s account for this.\nEdit this experiment to instead randomly sample one player from each season (this results in 47 players) and then sample 20 players from the 47 random ones.\n(Hint: look at the by argument in slice_sample)\n\n# edit this function\nsample_finalists = function(n){\n    us_castaway_results %&gt;%\n    slice_sample(n = n) %&gt;%\n    filter(finalist) %&gt;%\n    count() %&gt;%\n    pull(n)\n}\n\n\n# your iteration code here"
-  },
-  {
-    "objectID": "activities/04-customizing-plots.html",
-    "href": "activities/04-customizing-plots.html",
-    "title": "04: Customizing plots",
+    "objectID": "activities/19-apis.html#storing-your-api-key",
+    "href": "activities/19-apis.html#storing-your-api-key",
+    "title": "19-apis",
     "section": "",
-    "text": "Note: This code reads the same dataset in that we used last time and then creates two new columns based on an old one. Make sure to run this chunk before trying to make your graph!\n\nseason_summary = readr::read_csv(\"https://raw.githubusercontent.com/stat220-w26/stat220-w26.github.io/refs/heads/main/data/survivor_season_summary.csv\") |&gt;\n  separate(timeslot, into = c(\"day_of_week\", \"time\"))"
+    "text": "Create a new text file in the same folder as your .rmd\nCopy and paste your census key into the empty file\nSave the file as census_api_key.txt\n\n\n\nmy_key &lt;- readLines(\"census_api_key.txt\")\n\nand tell tidycensus what your API key is with:\n\ncensus_api_key(my_key)\n\nDo not commit and push census_api_key.txt to github\n\nacs_mn_2020 |&gt;\n  mutate(\n    name = str_remove(NAME, \", Minnesota\"),\n    name = str_remove(name, \" County\")\n  ) |&gt; \n  ggplot(aes(x = B19013_001E, \n                          xmin = B19013_001E - B19013_001M, \n                          xmax = B19013_001E + B19013_001M, \n                          y = fct_reorder(name, B19013_001E))) + \n  geom_point() + \n  geom_errorbarh() + \n  labs(\n    x = \"\",\n    y = \"\"\n  )"
   },
   {
-    "objectID": "activities/04-customizing-plots.html#load-data",
-    "href": "activities/04-customizing-plots.html#load-data",
-    "title": "04: Customizing plots",
+    "objectID": "activities/19-apis.html#links-to-more-info-about-census",
+    "href": "activities/19-apis.html#links-to-more-info-about-census",
+    "title": "19-apis",
     "section": "",
-    "text": "Note: This code reads the same dataset in that we used last time and then creates two new columns based on an old one. Make sure to run this chunk before trying to make your graph!\n\nseason_summary = readr::read_csv(\"https://raw.githubusercontent.com/stat220-w26/stat220-w26.github.io/refs/heads/main/data/survivor_season_summary.csv\") |&gt;\n  separate(timeslot, into = c(\"day_of_week\", \"time\"))"
+    "text": "https://data.census.gov/\nhttps://www.census.gov/acs/www/data/data-tables-and-tools/subject-tables/"
   },
   {
-    "objectID": "activities/04-customizing-plots.html#make-histogram",
-    "href": "activities/04-customizing-plots.html#make-histogram",
-    "title": "04: Customizing plots",
-    "section": "Make histogram",
-    "text": "Make histogram\n\n# Include your code here"
+    "objectID": "activities/19-apis.html#your-turn",
+    "href": "activities/19-apis.html#your-turn",
+    "title": "19-apis",
+    "section": "",
+    "text": "Search for two new variables using load_variables (Can you explain what they are?)\nRun another call to tidycensus::get_acs using your two variables"
+  },
+  {
+    "objectID": "activities/19-apis.html#example-call-1",
+    "href": "activities/19-apis.html#example-call-1",
+    "title": "19-apis",
+    "section": "Example call",
+    "text": "Example call\n\nhmong_state_request &lt;- request(\"https://api.census.gov/data\") %&gt;% \n    req_url_path_append(\"2019\") %&gt;% \n    req_url_path_append(\"acs\") %&gt;% \n    req_url_path_append(\"acs1\") %&gt;% \n    req_url_query(get = c(\"NAME\", \"B02015_009E\", \"B02015_009M\"), `for` = I(\"state:*\"), key = census_api_key, .multi = \"comma\")\n\n\nhmong_state_response &lt;- req_perform(hmong_state_request)\n\n\nhmong_state_tbl &lt;- hmong_state_response %&gt;%\n  resp_body_json(simplifyVector = TRUE) %&gt;%\n  janitor::row_to_names(1) %&gt;%\n  as_tibble()\n\nhmong_state_tbl"
+  },
+  {
+    "objectID": "activities/19-apis.html#your-turn-1",
+    "href": "activities/19-apis.html#your-turn-1",
+    "title": "19-apis",
+    "section": "Your Turn",
+    "text": "Your Turn\n\nEdit the httr code to access a new variable of your choice\nMake a httr request to access the 1-year ACS data from 2018, 2019, 2021, and 2022. Make sure to save your results from each call!\nCombine all years into a single dataset\nMake a time series plot with your chosen variable on the y-axis, year on the x-axis, colored by state.\n\nYou may want to first filter to only a few states\nYou will need to do some cleaning of the data"
+  },
+  {
+    "objectID": "activities/23-shiny1.html",
+    "href": "activities/23-shiny1.html",
+    "title": "23-shiny",
+    "section": "",
+    "text": "Editing a shiny app: Part 1\n23-app-1.R in the activities repo contains a starter app. Your tasks for today are:\n\nRun the app! See what we already have working, and what still needs to be done.\nRead the code: Where are the plots/tables being made vs displayed? What pieces are showing up in the app, and what have yet to be displayed?\nCreate the appropriate ggplots to match the original app\nNow, edit the tabsetPanel code in the ui() function to output the ggplots.\nWhat elements from the original app do we still have to implement? Try to get the remainder of the ui() function set up. What other inputs could we add? Are there any other outputs?\n\n\n\n\n\n\n\nCredit: Mine Çetinkaya-Rundel’s Ask a Manager application exercise"
+  },
+  {
+    "objectID": "activities/15-sentiment.html",
+    "href": "activities/15-sentiment.html",
+    "title": "15-sentiment",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(tidytext) # functions for doing text analysis"
+  },
+  {
+    "objectID": "activities/15-sentiment.html#bing",
+    "href": "activities/15-sentiment.html#bing",
+    "title": "15-sentiment",
+    "section": "“bing”",
+    "text": "“bing”\n\nbing_sentiments = get_sentiments(\"bing\") %&gt;%\n  slice_sample(n = 20)"
+  },
+  {
+    "objectID": "activities/15-sentiment.html#afinn",
+    "href": "activities/15-sentiment.html#afinn",
+    "title": "15-sentiment",
+    "section": "“afinn”",
+    "text": "“afinn”\n\nlibrary(textdata)\nget_sentiments(\"afinn\") %&gt;%\n  slice_sample(n = 20)\n\n# A tibble: 20 × 2\n   word          value\n   &lt;chr&gt;         &lt;dbl&gt;\n 1 postponed        -1\n 2 feeling           1\n 3 die              -3\n 4 ensure            1\n 5 stimulated        1\n 6 colliding        -1\n 7 frustrated       -2\n 8 riots            -2\n 9 fun               4\n10 hardier           2\n11 charges          -2\n12 ranters          -3\n13 screaming        -2\n14 gracious          3\n15 misunderstood    -2\n16 incensed         -2\n17 positively        2\n18 ominous           3\n19 shithead         -4\n20 winner            4"
   },
   {
     "objectID": "activities/13-strings-regex.html",
@@ -3282,18 +3240,25 @@
     "text": "What next?\n\nSetting aesthetics\nUsing facets\nChanging scales\nChanging coordinates\nChanging themes\nAdding annotations"
   },
   {
+    "objectID": "slides/04/slides04.html#survivor",
+    "href": "slides/04/slides04.html#survivor",
+    "title": "Plot design",
+    "section": "Survivor",
+    "text": "Survivor\nFrom Season02 to Season 20, Survivor aired on Thursdays. After Season 20, it switched to airing on Wednesdays. Thursday is better for my schedule, so I’d like to make an argument for switching back to Thursdays."
+  },
+  {
     "objectID": "slides/04/slides04.html#warm-up",
     "href": "slides/04/slides04.html#warm-up",
     "title": "Plot design",
     "section": "Warm Up",
-    "text": "Warm Up\n\n\n\n\nLog into maize\n\nIf you have to type your PAT in everytime you push to GitHub, follow the directions at Getting Set up with Git and GitHub #4 to tell RStudio to save your credentials\n\nFind the .rmd template for today at the course website\nChoose your favorite way to open it up in maize/Rstudio\nWork with a neighbor to recreate this graph –&gt; (use 15 bins)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n−+\n08:00"
+    "text": "Warm Up\n\n\n\n\nLog into maize\n\nIf you have to type your PAT in everytime you push to GitHub, follow the directions at Getting Set up with Git and GitHub #4 to tell RStudio to save your credentials\n\nFind the .qmd template for today at the course website\nOpen it up in maize/Rstudio\nWork with a neighbor to recreate this graph → (use 15 bins)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n−+\n08:00"
   },
   {
     "objectID": "slides/04/slides04.html#polishing-plots",
     "href": "slides/04/slides04.html#polishing-plots",
     "title": "Plot design",
     "section": "Polishing plots",
-    "text": "Polishing plots\n\n\n\n\n\n\n\n\n\n\n\n\nWe’re not quite satisfied….\n\nI want the bars to have a border that stands out\nLet’s try a facetted graph\nI don’t like the default color scheme\nI don’t like the gray background"
+    "text": "Polishing plots\n\n\n\n\n\n\n\n\n\n\n\n\nWe’re not quite satisfied….\n\nI want the bars to have a border that stands out\nI find stacked histograms hard to read\nI don’t like the default color scheme\nI don’t like the gray background"
   },
   {
     "objectID": "slides/04/slides04.html#setting-aesthetics",
@@ -3331,11 +3296,11 @@
     "text": "Example (built-in scale)\n\nRColorBrewer::display.brewer.all()"
   },
   {
-    "objectID": "slides/04/slides04.html#example-built-in-scale-2",
-    "href": "slides/04/slides04.html#example-built-in-scale-2",
+    "objectID": "slides/04/slides04.html#aside-types-of-color-scales",
+    "href": "slides/04/slides04.html#aside-types-of-color-scales",
     "title": "Plot design",
-    "section": "Example (built-in scale)",
-    "text": "Example (built-in scale)\n\n\nggplot(season_summary) + \n  geom_histogram(\n    aes(x = imdb_mean, fill = day_of_week), \n    bins = 15,\n    color = \"white\"\n    ) + \n  scale_fill_viridis_d(option = \"mako\")\n\n\n\n\n\n\n\n\n\n\n\nTo see all the options built into R (or add-on packages): Color Palette Finder"
+    "section": "Aside: types of color scales",
+    "text": "Aside: types of color scales\n\n\n\nSource: Datawrapper Blog"
   },
   {
     "objectID": "slides/04/slides04.html#example-manual-color-palette",
@@ -3401,6 +3366,13 @@
     "text": "Even more customizations\n\nMove legend\nClean up labels and title\nGet rid of .5’s in x-axis\nAnnotations"
   },
   {
+    "objectID": "slides/04/slides04.html#section",
+    "href": "slides/04/slides04.html#section",
+    "title": "Plot design",
+    "section": "",
+    "text": "Source: Isabella Benabaye"
+  },
+  {
     "objectID": "slides/04/slides04.html#theme",
     "href": "slides/04/slides04.html#theme",
     "title": "Plot design",
@@ -3443,6 +3415,13 @@
     "text": "Add an annotation\n\n\nggplot(season_summary) + \n  geom_histogram(\n    aes(x = imdb_mean, fill = day_of_week), \n    bins = 15,\n    color = \"white\"\n    ) + \n  scale_fill_manual(values = c(\"gold2\", \"navyblue\")) + \n  scale_x_continuous(breaks = c(6, 7, 8, 9)) +\n  theme_minimal() + \n  theme(\n    legend.position = c(.15, .85),\n    legend.background = element_blank(),\n    panel.grid.minor = element_blank()\n  ) + \n  labs(\n    x = \"Season Average IMDB Rating\",\n    y = \"\",\n    fill = \"\",\n    title = \"Survivor is better on Thursdays\"\n  ) +\n  annotate(\"text\", \n           x = 6, \n           y = 3, \n           label = \"Lowest ratings \\n occur on \\n Wednesdays\",\n           col = \"navyblue\")"
   },
   {
+    "objectID": "slides/04/slides04.html#increase-text-size",
+    "href": "slides/04/slides04.html#increase-text-size",
+    "title": "Plot design",
+    "section": "Increase text size",
+    "text": "Increase text size\n\n\nggplot(season_summary) + \n  geom_histogram(\n    aes(x = imdb_mean, fill = day_of_week), \n    bins = 15,\n    color = \"white\"\n    ) + \n  scale_fill_manual(values = c(\"gold2\", \"navyblue\")) + \n  scale_x_continuous(breaks = c(6, 7, 8, 9)) +\n  theme_minimal(base_size = 20) + \n  theme(\n    legend.position = c(.15, .85),\n    legend.background = element_blank(),\n    panel.grid.minor = element_blank()\n  ) + \n  labs(\n    x = \"Season Average IMDB Rating\",\n    y = \"\",\n    fill = \"\",\n    title = \"Survivor is better on Thursdays\"\n  ) +\n  annotate(\"text\", \n           x = 6, \n           y = 3, \n           label = \"Lowest ratings \\n occur on \\n Wednesdays\",\n           col = \"navyblue\")"
+  },
+  {
     "objectID": "slides/04/slides04.html#which-do-you-prefer",
     "href": "slides/04/slides04.html#which-do-you-prefer",
     "title": "Plot design",
@@ -3460,64 +3439,71 @@
     "objectID": "slides/04/slides04.html#show-the-data-dont-distort-it",
     "href": "slides/04/slides04.html#show-the-data-dont-distort-it",
     "title": "Plot design",
-    "section": "Show the data, don’t distort it",
-    "text": "Show the data, don’t distort it"
+    "section": "1. Show the data, don’t distort it",
+    "text": "1. Show the data, don’t distort it"
   },
   {
     "objectID": "slides/04/slides04.html#show-the-data-dont-distort-it-1",
     "href": "slides/04/slides04.html#show-the-data-dont-distort-it-1",
     "title": "Plot design",
-    "section": "Show the data, don’t distort it",
-    "text": "Show the data, don’t distort it\n\n\nWhat a huge effect! \n\nBut it isn’t the whole story"
+    "section": "1. Show the data, don’t distort it",
+    "text": "1. Show the data, don’t distort it\n\n\nWhat a huge effect! \n\nBut it isn’t the whole story"
+  },
+  {
+    "objectID": "slides/04/slides04.html#choose-the-right-plot-which-slice-is-the-biggestsmallest",
+    "href": "slides/04/slides04.html#choose-the-right-plot-which-slice-is-the-biggestsmallest",
+    "title": "Plot design",
+    "section": "2. Choose the right plot: Which slice is the biggest/smallest?",
+    "text": "2. Choose the right plot: Which slice is the biggest/smallest?\n\n\n\n\n\n\n\n\n−+\n00:30\n\n\n\n\n\n\n\n\n\n\n\n\nThe issue with pie chart by Data to Viz"
   },
   {
     "objectID": "slides/04/slides04.html#choose-the-right-plot",
     "href": "slides/04/slides04.html#choose-the-right-plot",
     "title": "Plot design",
-    "section": "Choose the right plot",
-    "text": "Choose the right plot\n\n\n\nWilke has good suggestions in chapters 5-16\nAlways stop and think about how easy it is to see the story\nTry a few different options"
-  },
-  {
-    "objectID": "slides/04/slides04.html#example-which-slice-is-the-biggestsmallest",
-    "href": "slides/04/slides04.html#example-which-slice-is-the-biggestsmallest",
-    "title": "Plot design",
-    "section": "Example: Which slice is the biggest/smallest?",
-    "text": "Example: Which slice is the biggest/smallest?\n\n\n\n\n\n\n\n\n−+\n00:30\n\n\n\n\n\n\n\n\n\n\n\n\nThe issue with pie chart by Data to Viz"
+    "section": "2. Choose the right plot",
+    "text": "2. Choose the right plot\n\n\n\nWilke has good suggestions in chapters 5-16\nAlways stop and think about how easy it is to see the story\nTry a few different options"
   },
   {
     "objectID": "slides/04/slides04.html#use-color-meaningfully-and-with-restraint",
     "href": "slides/04/slides04.html#use-color-meaningfully-and-with-restraint",
     "title": "Plot design",
-    "section": "Use color meaningfully and with restraint",
-    "text": "Use color meaningfully and with restraint"
+    "section": "3. Use color meaningfully and with restraint",
+    "text": "3. Use color meaningfully and with restraint"
   },
   {
     "objectID": "slides/04/slides04.html#use-color-meaningfully-and-with-restraint-1",
     "href": "slides/04/slides04.html#use-color-meaningfully-and-with-restraint-1",
     "title": "Plot design",
-    "section": "Use color meaningfully and with restraint",
-    "text": "Use color meaningfully and with restraint"
+    "section": "3. Use color meaningfully and with restraint",
+    "text": "3. Use color meaningfully and with restraint"
   },
   {
     "objectID": "slides/04/slides04.html#tell-a-story",
     "href": "slides/04/slides04.html#tell-a-story",
     "title": "Plot design",
-    "section": "Tell a story",
-    "text": "Tell a story\nOne way to do this is by highlighting the important parts"
+    "section": "4. Tell a story",
+    "text": "4. Tell a story"
+  },
+  {
+    "objectID": "slides/04/slides04.html#tell-a-story-1",
+    "href": "slides/04/slides04.html#tell-a-story-1",
+    "title": "Plot design",
+    "section": "4. Tell a story",
+    "text": "4. Tell a story\nOne way to do this is by highlighting the important parts"
   },
   {
     "objectID": "slides/04/slides04.html#leave-out-non-story-details",
     "href": "slides/04/slides04.html#leave-out-non-story-details",
     "title": "Plot design",
-    "section": "Leave out non-story details",
-    "text": "Leave out non-story details\nIs this train schedule easy to read?"
+    "section": "5. Leave out non-story details",
+    "text": "5. Leave out non-story details\nIs this train schedule easy to read?"
   },
   {
-    "objectID": "slides/04/slides04.html#avoid-distractions",
-    "href": "slides/04/slides04.html#avoid-distractions",
+    "objectID": "slides/04/slides04.html#leave-out-non-story-details-1",
+    "href": "slides/04/slides04.html#leave-out-non-story-details-1",
     "title": "Plot design",
-    "section": "Avoid distractions",
-    "text": "Avoid distractions\nDoes removing gridlines make it somewhat easier?"
+    "section": "5. Leave out non-story details",
+    "text": "5. Leave out non-story details\nDoes removing gridlines make it somewhat easier?"
   },
   {
     "objectID": "slides/04/slides04.html#data-visualizations-have-an-aura-of-objectivity",
@@ -3531,7 +3517,7 @@
     "href": "slides/04/slides04.html#good-graphs-can-also-break-these-guidelines",
     "title": "Plot design",
     "section": "Good graphs can also break these guidelines",
-    "text": "Good graphs can also break these guidelines\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSource: Mona Chalabi @monachalabi"
+    "text": "Good graphs can also break these guidelines\n\n\n\n\n\n\n\n\n\n\n\n\nSource: Dear Data Project"
   },
   {
     "objectID": "slides/04/slides04.html#good-graphs-can-also-break-these-guidelines-1",
@@ -3552,7 +3538,7 @@
     "href": "index.html",
     "title": "Stat 220: Intro to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n1\nM\nMon, Jan 5\n📝complete welcome survey\n\nWelcome + data, R review\n\nslides01 01-example-unvotes\n\n\n\n\n1\nW\nWed, Jan 7\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus and pass syllabus quiz to activate tokens\nGithub + reproducible reports\n\nslides02 02-example-lego Lego report to replicate\n\n\n\n\n1\nF\nFri, Jan 9\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\n\nggplot\n\nslides03 03-ggplot-intro\n\nHW 1\n\n\n2\nM\nMon, Jan 12\n📚 DataViz 17-21 \n\nTheming + Design\ntbd\n\n\n\n2\nW\nWed, Jan 14\n📚 DataViz 15 \n\nMaps/spatial data\ntbd\nHW 2\n\n\n2\nF\nFri, Jan 16\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\n\nAccesibility for data viz\ntbd\n\n\n\n3\nM\nMon, Jan 19\n📚 R4DS 3.1-3.4 \n\nVerbs\ntbd\n\n\n\n3\nW\nWed, Jan 21\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \n\nGroups and summarizing Tidy data\ntbd\nHW 3\n\n\n3\nF\nFri, Jan 23\n📚 R4DS 4 \n\nCode style\ntbd\n\nLab Quiz 1 \n\n\n\n4\nM\nMon, Jan 26\n📚 R4DS 19.1-19.3\n\nCombining datasets\ntbd\n\n\n\n4\nW\nWed, Jan 28\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \n\nImport data and dates/times\ntbd\n\nHW 4 Portfolio 1\n\n\n\n4\nF\nFri, Jan 30\n📚 R4DS 16 \n\nWorking with factors\ntbd\n\n\n\n5\nM\nMon, Feb 2\n📚 R4DS 14  📚 R4DS 15.1-15.5\n\nWorking with strings and Regex\ntbd\n\n\n\n5\nW\nWed, Feb 4\n📚 MDSR 19.2  🌎 Google ngram viewer\n\nIntro to Text Analysis\ntbd\nHW 5\n\n\n5\nF\nFri, Feb 6\n📚 The Trouble with Sentiment Analysis\n\nSentiment Analysis\ntbd\nLab Quiz 2\n\n\n6\nM\nMon, Feb 9\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n6\nW\nWed, Feb 11\n📚 R4DS 25\n\nFunctions\ntbd\n\nPortfolio 2\n\n\n\n6\nF\nFri, Feb 13\n📚 MDSR 7.1-7.3\n\nIteration\ntbd\nHW6\n\n\n7\nM\nMon, Feb 16\n\nIteration II\ntbd\n\n\n\n7\nW\nWed, Feb 18\n📚What is an API? 📚R4DS 23 (skip case studies) 📝 sign up for a census API key\n\nAPIs\ntbd\n\nHW7 \n\n\n\n7\nF\nFri, Feb 20\n\nScraping I\ntbd\n\nLab Quiz 3 , Final Project Idea Form\n\n\n\n8\nM\nMon, Feb 23\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\n\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nW\nWed, Feb 25\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\n\nIntro to Interactivity\ntbd\n\nHW8 Portfolio 3\n\n\n\n8\nF\nFri, Feb 27\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\n\nShiny 1\ntbd\n\n\n\n9\nM\nMon, Mar 2\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\n\nShiny 2\ntbd\n\n\n\n9\nW\nWed, Mar 4\n\nShiny 3\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, Mar 6\n📚MDSR 15.1-15.4\n\nSQL\ntbd\nPortfolio 4\n\n\n10\nM\nMon, Mar 9\n\nProject Demos\ntbd\n\n\n\n10\nW\nWed, Mar 11\n\nProject Demos\ntbd\nHW9\n\n\n\nNA\nFri, Mar 13\n\n🏝️ Reading days\ntbd\n\n\n\n\nNA\nMon, Mar 16\n\nFinal Project Due @ noon\ntbd\nFinal Project",
+    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n1\nM\nMon, Jan 5\n📝complete welcome survey\n\nWelcome + data, R review\n\nslides01 01-example-unvotes\n\n\n\n\n1\nW\nWed, Jan 7\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus and pass syllabus quiz to activate tokens\nGithub + reproducible reports\n\nslides02 02-example-lego Lego report to replicate\n\n\n\n\n1\nF\nFri, Jan 9\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\n\nggplot\n\nslides03 03-ggplot-intro\n\nHW 1\n\n\n2\nM\nMon, Jan 12\n📚 DataViz 17-21 \n\nTheming + Design\n\nslides04 04-customizing-plots\n\n\n\n\n2\nW\nWed, Jan 14\n📚 DataViz 15 \n\nMaps/spatial data\ntbd\nHW 2\n\n\n2\nF\nFri, Jan 16\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\n\nAccesibility for data viz\ntbd\n\n\n\n3\nM\nMon, Jan 19\n📚 R4DS 3.1-3.4 \n\nVerbs\ntbd\n\n\n\n3\nW\nWed, Jan 21\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \n\nGroups and summarizing Tidy data\ntbd\nHW 3\n\n\n3\nF\nFri, Jan 23\n📚 R4DS 4 \n\nCode style\ntbd\n\nLab Quiz 1 \n\n\n\n4\nM\nMon, Jan 26\n📚 R4DS 19.1-19.3\n\nCombining datasets\ntbd\n\n\n\n4\nW\nWed, Jan 28\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \n\nImport data and dates/times\ntbd\n\nHW 4 Portfolio 1\n\n\n\n4\nF\nFri, Jan 30\n📚 R4DS 16 \n\nWorking with factors\ntbd\n\n\n\n5\nM\nMon, Feb 2\n📚 R4DS 14  📚 R4DS 15.1-15.5\n\nWorking with strings and Regex\ntbd\n\n\n\n5\nW\nWed, Feb 4\n📚 MDSR 19.2  🌎 Google ngram viewer\n\nIntro to Text Analysis\ntbd\nHW 5\n\n\n5\nF\nFri, Feb 6\n📚 The Trouble with Sentiment Analysis\n\nSentiment Analysis\ntbd\nLab Quiz 2\n\n\n6\nM\nMon, Feb 9\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n6\nW\nWed, Feb 11\n📚 R4DS 25\n\nFunctions\ntbd\n\nPortfolio 2\n\n\n\n6\nF\nFri, Feb 13\n📚 MDSR 7.1-7.3\n\nIteration\ntbd\nHW6\n\n\n7\nM\nMon, Feb 16\n\nIteration II\ntbd\n\n\n\n7\nW\nWed, Feb 18\n📚What is an API? 📚R4DS 23 (skip case studies) 📝 sign up for a census API key\n\nAPIs\ntbd\n\nHW7 \n\n\n\n7\nF\nFri, Feb 20\n\nScraping I\ntbd\n\nLab Quiz 3 , Final Project Idea Form\n\n\n\n8\nM\nMon, Feb 23\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\n\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nW\nWed, Feb 25\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\n\nIntro to Interactivity\ntbd\n\nHW8 Portfolio 3\n\n\n\n8\nF\nFri, Feb 27\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\n\nShiny 1\ntbd\n\n\n\n9\nM\nMon, Mar 2\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\n\nShiny 2\ntbd\n\n\n\n9\nW\nWed, Mar 4\n\nShiny 3\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, Mar 6\n📚MDSR 15.1-15.4\n\nSQL\ntbd\nPortfolio 4\n\n\n10\nM\nMon, Mar 9\n\nProject Demos\ntbd\n\n\n\n10\nW\nWed, Mar 11\n\nProject Demos\ntbd\nHW9\n\n\n\nNA\nFri, Mar 13\n\n🏝️ Reading days\ntbd\n\n\n\n\nNA\nMon, Mar 16\n\nFinal Project Due @ noon\ntbd\nFinal Project",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -7161,88 +7147,130 @@
     "text": "Task 2\n\n\nClean the episode and period column\nMake a line plot with episode on the x-axis, rating on the y-axis, colored by series. (You will also need to map the group aesthetic to series)\n\n\n\n\n\n\n\n\nNote\n\n\n\nWhen you’re done, remember to submit your .rmd to the google form!"
   },
   {
-    "objectID": "activities/15-sentiment.html",
-    "href": "activities/15-sentiment.html",
-    "title": "15-sentiment",
+    "objectID": "activities/18-iteration-2.html",
+    "href": "activities/18-iteration-2.html",
+    "title": "18: Iteration II",
     "section": "",
-    "text": "library(tidyverse)\nlibrary(tidytext) # functions for doing text analysis"
+    "text": "library(tidyverse)"
   },
   {
-    "objectID": "activities/15-sentiment.html#bing",
-    "href": "activities/15-sentiment.html#bing",
-    "title": "15-sentiment",
-    "section": "“bing”",
-    "text": "“bing”\n\nbing_sentiments = get_sentiments(\"bing\") %&gt;%\n  slice_sample(n = 20)"
+    "objectID": "activities/18-iteration-2.html#try-it-map",
+    "href": "activities/18-iteration-2.html#try-it-map",
+    "title": "18: Iteration II",
+    "section": "Try it: map\n",
+    "text": "Try it: map\n\n\nEdit the code chunk below so it returns a numeric vector (remove eval: false)\nEdit the code chunk so it only maps to the numeric columns (3-12) of unscaled cancer\n\n\nmap(unscaled_cancer, mean)\n\n\n\nmap the summary function to all columns in the {palmerpenguins} penguins data\n\n\n# your code here"
   },
   {
-    "objectID": "activities/15-sentiment.html#afinn",
-    "href": "activities/15-sentiment.html#afinn",
-    "title": "15-sentiment",
-    "section": "“afinn”",
-    "text": "“afinn”\n\nlibrary(textdata)\nget_sentiments(\"afinn\") %&gt;%\n  slice_sample(n = 20)\n\n# A tibble: 20 × 2\n   word          value\n   &lt;chr&gt;         &lt;dbl&gt;\n 1 postponed        -1\n 2 feeling           1\n 3 die              -3\n 4 ensure            1\n 5 stimulated        1\n 6 colliding        -1\n 7 frustrated       -2\n 8 riots            -2\n 9 fun               4\n10 hardier           2\n11 charges          -2\n12 ranters          -3\n13 screaming        -2\n14 gracious          3\n15 misunderstood    -2\n16 incensed         -2\n17 positively        2\n18 ominous           3\n19 shithead         -4\n20 winner            4"
+    "objectID": "activities/18-iteration-2.html#your-turn-penguins-and-map",
+    "href": "activities/18-iteration-2.html#your-turn-penguins-and-map",
+    "title": "18: Iteration II",
+    "section": "Your turn: penguins and map\n",
+    "text": "Your turn: penguins and map\n\nUsing the penguins data, use map to calculate the range of a numeric variable and the table of a factor variable. (It may be helpful to first write a custom function for this output)\nYour result should be a list (it will have length 8).\n\n# your code here"
   },
   {
-    "objectID": "activities/23-shiny1.html",
-    "href": "activities/23-shiny1.html",
-    "title": "23-shiny",
+    "objectID": "activities/18-iteration-2.html#more-practice-survivor-data",
+    "href": "activities/18-iteration-2.html#more-practice-survivor-data",
+    "title": "18: Iteration II",
+    "section": "More practice: survivor data",
+    "text": "More practice: survivor data\n\nus_castaway_results \n\n# A tibble: 870 × 7\n   castaway_id castaway season_name      season place jury  finalist\n   &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;lgl&gt;   \n 1 US0001      Sonja    Survivor: Borneo      1    16 FALSE FALSE   \n 2 US0002      B.B.     Survivor: Borneo      1    15 FALSE FALSE   \n 3 US0003      Stacey   Survivor: Borneo      1    14 FALSE FALSE   \n 4 US0004      Ramona   Survivor: Borneo      1    13 FALSE FALSE   \n 5 US0005      Dirk     Survivor: Borneo      1    12 FALSE FALSE   \n 6 US0006      Joel     Survivor: Borneo      1    11 FALSE FALSE   \n 7 US0007      Gretchen Survivor: Borneo      1    10 FALSE FALSE   \n 8 US0008      Greg     Survivor: Borneo      1     9 TRUE  FALSE   \n 9 US0009      Jenna    Survivor: Borneo      1     8 TRUE  FALSE   \n10 US0010      Gervase  Survivor: Borneo      1     7 TRUE  FALSE   \n# ℹ 860 more rows\n\n\n\nWrite a function called finalists that takes the input of a survivor season (as a numeric) and outputs a string of the finalists’ names for that season. The finalists’ names should be separated with a comma.\nUse map_chr to return a character vector of finalists for seasons 31-40."
+  },
+  {
+    "objectID": "activities/18-iteration-2.html#your-turn-sample_finalists",
+    "href": "activities/18-iteration-2.html#your-turn-sample_finalists",
+    "title": "18: Iteration II",
+    "section": "Your turn: sample_finalists\n",
+    "text": "Your turn: sample_finalists\n\nSome survivor seasons only had 16 players, while others had 22. This could result in some seasons being slightly under/overrepresented in our sample. Let’s account for this.\nEdit this experiment to instead randomly sample one player from each season (this results in 47 players) and then sample 20 players from the 47 random ones.\n(Hint: look at the by argument in slice_sample)\n\n# edit this function\nsample_finalists = function(n){\n    us_castaway_results %&gt;%\n    slice_sample(n = n) %&gt;%\n    filter(finalist) %&gt;%\n    count() %&gt;%\n    pull(n)\n}\n\n\n# your iteration code here"
+  },
+  {
+    "objectID": "activities/17-iteration.html",
+    "href": "activities/17-iteration.html",
+    "title": "17: Iteration",
     "section": "",
-    "text": "Editing a shiny app: Part 1\n23-app-1.R in the activities repo contains a starter app. Your tasks for today are:\n\nRun the app! See what we already have working, and what still needs to be done.\nRead the code: Where are the plots/tables being made vs displayed? What pieces are showing up in the app, and what have yet to be displayed?\nCreate the appropriate ggplots to match the original app\nNow, edit the tabsetPanel code in the ui() function to output the ggplots.\nWhat elements from the original app do we still have to implement? Try to get the remainder of the ui() function set up. What other inputs could we add? Are there any other outputs?\n\n\n\n\n\n\n\nCredit: Mine Çetinkaya-Rundel’s Ask a Manager application exercise"
+    "text": "library(tidyverse)"
   },
   {
-    "objectID": "activities/19-apis.html",
-    "href": "activities/19-apis.html",
-    "title": "19-apis",
+    "objectID": "activities/17-iteration.html#your-turn-for-loop",
+    "href": "activities/17-iteration.html#your-turn-for-loop",
+    "title": "17: Iteration",
+    "section": "Your turn: For loop",
+    "text": "Your turn: For loop\nLoad the palmerpenguins package.\nWrite a for loop that calculates the mean of the numeric variables in the penguins data set and stores the means in a named vector."
+  },
+  {
+    "objectID": "activities/17-iteration.html#your-turn-summarytable-for-loop",
+    "href": "activities/17-iteration.html#your-turn-summarytable-for-loop",
+    "title": "17: Iteration",
+    "section": "Your turn: summary/table for loop",
+    "text": "Your turn: summary/table for loop\nRevisit the {palmerpenguins} penguins data.\nWrite a for loop that calculates the summary() of a numeric variable and the table() of a factor variable.\nStore the results in a list (it will have length 8)."
+  },
+  {
+    "objectID": "activities/17-iteration.html#your-turn-across",
+    "href": "activities/17-iteration.html#your-turn-across",
+    "title": "17: Iteration",
+    "section": "Your turn: across",
+    "text": "Your turn: across\nUse summarize and across to find the range of any quantitative variables, and the number of levels of any factor variables in the penguins dataset."
+  },
+  {
+    "objectID": "activities/07-dplyr1.html",
+    "href": "activities/07-dplyr1.html",
+    "title": "\ndplyr 1: Verbs",
     "section": "",
-    "text": "Install tidycensus if not on maize:\n\ninstall.packages(\"tidycensus\")\n\n\nlibrary(tidycensus)\nlibrary(tidyverse)\n\n\n\nacs_mn_2020 &lt;- tidycensus::get_acs(\n    year = 2020,\n    state = \"MN\",\n    geography = \"county\",\n    variables = c(\"B01003_001\", \"B19013_001\"),\n    output = \"wide\",\n    geometry = TRUE\n)\n\n\n\nCreate a new text file in the same folder as your .rmd\nCopy and paste your census key into the empty file\nSave the file as census_api_key.txt\n\n\n\nmy_key &lt;- readLines(\"census_api_key.txt\")\n\nand tell tidycensus what your API key is with:\n\ncensus_api_key(my_key)\n\nDo not commit and push census_api_key.txt to github\n\nacs_mn_2020 |&gt;\n  mutate(\n    name = str_remove(NAME, \", Minnesota\"),\n    name = str_remove(name, \" County\")\n  ) |&gt; \n  ggplot(aes(x = B19013_001E, \n                          xmin = B19013_001E - B19013_001M, \n                          xmax = B19013_001E + B19013_001M, \n                          y = fct_reorder(name, B19013_001E))) + \n  geom_point() + \n  geom_errorbarh() + \n  labs(\n    x = \"\",\n    y = \"\"\n  )\n\n\nhttps://data.census.gov/\nhttps://www.census.gov/acs/www/data/data-tables-and-tools/subject-tables/\n\n\nSearch for two new variables using load_variables (Can you explain what they are?)\nRun another call to tidycensus::get_acs using your two variables"
+    "text": "Click the “code” button above to copy and paste the source code into your RStudio editor."
   },
   {
-    "objectID": "activities/19-apis.html#example-call",
-    "href": "activities/19-apis.html#example-call",
-    "title": "19-apis",
+    "objectID": "activities/07-dplyr1.html#part-1",
+    "href": "activities/07-dplyr1.html#part-1",
+    "title": "\ndplyr 1: Verbs",
+    "section": "Part 1",
+    "text": "Part 1\n\nFind all flights that had an arrival delay of two or more hours.\nFind all flights to MSP\nFind all flights that arrived more than two hours late, but left less than one hour late\n(if time) Find all flights that were delayed by at least an hour, but made up over 30 minutes in flight"
+  },
+  {
+    "objectID": "activities/07-dplyr1.html#part-2",
+    "href": "activities/07-dplyr1.html#part-2",
+    "title": "\ndplyr 1: Verbs",
+    "section": "Part 2",
+    "text": "Part 2\nUse arrange to answer the following questions:\n\nWhich flights traveled the farthest?\nWhich traveled the shortest?\nWhich flights lasted the longest?\nWhich lasted the shortest?"
+  },
+  {
+    "objectID": "activities/07-dplyr1.html#part-3",
+    "href": "activities/07-dplyr1.html#part-3",
+    "title": "\ndplyr 1: Verbs",
+    "section": "Part 3",
+    "text": "Part 3\nCreate a new column in flights giving the average speed of the flight while it was in the air. What are the units of this variable? Make the variable in terms of miles per hour."
+  },
+  {
+    "objectID": "activities/07-dplyr1.html#part-5",
+    "href": "activities/07-dplyr1.html#part-5",
+    "title": "\ndplyr 1: Verbs",
+    "section": "Part 5",
+    "text": "Part 5\nSuppose that you don’t think the FAA gives enough information in their definition of a delayed flight, so you come up with the following delay categories:\n\n\ndep_delay &lt;= 0 -&gt; none\n\ndep_delay between 1 and 15 minutes -&gt; minimal\n\ndep_delay between 16 and 30 minutes -&gt; delayed\n\ndep_delay between 31 and 60 minutes -&gt; major\n\ndep_delay over 60 minutes -&gt; extreme\n\nUse mutate() and case_when() to create a delay_category variable in the flights data frame.\nand we can check with select():"
+  },
+  {
+    "objectID": "activities/07-dplyr1.html#part-6",
+    "href": "activities/07-dplyr1.html#part-6",
+    "title": "\ndplyr 1: Verbs",
+    "section": "Part 6",
+    "text": "Part 6\nChain the last two parts together, so that the resulting dataset contains both avg_speed and delay_category. Pipe this new dataset into ggplot() to answer the question “is there a relationship between average speed and how late a flight is delayed?” You should use the delay_category variable you created to answer this question.\nIf you have time, create a new graph which only contains flights to MSP. Does your conclusion change?\n\n\n\n\n\n\nAdapted from Adam Loy’s materials"
+  },
+  {
+    "objectID": "activities/04-customizing-plots.html",
+    "href": "activities/04-customizing-plots.html",
+    "title": "04: Customizing plots",
     "section": "",
-    "text": "acs_mn_2020 &lt;- tidycensus::get_acs(\n    year = 2020,\n    state = \"MN\",\n    geography = \"county\",\n    variables = c(\"B01003_001\", \"B19013_001\"),\n    output = \"wide\",\n    geometry = TRUE\n)"
+    "text": "Tip\n\n\n\nIf you need a refresher for how to access the quarto file from this document, see Activity01\nlibrary(tidyverse)\nlibrary(ggthemes)"
   },
   {
-    "objectID": "activities/19-apis.html#storing-your-api-key",
-    "href": "activities/19-apis.html#storing-your-api-key",
-    "title": "19-apis",
-    "section": "",
-    "text": "Create a new text file in the same folder as your .rmd\nCopy and paste your census key into the empty file\nSave the file as census_api_key.txt\n\n\n\nmy_key &lt;- readLines(\"census_api_key.txt\")\n\nand tell tidycensus what your API key is with:\n\ncensus_api_key(my_key)\n\nDo not commit and push census_api_key.txt to github\n\nacs_mn_2020 |&gt;\n  mutate(\n    name = str_remove(NAME, \", Minnesota\"),\n    name = str_remove(name, \" County\")\n  ) |&gt; \n  ggplot(aes(x = B19013_001E, \n                          xmin = B19013_001E - B19013_001M, \n                          xmax = B19013_001E + B19013_001M, \n                          y = fct_reorder(name, B19013_001E))) + \n  geom_point() + \n  geom_errorbarh() + \n  labs(\n    x = \"\",\n    y = \"\"\n  )"
+    "objectID": "activities/04-customizing-plots.html#load-data",
+    "href": "activities/04-customizing-plots.html#load-data",
+    "title": "04: Customizing plots",
+    "section": "Load Data",
+    "text": "Load Data\nNote: This code reads the same dataset in that we used last time and then creates two new columns based on an old one. Make sure to run this chunk before trying to make your graph!\n\nseason_summary = readr::read_csv(\"https://raw.githubusercontent.com/stat220-w26/stat220-w26.github.io/refs/heads/main/data/survivor_season_summary.csv\") |&gt;\n  separate(timeslot, into = c(\"day_of_week\", \"time\"))"
   },
   {
-    "objectID": "activities/19-apis.html#links-to-more-info-about-census",
-    "href": "activities/19-apis.html#links-to-more-info-about-census",
-    "title": "19-apis",
-    "section": "",
-    "text": "https://data.census.gov/\nhttps://www.census.gov/acs/www/data/data-tables-and-tools/subject-tables/"
-  },
-  {
-    "objectID": "activities/19-apis.html#your-turn",
-    "href": "activities/19-apis.html#your-turn",
-    "title": "19-apis",
-    "section": "",
-    "text": "Search for two new variables using load_variables (Can you explain what they are?)\nRun another call to tidycensus::get_acs using your two variables"
-  },
-  {
-    "objectID": "activities/19-apis.html#example-call-1",
-    "href": "activities/19-apis.html#example-call-1",
-    "title": "19-apis",
-    "section": "Example call",
-    "text": "Example call\n\nhmong_state_request &lt;- request(\"https://api.census.gov/data\") %&gt;% \n    req_url_path_append(\"2019\") %&gt;% \n    req_url_path_append(\"acs\") %&gt;% \n    req_url_path_append(\"acs1\") %&gt;% \n    req_url_query(get = c(\"NAME\", \"B02015_009E\", \"B02015_009M\"), `for` = I(\"state:*\"), key = census_api_key, .multi = \"comma\")\n\n\nhmong_state_response &lt;- req_perform(hmong_state_request)\n\n\nhmong_state_tbl &lt;- hmong_state_response %&gt;%\n  resp_body_json(simplifyVector = TRUE) %&gt;%\n  janitor::row_to_names(1) %&gt;%\n  as_tibble()\n\nhmong_state_tbl"
-  },
-  {
-    "objectID": "activities/19-apis.html#your-turn-1",
-    "href": "activities/19-apis.html#your-turn-1",
-    "title": "19-apis",
-    "section": "Your Turn",
-    "text": "Your Turn\n\nEdit the httr code to access a new variable of your choice\nMake a httr request to access the 1-year ACS data from 2018, 2019, 2021, and 2022. Make sure to save your results from each call!\nCombine all years into a single dataset\nMake a time series plot with your chosen variable on the y-axis, year on the x-axis, colored by state.\n\nYou may want to first filter to only a few states\nYou will need to do some cleaning of the data"
-  },
-  {
-    "objectID": "activities/22-interactivity.html",
-    "href": "activities/22-interactivity.html",
-    "title": "22-interactivity",
-    "section": "",
-    "text": "library(tidyverse)\nlibrary(palmerpenguins)\nlibrary(DT)\nlibrary(plotly)\nlibrary(flexdashboard)\nlibrary(leaflet)\n\nPlotly 1\nLoad the palmerpenguins data set and create a scatterplot of body_mass_g vs. flipper_length_mm from the penguins data set. Use color and shape to specify the species.\nOnce you have a static graphic you’re happy with, load plotly and convert it to an interactive graphic.\n\nWhat tools tips are included by default?\nChange the default tooltip to include “Species”\n(If time) use stringr so that the tooltip shows: “Species: Adelie” instead of just “Adelie”\nPlotly 2\nCreate a bar chart of species from the penguins data set, then convert it to an interactive bar chart.\n\nWhat tools tips are included by default?\nWhat would you change?\nLeaflet\n\nFind the names of the 3 islands in penguins\n\nFind appropriate lat/long locations for each of the islands in penguins using the internet\nCreate a leaflet map with markers for each island (Tip: Start with the world map with no zoom)\nInclude a popup with the island name\nDT Table\n\nCreate a {DT} table of the penguins dataset\nAdd the option to filter, and make the font size 14pt\nPutting it all together\nnew file –&gt; rmarkdown –&gt; from template –&gt; flexdashboard (with bslib theme)\n\nMake all graphs plotly’s with appropriate tooltips\nReplace the data output with your {DT} datatable\nInclude your leaflet map on a new page\n\nAdd value boxes on the same page as your map that show the number of penguins that live on each island\nChange the theme of the dashboard"
+    "objectID": "activities/04-customizing-plots.html#replicate-histogram",
+    "href": "activities/04-customizing-plots.html#replicate-histogram",
+    "title": "04: Customizing plots",
+    "section": "Replicate histogram",
+    "text": "Replicate histogram\n\n# Include your code here"
   },
   {
     "objectID": "activities/14-text-case-study.html",
