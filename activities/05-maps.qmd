@@ -1,9 +1,10 @@
 ---
 title: Maps
+execute: 
+  echo: true
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r}
 library(tidyverse)
 library(maps)
 library(mapproj)
