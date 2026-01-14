@@ -6,11 +6,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8cab17c520dfb5fd83702a774e8ef3fe.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+  <meta name="generator" content="quarto-1.8.23">
 
   <meta name="author" content="Prof Amanda Luby">
   <title>Stat 220 – Intro to Maps   and Spatial  Data</title>
@@ -230,7 +230,7 @@ Prof Amanda Luby
 <div class="column" style="width:60%;">
 <ul>
 <li class="fragment">Think of the state on GitHub as “worst case scenario”</li>
-<li class="fragment">If you screw things up, copy your important files (eg. <code>hw.Rmd</code>) to a safe place.
+<li class="fragment">If you screw things up, copy your important files (eg. <code>hw02.qmd</code>) to a safe place.
 <ul>
 <li class="fragment">Usually your files are JUST FINE. But it is easy to goof up the Git infrastructure when you’re new at this. And it can be hard to get that straightened out on your own.</li>
 </ul></li>
@@ -393,7 +393,6 @@ Prof Amanda Luby
 <li>map data with lat, long, region</li>
 <li>data with measurements for each region</li>
 </ol>
-<p>you don’t need to join them!</p>
 </div><div class="column" style="width:60%;">
 <p><img data-src="../img/wilke-chloropleth.png"></p>
 </div></div>
@@ -418,8 +417,8 @@ Prof Amanda Luby
 <p><a href="https://clauswilke.com/dataviz/geospatial-data.html"><em>Fundamentals of Data Visualization</em></a></p>
 </div></aside></section></section>
 <section>
-<section id="deep-dive-maps" class="title-slide slide level1 maize center">
-<h1>Deep dive: maps</h1>
+<section id="chloropleth-maps-in-detail" class="title-slide slide level1 maize center">
+<h1>Chloropleth Maps in detail</h1>
 
 </section>
 <section id="what-is-a-map" class="slide level2">
@@ -461,27 +460,24 @@ Prof Amanda Luby
 <p><code>ggplot2::map_data()</code> provides the necessary information</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>states <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"state"</span>)</span>
-<span id="cb1-2"><a></a><span class="fu">glimpse</span>(states)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a></a><span class="fu">head</span>(states)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 15,537
-Columns: 6
-$ long      &lt;dbl&gt; -87.46201, -87.48493, -87.52503, -87.53076, -87.57087, -87.5…
-$ lat       &lt;dbl&gt; 30.38968, 30.37249, 30.37249, 30.33239, 30.32665, 30.32665, …
-$ group     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
-$ order     &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 1…
-$ region    &lt;chr&gt; "alabama", "alabama", "alabama", "alabama", "alabama", "alab…
-$ subregion &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</code></pre>
+<pre><code>       long      lat group order  region subregion
+1 -87.46201 30.38968     1     1 alabama      &lt;NA&gt;
+2 -87.48493 30.37249     1     2 alabama      &lt;NA&gt;
+3 -87.52503 30.37249     1     3 alabama      &lt;NA&gt;
+4 -87.53076 30.33239     1     4 alabama      &lt;NA&gt;
+5 -87.57087 30.32665     1     5 alabama      &lt;NA&gt;
+6 -87.58806 30.32665     1     6 alabama      &lt;NA&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="using-geom_polygon" class="slide level2">
 <h2>Using <code>geom_polygon()</code></h2>
 <p>Using <code>geom_polygon()</code> will treat states as solid shapes, making it easier to add color</p>
-<div class="cell columns column-output-location">
-<div class="column">
+<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>(states, <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y=</span>lat, <span class="at">group=</span>group)) <span class="sc">+</span> </span>
 <span id="cb3-2"><a></a>    <span class="fu">geom_polygon</span>(<span class="at">color=</span><span class="st">"gold2"</span>, <span class="at">fill=</span><span class="st">"navyblue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
@@ -489,17 +485,15 @@ $ subregion &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 </figure>
 </div>
 </div>
-</div></div>
+</div>
 </section>
 <section id="using-coord_fixed" class="slide level2">
 <h2>Using <code>coord_fixed()</code></h2>
 <p>Using <code>coord_fixed()</code> forces x and y units to be equal</p>
-<div class="cell columns column-output-location">
-<div class="column">
+<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">ggplot</span>(states, <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y=</span>lat, <span class="at">group=</span>group)) <span class="sc">+</span> </span>
 <span id="cb4-2"><a></a>    <span class="fu">geom_polygon</span>(<span class="at">color=</span><span class="st">"gold2"</span>, <span class="at">fill=</span><span class="st">"navyblue"</span>) <span class="sc">+</span></span>
 <span id="cb4-3"><a></a>  <span class="fu">coord_fixed</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
@@ -507,7 +501,7 @@ $ subregion &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 </figure>
 </div>
 </div>
-</div></div>
+</div>
 </section>
 <section id="your-turn" class="slide level2">
 <h2>Your turn</h2>
@@ -520,14 +514,1525 @@ $ subregion &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <ul>
 <li>Edit this code so that each shape is colored in with a different color.</li>
 <li>You only need the 3 variables used: <code>long</code>, <code>lat</code>, and <code>group</code></li>
-<li><code>05-maps.Rmd</code> file available in the <code>activities</code> repo</li>
+<li><code>05-maps.qmd</code> is available on the website</li>
 </ul>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_d6efd674" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_9abd50fa" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section>
+<section id="but-how-do-we-include-data" class="slide level2">
+<h2>But… how do we include data?</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>acs_state_data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/aluby/teaching-datasets/refs/heads/main/acs_state_data_2022_5y.csv"</span>) </span>
+<span id="cb6-2"><a></a>acs_state_data<span class="sc">$</span>state <span class="ot">=</span> <span class="fu">tolower</span>(acs_state_data<span class="sc">$</span>NAME)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">NAME</th>
+<th style="text-align: right;">med_age</th>
+<th style="text-align: right;">total_pop</th>
+<th style="text-align: right;">race_white</th>
+<th style="text-align: right;">race_black_afam</th>
+<th style="text-align: right;">race_am_indian</th>
+<th style="text-align: right;">race_asian</th>
+<th style="text-align: right;">race_hawaiian_pi</th>
+<th style="text-align: right;">race_other</th>
+<th style="text-align: right;">race_two_plus</th>
+<th style="text-align: right;">born_in_state</th>
+<th style="text-align: right;">male_age_married</th>
+<th style="text-align: right;">fem_age_married</th>
+<th style="text-align: right;">hs_diploma</th>
+<th style="text-align: right;">associate_degree</th>
+<th style="text-align: right;">bachelors_degree</th>
+<th style="text-align: right;">masters_degree</th>
+<th style="text-align: right;">prof_degree</th>
+<th style="text-align: right;">doctorate_degree</th>
+<th style="text-align: right;">med_income</th>
+<th style="text-align: right;">internet_any</th>
+<th style="text-align: right;">internet_dialup</th>
+<th style="text-align: right;">internet_broadband</th>
+<th style="text-align: left;">state</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Alabama</td>
+<td style="text-align: right;">39.3</td>
+<td style="text-align: right;">5028092</td>
+<td style="text-align: right;">3329012</td>
+<td style="text-align: right;">1326341</td>
+<td style="text-align: right;">21122</td>
+<td style="text-align: right;">69808</td>
+<td style="text-align: right;">93924</td>
+<td style="text-align: right;">185632</td>
+<td style="text-align: right;">63576</td>
+<td style="text-align: right;">3454217</td>
+<td style="text-align: right;">28.8</td>
+<td style="text-align: right;">27.0</td>
+<td style="text-align: right;">864977</td>
+<td style="text-align: right;">306021</td>
+<td style="text-align: right;">572252</td>
+<td style="text-align: right;">261039</td>
+<td style="text-align: right;">56574</td>
+<td style="text-align: right;">42980</td>
+<td style="text-align: right;">59609</td>
+<td style="text-align: right;">1625807</td>
+<td style="text-align: right;">6090</td>
+<td style="text-align: right;">1619717</td>
+<td style="text-align: left;">alabama</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alaska</td>
+<td style="text-align: right;">35.3</td>
+<td style="text-align: right;">734821</td>
+<td style="text-align: right;">450472</td>
+<td style="text-align: right;">23395</td>
+<td style="text-align: right;">104957</td>
+<td style="text-align: right;">47464</td>
+<td style="text-align: right;">14597</td>
+<td style="text-align: right;">82727</td>
+<td style="text-align: right;">15138</td>
+<td style="text-align: right;">314011</td>
+<td style="text-align: right;">29.5</td>
+<td style="text-align: right;">26.6</td>
+<td style="text-align: right;">114087</td>
+<td style="text-align: right;">43357</td>
+<td style="text-align: right;">93744</td>
+<td style="text-align: right;">39645</td>
+<td style="text-align: right;">9589</td>
+<td style="text-align: right;">6419</td>
+<td style="text-align: right;">86370</td>
+<td style="text-align: right;">236875</td>
+<td style="text-align: right;">610</td>
+<td style="text-align: right;">236265</td>
+<td style="text-align: left;">alaska</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Arizona</td>
+<td style="text-align: right;">38.4</td>
+<td style="text-align: right;">7172282</td>
+<td style="text-align: right;">4781702</td>
+<td style="text-align: right;">327077</td>
+<td style="text-align: right;">297590</td>
+<td style="text-align: right;">240642</td>
+<td style="text-align: right;">549361</td>
+<td style="text-align: right;">961794</td>
+<td style="text-align: right;">668727</td>
+<td style="text-align: right;">2849262</td>
+<td style="text-align: right;">30.3</td>
+<td style="text-align: right;">28.2</td>
+<td style="text-align: right;">953769</td>
+<td style="text-align: right;">445866</td>
+<td style="text-align: right;">958447</td>
+<td style="text-align: right;">429317</td>
+<td style="text-align: right;">93897</td>
+<td style="text-align: right;">69793</td>
+<td style="text-align: right;">72581</td>
+<td style="text-align: right;">2448838</td>
+<td style="text-align: right;">5550</td>
+<td style="text-align: right;">2443288</td>
+<td style="text-align: left;">arizona</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Arkansas</td>
+<td style="text-align: right;">38.4</td>
+<td style="text-align: right;">3018669</td>
+<td style="text-align: right;">2193348</td>
+<td style="text-align: right;">456693</td>
+<td style="text-align: right;">16840</td>
+<td style="text-align: right;">47413</td>
+<td style="text-align: right;">89782</td>
+<td style="text-align: right;">203476</td>
+<td style="text-align: right;">106205</td>
+<td style="text-align: right;">1843313</td>
+<td style="text-align: right;">27.3</td>
+<td style="text-align: right;">26.0</td>
+<td style="text-align: right;">573876</td>
+<td style="text-align: right;">159514</td>
+<td style="text-align: right;">317437</td>
+<td style="text-align: right;">134754</td>
+<td style="text-align: right;">29822</td>
+<td style="text-align: right;">19966</td>
+<td style="text-align: right;">56335</td>
+<td style="text-align: right;">968272</td>
+<td style="text-align: right;">2584</td>
+<td style="text-align: right;">965688</td>
+<td style="text-align: left;">arkansas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">California</td>
+<td style="text-align: right;">37.3</td>
+<td style="text-align: right;">39356104</td>
+<td style="text-align: right;">18943660</td>
+<td style="text-align: right;">2202587</td>
+<td style="text-align: right;">394188</td>
+<td style="text-align: right;">5949136</td>
+<td style="text-align: right;">6388999</td>
+<td style="text-align: right;">5327003</td>
+<td style="text-align: right;">3506890</td>
+<td style="text-align: right;">22254935</td>
+<td style="text-align: right;">31.3</td>
+<td style="text-align: right;">29.6</td>
+<td style="text-align: right;">4837641</td>
+<td style="text-align: right;">2136258</td>
+<td style="text-align: right;">5935292</td>
+<td style="text-align: right;">2515475</td>
+<td style="text-align: right;">687281</td>
+<td style="text-align: right;">488925</td>
+<td style="text-align: right;">91905</td>
+<td style="text-align: right;">12195945</td>
+<td style="text-align: right;">18361</td>
+<td style="text-align: right;">12177584</td>
+<td style="text-align: left;">california</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Colorado</td>
+<td style="text-align: right;">37.3</td>
+<td style="text-align: right;">5770790</td>
+<td style="text-align: right;">4393409</td>
+<td style="text-align: right;">233712</td>
+<td style="text-align: right;">57022</td>
+<td style="text-align: right;">185431</td>
+<td style="text-align: right;">283146</td>
+<td style="text-align: right;">609976</td>
+<td style="text-align: right;">375060</td>
+<td style="text-align: right;">2411879</td>
+<td style="text-align: right;">30.2</td>
+<td style="text-align: right;">28.2</td>
+<td style="text-align: right;">660933</td>
+<td style="text-align: right;">334723</td>
+<td style="text-align: right;">1083618</td>
+<td style="text-align: right;">481793</td>
+<td style="text-align: right;">100044</td>
+<td style="text-align: right;">76234</td>
+<td style="text-align: right;">87598</td>
+<td style="text-align: right;">2095757</td>
+<td style="text-align: right;">4374</td>
+<td style="text-align: right;">2091383</td>
+<td style="text-align: left;">colorado</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Connecticut</td>
+<td style="text-align: right;">40.9</td>
+<td style="text-align: right;">3611317</td>
+<td style="text-align: right;">2522166</td>
+<td style="text-align: right;">385407</td>
+<td style="text-align: right;">9043</td>
+<td style="text-align: right;">170945</td>
+<td style="text-align: right;">233926</td>
+<td style="text-align: right;">288485</td>
+<td style="text-align: right;">162640</td>
+<td style="text-align: right;">1945920</td>
+<td style="text-align: right;">31.2</td>
+<td style="text-align: right;">29.9</td>
+<td style="text-align: right;">570708</td>
+<td style="text-align: right;">192167</td>
+<td style="text-align: right;">573917</td>
+<td style="text-align: right;">341203</td>
+<td style="text-align: right;">81685</td>
+<td style="text-align: right;">46421</td>
+<td style="text-align: right;">90213</td>
+<td style="text-align: right;">1272555</td>
+<td style="text-align: right;">2700</td>
+<td style="text-align: right;">1269855</td>
+<td style="text-align: left;">connecticut</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Delaware</td>
+<td style="text-align: right;">41.4</td>
+<td style="text-align: right;">993635</td>
+<td style="text-align: right;">634244</td>
+<td style="text-align: right;">218266</td>
+<td style="text-align: right;">3309</td>
+<td style="text-align: right;">40570</td>
+<td style="text-align: right;">32751</td>
+<td style="text-align: right;">64130</td>
+<td style="text-align: right;">28821</td>
+<td style="text-align: right;">435760</td>
+<td style="text-align: right;">30.7</td>
+<td style="text-align: right;">29.3</td>
+<td style="text-align: right;">184812</td>
+<td style="text-align: right;">58540</td>
+<td style="text-align: right;">139213</td>
+<td style="text-align: right;">75033</td>
+<td style="text-align: right;">13180</td>
+<td style="text-align: right;">13931</td>
+<td style="text-align: right;">79325</td>
+<td style="text-align: right;">352105</td>
+<td style="text-align: right;">673</td>
+<td style="text-align: right;">351432</td>
+<td style="text-align: left;">delaware</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">District of Columbia</td>
+<td style="text-align: right;">34.8</td>
+<td style="text-align: right;">670587</td>
+<td style="text-align: right;">265633</td>
+<td style="text-align: right;">297101</td>
+<td style="text-align: right;">2209</td>
+<td style="text-align: right;">27067</td>
+<td style="text-align: right;">30879</td>
+<td style="text-align: right;">47278</td>
+<td style="text-align: right;">20539</td>
+<td style="text-align: right;">241127</td>
+<td style="text-align: right;">31.9</td>
+<td style="text-align: right;">30.9</td>
+<td style="text-align: right;">61269</td>
+<td style="text-align: right;">14834</td>
+<td style="text-align: right;">124860</td>
+<td style="text-align: right;">109410</td>
+<td style="text-align: right;">48095</td>
+<td style="text-align: right;">21167</td>
+<td style="text-align: right;">101722</td>
+<td style="text-align: right;">281424</td>
+<td style="text-align: right;">292</td>
+<td style="text-align: right;">281132</td>
+<td style="text-align: left;">district of columbia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Florida</td>
+<td style="text-align: right;">42.4</td>
+<td style="text-align: right;">21634529</td>
+<td style="text-align: right;">13807410</td>
+<td style="text-align: right;">3355708</td>
+<td style="text-align: right;">59197</td>
+<td style="text-align: right;">609990</td>
+<td style="text-align: right;">1045557</td>
+<td style="text-align: right;">2743467</td>
+<td style="text-align: right;">2089692</td>
+<td style="text-align: right;">7745873</td>
+<td style="text-align: right;">31.0</td>
+<td style="text-align: right;">29.1</td>
+<td style="text-align: right;">3671306</td>
+<td style="text-align: right;">1567030</td>
+<td style="text-align: right;">3154240</td>
+<td style="text-align: right;">1308569</td>
+<td style="text-align: right;">372331</td>
+<td style="text-align: right;">202326</td>
+<td style="text-align: right;">67917</td>
+<td style="text-align: right;">7429632</td>
+<td style="text-align: right;">12312</td>
+<td style="text-align: right;">7417320</td>
+<td style="text-align: left;">florida</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Georgia</td>
+<td style="text-align: right;">37.2</td>
+<td style="text-align: right;">10722325</td>
+<td style="text-align: right;">5820019</td>
+<td style="text-align: right;">3373948</td>
+<td style="text-align: right;">37920</td>
+<td style="text-align: right;">465487</td>
+<td style="text-align: right;">378659</td>
+<td style="text-align: right;">638881</td>
+<td style="text-align: right;">315042</td>
+<td style="text-align: right;">5796529</td>
+<td style="text-align: right;">30.1</td>
+<td style="text-align: right;">28.0</td>
+<td style="text-align: right;">1611827</td>
+<td style="text-align: right;">594639</td>
+<td style="text-align: right;">1464589</td>
+<td style="text-align: right;">669304</td>
+<td style="text-align: right;">165134</td>
+<td style="text-align: right;">108680</td>
+<td style="text-align: right;">71355</td>
+<td style="text-align: right;">3468542</td>
+<td style="text-align: right;">4515</td>
+<td style="text-align: right;">3464027</td>
+<td style="text-align: left;">georgia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hawaii</td>
+<td style="text-align: right;">39.9</td>
+<td style="text-align: right;">1450589</td>
+<td style="text-align: right;">333296</td>
+<td style="text-align: right;">28665</td>
+<td style="text-align: right;">4210</td>
+<td style="text-align: right;">538970</td>
+<td style="text-align: right;">24503</td>
+<td style="text-align: right;">370148</td>
+<td style="text-align: right;">23091</td>
+<td style="text-align: right;">769824</td>
+<td style="text-align: right;">30.1</td>
+<td style="text-align: right;">28.8</td>
+<td style="text-align: right;">244486</td>
+<td style="text-align: right;">113060</td>
+<td style="text-align: right;">227243</td>
+<td style="text-align: right;">85984</td>
+<td style="text-align: right;">25539</td>
+<td style="text-align: right;">16217</td>
+<td style="text-align: right;">94814</td>
+<td style="text-align: right;">435393</td>
+<td style="text-align: right;">862</td>
+<td style="text-align: right;">434531</td>
+<td style="text-align: left;">hawaii</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Idaho</td>
+<td style="text-align: right;">36.9</td>
+<td style="text-align: right;">1854109</td>
+<td style="text-align: right;">1574859</td>
+<td style="text-align: right;">12781</td>
+<td style="text-align: right;">22297</td>
+<td style="text-align: right;">24987</td>
+<td style="text-align: right;">83887</td>
+<td style="text-align: right;">132577</td>
+<td style="text-align: right;">73263</td>
+<td style="text-align: right;">830194</td>
+<td style="text-align: right;">27.1</td>
+<td style="text-align: right;">25.7</td>
+<td style="text-align: right;">259629</td>
+<td style="text-align: right;">119611</td>
+<td style="text-align: right;">244372</td>
+<td style="text-align: right;">85760</td>
+<td style="text-align: right;">20684</td>
+<td style="text-align: right;">15407</td>
+<td style="text-align: right;">70214</td>
+<td style="text-align: right;">608097</td>
+<td style="text-align: right;">1915</td>
+<td style="text-align: right;">606182</td>
+<td style="text-align: left;">idaho</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Illinois</td>
+<td style="text-align: right;">38.7</td>
+<td style="text-align: right;">12757634</td>
+<td style="text-align: right;">8388659</td>
+<td style="text-align: right;">1774605</td>
+<td style="text-align: right;">55819</td>
+<td style="text-align: right;">738071</td>
+<td style="text-align: right;">842553</td>
+<td style="text-align: right;">952451</td>
+<td style="text-align: right;">606350</td>
+<td style="text-align: right;">8549361</td>
+<td style="text-align: right;">30.8</td>
+<td style="text-align: right;">29.2</td>
+<td style="text-align: right;">1899480</td>
+<td style="text-align: right;">727981</td>
+<td style="text-align: right;">1924339</td>
+<td style="text-align: right;">938097</td>
+<td style="text-align: right;">214115</td>
+<td style="text-align: right;">130899</td>
+<td style="text-align: right;">78433</td>
+<td style="text-align: right;">4388839</td>
+<td style="text-align: right;">9493</td>
+<td style="text-align: right;">4379346</td>
+<td style="text-align: left;">illinois</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Indiana</td>
+<td style="text-align: right;">38.0</td>
+<td style="text-align: right;">6784403</td>
+<td style="text-align: right;">5426227</td>
+<td style="text-align: right;">640752</td>
+<td style="text-align: right;">12465</td>
+<td style="text-align: right;">168899</td>
+<td style="text-align: right;">187740</td>
+<td style="text-align: right;">345830</td>
+<td style="text-align: right;">153259</td>
+<td style="text-align: right;">4585916</td>
+<td style="text-align: right;">29.2</td>
+<td style="text-align: right;">26.8</td>
+<td style="text-align: right;">1258288</td>
+<td style="text-align: right;">408878</td>
+<td style="text-align: right;">815853</td>
+<td style="text-align: right;">342003</td>
+<td style="text-align: right;">69602</td>
+<td style="text-align: right;">52190</td>
+<td style="text-align: right;">67173</td>
+<td style="text-align: right;">2307571</td>
+<td style="text-align: right;">6131</td>
+<td style="text-align: right;">2301440</td>
+<td style="text-align: left;">indiana</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Iowa</td>
+<td style="text-align: right;">38.4</td>
+<td style="text-align: right;">3188836</td>
+<td style="text-align: right;">2769619</td>
+<td style="text-align: right;">120619</td>
+<td style="text-align: right;">10111</td>
+<td style="text-align: right;">78940</td>
+<td style="text-align: right;">54569</td>
+<td style="text-align: right;">150396</td>
+<td style="text-align: right;">65729</td>
+<td style="text-align: right;">2232446</td>
+<td style="text-align: right;">29.1</td>
+<td style="text-align: right;">26.9</td>
+<td style="text-align: right;">568254</td>
+<td style="text-align: right;">255181</td>
+<td style="text-align: right;">433380</td>
+<td style="text-align: right;">148289</td>
+<td style="text-align: right;">36031</td>
+<td style="text-align: right;">27629</td>
+<td style="text-align: right;">70571</td>
+<td style="text-align: right;">1117760</td>
+<td style="text-align: right;">4880</td>
+<td style="text-align: right;">1112880</td>
+<td style="text-align: left;">iowa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kansas</td>
+<td style="text-align: right;">37.1</td>
+<td style="text-align: right;">2935922</td>
+<td style="text-align: right;">2341473</td>
+<td style="text-align: right;">163581</td>
+<td style="text-align: right;">22015</td>
+<td style="text-align: right;">88513</td>
+<td style="text-align: right;">102461</td>
+<td style="text-align: right;">215150</td>
+<td style="text-align: right;">96078</td>
+<td style="text-align: right;">1740100</td>
+<td style="text-align: right;">28.6</td>
+<td style="text-align: right;">26.5</td>
+<td style="text-align: right;">415315</td>
+<td style="text-align: right;">171665</td>
+<td style="text-align: right;">417263</td>
+<td style="text-align: right;">185313</td>
+<td style="text-align: right;">38167</td>
+<td style="text-align: right;">27522</td>
+<td style="text-align: right;">69747</td>
+<td style="text-align: right;">1012599</td>
+<td style="text-align: right;">2444</td>
+<td style="text-align: right;">1010155</td>
+<td style="text-align: left;">kansas</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kentucky</td>
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">4502935</td>
+<td style="text-align: right;">3816997</td>
+<td style="text-align: right;">360184</td>
+<td style="text-align: right;">6821</td>
+<td style="text-align: right;">69187</td>
+<td style="text-align: right;">56352</td>
+<td style="text-align: right;">189589</td>
+<td style="text-align: right;">68088</td>
+<td style="text-align: right;">3069011</td>
+<td style="text-align: right;">28.4</td>
+<td style="text-align: right;">26.5</td>
+<td style="text-align: right;">806274</td>
+<td style="text-align: right;">269411</td>
+<td style="text-align: right;">478134</td>
+<td style="text-align: right;">241185</td>
+<td style="text-align: right;">56939</td>
+<td style="text-align: right;">35681</td>
+<td style="text-align: right;">60183</td>
+<td style="text-align: right;">1518043</td>
+<td style="text-align: right;">4050</td>
+<td style="text-align: right;">1513993</td>
+<td style="text-align: left;">kentucky</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Louisiana</td>
+<td style="text-align: right;">37.6</td>
+<td style="text-align: right;">4640546</td>
+<td style="text-align: right;">2758714</td>
+<td style="text-align: right;">1464582</td>
+<td style="text-align: right;">24952</td>
+<td style="text-align: right;">80363</td>
+<td style="text-align: right;">84387</td>
+<td style="text-align: right;">225187</td>
+<td style="text-align: right;">98242</td>
+<td style="text-align: right;">3604534</td>
+<td style="text-align: right;">30.0</td>
+<td style="text-align: right;">28.2</td>
+<td style="text-align: right;">854193</td>
+<td style="text-align: right;">215867</td>
+<td style="text-align: right;">519481</td>
+<td style="text-align: right;">206717</td>
+<td style="text-align: right;">56332</td>
+<td style="text-align: right;">33039</td>
+<td style="text-align: right;">57852</td>
+<td style="text-align: right;">1467429</td>
+<td style="text-align: right;">2486</td>
+<td style="text-align: right;">1464943</td>
+<td style="text-align: left;">louisiana</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Maine</td>
+<td style="text-align: right;">44.8</td>
+<td style="text-align: right;">1366949</td>
+<td style="text-align: right;">1261284</td>
+<td style="text-align: right;">21775</td>
+<td style="text-align: right;">6722</td>
+<td style="text-align: right;">15071</td>
+<td style="text-align: right;">8128</td>
+<td style="text-align: right;">53704</td>
+<td style="text-align: right;">21246</td>
+<td style="text-align: right;">835553</td>
+<td style="text-align: right;">29.9</td>
+<td style="text-align: right;">28.6</td>
+<td style="text-align: right;">261945</td>
+<td style="text-align: right;">103134</td>
+<td style="text-align: right;">214733</td>
+<td style="text-align: right;">90861</td>
+<td style="text-align: right;">22065</td>
+<td style="text-align: right;">15603</td>
+<td style="text-align: right;">68251</td>
+<td style="text-align: right;">509099</td>
+<td style="text-align: right;">2409</td>
+<td style="text-align: right;">506690</td>
+<td style="text-align: left;">maine</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Maryland</td>
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">6161707</td>
+<td style="text-align: right;">3154247</td>
+<td style="text-align: right;">1841926</td>
+<td style="text-align: right;">18343</td>
+<td style="text-align: right;">399736</td>
+<td style="text-align: right;">355402</td>
+<td style="text-align: right;">388933</td>
+<td style="text-align: right;">153723</td>
+<td style="text-align: right;">2910096</td>
+<td style="text-align: right;">31.1</td>
+<td style="text-align: right;">29.5</td>
+<td style="text-align: right;">885579</td>
+<td style="text-align: right;">292090</td>
+<td style="text-align: right;">952916</td>
+<td style="text-align: right;">590587</td>
+<td style="text-align: right;">135879</td>
+<td style="text-align: right;">119364</td>
+<td style="text-align: right;">98461</td>
+<td style="text-align: right;">2103025</td>
+<td style="text-align: right;">3649</td>
+<td style="text-align: right;">2099376</td>
+<td style="text-align: left;">maryland</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Massachusetts</td>
+<td style="text-align: right;">39.8</td>
+<td style="text-align: right;">6984205</td>
+<td style="text-align: right;">5075525</td>
+<td style="text-align: right;">498785</td>
+<td style="text-align: right;">14740</td>
+<td style="text-align: right;">487600</td>
+<td style="text-align: right;">347501</td>
+<td style="text-align: right;">557288</td>
+<td style="text-align: right;">322753</td>
+<td style="text-align: right;">4151655</td>
+<td style="text-align: right;">31.3</td>
+<td style="text-align: right;">30.3</td>
+<td style="text-align: right;">990524</td>
+<td style="text-align: right;">374880</td>
+<td style="text-align: right;">1234320</td>
+<td style="text-align: right;">717317</td>
+<td style="text-align: right;">153045</td>
+<td style="text-align: right;">154129</td>
+<td style="text-align: right;">96505</td>
+<td style="text-align: right;">2489302</td>
+<td style="text-align: right;">4031</td>
+<td style="text-align: right;">2485271</td>
+<td style="text-align: left;">massachusetts</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Michigan</td>
+<td style="text-align: right;">39.9</td>
+<td style="text-align: right;">10057921</td>
+<td style="text-align: right;">7617085</td>
+<td style="text-align: right;">1363539</td>
+<td style="text-align: right;">45662</td>
+<td style="text-align: right;">327551</td>
+<td style="text-align: right;">157999</td>
+<td style="text-align: right;">543305</td>
+<td style="text-align: right;">209757</td>
+<td style="text-align: right;">7676334</td>
+<td style="text-align: right;">30.4</td>
+<td style="text-align: right;">28.5</td>
+<td style="text-align: right;">1694166</td>
+<td style="text-align: right;">673750</td>
+<td style="text-align: right;">1311608</td>
+<td style="text-align: right;">627217</td>
+<td style="text-align: right;">132170</td>
+<td style="text-align: right;">89356</td>
+<td style="text-align: right;">68505</td>
+<td style="text-align: right;">3529341</td>
+<td style="text-align: right;">8375</td>
+<td style="text-align: right;">3520966</td>
+<td style="text-align: left;">michigan</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Minnesota</td>
+<td style="text-align: right;">38.5</td>
+<td style="text-align: right;">5695292</td>
+<td style="text-align: right;">4537219</td>
+<td style="text-align: right;">382082</td>
+<td style="text-align: right;">51434</td>
+<td style="text-align: right;">286146</td>
+<td style="text-align: right;">133098</td>
+<td style="text-align: right;">302989</td>
+<td style="text-align: right;">102874</td>
+<td style="text-align: right;">3838865</td>
+<td style="text-align: right;">30.1</td>
+<td style="text-align: right;">28.3</td>
+<td style="text-align: right;">800667</td>
+<td style="text-align: right;">452032</td>
+<td style="text-align: right;">965593</td>
+<td style="text-align: right;">364292</td>
+<td style="text-align: right;">89655</td>
+<td style="text-align: right;">60300</td>
+<td style="text-align: right;">84313</td>
+<td style="text-align: right;">2030598</td>
+<td style="text-align: right;">6584</td>
+<td style="text-align: right;">2024014</td>
+<td style="text-align: left;">minnesota</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mississippi</td>
+<td style="text-align: right;">38.1</td>
+<td style="text-align: right;">2958846</td>
+<td style="text-align: right;">1685024</td>
+<td style="text-align: right;">1101836</td>
+<td style="text-align: right;">12777</td>
+<td style="text-align: right;">29041</td>
+<td style="text-align: right;">41764</td>
+<td style="text-align: right;">87204</td>
+<td style="text-align: right;">29813</td>
+<td style="text-align: right;">2112621</td>
+<td style="text-align: right;">28.7</td>
+<td style="text-align: right;">27.0</td>
+<td style="text-align: right;">468731</td>
+<td style="text-align: right;">209117</td>
+<td style="text-align: right;">286132</td>
+<td style="text-align: right;">131671</td>
+<td style="text-align: right;">30003</td>
+<td style="text-align: right;">22265</td>
+<td style="text-align: right;">52985</td>
+<td style="text-align: right;">899120</td>
+<td style="text-align: right;">1842</td>
+<td style="text-align: right;">897278</td>
+<td style="text-align: left;">mississippi</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Missouri</td>
+<td style="text-align: right;">38.8</td>
+<td style="text-align: right;">6154422</td>
+<td style="text-align: right;">4884165</td>
+<td style="text-align: right;">693892</td>
+<td style="text-align: right;">17559</td>
+<td style="text-align: right;">127044</td>
+<td style="text-align: right;">91703</td>
+<td style="text-align: right;">331228</td>
+<td style="text-align: right;">134401</td>
+<td style="text-align: right;">4069809</td>
+<td style="text-align: right;">28.8</td>
+<td style="text-align: right;">27.0</td>
+<td style="text-align: right;">1087681</td>
+<td style="text-align: right;">345329</td>
+<td style="text-align: right;">804597</td>
+<td style="text-align: right;">370034</td>
+<td style="text-align: right;">80507</td>
+<td style="text-align: right;">54700</td>
+<td style="text-align: right;">65920</td>
+<td style="text-align: right;">2133965</td>
+<td style="text-align: right;">5791</td>
+<td style="text-align: right;">2128174</td>
+<td style="text-align: left;">missouri</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Montana</td>
+<td style="text-align: right;">40.1</td>
+<td style="text-align: right;">1091840</td>
+<td style="text-align: right;">943827</td>
+<td style="text-align: right;">6026</td>
+<td style="text-align: right;">63493</td>
+<td style="text-align: right;">9211</td>
+<td style="text-align: right;">11592</td>
+<td style="text-align: right;">57010</td>
+<td style="text-align: right;">19231</td>
+<td style="text-align: right;">578621</td>
+<td style="text-align: right;">29.7</td>
+<td style="text-align: right;">26.9</td>
+<td style="text-align: right;">175154</td>
+<td style="text-align: right;">72238</td>
+<td style="text-align: right;">170549</td>
+<td style="text-align: right;">59333</td>
+<td style="text-align: right;">15762</td>
+<td style="text-align: right;">11983</td>
+<td style="text-align: right;">66341</td>
+<td style="text-align: right;">386840</td>
+<td style="text-align: right;">2330</td>
+<td style="text-align: right;">384510</td>
+<td style="text-align: left;">montana</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nebraska</td>
+<td style="text-align: right;">36.9</td>
+<td style="text-align: right;">1958939</td>
+<td style="text-align: right;">1603239</td>
+<td style="text-align: right;">93555</td>
+<td style="text-align: right;">18550</td>
+<td style="text-align: right;">48874</td>
+<td style="text-align: right;">69315</td>
+<td style="text-align: right;">124088</td>
+<td style="text-align: right;">63635</td>
+<td style="text-align: right;">1266893</td>
+<td style="text-align: right;">28.7</td>
+<td style="text-align: right;">26.7</td>
+<td style="text-align: right;">280742</td>
+<td style="text-align: right;">139287</td>
+<td style="text-align: right;">280101</td>
+<td style="text-align: right;">106137</td>
+<td style="text-align: right;">25032</td>
+<td style="text-align: right;">18160</td>
+<td style="text-align: right;">71722</td>
+<td style="text-align: right;">688362</td>
+<td style="text-align: right;">2326</td>
+<td style="text-align: right;">686036</td>
+<td style="text-align: left;">nebraska</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nevada</td>
+<td style="text-align: right;">38.5</td>
+<td style="text-align: right;">3104817</td>
+<td style="text-align: right;">1732783</td>
+<td style="text-align: right;">290223</td>
+<td style="text-align: right;">40745</td>
+<td style="text-align: right;">263063</td>
+<td style="text-align: right;">360620</td>
+<td style="text-align: right;">395499</td>
+<td style="text-align: right;">234103</td>
+<td style="text-align: right;">846922</td>
+<td style="text-align: right;">30.6</td>
+<td style="text-align: right;">28.7</td>
+<td style="text-align: right;">503894</td>
+<td style="text-align: right;">186225</td>
+<td style="text-align: right;">371761</td>
+<td style="text-align: right;">139842</td>
+<td style="text-align: right;">37727</td>
+<td style="text-align: right;">22673</td>
+<td style="text-align: right;">71646</td>
+<td style="text-align: right;">1034261</td>
+<td style="text-align: right;">1614</td>
+<td style="text-align: right;">1032647</td>
+<td style="text-align: left;">nevada</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">New Hampshire</td>
+<td style="text-align: right;">43.1</td>
+<td style="text-align: right;">1379610</td>
+<td style="text-align: right;">1241594</td>
+<td style="text-align: right;">20920</td>
+<td style="text-align: right;">2070</td>
+<td style="text-align: right;">36352</td>
+<td style="text-align: right;">15009</td>
+<td style="text-align: right;">63317</td>
+<td style="text-align: right;">29967</td>
+<td style="text-align: right;">565581</td>
+<td style="text-align: right;">30.9</td>
+<td style="text-align: right;">29.0</td>
+<td style="text-align: right;">229881</td>
+<td style="text-align: right;">100541</td>
+<td style="text-align: right;">236189</td>
+<td style="text-align: right;">116378</td>
+<td style="text-align: right;">19939</td>
+<td style="text-align: right;">16942</td>
+<td style="text-align: right;">90845</td>
+<td style="text-align: right;">497411</td>
+<td style="text-align: right;">1295</td>
+<td style="text-align: right;">496116</td>
+<td style="text-align: left;">new hampshire</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">New Jersey</td>
+<td style="text-align: right;">40.0</td>
+<td style="text-align: right;">9249063</td>
+<td style="text-align: right;">5528604</td>
+<td style="text-align: right;">1213265</td>
+<td style="text-align: right;">29780</td>
+<td style="text-align: right;">913364</td>
+<td style="text-align: right;">768606</td>
+<td style="text-align: right;">792890</td>
+<td style="text-align: right;">536450</td>
+<td style="text-align: right;">4749727</td>
+<td style="text-align: right;">31.1</td>
+<td style="text-align: right;">29.6</td>
+<td style="text-align: right;">1511209</td>
+<td style="text-align: right;">430063</td>
+<td style="text-align: right;">1636308</td>
+<td style="text-align: right;">785250</td>
+<td style="text-align: right;">182433</td>
+<td style="text-align: right;">111577</td>
+<td style="text-align: right;">97126</td>
+<td style="text-align: right;">3119172</td>
+<td style="text-align: right;">4904</td>
+<td style="text-align: right;">3114268</td>
+<td style="text-align: left;">new jersey</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">New Mexico</td>
+<td style="text-align: right;">38.6</td>
+<td style="text-align: right;">2112463</td>
+<td style="text-align: right;">1250614</td>
+<td style="text-align: right;">44894</td>
+<td style="text-align: right;">198140</td>
+<td style="text-align: right;">34400</td>
+<td style="text-align: right;">233978</td>
+<td style="text-align: right;">348588</td>
+<td style="text-align: right;">278356</td>
+<td style="text-align: right;">1139587</td>
+<td style="text-align: right;">30.4</td>
+<td style="text-align: right;">27.4</td>
+<td style="text-align: right;">305319</td>
+<td style="text-align: right;">128685</td>
+<td style="text-align: right;">230705</td>
+<td style="text-align: right;">131594</td>
+<td style="text-align: right;">26832</td>
+<td style="text-align: right;">27773</td>
+<td style="text-align: right;">58722</td>
+<td style="text-align: right;">666625</td>
+<td style="text-align: right;">2368</td>
+<td style="text-align: right;">664257</td>
+<td style="text-align: left;">new mexico</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">New York</td>
+<td style="text-align: right;">39.3</td>
+<td style="text-align: right;">19994379</td>
+<td style="text-align: right;">11749652</td>
+<td style="text-align: right;">3011116</td>
+<td style="text-align: right;">93384</td>
+<td style="text-align: right;">1767598</td>
+<td style="text-align: right;">1878496</td>
+<td style="text-align: right;">1485013</td>
+<td style="text-align: right;">883505</td>
+<td style="text-align: right;">12567731</td>
+<td style="text-align: right;">31.6</td>
+<td style="text-align: right;">30.2</td>
+<td style="text-align: right;">2933147</td>
+<td style="text-align: right;">1238616</td>
+<td style="text-align: right;">3033763</td>
+<td style="text-align: right;">1731771</td>
+<td style="text-align: right;">435559</td>
+<td style="text-align: right;">238322</td>
+<td style="text-align: right;">81386</td>
+<td style="text-align: right;">6719878</td>
+<td style="text-align: right;">13718</td>
+<td style="text-align: right;">6706160</td>
+<td style="text-align: left;">new york</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">North Carolina</td>
+<td style="text-align: right;">39.1</td>
+<td style="text-align: right;">10470214</td>
+<td style="text-align: right;">6800458</td>
+<td style="text-align: right;">2192455</td>
+<td style="text-align: right;">109600</td>
+<td style="text-align: right;">325670</td>
+<td style="text-align: right;">421954</td>
+<td style="text-align: right;">613129</td>
+<td style="text-align: right;">278960</td>
+<td style="text-align: right;">5747122</td>
+<td style="text-align: right;">29.8</td>
+<td style="text-align: right;">28.0</td>
+<td style="text-align: right;">1505077</td>
+<td style="text-align: right;">720557</td>
+<td style="text-align: right;">1533552</td>
+<td style="text-align: right;">648712</td>
+<td style="text-align: right;">139534</td>
+<td style="text-align: right;">107092</td>
+<td style="text-align: right;">66186</td>
+<td style="text-align: right;">3576483</td>
+<td style="text-align: right;">6096</td>
+<td style="text-align: right;">3570387</td>
+<td style="text-align: left;">north carolina</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">North Dakota</td>
+<td style="text-align: right;">35.4</td>
+<td style="text-align: right;">776874</td>
+<td style="text-align: right;">656425</td>
+<td style="text-align: right;">25233</td>
+<td style="text-align: right;">36284</td>
+<td style="text-align: right;">12474</td>
+<td style="text-align: right;">10705</td>
+<td style="text-align: right;">34294</td>
+<td style="text-align: right;">10445</td>
+<td style="text-align: right;">483341</td>
+<td style="text-align: right;">29.3</td>
+<td style="text-align: right;">27.1</td>
+<td style="text-align: right;">111395</td>
+<td style="text-align: right;">72298</td>
+<td style="text-align: right;">113131</td>
+<td style="text-align: right;">33064</td>
+<td style="text-align: right;">7189</td>
+<td style="text-align: right;">5710</td>
+<td style="text-align: right;">73959</td>
+<td style="text-align: right;">275251</td>
+<td style="text-align: right;">526</td>
+<td style="text-align: right;">274725</td>
+<td style="text-align: left;">north dakota</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ohio</td>
+<td style="text-align: right;">39.6</td>
+<td style="text-align: right;">11774683</td>
+<td style="text-align: right;">9281702</td>
+<td style="text-align: right;">1449450</td>
+<td style="text-align: right;">17094</td>
+<td style="text-align: right;">283278</td>
+<td style="text-align: right;">157485</td>
+<td style="text-align: right;">581637</td>
+<td style="text-align: right;">190279</td>
+<td style="text-align: right;">8810980</td>
+<td style="text-align: right;">30.0</td>
+<td style="text-align: right;">28.2</td>
+<td style="text-align: right;">2315749</td>
+<td style="text-align: right;">715379</td>
+<td style="text-align: right;">1515763</td>
+<td style="text-align: right;">696826</td>
+<td style="text-align: right;">148249</td>
+<td style="text-align: right;">98487</td>
+<td style="text-align: right;">66990</td>
+<td style="text-align: right;">4205747</td>
+<td style="text-align: right;">10363</td>
+<td style="text-align: right;">4195384</td>
+<td style="text-align: left;">ohio</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oklahoma</td>
+<td style="text-align: right;">36.9</td>
+<td style="text-align: right;">3970497</td>
+<td style="text-align: right;">2716667</td>
+<td style="text-align: right;">284453</td>
+<td style="text-align: right;">298628</td>
+<td style="text-align: right;">91720</td>
+<td style="text-align: right;">124427</td>
+<td style="text-align: right;">447289</td>
+<td style="text-align: right;">118519</td>
+<td style="text-align: right;">2392787</td>
+<td style="text-align: right;">28.1</td>
+<td style="text-align: right;">26.2</td>
+<td style="text-align: right;">674369</td>
+<td style="text-align: right;">217129</td>
+<td style="text-align: right;">465739</td>
+<td style="text-align: right;">177413</td>
+<td style="text-align: right;">42157</td>
+<td style="text-align: right;">29429</td>
+<td style="text-align: right;">61364</td>
+<td style="text-align: right;">1306391</td>
+<td style="text-align: right;">2678</td>
+<td style="text-align: right;">1303713</td>
+<td style="text-align: left;">oklahoma</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oregon</td>
+<td style="text-align: right;">39.9</td>
+<td style="text-align: right;">4229374</td>
+<td style="text-align: right;">3328095</td>
+<td style="text-align: right;">79593</td>
+<td style="text-align: right;">46880</td>
+<td style="text-align: right;">187852</td>
+<td style="text-align: right;">180534</td>
+<td style="text-align: right;">389281</td>
+<td style="text-align: right;">168170</td>
+<td style="text-align: right;">1932284</td>
+<td style="text-align: right;">30.4</td>
+<td style="text-align: right;">28.5</td>
+<td style="text-align: right;">542883</td>
+<td style="text-align: right;">272990</td>
+<td style="text-align: right;">654185</td>
+<td style="text-align: right;">283031</td>
+<td style="text-align: right;">72199</td>
+<td style="text-align: right;">54744</td>
+<td style="text-align: right;">76632</td>
+<td style="text-align: right;">1526087</td>
+<td style="text-align: right;">4533</td>
+<td style="text-align: right;">1521554</td>
+<td style="text-align: left;">oregon</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pennsylvania</td>
+<td style="text-align: right;">40.8</td>
+<td style="text-align: right;">12989208</td>
+<td style="text-align: right;">10010379</td>
+<td style="text-align: right;">1407814</td>
+<td style="text-align: right;">20570</td>
+<td style="text-align: right;">473192</td>
+<td style="text-align: right;">405422</td>
+<td style="text-align: right;">667575</td>
+<td style="text-align: right;">303356</td>
+<td style="text-align: right;">9262753</td>
+<td style="text-align: right;">30.7</td>
+<td style="text-align: right;">29.1</td>
+<td style="text-align: right;">2710001</td>
+<td style="text-align: right;">805392</td>
+<td style="text-align: right;">1844355</td>
+<td style="text-align: right;">884422</td>
+<td style="text-align: right;">199768</td>
+<td style="text-align: right;">152773</td>
+<td style="text-align: right;">73170</td>
+<td style="text-align: right;">4540914</td>
+<td style="text-align: right;">15090</td>
+<td style="text-align: right;">4525824</td>
+<td style="text-align: left;">pennsylvania</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rhode Island</td>
+<td style="text-align: right;">40.1</td>
+<td style="text-align: right;">1094250</td>
+<td style="text-align: right;">816308</td>
+<td style="text-align: right;">67615</td>
+<td style="text-align: right;">4072</td>
+<td style="text-align: right;">37881</td>
+<td style="text-align: right;">75669</td>
+<td style="text-align: right;">91944</td>
+<td style="text-align: right;">56475</td>
+<td style="text-align: right;">607146</td>
+<td style="text-align: right;">31.6</td>
+<td style="text-align: right;">30.2</td>
+<td style="text-align: right;">173104</td>
+<td style="text-align: right;">63413</td>
+<td style="text-align: right;">165487</td>
+<td style="text-align: right;">80811</td>
+<td style="text-align: right;">19272</td>
+<td style="text-align: right;">14255</td>
+<td style="text-align: right;">81370</td>
+<td style="text-align: right;">386033</td>
+<td style="text-align: right;">648</td>
+<td style="text-align: right;">385385</td>
+<td style="text-align: left;">rhode island</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">South Carolina</td>
+<td style="text-align: right;">40.0</td>
+<td style="text-align: right;">5142750</td>
+<td style="text-align: right;">3342861</td>
+<td style="text-align: right;">1326209</td>
+<td style="text-align: right;">15617</td>
+<td style="text-align: right;">85834</td>
+<td style="text-align: right;">123269</td>
+<td style="text-align: right;">246238</td>
+<td style="text-align: right;">103873</td>
+<td style="text-align: right;">2787554</td>
+<td style="text-align: right;">29.6</td>
+<td style="text-align: right;">28.3</td>
+<td style="text-align: right;">853211</td>
+<td style="text-align: right;">357618</td>
+<td style="text-align: right;">674340</td>
+<td style="text-align: right;">305597</td>
+<td style="text-align: right;">62767</td>
+<td style="text-align: right;">46066</td>
+<td style="text-align: right;">63623</td>
+<td style="text-align: right;">1723516</td>
+<td style="text-align: right;">3209</td>
+<td style="text-align: right;">1720307</td>
+<td style="text-align: left;">south carolina</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">South Dakota</td>
+<td style="text-align: right;">37.5</td>
+<td style="text-align: right;">890342</td>
+<td style="text-align: right;">731624</td>
+<td style="text-align: right;">19525</td>
+<td style="text-align: right;">70948</td>
+<td style="text-align: right;">12754</td>
+<td style="text-align: right;">10567</td>
+<td style="text-align: right;">44430</td>
+<td style="text-align: right;">13890</td>
+<td style="text-align: right;">560609</td>
+<td style="text-align: right;">29.1</td>
+<td style="text-align: right;">26.5</td>
+<td style="text-align: right;">148100</td>
+<td style="text-align: right;">72002</td>
+<td style="text-align: right;">123313</td>
+<td style="text-align: right;">38604</td>
+<td style="text-align: right;">10123</td>
+<td style="text-align: right;">6821</td>
+<td style="text-align: right;">69457</td>
+<td style="text-align: right;">305608</td>
+<td style="text-align: right;">934</td>
+<td style="text-align: right;">304674</td>
+<td style="text-align: left;">south dakota</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tennessee</td>
+<td style="text-align: right;">38.9</td>
+<td style="text-align: right;">6923772</td>
+<td style="text-align: right;">5182736</td>
+<td style="text-align: right;">1126815</td>
+<td style="text-align: right;">14118</td>
+<td style="text-align: right;">128630</td>
+<td style="text-align: right;">139938</td>
+<td style="text-align: right;">326851</td>
+<td style="text-align: right;">140517</td>
+<td style="text-align: right;">4041432</td>
+<td style="text-align: right;">28.8</td>
+<td style="text-align: right;">27.3</td>
+<td style="text-align: right;">1232458</td>
+<td style="text-align: right;">367186</td>
+<td style="text-align: right;">889401</td>
+<td style="text-align: right;">368384</td>
+<td style="text-align: right;">89488</td>
+<td style="text-align: right;">66397</td>
+<td style="text-align: right;">64035</td>
+<td style="text-align: right;">2331002</td>
+<td style="text-align: right;">4167</td>
+<td style="text-align: right;">2326835</td>
+<td style="text-align: left;">tennessee</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Texas</td>
+<td style="text-align: right;">35.2</td>
+<td style="text-align: right;">29243342</td>
+<td style="text-align: right;">17293460</td>
+<td style="text-align: right;">3552579</td>
+<td style="text-align: right;">169576</td>
+<td style="text-align: right;">1511069</td>
+<td style="text-align: right;">2281525</td>
+<td style="text-align: right;">4407783</td>
+<td style="text-align: right;">3547610</td>
+<td style="text-align: right;">17298277</td>
+<td style="text-align: right;">29.4</td>
+<td style="text-align: right;">27.3</td>
+<td style="text-align: right;">3792935</td>
+<td style="text-align: right;">1435330</td>
+<td style="text-align: right;">3919003</td>
+<td style="text-align: right;">1598654</td>
+<td style="text-align: right;">341512</td>
+<td style="text-align: right;">242618</td>
+<td style="text-align: right;">73035</td>
+<td style="text-align: right;">9286171</td>
+<td style="text-align: right;">12094</td>
+<td style="text-align: right;">9274077</td>
+<td style="text-align: left;">texas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Utah</td>
+<td style="text-align: right;">31.4</td>
+<td style="text-align: right;">3283809</td>
+<td style="text-align: right;">2705194</td>
+<td style="text-align: right;">37712</td>
+<td style="text-align: right;">32948</td>
+<td style="text-align: right;">77761</td>
+<td style="text-align: right;">174721</td>
+<td style="text-align: right;">224725</td>
+<td style="text-align: right;">114101</td>
+<td style="text-align: right;">2017569</td>
+<td style="text-align: right;">26.8</td>
+<td style="text-align: right;">24.9</td>
+<td style="text-align: right;">383506</td>
+<td style="text-align: right;">194933</td>
+<td style="text-align: right;">468541</td>
+<td style="text-align: right;">173551</td>
+<td style="text-align: right;">36570</td>
+<td style="text-align: right;">29475</td>
+<td style="text-align: right;">86833</td>
+<td style="text-align: right;">979140</td>
+<td style="text-align: right;">2201</td>
+<td style="text-align: right;">976939</td>
+<td style="text-align: left;">utah</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vermont</td>
+<td style="text-align: right;">42.9</td>
+<td style="text-align: right;">643816</td>
+<td style="text-align: right;">594131</td>
+<td style="text-align: right;">8000</td>
+<td style="text-align: right;">1336</td>
+<td style="text-align: right;">10824</td>
+<td style="text-align: right;">3568</td>
+<td style="text-align: right;">25809</td>
+<td style="text-align: right;">9039</td>
+<td style="text-align: right;">311028</td>
+<td style="text-align: right;">30.8</td>
+<td style="text-align: right;">29.2</td>
+<td style="text-align: right;">112763</td>
+<td style="text-align: right;">39344</td>
+<td style="text-align: right;">111614</td>
+<td style="text-align: right;">57539</td>
+<td style="text-align: right;">12438</td>
+<td style="text-align: right;">9939</td>
+<td style="text-align: right;">74014</td>
+<td style="text-align: right;">230509</td>
+<td style="text-align: right;">1620</td>
+<td style="text-align: right;">228889</td>
+<td style="text-align: left;">vermont</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Virginia</td>
+<td style="text-align: right;">38.7</td>
+<td style="text-align: right;">8624511</td>
+<td style="text-align: right;">5473610</td>
+<td style="text-align: right;">1630355</td>
+<td style="text-align: right;">23728</td>
+<td style="text-align: right;">591088</td>
+<td style="text-align: right;">303247</td>
+<td style="text-align: right;">596298</td>
+<td style="text-align: right;">252261</td>
+<td style="text-align: right;">4245322</td>
+<td style="text-align: right;">30.2</td>
+<td style="text-align: right;">28.3</td>
+<td style="text-align: right;">1184055</td>
+<td style="text-align: right;">461866</td>
+<td style="text-align: right;">1366160</td>
+<td style="text-align: right;">780607</td>
+<td style="text-align: right;">158770</td>
+<td style="text-align: right;">119285</td>
+<td style="text-align: right;">87249</td>
+<td style="text-align: right;">2923674</td>
+<td style="text-align: right;">6070</td>
+<td style="text-align: right;">2917604</td>
+<td style="text-align: left;">virginia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Washington</td>
+<td style="text-align: right;">38.0</td>
+<td style="text-align: right;">7688549</td>
+<td style="text-align: right;">5374874</td>
+<td style="text-align: right;">301477</td>
+<td style="text-align: right;">91698</td>
+<td style="text-align: right;">708647</td>
+<td style="text-align: right;">399571</td>
+<td style="text-align: right;">759279</td>
+<td style="text-align: right;">292781</td>
+<td style="text-align: right;">3584329</td>
+<td style="text-align: right;">30.1</td>
+<td style="text-align: right;">27.8</td>
+<td style="text-align: right;">957379</td>
+<td style="text-align: right;">541092</td>
+<td style="text-align: right;">1244437</td>
+<td style="text-align: right;">569699</td>
+<td style="text-align: right;">123220</td>
+<td style="text-align: right;">92087</td>
+<td style="text-align: right;">90325</td>
+<td style="text-align: right;">2749145</td>
+<td style="text-align: right;">5275</td>
+<td style="text-align: right;">2743870</td>
+<td style="text-align: left;">washington</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">West Virginia</td>
+<td style="text-align: right;">42.6</td>
+<td style="text-align: right;">1792967</td>
+<td style="text-align: right;">1639342</td>
+<td style="text-align: right;">61227</td>
+<td style="text-align: right;">1730</td>
+<td style="text-align: right;">13602</td>
+<td style="text-align: right;">9504</td>
+<td style="text-align: right;">66905</td>
+<td style="text-align: right;">22651</td>
+<td style="text-align: right;">1225247</td>
+<td style="text-align: right;">29.7</td>
+<td style="text-align: right;">27.3</td>
+<td style="text-align: right;">421521</td>
+<td style="text-align: right;">101487</td>
+<td style="text-align: right;">171758</td>
+<td style="text-align: right;">84486</td>
+<td style="text-align: right;">18450</td>
+<td style="text-align: right;">14085</td>
+<td style="text-align: right;">55217</td>
+<td style="text-align: right;">594366</td>
+<td style="text-align: right;">2333</td>
+<td style="text-align: right;">592033</td>
+<td style="text-align: left;">west virginia</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wisconsin</td>
+<td style="text-align: right;">39.9</td>
+<td style="text-align: right;">5882128</td>
+<td style="text-align: right;">4854979</td>
+<td style="text-align: right;">363331</td>
+<td style="text-align: right;">43759</td>
+<td style="text-align: right;">169052</td>
+<td style="text-align: right;">128690</td>
+<td style="text-align: right;">320056</td>
+<td style="text-align: right;">155464</td>
+<td style="text-align: right;">4165197</td>
+<td style="text-align: right;">30.3</td>
+<td style="text-align: right;">28.3</td>
+<td style="text-align: right;">1071376</td>
+<td style="text-align: right;">451044</td>
+<td style="text-align: right;">852632</td>
+<td style="text-align: right;">319419</td>
+<td style="text-align: right;">70555</td>
+<td style="text-align: right;">53667</td>
+<td style="text-align: right;">72458</td>
+<td style="text-align: right;">2137129</td>
+<td style="text-align: right;">8839</td>
+<td style="text-align: right;">2128290</td>
+<td style="text-align: left;">wisconsin</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Wyoming</td>
+<td style="text-align: right;">38.5</td>
+<td style="text-align: right;">577929</td>
+<td style="text-align: right;">504798</td>
+<td style="text-align: right;">4891</td>
+<td style="text-align: right;">12359</td>
+<td style="text-align: right;">4717</td>
+<td style="text-align: right;">16504</td>
+<td style="text-align: right;">34024</td>
+<td style="text-align: right;">17046</td>
+<td style="text-align: right;">245999</td>
+<td style="text-align: right;">27.7</td>
+<td style="text-align: right;">25.8</td>
+<td style="text-align: right;">88797</td>
+<td style="text-align: right;">46082</td>
+<td style="text-align: right;">71313</td>
+<td style="text-align: right;">31053</td>
+<td style="text-align: right;">6077</td>
+<td style="text-align: right;">5138</td>
+<td style="text-align: right;">72495</td>
+<td style="text-align: right;">207049</td>
+<td style="text-align: right;">549</td>
+<td style="text-align: right;">206500</td>
+<td style="text-align: left;">wyoming</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Puerto Rico</td>
+<td style="text-align: right;">43.7</td>
+<td style="text-align: right;">3272382</td>
+<td style="text-align: right;">1425431</td>
+<td style="text-align: right;">286388</td>
+<td style="text-align: right;">5066</td>
+<td style="text-align: right;">6295</td>
+<td style="text-align: right;">786315</td>
+<td style="text-align: right;">762608</td>
+<td style="text-align: right;">600716</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">33.8</td>
+<td style="text-align: right;">32.4</td>
+<td style="text-align: right;">617845</td>
+<td style="text-align: right;">271432</td>
+<td style="text-align: right;">482139</td>
+<td style="text-align: right;">134673</td>
+<td style="text-align: right;">30748</td>
+<td style="text-align: right;">30891</td>
+<td style="text-align: right;">24002</td>
+<td style="text-align: right;">892631</td>
+<td style="text-align: right;">14210</td>
+<td style="text-align: right;">878421</td>
+<td style="text-align: left;">puerto rico</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="geom_map-is-a-shortcut" class="slide level2">
+<h2><code>geom_map</code> is a “shortcut”</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(acs_state_data) <span class="sc">+</span> </span>
+<span id="cb7-2"><a></a>  <span class="fu">geom_map</span>(</span>
+<span id="cb7-3"><a></a>    <span class="fu">aes</span>(<span class="at">map_id =</span> state, <span class="at">fill =</span> NAME),</span>
+<span id="cb7-4"><a></a>    <span class="at">map =</span> states</span>
+<span id="cb7-5"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb7-6"><a></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> states<span class="sc">$</span>long, <span class="at">y =</span> states<span class="sc">$</span>lat) <span class="sc">+</span></span>
+<span id="cb7-7"><a></a>  <span class="fu">coord_map</span>() <span class="sc">+</span></span>
+<span id="cb7-8"><a></a>  <span class="fu">theme_map</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+</div><div class="column" style="width:40%;">
+<ul>
+<li class="fragment"><code>acs_state_data</code> is the name of the dataset</li>
+<li class="fragment"><code>map_id = state</code> tells <code>geom_map</code> to look in the “state” column in <code>acs_state_data</code> to find the state name</li>
+<li class="fragment"><code>fill = NAME</code> tells ggplot to fill the states by the variable in <code>NAME</code></li>
+</ul>
+</div></div>
+</section>
+<section id="geom_map-is-a-shortcut-output" class="slide level2 output-location-slide"><h2><code>geom_map</code> is a “shortcut”</h2><div class="cell output-location-slide">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides05_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="your-turn-1" class="slide level2">
+<h2>Your turn 1</h2>
+<div class="task">
+<p>Comment out the <code>expand_limits</code> line. What happened?</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_e5bed778" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section>
+<section id="sequential-vs-diverging-color-scale" class="slide level2">
+<h2>Sequential vs Diverging color scale</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Overview</a></li><li><a href="#tabset-1-2">Sequential</a></li><li><a href="#tabset-1-3">Diverging</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p>The next two panels show the same data and the same graph with two different color scales.</p>
+<p><strong>Sequential</strong> color scales are intuitive and can be read as “more is more”</p>
+<p><strong>Diverging</strong> scales emphasize how far away a data point is from a midpoint</p>
+</div>
+<div id="tabset-1-2">
+<p><img data-src="../img/world-map-sequential.png"></p>
+</div>
+<div id="tabset-1-3">
+<p><img data-src="../img/world-map-diverging.png"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="binned-vs-continuous-color-scale" class="slide level2">
+<h2>Binned vs continuous color scale</h2>
+<p><img data-src="../img/sd-classed-v-unclassed.png"></p>
+
+<aside><div>
+<p>Unemployment rate by county in 2020. Source: <a href="https://www.datawrapper.de/blog/classed-vs-unclassed-color-scales">Datawrapper blog</a></p>
+</div></aside></section>
+<section id="your-turn-2" class="slide level2">
+<h2>Your turn 2</h2>
+<div class="task">
+<p>Edit your chloropleth map by:</p>
+<ul>
+<li>Choosing a different variable in <code>acs_state_data</code> to map to <code>fill</code></li>
+<li>Choosing a different color scale</li>
+<li>Updating the title, axis labels, and legend title</li>
+</ul>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_f3cbcbe8" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">06</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
 </div>
@@ -558,15 +2063,15 @@ $ subregion &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 <p><code>coord_map</code> function provides a Mercator projection (<code>mapproj</code> package has more options)</p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(states, <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y=</span>lat, <span class="at">group=</span>group)) <span class="sc">+</span> </span>
-<span id="cb6-2"><a></a>  <span class="fu">geom_polygon</span>(<span class="at">color=</span><span class="st">"gold2"</span>, <span class="at">fill=</span><span class="st">"navyblue"</span>) <span class="sc">+</span> </span>
-<span id="cb6-3"><a></a>  <span class="fu">coord_map</span>() <span class="sc">+</span> </span>
-<span id="cb6-4"><a></a>  <span class="fu">theme_map</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ggplot</span>(states, <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y=</span>lat, <span class="at">group=</span>group)) <span class="sc">+</span> </span>
+<span id="cb8-2"><a></a>  <span class="fu">geom_polygon</span>(<span class="at">color=</span><span class="st">"gold2"</span>, <span class="at">fill=</span><span class="st">"navyblue"</span>) <span class="sc">+</span> </span>
+<span id="cb8-3"><a></a>  <span class="fu">coord_map</span>() <span class="sc">+</span> </span>
+<span id="cb8-4"><a></a>  <span class="fu">theme_map</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides05_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+<p><img data-src="slides05_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -574,55 +2079,42 @@ $ subregion &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
 </section>
 <section id="changing-the-coordinate-system-1" class="slide level2">
 <h2>Changing the coordinate system</h2>
-<p><code>coord_map</code> function provides a Mercator projection (<code>mapproj</code> package has more options)</p>
+<p>Here is a Gall projection</p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(states, <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y=</span>lat, <span class="at">group=</span>group)) <span class="sc">+</span> </span>
-<span id="cb7-2"><a></a>  <span class="fu">geom_polygon</span>(<span class="at">color=</span><span class="st">"gold2"</span>, <span class="at">fill=</span><span class="st">"navyblue"</span>) <span class="sc">+</span> </span>
-<span id="cb7-3"><a></a>  <span class="fu">coord_map</span>(<span class="at">projection =</span> <span class="st">"sinusoidal"</span>) <span class="sc">+</span> </span>
-<span id="cb7-4"><a></a>  <span class="fu">theme_map</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(states, <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y=</span>lat, <span class="at">group=</span>group)) <span class="sc">+</span> </span>
+<span id="cb9-2"><a></a>  <span class="fu">geom_polygon</span>(<span class="at">color=</span><span class="st">"gold2"</span>, <span class="at">fill=</span><span class="st">"navyblue"</span>) <span class="sc">+</span> </span>
+<span id="cb9-3"><a></a>  <span class="fu">coord_map</span>(<span class="at">projection =</span> <span class="st">"gall"</span>, <span class="at">lat =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb9-4"><a></a>  <span class="fu">theme_map</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides05_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+<p><img data-src="slides05_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div></div>
 </section>
-<section id="mercator-vs-sinusoidal-projection-world-map" class="slide level2">
-<h2>Mercator vs Sinusoidal projection (world map)</h2>
+<section id="mercator-vs-gall-projection-world-map" class="slide level2">
+<h2>Mercator vs Gall projection (world map)</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>world <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"world"</span>)</span>
-<span id="cb8-2"><a></a></span>
-<span id="cb8-3"><a></a><span class="fu">ggplot</span>(world, <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y=</span>lat, <span class="at">group=</span>group)) <span class="sc">+</span> </span>
-<span id="cb8-4"><a></a>  <span class="fu">geom_polygon</span>(<span class="at">color=</span><span class="st">"gold2"</span>, <span class="at">fill=</span><span class="st">"navyblue"</span>) <span class="sc">+</span> </span>
-<span id="cb8-5"><a></a>  <span class="fu">coord_map</span>(<span class="at">projection =</span> <span class="st">"mercator"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">180</span>, <span class="dv">180</span>)) <span class="sc">+</span> </span>
-<span id="cb8-6"><a></a>  <span class="fu">theme_map</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>world <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"world"</span>)</span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a><span class="fu">ggplot</span>(world, <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y=</span>lat, <span class="at">group=</span>group)) <span class="sc">+</span> </span>
+<span id="cb10-4"><a></a>  <span class="fu">geom_polygon</span>(<span class="at">color=</span><span class="st">"gold2"</span>, <span class="at">fill=</span><span class="st">"navyblue"</span>) <span class="sc">+</span> </span>
+<span id="cb10-5"><a></a>  <span class="fu">coord_map</span>(<span class="at">projection =</span> <span class="st">"mercator"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">180</span>, <span class="dv">180</span>)) <span class="sc">+</span> </span>
+<span id="cb10-6"><a></a>  <span class="fu">theme_map</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="1">
+<div class="cell quarto-layout-panel" data-layout-nrow="1" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="slides05_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+<p><img data-src="slides05_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="slides05_files/figure-revealjs/unnamed-chunk-15-2.png" width="960"></p>
+<p><img data-src="slides05_files/figure-revealjs/unnamed-chunk-20-2.png" width="960"></p>
 </div>
 </div>
-</div>
-</section>
-<section id="your-task" class="slide level2">
-<h2>Your task</h2>
-<p>Your task is to use the American Community Survey data to make a chloropleth map of the US</p>
-<div class="task">
-<p>You should:</p>
-<ul>
-<li>Use the starter code provided in <code>05-maps.rmd</code></li>
-<li>Choose a different variable</li>
-<li>Change the color scale</li>
-<li>Update the title, axis labels, and legend</li>
-</ul>
 </div>
 
 
