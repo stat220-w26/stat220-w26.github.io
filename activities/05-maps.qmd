@@ -1,7 +1,5 @@
 ---
 title: Maps
-execute: 
-  echo: true
 ---
 
 ```{r}
@@ -31,15 +29,6 @@ ggplot(states, aes(x=long, y=lat, group=group)) +
 
 # Your turn: ACS data
 
-Your task is to use the American Community Survey data to make a chloropleth map of the US
-
-You should:
-
--   Use the starter code provided below
--   Choose a different variable
--   Change the color scale
--   Update the title, axis labels, and legend
-
 ## Load Data
 
 ```{r}
@@ -62,12 +51,24 @@ Variable information:
 **Important note:** we're using `geom_map` as a shortcut here to make a chloropleth map. This saves us the step of encoding the lat/long borders of states, and lets us directly fill the state colors using `acs_state_data` *only*. If you're asked to make a chloropleth map with data that only includes, e.g., state name, use this starter code.
 
 ```{r}
-ggplot(data = acs_state_data) + 
+ggplot(acs_state_data) + 
   geom_map(
-    aes(map_id = state, fill = total_pop), 
+    aes(map_id = state, fill = NAME),
     map = states
   ) +
   expand_limits(x = states$long, y = states$lat) +
   coord_map() +
   theme_map()
 ```
+
+### Your turn 1
+
+Comment out the `expand_limits` line using `#`. What happened? 
+
+### Your turn 2
+
+Edit your chloropleth map by: 
+
+- Choosing a different variable in `acs_state_data` to map to `fill`
+- Choosing a different color scale
+- Updating the title, axis labels, and legend title

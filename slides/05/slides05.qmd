@@ -365,14 +365,47 @@ Comment out the `expand_limits` line. What happened?
 countdown(1)
 ```
 
+## Sequential vs Diverging color scale
+
+
+::: {.panel-tabset}
+
+### Overview
+
+The next two panels show the same data and the same graph with two different color scales. 
+
+**Sequential** color scales are intuitive and can be read as "more is more"
+
+**Diverging** scales emphasize how far away a data point is from a midpoint
+
+### Sequential
+
+![](../img/world-map-sequential.png)
+
+### Diverging
+
+![](../img/world-map-diverging.png)
+
+:::
+
+
+## Binned vs continuous color scale
+
+![](../img/sd-classed-v-unclassed.png)
+
+
+::: aside
+Unemployment rate by county in 2020. Source: [Datawrapper blog](https://www.datawrapper.de/blog/classed-vs-unclassed-color-scales)
+:::
+
 ## Your turn 2
 
 ::: {.task .nonincremental}
-Improve this graph by: 
+Edit your chloropleth map by: 
 
-- Choose a different variable in `acs_state_data` to map to `fill`
-- Choose a different color scale
-- Update the title, axis labels, and legend title
+- Choosing a different variable in `acs_state_data` to map to `fill`
+- Choosing a different color scale
+- Updating the title, axis labels, and legend title
 :::
 
 ```{r}
