@@ -175,6 +175,17 @@ Need two data sources:
 [*Fundamentals of Data Visualization*](https://clauswilke.com/dataviz/geospatial-data.html)
 :::
 
+## Dot density 
+
+Uses points to show distribution and concentration, where each dot represents a specific quantity. Here 1 dot = 1 person:
+
+![](../img/racial-dot-map.png){.r-stretch}
+
+::: aside
+Source: Cooper Center's [racial dot map](http://racialdotmap.demographics.coopercenter.org/); no longer active
+
+:::
+
 ## Proportional Symbol
 
 Overlay symbols on an existing map, where the size of the shape is proportional to the variable
