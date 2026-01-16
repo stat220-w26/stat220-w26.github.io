@@ -1,0 +1,94 @@
+---
+title: Lab Quiz 01 Info
+execute: 
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE,
+                      warning = FALSE)
+library(tidyverse)
+library(ggthemes)
+library(nycflights23)
+```
+
+Our first lab quiz is scheduled for **Friday of Week 3**. The first half of class will cover new content, and the second half of class you will complete the in-person portion of the lab quiz.
+
+# Guidelines
+
+This is a *closed note*, *closed internet resources*, *closed other people* lab quiz. I want to see what's in your brain! You may use the cheat sheets provided by me, but otherwise you may not use any resources.
+
+The lab quizzes are not written to be tricky or hard. If you've been completing the in-class activities and the homework, and putting the time and effort in to understand them, you should do well on the lab quizzes.
+
+# Skills
+
+## R Basics
+
+-   Given a vector, list, or data frame, extract an element of interest.
+    -   Know how to use each extractor (`x$__`, `x[__]`, `x[[__]]`) and what they return
+    -   Construct logical vectors to use as an index to subset a vector or data frame
+    -   Construct integer vectors to use as an index to subset a vector or data frame
+-   Given a vector, list, or data frame, obtain a quick summary such as the length, dimension, or type of each element
+    -   Functions to know: `length()`, `nrow()`, `ncol()`, `dim()`, `summary()`, `glimpse()`, `class()`, `typeof()`, `head()`, `tail()`.
+
+## Data Visualization
+
+-   Identify the appropriate layer to add to a static graphic in order to display specific information
+    -   You should know the `geom` (and associated aesthetics) for the following charts: bar/column chart, histograms, boxplots, density plots, violin plots, scatterplots, time series line plots, map, chloropleth map
+-   Given a graph and a dataset structure, provide ggplot2 code to replicate the graphic:
+    -   base layers
+    -   axis labels, titles, captions
+    -   `scale_x` functions for aesthetics
+    -   `facet_wrap()` and `facet_grid()`
+-   Given a question of interest and data set, decide on an appropriate graphic to address/answer the question
+    -   You should know when the graphs mentioned above are appropriate
+-   Given a graphic, describe the strengths and weaknesses of it from a design perspective
+    -   Core principles:
+    -   Accessibility considerations: color, alt text, direct labeling, etc.
+
+## Data Wrangling (covered in Week 3)
+
+-   Know how the following verbs act on a data set: `filter`, `slice`, `select`
+    -   Syntax for using
+    -   Describe what the output would look like
+-   Given a data set and goal, identify and utilize the appropriate verb to create the data set of interest
+-   Use {dplyr} verbs AND the logical vector approach to subset a data frame 
+
+# Grading
+
+For the in-class portion, each question is worth 1 point, graded as "successful" (almost entirely correct), "not successful" (missing a key component), or "half credit" (mostly correct). 
+
+## Revision
+
+::: callout-caution
+Coming soon! 
+:::
+
+
+# Practice Quiz
+
+## Data
+
+The `nycflights23` package contains information about all flights that departed from NYC (e.g. EWR, JFK and LGA) in 2023. The main data is in the `flights` data frame, but there are additional data sets which may help understand what causes delays, specifically:
+
+-   `weather`: hourly meteorological data for each airport
+-   `planes`: construction information about each plane
+-   `airports`: airport names and locations
+-   `airlines`: translation between two letter carrier codes and names
+
+For this lab quiz, we're going to work with a random sample of this data (called `flights_sampl`)
+
+```{r}
+library(tidyverse)
+library(nycflights23)
+q <- 0
+```
+
+## Example Questions
+
+::: callout-caution
+Coming soon! 
+:::

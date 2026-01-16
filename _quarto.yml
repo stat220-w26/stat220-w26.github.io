@@ -72,5 +72,7 @@ format:
 
 execute:
   freeze: auto
+  message: false
+  warning: false
 
 editor: source
