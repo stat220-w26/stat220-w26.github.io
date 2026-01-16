@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.8.23">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Lab Quiz 01 Info – Stat 220</title>
 <style>
@@ -67,9 +67,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8cab17c520dfb5fd83702a774e8ef3fe.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8cab17c520dfb5fd83702a774e8ef3fe.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8cab17c520dfb5fd83702a774e8ef3fe.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-2fa053fe11a39ffa90c5898cd2d1bab1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -381,31 +381,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
 <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics">R Basics</a></li>
   <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
-  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a></li>
+  <li><a href="#data-wrangling-covered-in-week-3" id="toc-data-wrangling-covered-in-week-3" class="nav-link" data-scroll-target="#data-wrangling-covered-in-week-3">Data Wrangling (covered in Week 3)</a></li>
   </ul>
 </li>
   <li>
 <a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a>
   <ul class="collapse">
-<li><a href="#resubmission" id="toc-resubmission" class="nav-link" data-scroll-target="#resubmission">Resubmission</a></li>
+<li><a href="#revision" id="toc-revision" class="nav-link" data-scroll-target="#revision">Revision</a></li>
   </ul>
 </li>
   <li>
 <a href="#practice-quiz" id="toc-practice-quiz" class="nav-link" data-scroll-target="#practice-quiz">Practice Quiz</a>
   <ul class="collapse">
-<li><a href="#rules" id="toc-rules" class="nav-link" data-scroll-target="#rules">Rules</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li>
-<a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a>
-  <ul class="collapse">
-<li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
-  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
-  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
-  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
-  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
-  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
-  </ul>
-</li>
+<li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#example-questions" id="toc-example-questions" class="nav-link" data-scroll-target="#example-questions">Example Questions</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -428,8 +417,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header><p>Our first lab quiz is scheduled for <strong>Friday of Week 3</strong>. The first half of class will cover new content, and the second half of class you will complete the in-person portion of the lab quiz.</p>
 <section id="guidelines" class="level1"><h1>Guidelines</h1>
-<p>This is a <em>closed note</em>, <em>closed internet resources</em>, <em>closed other people</em> lab quiz. I want to see what’s in your brain! You may use the help pages built-in to R (accessed by <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">?ggplot</a></code>), and the cheat sheets provided by me, but otherwise you may not use any resources.</p>
-<p>On the resubmission, you may use my slides and your own notes from class, but you shouldn’t use other internet resources or get help from anybody but me.</p>
+<p>This is a <em>closed note</em>, <em>closed internet resources</em>, <em>closed other people</em> lab quiz. I want to see what’s in your brain! You may use the cheat sheets provided by me, but otherwise you may not use any resources.</p>
 <p>The lab quizzes are not written to be tricky or hard. If you’ve been completing the in-class activities and the homework, and putting the time and effort in to understand them, you should do well on the lab quizzes.</p>
 </section><section id="skills" class="level1"><h1>Skills</h1>
 <section id="r-basics" class="level2"><h2 class="anchored" data-anchor-id="r-basics">R Basics</h2>
@@ -453,7 +441,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>You should know the <code>geom</code> (and associated aesthetics) for the following charts: bar/column chart, histograms, boxplots, density plots, violin plots, scatterplots, time series line plots, map, chloropleth map</li>
 </ul>
 </li>
-<li>Given a graphical summary and data set, recreate the graphic
+<li>Given a graph and a dataset structure, provide ggplot2 code to replicate the graphic:
 <ul>
 <li>base layers</li>
 <li>axis labels, titles, captions</li>
@@ -464,7 +452,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 </ul>
 </li>
-<li>Given a question of interest and data set, construct an appropriate graphic to address/answer the question
+<li>Given a question of interest and data set, decide on an appropriate graphic to address/answer the question
 <ul>
 <li>You should know when the graphs mentioned above are appropriate</li>
 </ul>
@@ -475,7 +463,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Accessibility considerations: color, alt text, direct labeling, etc.</li>
 </ul>
 </li>
-</ul></section><section id="data-wrangling" class="level2"><h2 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h2>
+</ul></section><section id="data-wrangling-covered-in-week-3" class="level2"><h2 class="anchored" data-anchor-id="data-wrangling-covered-in-week-3">Data Wrangling (covered in Week 3)</h2>
 <ul>
 <li>Know how the following verbs act on a data set: <code>filter</code>, <code>slice</code>, <code>select</code>
 <ul>
@@ -486,34 +474,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Given a data set and goal, identify and utilize the appropriate verb to create the data set of interest</li>
 <li>Use {dplyr} verbs AND the logical vector approach to subset a data frame</li>
 </ul></section></section><section id="grading" class="level1"><h1>Grading</h1>
-<p>For the in-class portion, I will grade your .rmd’s and be looking directly at your code. You’ll earn points through the following:</p>
-<ul>
-<li>1 point per question (successful or not successful; 0.5’s possible)</li>
-<li>1 point if I can knit your file (to .pdf, .html, or github md)</li>
-<li>1 point for submitting via GitHub</li>
-</ul>
-<p>If you have trouble knitting or submitting via GitHub, submit your .rmd via email. There will be a 5 minute grace period past the end of class to submit, but I will not accept submissions beyond that point.</p>
-<section id="resubmission" class="level2"><h2 class="anchored" data-anchor-id="resubmission">Resubmission</h2>
-<p>You may resubmit the lab quiz by <strong>11am on Sunday (48 hours)</strong>. Resubmissions will be submitted through Gradescope (just like you turn in homework). All questions and grading will remain the same. You do not have to resubmit if the in-class portion went well; there is no benefit to doing the resubmission if you earn 100% on the in-class portion.</p>
+<p>For the in-class portion, each question is worth 1 point, graded as “successful” (almost entirely correct), “not successful” (missing a key component), or “half credit” (mostly correct).</p>
+<section id="revision" class="level2"><h2 class="anchored" data-anchor-id="revision">Revision</h2>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Coming soon!</p>
+</div>
+</div>
 </section></section><section id="practice-quiz" class="level1"><h1>Practice Quiz</h1>
-<section id="rules" class="level2"><h2 class="anchored" data-anchor-id="rules">Rules</h2>
-<ol type="1">
-<li><p>Your solutions must be written up in the R Markdown (Rmd) file called lab-quiz-01.Rmd. This file must include your code and write up for each task. Your “submission” for the in-class portion will be whatever is in your repository at the end of the quiz period. Commit and push the Rmd and outputs of that file.</p></li>
-<li><p>This exam is closed notes, closed internet, closed other people. You may <strong>only</strong> refer to the built-in help pages in R and the printed cheat sheets provided by me.</p></li>
-<li>
-<p>You have until 10:45am to complete this exam and turn it in via your personal Github repo. Do not wait until the last minute to knit / commit / push!</p>
-<ul>
-<li>If you do have technical issues, you will be able to solve them for the resubmission, but if you do not turn in the in-class portion you will not receive any points
-<ul>
-<li>Example: I run into a knitting issue and don’t leave myself time to commit and push to github, so I’m not able to turn anything in for the in-class portion. I work hard over the weekend to make sure everything is correct for the resubmission. I earn 0/10 on the in-class and 10/10 on the resubmission, so my score for the lab quiz is 10/20.</li>
-<li>Example: I run into a knitting issue 2 minutes before the deadline, but make sure to commit my .rmd and push to github before trying to solve the issue. I fix the knitting issue over over the weekend, and also find an error in one of my problems I submitted. I earn 8/10 on the in-class (1 unsuccessful problem + no output file) and 10/10 on the resubmission, so my score for the lab quiz is 18/20.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Even if the answer seems obvious from the R output, make sure to state it in your narrative as well. For example, if the question is asking what is 2 + 2, and you have the code in your document, you should additionally have a sentence that states “2 + 2 is 4.”</p></li>
-<li><p>You may only use <code>tidyverse</code> and <code>nycflights13</code> (and its dependencies) for this quiz Your solutions may not use any other R packages.</p></li>
-</ol></section><section id="data" class="level2"><h2 class="anchored" data-anchor-id="data">Data</h2>
+<section id="data" class="level2"><h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>The <code>nycflights23</code> package contains information about all flights that departed from NYC (e.g.&nbsp;EWR, JFK and LGA) in 2023. The main data is in the <code>flights</code> data frame, but there are additional data sets which may help understand what causes delays, specifically:</p>
 <ul>
 <li>
@@ -531,35 +508,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://moderndive.github.io/nycflights23/">nycflights23</a></span><span class="op">)</span></span>
 <span><span class="va">q</span> <span class="op">&lt;-</span> <span class="fl">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section><section id="questions" class="level2"><h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<section id="question-1" class="level3"><h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
-<p>Write out two different ways to access the <code>dep_delay</code> variable in the <code>flights</code> dataset that do <em>not</em> use {dplyr} verbs. Save each to an object called <code>dep_delay1</code> and <code>dep_delay2</code>.</p>
-</section><section id="question-2" class="level3"><h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
-<p>The code below creates a new dataset called <code>delayed_flights</code>, which consists of all flights that had a departure delay of more than 5 minutes. Show me a second way to create this dataset. (<em>Hint:</em> One option is to create a logical vector, and then index the <code>flights</code> data using that vector)</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">delayed_flights</span> <span class="op">&lt;-</span> <span class="va">flights</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dep_delay</span> <span class="op">&gt;</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section><section id="example-questions" class="level2"><h2 class="anchored" data-anchor-id="example-questions">Example Questions</h2>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</section><section id="question-3" class="level3"><h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
-<p>Is there a relationship between departure delay (among flights that departed at least 5 minutes late) and which NYC airport the flight departed from? Create an appropriate visualization to answer this question. (use the <code>delayed_flights</code> dataset)</p>
-</section><section id="question-4" class="level3"><h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
-<p>Recreate the plot included below using the <code>flights</code> data. Once you have created the visualization, in no more than one paragraph, describe what you think the point of this visualization might be.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="lab-quiz-01_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="callout-title-container flex-fill">
+Caution
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>Coming soon!</p>
 </div>
-</section><section id="question-5" class="level3"><h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
-<p>Is this a chloropleth map? Explain how you can tell.</p>
-<p><img src="airport-ggmap2.png" class="img-fluid"></p>
-</section><section id="question-6" class="level3"><h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
-<p>In the map above, what is the <code>geom</code>(s) used? What about the aesthetics?</p>
+</div>
 
 
-</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
