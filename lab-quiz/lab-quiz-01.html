@@ -376,6 +376,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li><a href="#guidelines" id="toc-guidelines" class="nav-link active" data-scroll-target="#guidelines">Guidelines</a></li>
+  <li><a href="#format" id="toc-format" class="nav-link" data-scroll-target="#format">Format</a></li>
   <li>
 <a href="#skills" id="toc-skills" class="nav-link" data-scroll-target="#skills">Skills</a>
   <ul class="collapse">
@@ -391,10 +392,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </li>
   <li>
-<a href="#practice-quiz" id="toc-practice-quiz" class="nav-link" data-scroll-target="#practice-quiz">Practice Quiz</a>
+<a href="#practice-questions" id="toc-practice-questions" class="nav-link" data-scroll-target="#practice-questions">Practice Questions</a>
   <ul class="collapse">
 <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#example-questions" id="toc-example-questions" class="nav-link" data-scroll-target="#example-questions">Example Questions</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -418,7 +419,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header><p>Our first lab quiz is scheduled for <strong>Friday of Week 3</strong>. The first half of class will cover new content, and the second half of class you will complete the in-person portion of the lab quiz.</p>
 <section id="guidelines" class="level1"><h1>Guidelines</h1>
 <p>This is a <em>closed note</em>, <em>closed internet resources</em>, <em>closed other people</em> lab quiz. I want to see what’s in your brain! You may use the cheat sheets provided by me, but otherwise you may not use any resources.</p>
-<p>The lab quizzes are not written to be tricky or hard. If you’ve been completing the in-class activities and the homework, and putting the time and effort in to understand them, you should do well on the lab quizzes.</p>
+<p>The lab quizzes are not written to be tricky or very difficult. If you’ve been completing the in-class activities and the homework, and putting the time and effort in to understand them, you should do well on the lab quizzes.</p>
+</section><section id="format" class="level1"><h1>Format</h1>
+<p>The reason I give lab quizzes is because your life will be easier if you know how to do basic tasks in R “on the fly”. I also want to see what you <strong>know</strong> and not just what you can do with access to your resources. However, I also know this is not how data science works in the real world, and so there are two portions to the lab quiz.</p>
+<ol type="1">
+<li>The required in-class portion</li>
+</ol>
+<ul>
+<li>Pencil-and-paper questions</li>
+<li>Cheat sheets provided by me but no other resources</li>
+<li>Designed to assess what you know “on the fly” without access to resources</li>
+</ul>
+<ol start="2" type="1">
+<li>An optional R-based revision</li>
+</ol>
+<ul>
+<li>.qmd format similar to homework</li>
+<li>Allowed to use materials from class (slides, activities, notes, homework, etc.) but no out-of-class resources (google, textbooks, ChatGPT or other LLMs, StackOverflow, etc.)</li>
+<li>Designed to assess your coding skills and whether you can figure things out with access to class resources and R help pages</li>
+</ul>
+<p>Your score on the quiz will be the average of the two scores, unless you do not submit the revision, in which case your score will only be in your in-class score. If you earn 100% on the in-class portion, your overall score will be 100% and I will not grade your revision.</p>
 </section><section id="skills" class="level1"><h1>Skills</h1>
 <section id="r-basics" class="level2"><h2 class="anchored" data-anchor-id="r-basics">R Basics</h2>
 <ul>
@@ -441,7 +461,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>You should know the <code>geom</code> (and associated aesthetics) for the following charts: bar/column chart, histograms, boxplots, density plots, violin plots, scatterplots, time series line plots, map, chloropleth map</li>
 </ul>
 </li>
-<li>Given a graph and a dataset structure, provide ggplot2 code to replicate the graphic:
+<li>Given a graph and a dataset structure, fill in ggplot2 code to replicate the graphic:
 <ul>
 <li>base layers</li>
 <li>axis labels, titles, captions</li>
@@ -475,51 +495,166 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Use {dplyr} verbs AND the logical vector approach to subset a data frame</li>
 </ul></section></section><section id="grading" class="level1"><h1>Grading</h1>
 <p>For the in-class portion, each question is worth 1 point, graded as “successful” (almost entirely correct), “not successful” (missing a key component), or “half credit” (mostly correct).</p>
+<p>For the out-of-class revision, each question is worth 1 point, graded as “successful” (correct), “not successful” (missing a key component), or “half credit” (mostly correct). Since you will be able to run the code, you will only receive full credit for fully correct solutions.</p>
 <section id="revision" class="level2"><h2 class="anchored" data-anchor-id="revision">Revision</h2>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Coming soon!</p>
-</div>
-</div>
-</section></section><section id="practice-quiz" class="level1"><h1>Practice Quiz</h1>
-<section id="data" class="level2"><h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>The <code>nycflights23</code> package contains information about all flights that departed from NYC (e.g.&nbsp;EWR, JFK and LGA) in 2023. The main data is in the <code>flights</code> data frame, but there are additional data sets which may help understand what causes delays, specifically:</p>
+<p>The in-class portion will be a pencil-and-paper quiz. After class, I will make everyone a repository on github with a <code>.qmd</code> version of the quiz. (The questions will remain essentially the same). The revision is <strong>totally optional</strong>. You will work on the repository just like homework and submit via gradescope if you wish to turn it in.</p>
 <ul>
-<li>
-<code>weather</code>: hourly meteorological data for each airport</li>
-<li>
-<code>planes</code>: construction information about each plane</li>
-<li>
-<code>airports</code>: airport names and locations</li>
-<li>
-<code>airlines</code>: translation between two letter carrier codes and names</li>
+<li>The in-class portion is worth 10 points</li>
+<li>The revision is worth 10 points</li>
+<li>If you don’t submit the revision on gradescope, your quiz will be out of 10 points and if you do submit the revision your quiz will be out of 20 points.</li>
 </ul>
-<p>For this lab quiz, we’re going to work with a random sample of this data (called <code>flights_sampl</code>)</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://moderndive.github.io/nycflights23/">nycflights23</a></span><span class="op">)</span></span>
-<span><span class="va">q</span> <span class="op">&lt;-</span> <span class="fl">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section><section id="example-questions" class="level2"><h2 class="anchored" data-anchor-id="example-questions">Example Questions</h2>
-<div class="callout callout-style-default callout-caution callout-titled">
+<p>The revision is due before class starts on Monday. You <strong>may</strong> use the cheat sheets, materials from our class (slides, activities, notes, your homework, etc.), and the built-in help pages within RStudio. You <strong>may not</strong> use textbooks, LLMs, search engines, stack overflow, etc. to complete the revision. If your submission contains code that did not appear in our course materials, you must include an explanation for where it came from (e.g.&nbsp;in what context you learned that code). Otherwise, you will not receive credit for that problem and may be reported to the Academic Standing Committee.</p>
+</section></section><section id="practice-questions" class="level1"><h1>Practice Questions</h1>
+<section id="data" class="level2"><h2 class="anchored" data-anchor-id="data">Data</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Caution
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Coming soon!</p>
+<p>The quiz will use one dataset, and I will give you some information about it at the beginning of the quiz. All of the questions will use the same data, so if the answer to one question helps you with another, that’s just fine!</p>
+</div>
+</div>
+<p>The <code>nycflights23</code> package contains information about all flights that departed from NYC (e.g.&nbsp;EWR, JFK and LGA) in 2023. The main data is in the <code>flights</code> data frame.</p>
+<p>For this lab quiz, we’re going to work with a random sample of 300 flights (called <code>flights_sampl</code>)</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">011725</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://moderndive.github.io/nycflights23/">nycflights23</a></span><span class="op">)</span></span>
+<span><span class="va">flights_sampl</span> <span class="op">&lt;-</span> <span class="va">flights</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="fl">300</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">month</span>, <span class="va">day</span>, <span class="va">carrier</span>, <span class="va">origin</span>, <span class="va">dest</span>, <span class="va">sched_dep_time</span>, <span class="va">dep_delay</span>, <span class="va">air_time</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">airports</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>dest <span class="op">=</span> <span class="va">faa</span>, <span class="va">lat</span>, <span class="va">lon</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">flights_sampl</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 300
+Columns: 11
+$ year           &lt;int&gt; 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2…
+$ month          &lt;int&gt; 10, 7, 3, 12, 7, 6, 8, 12, 2, 7, 8, 1, 1, 3, 1, 2, 2, 5…
+$ day            &lt;int&gt; 8, 28, 6, 21, 21, 4, 22, 13, 28, 18, 21, 11, 21, 26, 11…
+$ carrier        &lt;chr&gt; "9E", "YX", "AA", "UA", "DL", "B6", "9E", "9E", "YX", "…
+$ origin         &lt;chr&gt; "LGA", "EWR", "JFK", "EWR", "LGA", "JFK", "LGA", "LGA",…
+$ dest           &lt;chr&gt; "JAX", "IND", "LAX", "RDU", "ATL", "RDU", "PWM", "CHS",…
+$ sched_dep_time &lt;int&gt; 1525, 1059, 725, 1815, 1259, 837, 2130, 1149, 1759, 132…
+$ dep_delay      &lt;dbl&gt; 16, 22, -9, -1, 7, -7, -7, -8, -5, NA, -7, 164, 3, 26, …
+$ air_time       &lt;dbl&gt; 132, 109, 376, 67, 107, 70, 50, 103, 120, NA, 52, 149, …
+$ lat            &lt;dbl&gt; 30.49410, 39.71730, 33.94250, 35.87760, 33.63670, 35.87…
+$ lon            &lt;dbl&gt; -81.6879, -86.2944, -118.4080, -78.7875, -84.4281, -78.…</code></pre>
+</div>
+</div>
+</section><section id="questions" class="level2"><h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<p><strong>Given a vector, list, or data frame, extract an element of interest.</strong></p>
+<p>Write R code to do the following tasks:</p>
+<ol type="a">
+<li><p>Store the <code>dep_delay</code> column in a vector called <code>delay_minutes</code></p></li>
+<li><p>Extract rows of <code>flights</code> where <code>dep_delay</code> is more than 15 minutes</p></li>
+</ol>
+<p><strong>Given a vector, list, or data frame, obtain a quick summary such as the length, dimension, or type of each element</strong></p>
+<p>Carefully and clearly describe the result produced by the following commands:</p>
+<ol type="a">
+<li><p><code>length(flights_sampl)</code></p></li>
+<li><p><code>dim(flights_sampl)</code></p></li>
+</ol>
+<p><strong>Identify the appropriate layer to add to a static graphic in order to display specific information</strong></p>
+<p>Consider the <code>ggplot</code> code below.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">flights_sampl</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">air_time</span>, y <span class="op">=</span> <span class="va">dep_delay</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol type="a">
+<li>Sketch a possible graph that this code would create</li>
+</ol>
+<p><em>Note:</em> I know that you do not know what the trends, etc. will look like, so you should focus on making sure that all of the aesthetics are correctly mapped and all of the layers are there</p>
+<ol start="2" type="a">
+<li>If I wanted to color the points by month, how would I edit the code above?</li>
+</ol>
+<p><strong>Given a graph and a dataset structure, provide ggplot2 code to replicate the graphic</strong></p>
+<p>The map below displays the locations of airports with flights arriving from NYC. A few things to note:</p>
+<ul>
+<li>The state borders are <code>black</code>
+</li>
+<li>The color within the borders is <code>lightblue</code>
+</li>
+<li>The map uses two datasets.</li>
+<li>The<code>states</code> dataset was generated with <code>map_data("state")</code>. It has the following columns:
+<ul>
+<li><code>long</code></li>
+<li><code>lat</code></li>
+<li><code>group</code></li>
+<li><code>order</code></li>
+<li><code>region</code></li>
+</ul>
+</li>
+<li>The second dataset is <code>flights_sampl</code>
+</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="lab-quiz-01_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Fill in the missing R code that is required to create this map:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>states <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">"state"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data =</span> ___, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(___), </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>               ___) <span class="sc">+</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> ___, </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(___), </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>             ___) <span class="sc">+</span> </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_map</span>() <span class="sc">+</span> </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_map</span>() <span class="sc">+</span> </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span> </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">end =</span> .<span class="dv">75</span>, <span class="at">option =</span> <span class="st">"plasma"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Given a question of interest and data set, decide on an appropriate graphic to address/answer the question</strong></p>
+<p>Clearly describe one graph that you could make to answer the following questions:</p>
+<ul>
+<li>Do flights in winter months have longer delays than summer months?</li>
+<li>Is there a relationship between flight length and delay amount?</li>
+<li>What carriers are most common at each of the three <code>origin</code> airports?</li>
+</ul>
+<p><strong>Given a graphic, describe the strengths and weaknesses of it from a design perspective</strong></p>
+<p>Consider the ggplot graphic below:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="lab-quiz-01_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol type="a">
+<li>Summarize what you think the “main point” of this graph is in 1 sentence</li>
+<li>Give one improvement this graph could make in the aesthetic or geometry layer to make the “main point” more understandable</li>
+<li>Give one improvement this graph could make in the theme layer to make it more readable or accessible</li>
+</ol>
+<p><strong>Know how the following verbs act on a data set: <code>filter</code>, <code>slice</code>, <code>select</code></strong></p>
+<p>Describe or sketch out what the following R code would produce:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">flights_sampl</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">origin</span> <span class="op">==</span> <span class="st">"LGA"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">carrier</span>, <span class="va">dep_delay</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Given a data set and goal, identify and utilize the appropriate verb to create the data set of interest</strong></p>
+<p>The small dataset below was generated from <code>flights_sampl</code>. What dplyr verbs were used?</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  month dest  origin air_time
+  &lt;int&gt; &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;
+1     4 MSP   LGA         140
+2     6 MSP   LGA         149</code></pre>
 </div>
 </div>
 
