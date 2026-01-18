@@ -38,7 +38,7 @@ The lab quizzes are not written to be tricky or hard. If you've been completing 
 
 -   Identify the appropriate layer to add to a static graphic in order to display specific information
     -   You should know the `geom` (and associated aesthetics) for the following charts: bar/column chart, histograms, boxplots, density plots, violin plots, scatterplots, time series line plots, map, chloropleth map
--   Given a graph and a dataset structure, provide ggplot2 code to replicate the graphic:
+-   Given a graph and a dataset structure, fill in ggplot2 code to replicate the graphic:
     -   base layers
     -   axis labels, titles, captions
     -   `scale_x` functions for aesthetics
@@ -68,27 +68,156 @@ Coming soon!
 :::
 
 
-# Practice Quiz
+# Practice Questions
 
 ## Data
 
-The `nycflights23` package contains information about all flights that departed from NYC (e.g. EWR, JFK and LGA) in 2023. The main data is in the `flights` data frame, but there are additional data sets which may help understand what causes delays, specifically:
+::: callout-tip
 
--   `weather`: hourly meteorological data for each airport
--   `planes`: construction information about each plane
--   `airports`: airport names and locations
--   `airlines`: translation between two letter carrier codes and names
+The quiz will use one dataset, and I will give you some information about it at the beginning of the quiz. All of the questions will use the same data, so if the answer to one question helps you with another, that's just fine!
+:::
 
-For this lab quiz, we're going to work with a random sample of this data (called `flights_sampl`)
+The `nycflights23` package contains information about all flights that departed from NYC (e.g. EWR, JFK and LGA) in 2023. The main data is in the `flights` data frame.
+
+For this lab quiz, we're going to work with a random sample of 300 flights (called `flights_sampl`)
 
 ```{r}
+set.seed(011725)
 library(tidyverse)
 library(nycflights23)
-q <- 0
+flights_sampl <- flights |>
+  sample_n(300) |>
+  select(year, month, day, carrier, origin, dest, sched_dep_time, dep_delay, air_time) |>
+  left_join(airports |> select(dest = faa, lat, lon))
+
+glimpse(flights_sampl)
 ```
 
-## Example Questions
+## Questions
 
-::: callout-caution
-Coming soon! 
-:::
+**Given a vector, list, or data frame, extract an element of interest.**
+
+Write R code to do the following tasks: 
+
+(a) Store the `dep_delay` column in a vector called `delay_minutes`
+
+(b) Extract rows of `flights` where `dep_delay` is more than 15 minutes
+
+
+**Given a vector, list, or data frame, obtain a quick summary such as the length, dimension, or type of each element**
+
+Carefully and clearly describe the result produced by the following commands: 
+
+(a) `length(flights_sampl)`
+
+(b) `dim(flights_sampl)`
+
+
+**Identify the appropriate layer to add to a static graphic in order to display specific information**
+
+Consider the `ggplot` output below.
+
+```{r}
+#| echo: false
+
+ggplot(data = flights_sampl, aes(x = air_time, y = dep_delay)) + 
+  geom_point() 
+```
+
+(a) Sketch a possible graph that this code would create
+
+*Note:* I know that you do not know what the trends, etc. will look like, so you should focus on making sure that all of the aesthetics are correctly mapped and all of the layers are there
+
+(b) If I wanted to color the points by month, how would I edit the code above?
+
+
+**Given a graph and a dataset structure, provide ggplot2 code to replicate the graphic**
+
+The map below displays the locations of airports with flights arriving from NYC. A few things to note: 
+
+- The state borders are `black`
+- The color within the borders is `lightblue`
+- The map uses two datasets.
+- The`states` dataset was generated with  `map_data("state")`. It has the following columns: 
+    - `long`
+    - `lat`
+    - `group`
+    - `order`
+    - `region` 
+- The second dataset is `flights_sampl`
+
+```{r}
+#| echo: false
+states <- map_data("state")
+
+ggplot() + 
+  geom_polygon(data = states, 
+               aes(x = long, y = lat, group = group), 
+               color="black", fill="lightblue") + 
+  geom_point(data = flights_sampl, 
+             aes(x = lon, y = lat, col = carrier), size = 2) + 
+  coord_map() + 
+  theme_map() + 
+  theme(legend.position = "bottom") + 
+  scale_color_viridis_d(end = .75, option = "plasma")
+```
+
+
+Fill in the missing R code that is required to create this map: 
+
+```{r}
+#| eval: false
+states <- map_data("state")
+
+ggplot() + 
+  geom_polygon(data = ___, 
+               aes(___), 
+               ___) + 
+  geom_point(data = ___, 
+             aes(___), 
+             ___) + 
+  coord_map() + 
+  theme_map() + 
+  theme(legend.position = "bottom") + 
+  scale_color_viridis_d(end = .75, option = "plasma")
+```
+
+**Given a question of interest and data set, decide on an appropriate graphic to address/answer the question**
+
+Clearly describe one graph that you could make to answer the following questions: 
+
+- Do flights in winter months have longer delays than summer months? 
+- Is there a relationship between flight length and delay amount? 
+- What carriers are most common at each of the three `origin` airports?
+
+
+**Given a graphic, describe the strengths and weaknesses of it from a design perspective**
+
+
+
+
+**Know how the following verbs act on a data set: `filter`, `slice`, `select`**
+
+Describe or sketch out what the following R code would produce: 
+
+```{r}
+#| eval: false
+flights_sampl |>
+  filter(origin == "LGA") |>
+  select(carrier, dep_delay)
+```
+
+
+**Given a data set and goal, identify and utilize the appropriate verb to create the data set of interest**
+
+The small dataset below was generated from `flights_sampl`. What dplyr verbs were used? 
+
+```{r}
+#| echo: false
+
+flights_sampl |>
+  filter(dest == "MSP") |>
+  select(month, dest, origin, air_time)
+```
+
+
