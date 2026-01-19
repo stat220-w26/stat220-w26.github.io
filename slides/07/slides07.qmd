@@ -321,30 +321,22 @@ slice_min(storms, wind, n = 1)
 
 ##  {background-image="../img/horst_dplyr_mutate.png" background-size="70%"}
 
-## Star Wars character BMI
+## Translating wind speed to km/hour
 
-`{dplyr}` includes a `starwars` data frame with characteristics of 87 Star Wars characters
+Most of the world uses kilometers instead of miles. We can calculate km/hr by using: 
 
-```{r}
-#| echo: true
-
-glimpse(starwars)
-```
-
-## Star Wars character BMI
-
-Suppose we want to calculate the BMI for each character, $\text{BMI} = \dfrac{\text{mass (kg)}}{\text{height (m)}^2}$
+$$\text{kmh} = 1.60934 \times \text{mph}$$
 
 ```{r}
 #| echo: true
 
-starwars <- mutate(starwars, bmi = mass / (height / 100)^2)
+storms <- mutate(storms, wind_kmh = 1.60934 * wind)
 ```
 
 ```{r}
 #| echo: true
 
-select(starwars, name, bmi, everything())
+select(storms, wind, wind_kmh)
 ```
 
 ## Try it
@@ -415,8 +407,6 @@ Use `mutate()` and `case_when()` to create a `delay_category` variable in the `f
 
 ## Using `%>% or |>`
 
-::::: columns
-::: {.column .nonincremental width="50%"}
 ### `filter()`:
 
 ```{r}
@@ -435,9 +425,8 @@ becomes
 storms %>%
   filter(status == "hurricane")
 ```
-:::
 
-::: {.column .fragment width="50%"}
+::: {.fragment}
 ### `arrange()`:
 
 ```{r}
@@ -457,7 +446,7 @@ storms |>
   arrange(wind)
 ```
 :::
-:::::
+
 
 ## Using `%>%` or `|>`
 
