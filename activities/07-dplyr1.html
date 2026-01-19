@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.23">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Prof Amanda Luby">
 <title>dplyr 1: Verbs – Stat 220</title>
@@ -68,9 +68,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-04c7ee197ec4d7edf3c29ccb71f7023e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-6e03bc272f1cdef1d8296ac38e217ebd.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-04c7ee197ec4d7edf3c29ccb71f7023e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4a17e18fdf56099d4f6da1e105f33a53.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a6e161b2431e1f94a14e0f5d32135a3c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-eecf1fbfc817078eed7cb568f09af49d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -381,11 +381,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li>
 <a href="#wrangling-the-nycflights23-data" id="toc-wrangling-the-nycflights23-data" class="nav-link" data-scroll-target="#wrangling-the-nycflights23-data">Wrangling the <code>nycflights23</code> data</a>
   <ul class="collapse">
-<li><a href="#part-1" id="toc-part-1" class="nav-link" data-scroll-target="#part-1">Part 1</a></li>
-  <li><a href="#part-2" id="toc-part-2" class="nav-link" data-scroll-target="#part-2">Part 2</a></li>
-  <li><a href="#part-3" id="toc-part-3" class="nav-link" data-scroll-target="#part-3">Part 3</a></li>
-  <li><a href="#part-5" id="toc-part-5" class="nav-link" data-scroll-target="#part-5">Part 5</a></li>
-  <li><a href="#part-6" id="toc-part-6" class="nav-link" data-scroll-target="#part-6">Part 6</a></li>
+<li><a href="#practice-with-filter" id="toc-practice-with-filter" class="nav-link" data-scroll-target="#practice-with-filter">Practice with <code>filter</code></a></li>
+  <li><a href="#practice-with-arrange" id="toc-practice-with-arrange" class="nav-link" data-scroll-target="#practice-with-arrange">Practice with <code>arrange</code></a></li>
+  <li><a href="#practice-with-mutate" id="toc-practice-with-mutate" class="nav-link" data-scroll-target="#practice-with-mutate">Practice with <code>mutate</code></a></li>
+  <li><a href="#practice-with-case_when" id="toc-practice-with-case_when" class="nav-link" data-scroll-target="#practice-with-case_when">Practice with <code>case_when</code></a></li>
+  <li><a href="#practice-with-pipes" id="toc-practice-with-pipes" class="nav-link" data-scroll-target="#practice-with-pipes">Practice with pipes</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -429,22 +429,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Picks variables by their names</li>
 <li>Creates new variables with functions of existing variables</li>
 </ul></section><section id="wrangling-the-nycflights23-data" class="level1 page-columns page-full"><h1>Wrangling the <code>nycflights23</code> data</h1>
-<section id="part-1" class="level2"><h2 class="anchored" data-anchor-id="part-1">Part 1</h2>
+<section id="practice-with-filter" class="level2"><h2 class="anchored" data-anchor-id="practice-with-filter">Practice with <code>filter</code>
+</h2>
 <ul>
 <li>Find all flights that had an arrival delay of two or more hours.</li>
 <li>Find all flights to MSP</li>
 <li>Find all flights that arrived more than two hours late, but left less than one hour late</li>
 <li>(if time) Find all flights that were delayed by at least an hour, but made up over 30 minutes in flight</li>
-</ul></section><section id="part-2" class="level2"><h2 class="anchored" data-anchor-id="part-2">Part 2</h2>
+</ul></section><section id="practice-with-arrange" class="level2"><h2 class="anchored" data-anchor-id="practice-with-arrange">Practice with <code>arrange</code>
+</h2>
 <p>Use <code>arrange</code> to answer the following questions:</p>
 <ul>
 <li>Which flights traveled the farthest?</li>
 <li>Which traveled the shortest?</li>
 <li>Which flights lasted the longest?</li>
 <li>Which lasted the shortest?</li>
-</ul></section><section id="part-3" class="level2"><h2 class="anchored" data-anchor-id="part-3">Part 3</h2>
+</ul></section><section id="practice-with-mutate" class="level2"><h2 class="anchored" data-anchor-id="practice-with-mutate">Practice with <code>mutate</code>
+</h2>
 <p>Create a new column in <code>flights</code> giving the <em>average speed</em> of the flight while it was in the air. What are the units of this variable? Make the variable in terms of miles per hour.</p>
-</section><section id="part-5" class="level2"><h2 class="anchored" data-anchor-id="part-5">Part 5</h2>
+</section><section id="practice-with-case_when" class="level2"><h2 class="anchored" data-anchor-id="practice-with-case_when">Practice with <code>case_when</code>
+</h2>
 <p>Suppose that you don’t think the FAA gives enough information in their definition of a delayed flight, so you come up with the following delay categories:</p>
 <ul>
 <li>
@@ -460,7 +464,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Use <code>mutate()</code> and <code>case_when()</code> to create a <code>delay_category</code> variable in the <code>flights</code> data frame.</p>
 <p>and we can check with <code>select()</code>:</p>
-</section><section id="part-6" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="part-6">Part 6</h2>
+</section><section id="practice-with-pipes" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="practice-with-pipes">Practice with pipes</h2>
 <p><em>Chain</em> the last two parts together, so that the resulting dataset contains both <code>avg_speed</code> and <code>delay_category</code>. Pipe this new dataset into <code>ggplot()</code> to answer the question “is there a relationship between average speed and how late a flight is delayed?” You should use the <code>delay_category</code> variable you created to answer this question.</p>
 <p>If you have time, create a new graph which only contains <em>flights to MSP</em>. Does your conclusion change?</p>
 
@@ -958,14 +962,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu"># Wrangling the `nycflights23` data</span></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 1</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practice with `filter`</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Find all flights that had an arrival delay of two or more hours.</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Find all flights to MSP</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Find all flights that arrived more than two hours late, but left less than one hour late</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>(if time) Find all flights that were delayed by at least an hour, but made up over 30 minutes in flight</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 2</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practice with `arrange`</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>Use <span class="in">`arrange`</span> to answer the following questions:</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
@@ -974,11 +978,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Which flights lasted the longest?</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Which lasted the shortest?</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 3</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practice with `mutate`</span></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Create a new column in <span class="in">`flights`</span> giving the *average speed* of the flight while it was in the air. What are the units of this variable? Make the variable in terms of miles per hour.</span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 5</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practice with `case_when`</span></span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Suppose that you don't think the FAA gives enough information in their definition of a delayed flight, so you come up with the following delay categories:</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
@@ -992,7 +996,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>and we can check with <span class="in">`select()`</span>:</span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 6</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practice with pipes</span></span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>*Chain* the last two parts together, so that the resulting dataset contains both <span class="in">`avg_speed`</span> and <span class="in">`delay_category`</span>. Pipe this new dataset into <span class="in">`ggplot()`</span> to answer the question "is there a relationship between average speed and how late a flight is delayed?" You should use the <span class="in">`delay_category`</span> variable you created to answer this question.</span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
