@@ -1,9 +1,8 @@
 ---
 title: "12-factors"
-format: html
 ---
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+```{r}
 
 library(tidyverse)
 library(lubridate)

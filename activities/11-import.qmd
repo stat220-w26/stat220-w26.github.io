@@ -2,10 +2,7 @@
 title: "Data import and dates/times"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,
-                      warning = FALSE,
-                      message = FALSE)
+```{r}
 library(tidyverse)
 library(ggthemes)
 library(readxl)

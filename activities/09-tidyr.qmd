@@ -2,10 +2,7 @@
 title: "`tidyr` 2: Reshaping Data"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,
-                      warning = FALSE,
-                      message = FALSE)
+```{r}
 library(tidyverse)
 library(ggthemes)
 ```

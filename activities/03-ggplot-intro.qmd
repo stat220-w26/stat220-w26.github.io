@@ -2,9 +2,6 @@
 title: Intro to `ggplot2`
 execute:
   eval: false
-  echo: true
-  message: false
-  warning: false
 ---
 
 ```{r setup, include=FALSE}

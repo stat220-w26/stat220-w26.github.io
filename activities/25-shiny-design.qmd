@@ -1,6 +1,5 @@
 ---
 title: "25-shiny-design"
-format: html
 ---
 
 ```{r}

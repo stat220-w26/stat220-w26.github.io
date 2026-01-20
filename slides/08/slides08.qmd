@@ -273,7 +273,7 @@ colleges %>%
   group_by(region) %>%
   mutate(z_cost = (cost - mean(cost, na.rm = TRUE)) / sd(cost, na.rm = TRUE)) %>%
   ungroup() %>%
-  select(school, city, cost, z_cost)
+  summarize(mean_z = mean(z_cost, na.rm = TRUE))
 ```
 
 ::: panel-tabset
@@ -284,7 +284,7 @@ colleges %>%
   group_by(region) %>%
   mutate(z_cost = (cost - mean(cost, na.rm = TRUE)) / sd(cost, na.rm = TRUE)) %>%
   ungroup() %>%
-  select(school, city, cost, z_cost)
+  summarize(mean_z = mean(z_cost, na.rm = TRUE))
 ```
 
 ### Without `ungroup()`
@@ -293,7 +293,7 @@ colleges %>%
 colleges %>%
   group_by(region) %>%
   mutate(z_cost = (cost - mean(cost, na.rm = TRUE)) / sd(cost, na.rm = TRUE)) %>%
-  select(school, city, cost, z_cost)
+  summarize(mean_z = mean(z_cost, na.rm = TRUE))
 ```
 :::
 
@@ -303,7 +303,6 @@ In R, you can use `#` for adding comments to your code. Any text that follows th
 
 ```{r}
 #| echo: true
-#| output-location: column
 
 colleges %>%
   group_by(state) %>%
@@ -321,7 +320,6 @@ And it works especially well when you've used *chaining* in your code
 
 ```{r}
 #| echo: true
-#| output-location: column
 
 colleges %>%
   #group_by(state) %>%
@@ -354,7 +352,7 @@ colleges %>%
 . . .
 
 ```{r}
-bakeoff_ratings <- read_csv("https://stat220-s25.github.io/data/bakeoff_messy_ratings.csv")
+bakeoff_ratings <- read_csv("https://stat220-w26.github.io/data/bakeoff_messy_ratings.csv")
 bakeoff_ratings
 ```
 
@@ -389,7 +387,7 @@ countdown(2)
 :::
 :::::
 
-## Goal
+## What variables are needed to make this graph?
 
 ```{r}
 #| echo: false
@@ -613,7 +611,7 @@ Tidy this data set by
 :::
 
 ```{r echo=TRUE}
-messy_ratings2 <- read_csv("https://stat220-s25.github.io/data/messy_ratings2.csv")
+messy_ratings2 <- read_csv("https://stat220-w26.github.io/data/messy_ratings2.csv")
 messy_ratings2
 ```
 

@@ -1,14 +1,6 @@
 ---
 title: "`dplyr` 2: Pipes and Groups"
-author: Stat220 -- W25
-format: 
-  html:
-    code-tools: true
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ```{r}
 library(tidyverse)
@@ -58,7 +50,7 @@ flights
 # Intro to Tidy Data
 
 ```{r}
-bakeoff_ratings <- read_csv("https://stat220-s25.github.io/data/bakeoff_messy_ratings.csv")
+bakeoff_ratings <- read_csv("https://stat220-w26.github.io/data/bakeoff_messy_ratings.csv")
 bakeoff_ratings
 ```
 
@@ -75,18 +67,16 @@ Follow along with the slides to tidy the `bakeoff_ratings` dataset
 # `messyratings2`
 
 ```{r}
-messy_ratings2 <- read_csv("https://stat220-s25.github.io/data/messy_ratings2.csv")
+messy_ratings2 <- read_csv("https://stat220-w26.github.io/data/messy_ratings2.csv")
 messy_ratings2
 ```
 
 ## Task 1
 
-::: task
 Tidy this data set by
 
 1.  Selecting the `series` and `e*_7day` columns
 2.  Pivoting the data to add a column for `episode` and a column for `rating` (we'll clean up the episode column later)
-:::
 
 ```{r}
 # include your code here
@@ -94,12 +84,6 @@ Tidy this data set by
 
 ## Task 2
 
-::: {.task .nonincremental}
 -   Clean the `episode` and `period` column
 -   Make a *line plot* with episode on the x-axis, rating on the y-axis, colored by series. (You will also need to map the `group` aesthetic to series)
-:::
 
-
-::: callout-note
-When you're done, remember to submit your .rmd to the google form! 
-:::
