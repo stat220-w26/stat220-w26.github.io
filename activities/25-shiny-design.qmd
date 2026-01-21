@@ -24,7 +24,7 @@ With the folks around you, discuss:
 
 # AskAManager App 
 
-Use the version you've been working on, or use a new starter app at [https://stat220-s25.github.io/files/25-starter-app.R](https://stat220-s25.github.io/files/25-starter-app.R) (it is also in the solutions repo)
+Use the version you've been working on, or use a new starter app at [https://stat220-w26.github.io/files/25-starter-app.R](https://stat220-w26.github.io/files/25-starter-app.R) (it is also in the solutions repo)
 
 ## Part 1
 

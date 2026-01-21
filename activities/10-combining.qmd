@@ -12,7 +12,7 @@ Click the "code" button above to copy and paste the source code, or pull a fresh
 # Warm Up
 
 ```{r}
-load(url("https://stat220-s25.github.io/data/combining-data-examples.Rda"))
+load(url("https://stat220-w26.github.io/data/combining-data-examples.Rda"))
 ```
 
 ## Example 1: Star Wars Characters 
@@ -96,7 +96,7 @@ We are interested in exploring the relationship between overall place on a Survi
 We'll start with our `messy_ratings2` dataset from last week:
 
 ```{r}
-messy_ratings2 <- read_csv("https://stat220-s25.github.io/data/messy_ratings2.csv")
+messy_ratings2 <- read_csv("https://stat220-w26.github.io/data/messy_ratings2.csv")
 messy_ratings2
 ```
 
@@ -139,7 +139,7 @@ tidy_ratings2 %>%
 The code chunk below loads the new dataset
 
 ```{r}
-messy_ratings2b <- read_csv("https://stat220-s25.github.io/data/messy_ratings2_9_14.csv")
+messy_ratings2b <- read_csv("https://stat220-w26.github.io/data/messy_ratings2_9_14.csv")
 messy_ratings2b
 ```
 
@@ -199,7 +199,7 @@ The `episodes` data has information about each episode of GBBO. In particular, i
 -   `result`: whether the baker was "Safe" or "Eliminated"
 
 ```{r}
-episodes = read_csv("https://stat220-s25.github.io/data/bakeoff-episodes.csv")
+episodes = read_csv("https://stat220-w26.github.io/data/bakeoff-episodes.csv")
 episodes
 ```
 

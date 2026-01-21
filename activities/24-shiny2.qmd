@@ -10,7 +10,7 @@ This activity will guide your through the adaptation of this Shiny app.
 
 ## Part 1: on your own
 
-Start by downloading [`24-reactivity.R`](https://stat220-s25.github.io/files/24-reactivity.R)
+Start by downloading [`24-reactivity.R`](https://stat220-w26.github.io/files/24-reactivity.R)
 
 1.  To begin, you need to understand what the Shiny app is doing. Run the Shiny app. What output changes when you change...
 

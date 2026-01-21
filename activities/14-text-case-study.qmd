@@ -10,7 +10,7 @@ library(tidytext) # functions for doing text analysis
 # Load the Data
 
 ```{r}
-en_coursera_reviews <- read_csv("https://stat220-s25.github.io/data/en_coursera_sample.csv")
+en_coursera_reviews <- read_csv("https://stat220-w26.github.io/data/en_coursera_sample.csv")
 glimpse(en_coursera_reviews)
 ```
 

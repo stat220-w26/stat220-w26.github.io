@@ -7,14 +7,13 @@ library(tidyverse)
 library(ggthemes)
 ```
 
-Click the "code" button above to copy and paste the source code, or pull a fresh version of the ["activities" repo](https://github.com/stat220-s25/activities) from GitHub.
 
 # Last time
 
 Here is a data frame with the ratings for each episode of The Great British Bakeoff for series 1-8.
 
 ```{r}
-bakeoff_ratings <- read_csv("https://stat220-s25.github.io/data/bakeoff_messy_ratings.csv")
+bakeoff_ratings <- read_csv("https://stat220-w26.github.io/data/bakeoff_messy_ratings.csv")
 bakeoff_ratings
 ```
 
@@ -31,7 +30,7 @@ bakeoff_ratings %>%
 # `messyratings2`
 
 ```{r}
-messy_ratings2 <- read_csv("https://stat220-s25.github.io/data/messy_ratings2.csv")
+messy_ratings2 <- read_csv("https://stat220-w26.github.io/data/messy_ratings2.csv")
 messy_ratings2
 ```
 

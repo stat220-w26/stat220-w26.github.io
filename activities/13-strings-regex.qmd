@@ -57,7 +57,7 @@ babynames %>%
 The below code chunk imports a data set of the 6-credit courses offered at Carleton in Winter 2023. All three columns are character vectors.
 
 ```{r}
-courses <- read_csv("https://stat220-s25.github.io/data/winter2023_course_tbl.csv", col_types = list(course = col_character()))
+courses <- read_csv("https://stat220-w26.github.io/data/winter2023_course_tbl.csv", col_types = list(course = col_character()))
 ```
 
 ### (a)
