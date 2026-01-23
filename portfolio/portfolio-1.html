@@ -439,8 +439,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </li>
 </ol>
-<p>Each of the two questions you come up with should involve more than two variables to answer. You should phrase them in a way that the is within the scope of inference of your data. For example, if you have an observational dataset, you shouldn’t phrase your question in a causal way.</p>
-<p>This should not be long! If rendering to a PDF, I expect the entire report to be &lt;3 pages.</p>
+<p>Each of the two questions you come up with should involve more than two variables to answer. You should phrase them in a way that the is within the scope of inference of your data. For example, if you have an observational dataset, you shouldn’t phrase your question in a causal way. Your questions shouldn’t be identical to the example questions in the TidyTuesday repo pages.</p>
+<p>Your report should not be long! If rendering to a PDF, I expect the entire report to be about 3 pages.</p>
 </section><section id="options" class="level1"><h1>Options</h1>
 <p>Choosing a dataset is something you should do carefully but also relatively quickly. The dataset you choose should allow for two distinct questions to be asked and answered using a not-completely-overlapping set of variables, i.e., Question 1 requires the use of variables x, y, and z and Question 2 requires the use of variables a, b, c, and d or x, a, and b. Some shared variables are ok, but the set of variables should not be completely overlapping, i.e., Question 2 can’t also require the use of variables x, y, and z.</p>
 <section id="income-inequality-before-and-after-taxes" class="level2"><h2 class="anchored" data-anchor-id="income-inequality-before-and-after-taxes">1. Income Inequality before and after taxes</h2>
@@ -495,7 +495,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #   talent_contestant &lt;chr&gt;, posthumous &lt;dbl&gt;, artist_place_of_origin &lt;chr&gt;, …</code></pre>
 </div>
 </div>
-<p>For more information about the variables in the dataset, see the <a href="">TidyTuesday repo page</a>. For more information about the data itself and an example analysis, see the <a href="https://www.cantgetmuchhigher.com/p/the-greatest-two-hit-wonders">*Can’t get much higher</a> newsletter.</p>
+<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-08-26/readme.md">TidyTuesday repo page</a>. For more information about the data itself and an example analysis, see the <a href="https://www.cantgetmuchhigher.com/p/the-greatest-two-hit-wonders">*Can’t get much higher</a> newsletter.</p>
 </section><section id="nsf-grant-terminations" class="level2"><h2 class="anchored" data-anchor-id="nsf-grant-terminations">3. NSF grant terminations</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">nsf_terminations</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-05-06/nsf_terminations.csv'</span><span class="op">)</span></span>
@@ -547,7 +547,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 #   latitude &lt;dbl&gt;, longitude &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-06/readme.md">TidyTuesday repo page</a>. For more information about the data itself, see <a href="https://www.beachwatch.nsw.gov.au/whatIsBeachwatch/aboutBeachwatch">BeachWatch</a>.</p>
+<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-20/readme.md">TidyTuesday repo page</a>. For more information about the data itself, see <a href="https://www.beachwatch.nsw.gov.au/whatIsBeachwatch/aboutBeachwatch">BeachWatch</a>.</p>
 </section><section id="pokemon" class="level2"><h2 class="anchored" data-anchor-id="pokemon">5. Pokemon</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pokemon_df</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-04-01/pokemon_df.csv'</span><span class="op">)</span></span>
