@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.23">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>Portfolio Project 1 – Stat 220</title>
 <style>
 code{white-space: pre-wrap;}
@@ -20,8 +17,42 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -43,8 +74,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-eecf1fbfc817078eed7cb568f09af49d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-259513009322ede1d75388ff598e6692.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-eecf1fbfc817078eed7cb568f09af49d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-eecf1fbfc817078eed7cb568f09af49d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -71,10 +101,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -240,9 +267,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -253,17 +278,11 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
-      </a>
+      <img src="../images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none"><img src="../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none"></a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/stat220-w26" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
     <a href="https://maize.mathcs.carleton.edu/" title="RStudio Server" class="quarto-navigation-tool px-1" aria-label="RStudio Server"><i class="bi bi-code-square"></i></a>
@@ -278,7 +297,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
+<li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Course information</span></a>
@@ -286,8 +305,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../course-syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
@@ -312,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
@@ -321,8 +340,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../computing/computing-access.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Access</span></a>
@@ -347,33 +366,36 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#options-and-examples" id="toc-options-and-examples" class="nav-link" data-scroll-target="#options-and-examples">Options and Examples</a></li>
+<li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li>
+<a href="#options" id="toc-options" class="nav-link" data-scroll-target="#options">Options</a>
+  <ul class="collapse">
+<li><a href="#income-inequality-before-and-after-taxes" id="toc-income-inequality-before-and-after-taxes" class="nav-link" data-scroll-target="#income-inequality-before-and-after-taxes">1. Income Inequality before and after taxes</a></li>
+  <li><a href="#billboard-hot100-number-ones" id="toc-billboard-hot100-number-ones" class="nav-link" data-scroll-target="#billboard-hot100-number-ones">2. Billboard Hot100 Number Ones</a></li>
+  <li><a href="#nsf-grant-terminations" id="toc-nsf-grant-terminations" class="nav-link" data-scroll-target="#nsf-grant-terminations">3. NSF grant terminations</a></li>
+  <li><a href="#water-quality-at-sydney-beaches" id="toc-water-quality-at-sydney-beaches" class="nav-link" data-scroll-target="#water-quality-at-sydney-beaches">4. Water Quality at Sydney Beaches</a></li>
+  <li><a href="#pokemon" id="toc-pokemon" class="nav-link" data-scroll-target="#pokemon">5. Pokemon</a></li>
+  <li><a href="#byo" id="toc-byo" class="nav-link" data-scroll-target="#byo">6. BYO</a></li>
+  </ul>
+</li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   <li><a href="#rubric" id="toc-rubric" class="nav-link" data-scroll-target="#rubric">Rubric</a></li>
   <li><a href="#faq" id="toc-faq" class="nav-link" data-scroll-target="#faq">FAQ</a></li>
-  </ul>
-</nav>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Portfolio Project 1</h1>
-<p class="subtitle lead">Graph replication + redesign</p>
+<p class="subtitle lead">Posing and answering research questions</p>
 </div>
 
 
@@ -387,77 +409,215 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
-
-
-<section id="overview" class="level1">
-<h1>Overview</h1>
-<p>In your first portfolio project, you’ll apply what you’ve learned about <code>ggplot2</code> and design principles to replicate and redesign a published graph. This part of your portfolio consists of three parts:</p>
+</header><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="overview" class="level1"><h1>Overview</h1>
+<p>In your first portfolio project, you’ll explore a dataset and pose your own research questions. You’ll then apply what you’ve learned about <code>ggplot2</code> and design principles to answer the questions.</p>
+<p>Your final report should include</p>
 <ol type="1">
-<li>Replicating an existing graph using <code>ggplot2</code>. Depending on the graph you choose, this may require some creativity in recreating data.</li>
-<li>Using design principles from class, re-design the original graph to be better. This should include, at minimum, a change to the geometry or aesthetic layer.</li>
-<li>A written summary (no more than 1 printed page) including (1) an evaluation of the original graph and (2) reasoning for your design choices in improving the graph. This should include references to readings and discussions from class.</li>
-</ol>
-</section>
-<section id="options-and-examples" class="level1">
-<h1>Options and Examples</h1>
-<p>The list below includes some good places to get started finding a graph. You do not have to choose a graph from one of these sources. It can be hard to find associated data with some published graphs, so don’t spend too much time trying to find data for a specific graph before moving on.</p>
+<li>A paragraph introduction to your data</li>
+<li>A section for Research Question 1 that includes:
 <ul>
-<li><a href="https://ourworldindata.org/">Our World In Data</a></li>
-<li><a href="https://data.fivethirtyeight.com/">FiveThirtyEight</a> + Associated <a href="https://github.com/rudeboybert/fivethirtyeight">R Package</a> (See available data <a href="https://fivethirtyeight-r.netlify.app/articles/fivethirtyeight.html">here</a>).</li>
-<li><a href="https://policyviz.com/helpmeviz/">HelpMeViz</a></li>
-<li><a href="https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0">DataIsPlural</a></li>
-<li><a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a> – If you choose this option, please be <strong>especially kind</strong> in your critique. This is a weekly R community activity, and many submissions are by beginners.</li>
-<li><a href="https://www.reddit.com/r/dataisbeautiful/">r/dataisbeautiful</a></li>
-<li><a href="https://www.reddit.com/r/dataisugly/">r/dataisugly</a></li>
+<li>Your question</li>
+<li>Why that question is interesting/important</li>
+<li>A graph that answers the question</li>
+<li>A written answer to the question based on the graph</li>
 </ul>
-</section>
-<section id="submission" class="level1">
-<h1>Submission</h1>
-<p>Your submission should include two visualizations (replication and improvement), a written overview of your work, and all associated code. You should work in a <code>rmarkdown</code> or <code>quarto</code> file. Your knitted/rendered file can be either pdf or html. I will distribute GitHub skeleton repos that you should fill in as you work. You should commit your final code and output file to your repo and link your repo to gradescope to submit.</p>
-</section>
-<section id="rubric" class="level1">
-<h1>Rubric</h1>
+</li>
+<li>A section for Research Question 2 that includes:
+<ul>
+<li>Your question. This should focus on a variable that was not included in Research Question 1.</li>
+<li>Why that question is interesting/important</li>
+<li>A graph that answers the question</li>
+<li>A written answer to the question based on the graph</li>
+</ul>
+</li>
+<li>A section describing your design choices
+<ul>
+<li>This should be about a paragraph telling me why you chose the geometries, aesthetics, scales, themes, etc. that you did</li>
+</ul>
+</li>
+</ol>
+<p>Each of the two questions you come up with should involve more than two variables to answer. You should phrase them in a way that the is within the scope of inference of your data. For example, if you have an observational dataset, you shouldn’t phrase your question in a causal way.</p>
+<p>This should not be long! If rendering to a PDF, I expect the entire report to be &lt;3 pages.</p>
+</section><section id="options" class="level1"><h1>Options</h1>
+<p>Choosing a dataset is something you should do carefully but also relatively quickly. The dataset you choose should allow for two distinct questions to be asked and answered using a not-completely-overlapping set of variables, i.e., Question 1 requires the use of variables x, y, and z and Question 2 requires the use of variables a, b, c, and d or x, a, and b. Some shared variables are ok, but the set of variables should not be completely overlapping, i.e., Question 2 can’t also require the use of variables x, y, and z.</p>
+<section id="income-inequality-before-and-after-taxes" class="level2"><h2 class="anchored" data-anchor-id="income-inequality-before-and-after-taxes">1. Income Inequality before and after taxes</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">income_inequality_raw</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-08-05/income_inequality_raw.csv'</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Year</span> <span class="op">&gt;</span> <span class="fl">1963</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">income_inequality_raw</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15,710 × 7
+   Entity      Code   Year gini_disposable__age_total gini_market__age_total
+   &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt;                      &lt;dbl&gt;                  &lt;dbl&gt;
+ 1 Afghanistan AFG    1964                         NA                     NA
+ 2 Afghanistan AFG    1965                         NA                     NA
+ 3 Afghanistan AFG    1966                         NA                     NA
+ 4 Afghanistan AFG    1967                         NA                     NA
+ 5 Afghanistan AFG    1968                         NA                     NA
+ 6 Afghanistan AFG    1969                         NA                     NA
+ 7 Afghanistan AFG    1970                         NA                     NA
+ 8 Afghanistan AFG    1971                         NA                     NA
+ 9 Afghanistan AFG    1972                         NA                     NA
+10 Afghanistan AFG    1973                         NA                     NA
+# ℹ 15,700 more rows
+# ℹ 2 more variables: population_historical &lt;dbl&gt;, owid_region &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-08-05/readme.md">TidyTuesday repo page</a>. For more information about the data itself, read the original <a href="https://ourworldindata.org/income-inequality-before-and-after-taxes">Our World In Data</a> article.</p>
+</section><section id="billboard-hot100-number-ones" class="level2"><h2 class="anchored" data-anchor-id="billboard-hot100-number-ones">2. Billboard Hot100 Number Ones</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">billboard</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-08-26/billboard.csv'</span><span class="op">)</span></span>
+<span><span class="va">billboard</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,177 × 105
+   song  artist date                weeks_at_number_one non_consecutive rating_1
+   &lt;chr&gt; &lt;chr&gt;  &lt;dttm&gt;                            &lt;dbl&gt;           &lt;dbl&gt;    &lt;dbl&gt;
+ 1 Poor… Ricky… 1958-08-04 00:00:00                   2               0        4
+ 2 Nel … Domen… 1958-08-18 00:00:00                   5               1        7
+ 3 Litt… The E… 1958-08-25 00:00:00                   1               0        5
+ 4 It's… Tommy… 1958-09-29 00:00:00                   6               0        3
+ 5 It's… Conwa… 1958-11-10 00:00:00                   2               1        7
+ 6 Tom … The K… 1958-11-17 00:00:00                   1               0        5
+ 7 To K… The T… 1958-12-01 00:00:00                   3               0        8
+ 8 The … The C… 1958-12-22 00:00:00                   4               0        1
+ 9 Smok… The P… 1959-01-19 00:00:00                   3               0        9
+10 Stag… Lloyd… 1959-02-02 00:00:00                   4               0        6
+# ℹ 1,167 more rows
+# ℹ 99 more variables: rating_2 &lt;dbl&gt;, rating_3 &lt;dbl&gt;, overall_rating &lt;dbl&gt;,
+#   divisiveness &lt;dbl&gt;, label &lt;chr&gt;, parent_label &lt;chr&gt;, cdr_genre &lt;chr&gt;,
+#   cdr_style &lt;chr&gt;, discogs_genre &lt;chr&gt;, discogs_style &lt;chr&gt;,
+#   artist_structure &lt;dbl&gt;, featured_artists &lt;chr&gt;,
+#   multiple_lead_vocalists &lt;dbl&gt;, group_named_after_non_lead_singer &lt;dbl&gt;,
+#   talent_contestant &lt;chr&gt;, posthumous &lt;dbl&gt;, artist_place_of_origin &lt;chr&gt;, …</code></pre>
+</div>
+</div>
+<p>For more information about the variables in the dataset, see the <a href="">TidyTuesday repo page</a>. For more information about the data itself and an example analysis, see the <a href="https://www.cantgetmuchhigher.com/p/the-greatest-two-hit-wonders">*Can’t get much higher</a> newsletter.</p>
+</section><section id="nsf-grant-terminations" class="level2"><h2 class="anchored" data-anchor-id="nsf-grant-terminations">3. NSF grant terminations</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">nsf_terminations</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-05-06/nsf_terminations.csv'</span><span class="op">)</span></span>
+<span><span class="va">nsf_terminations</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,041 × 21
+   grant_number project_title termination_letter_d…¹ org_name org_city org_state
+          &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;                 &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;    
+ 1      2135329 Collaborativ… 2025-04-25             Univers… ALBUQUE… NM       
+ 2      2342099 MyTurn: An A… 2025-04-25             Univers… CHICAGO  IL       
+ 3      2201103 Collaborativ… 2025-04-25             America… WASHING… DC       
+ 4      2215382 Engaging Rur… 2025-04-25             TERC Inc CAMBRID… MA       
+ 5      2405633 Design Effec… 2025-04-25             San Fra… SAN FRA… CA       
+ 6      2317714 Collaborativ… 2025-04-25             Occiden… LOS ANG… CA       
+ 7      2046081 CAREER: SBP:… 2025-04-25             Univers… SANTA B… CA       
+ 8      2348705 Rural Commun… 2025-04-25             Hamilto… CLINTON  NY       
+ 9      2404708 Postdoctoral… 2025-04-25             New Yor… New York CA       
+10      2215138 BRITE Girls … 2025-04-25             Florida… TALLAHA… FL       
+# ℹ 1,031 more rows
+# ℹ abbreviated name: ¹​termination_letter_date
+# ℹ 15 more variables: org_district &lt;chr&gt;, usaspending_obligated &lt;dbl&gt;,
+#   award_type &lt;chr&gt;, directorate_abbrev &lt;chr&gt;, directorate &lt;chr&gt;,
+#   division &lt;chr&gt;, nsf_program_name &lt;chr&gt;, nsf_url &lt;chr&gt;,
+#   usaspending_url &lt;chr&gt;, nsf_startdate &lt;date&gt;, nsf_expected_end_date &lt;date&gt;,
+#   org_zip &lt;chr&gt;, org_uei &lt;chr&gt;, abstract &lt;chr&gt;, in_cruz_list &lt;lgl&gt;</code></pre>
+</div>
+</div>
+<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-06/readme.md">TidyTuesday repo page</a>. For more information about the data itself, see <a href="https://grant-witness.us/">Grant Watch</a>.</p>
+</section><section id="water-quality-at-sydney-beaches" class="level2"><h2 class="anchored" data-anchor-id="water-quality-at-sydney-beaches">4. Water Quality at Sydney Beaches</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">water_quality</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-05-20/water_quality.csv'</span><span class="op">)</span></span>
+<span><span class="va">water_quality</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 123,530 × 10
+   region         council       swim_site date       time  enterococci_cfu_100ml
+   &lt;chr&gt;          &lt;chr&gt;         &lt;chr&gt;     &lt;date&gt;     &lt;tim&gt;                 &lt;dbl&gt;
+ 1 Western Sydney Hawkesbury C… Windsor … 2025-04-28 11:00                   620
+ 2 Sydney Harbour North Sydney… Hayes St… 2025-04-28 11:40                    64
+ 3 Sydney Harbour Willoughby C… Northbri… 2025-04-28 10:54                   160
+ 4 Sydney Harbour Northern Bea… Fairligh… 2025-04-28 09:28                    54
+ 5 Western Sydney Hawkesbury C… Yarramun… 2025-04-28 10:35                   720
+ 6 Sydney Harbour Northern Bea… Little M… 2025-04-28 09:19                   230
+ 7 Sydney Harbour City of Cana… Chiswick… 2025-04-28 13:06                   120
+ 8 Sydney Harbour Inner West C… Dawn Fra… 2025-04-28 08:04                   280
+ 9 Sydney Harbour Woollahra Mu… Rose Bay… 2025-04-28 08:50                    60
+10 Sydney Harbour Woollahra Mu… Camp Cove 2025-04-28 09:09                   100
+# ℹ 123,520 more rows
+# ℹ 4 more variables: water_temperature_c &lt;dbl&gt;, conductivity_ms_cm &lt;dbl&gt;,
+#   latitude &lt;dbl&gt;, longitude &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-06/readme.md">TidyTuesday repo page</a>. For more information about the data itself, see <a href="https://www.beachwatch.nsw.gov.au/whatIsBeachwatch/aboutBeachwatch">BeachWatch</a>.</p>
+</section><section id="pokemon" class="level2"><h2 class="anchored" data-anchor-id="pokemon">5. Pokemon</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pokemon_df</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-04-01/pokemon_df.csv'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">pokemon_df</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 949 × 22
+      id pokemon    species_id height weight base_experience type_1 type_2    hp
+   &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt;
+ 1     1 bulbasaur           1    0.7    6.9              64 grass  poison    45
+ 2     2 ivysaur             2    1     13               142 grass  poison    60
+ 3     3 venusaur            3    2    100               236 grass  poison    80
+ 4     4 charmander          4    0.6    8.5              62 fire   &lt;NA&gt;      39
+ 5     5 charmeleon          5    1.1   19               142 fire   &lt;NA&gt;      58
+ 6     6 charizard           6    1.7   90.5             240 fire   flying    78
+ 7     7 squirtle            7    0.5    9                63 water  &lt;NA&gt;      44
+ 8     8 wartortle           8    1     22.5             142 water  &lt;NA&gt;      59
+ 9     9 blastoise           9    1.6   85.5             239 water  &lt;NA&gt;      79
+10    10 caterpie           10    0.3    2.9              39 bug    &lt;NA&gt;      45
+# ℹ 939 more rows
+# ℹ 13 more variables: attack &lt;dbl&gt;, defense &lt;dbl&gt;, special_attack &lt;dbl&gt;,
+#   special_defense &lt;dbl&gt;, speed &lt;dbl&gt;, color_1 &lt;chr&gt;, color_2 &lt;chr&gt;,
+#   color_f &lt;chr&gt;, egg_group_1 &lt;chr&gt;, egg_group_2 &lt;chr&gt;, url_icon &lt;chr&gt;,
+#   generation_id &lt;dbl&gt;, url_image &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>For more information about the variables in the dataset, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-04-01/readme.md">TidyTuesday repo page</a>. For more information about the data itself, see <a href="https://pokeapi.co/about">PokeAPI</a>.</p>
+</section><section id="byo" class="level2"><h2 class="anchored" data-anchor-id="byo">6. BYO</h2>
+<p>If none of the options listed here speak to you, you can also choose your own dataset. The data should have at least two quantitative and two categorical variables, at least eight variables total, and be “complicated” enough to demonstrate an advanced understanding of <code>ggplot</code> and design principles from class. I’d encourage you to run your idea by me before diving too deep!</p>
+</section></section><section id="submission" class="level1"><h1>Submission</h1>
+<p>Your submission should include two visualizations (replication and improvement), a written overview of your work, and all associated code. You should work in a <code>quarto</code> file. Your rendered file can be either pdf or html. I will distribute GitHub skeleton repos that you should fill in as you work. You should commit your final code and output file to your repo and link your repo to gradescope to submit.</p>
+</section><section id="rubric" class="level1"><h1>Rubric</h1>
 <p>A <strong>successful</strong> project will:</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Include all necessary components pushed to GitHub and linked to gradescope</label></li>
-<li><label><input type="checkbox">Contain code, plots, and written summary in a single .rmd document</label></li>
-<li><label><input type="checkbox">The .rmd file contains all necessary code for recreation</label></li>
-<li><label><input type="checkbox">The .rmd file does not include unnecessary code</label></li>
-<li><label><input type="checkbox">Provide a thoughtful summary and critique</label></li>
-<li><label><input type="checkbox">The replication matches the original graph on the first 6 layers of the grammar of graphics (data, aesthetics, geometries, facets, statistics, and coordinates)</label></li>
-<li><label><input type="checkbox">The replication matches the original graph on <em>some</em> of the theme layer (labels, background colors, color palette, etc.)</label></li>
-<li><label><input type="checkbox">The improved graph has made changes to the geometry or aesthetic layer</label>
+<li>
+<label><input type="checkbox">Include all necessary components pushed to GitHub and linked to gradescope</label>
 <ul>
-<li>Aesthetics should faithfully represent the representation of the underlying data</li>
-</ul></li>
-<li><label><input type="checkbox">Meet minimum submission quality standards</label>
+<li>There should be at least two commits with substantial changes between the two</li>
+</ul>
+</li>
+<li><label><input type="checkbox">Contain code, plots, and written summary in a single .qmd document</label></li>
+<li><label><input type="checkbox">The .qmd file contains all necessary code for recreation</label></li>
+<li><label><input type="checkbox">The .qmd file does not include unnecessary code</label></li>
+<li><label><input type="checkbox">Both research questions posed are appropriate, thoughtful, and multivariate (involve at least two variables)</label></li>
+<li><label><input type="checkbox">The graphs are appropriate to answer the research questions</label></li>
+<li><label><input type="checkbox">The two graphs use different <code>geom</code>s and aesthetics</label></li>
+<li>
+<label><input type="checkbox">Meet minimum submission quality standards</label>
 <ul>
 <li>Very few grammatical mistakes, spelling mistakes, or typos</li>
 <li>Appropriate labels and font sizes</li>
 <li>A readable theme</li>
 <li>The rendered document does not contain any unnecessary content (package loading messages, warnings, etc.)</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <p>An <strong>excellent</strong> project will meet all of the requirements for a successful project, plus</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Also match the original graph on <em>most</em> of the theme layer (labels, background colors, color palette, etc.)</label></li>
-<li><label><input type="checkbox">The improved graph has made changes to at least three of the layers of the grammar of graphics (data, aesthetics, geometries, facets, statistics, coordinates, and theme)</label>
-<ul>
-<li>All changes to aesthetics, geometries, etc. should be faithful representations of the underlying data (e.g.&nbsp;changes for the sake of making a change don’t count!)</li>
-</ul></li>
+<li><label><input type="checkbox">At least one question uses three variables from the data at once</label></li>
+<li><label><input type="checkbox">At least one graph uses two or more geometry layers (this might be two layers of data, or a map + points, annotations, direct labeling with <code>geom_text</code>, etc.) OR includes a ggplot element that goes beyond what we discussed in class (eg., a new ggplot extension package or a geometry we didn’t discuss or see in homework)</label></li>
+<li><label><input type="checkbox">Graphs use consistent themes that have been customized beyond a full theme (eg <code>theme_minimal</code> or <code>theme_bw</code>)</label></li>
+<li><label><input type="checkbox">Both graphs contain a custom <code>scale_</code> element (color, x/y axis, size, etc.)</label></li>
+<li><label><input type="checkbox">A clear history of commits that show your progress (e.g.&nbsp;commit 1: load data and make basic graph, commit 2: make graph #2, commit 3: change idea for graph #1, etc.)</label></li>
 </ul>
-<p>For this portfolio project, you may work individually or in pairs. If you choose to work in a pair, let me know by <em>Friday of Week 3</em>. Both partners should have a record of committing and pushing to the repo.</p>
-</section>
-<section id="faq" class="level1">
-<h1>FAQ</h1>
-<p>If you have any questions, please post them to the #portfolio-projects channel on slack.</p>
+<p>This is an <em>individual</em> portfolio project.</p>
+</section><section id="faq" class="level1"><h1>FAQ</h1>
+<p>If you have any questions, please post them to Ed with the “portfolio projects” tag</p>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -871,8 +1031,7 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>Material 2025, Amanda Luby <br> Design by Mine Çetinkaya-Rundel</p>
 </div>   
@@ -884,8 +1043,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
