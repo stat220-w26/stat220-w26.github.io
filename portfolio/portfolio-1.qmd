@@ -28,9 +28,9 @@ Your final report should include
 (4) A section describing your design choices
     - This should be about a paragraph telling me why you chose the geometries, aesthetics, scales, themes, etc. that you did
     
-Each of the two questions you come up with should involve more than two variables to answer. You should phrase them in a way that the is within the scope of inference of your data. For example, if you have an observational dataset, you shouldn’t phrase your question in a causal way.
+Each of the two questions you come up with should involve more than two variables to answer. You should phrase them in a way that the is within the scope of inference of your data. For example, if you have an observational dataset, you shouldn’t phrase your question in a causal way. Your questions shouldn't be identical to the example questions in the TidyTuesday repo pages.
 
-This should not be long! If rendering to a PDF, I expect the entire report to be <3 pages. 
+Your report should not be long! If rendering to a PDF, I expect the entire report to be about 3 pages. 
 
 # Options 
 
@@ -54,7 +54,7 @@ billboard <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/
 billboard
 ```
 
-For more information about the variables in the dataset, see the [TidyTuesday repo page](). For more information about the data itself and an example analysis, see the [*Can't get much higher](https://www.cantgetmuchhigher.com/p/the-greatest-two-hit-wonders) newsletter. 
+For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-08-26/readme.md). For more information about the data itself and an example analysis, see the [*Can't get much higher](https://www.cantgetmuchhigher.com/p/the-greatest-two-hit-wonders) newsletter. 
 
 
 ## 3. NSF grant terminations
@@ -73,7 +73,7 @@ water_quality <- readr::read_csv('https://raw.githubusercontent.com/rfordatascie
 water_quality
 ```
 
-For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-06/readme.md). For more information about the data itself, see [BeachWatch](https://www.beachwatch.nsw.gov.au/whatIsBeachwatch/aboutBeachwatch). 
+For more information about the variables in the dataset, see the [TidyTuesday repo page](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-05-20/readme.md). For more information about the data itself, see [BeachWatch](https://www.beachwatch.nsw.gov.au/whatIsBeachwatch/aboutBeachwatch). 
 
 ## 5. Pokemon
 
