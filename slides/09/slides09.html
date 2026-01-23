@@ -6,11 +6,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8cab17c520dfb5fd83702a774e8ef3fe.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.23">
 
   <meta name="author" content="Prof Amanda Luby">
-  <title>Stat 220 – Data Wrangling:  Tidy Data  +Code Style</title>
+  <title>Stat 220 – Data Wrangling: Code Style</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -190,15 +190,13 @@
       margin-right: 0; 
     }
   </style>
-  <link href="../../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
-  <script src="../../site_libs/countdown-0.4.0/countdown.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" data-background-image="../img/horst_tidydata_4.jpg" data-background-opacity="0.8" data-background-position="bottom right" data-background-size="70%" data-slide-number="none" class="quarto-title-block center">
-  <h1 class="title">Data Wrangling: <br>Tidy Data <br>+Code Style</h1>
+  <h1 class="title">Data Wrangling: Code Style</h1>
   <p class="subtitle">Day 09</p>
 
 <div class="quarto-title-authors">
@@ -213,248 +211,6 @@ Prof Amanda Luby
 </div>
 
 </section>
-<section id="last-time-bakeoff-ratings" class="slide level2">
-<h2>Last time: Bakeoff ratings</h2>
-<ul>
-<li class="fragment">Ratings data for each episodes in series 1-8</li>
-</ul>
-<div class="fragment">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 8 × 11
-  series    e1    e2    e3    e4    e5    e6    e7    e8    e9   e10
-   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1      1  2.24  3     3     2.6   3.03  2.75 NA    NA    NA    NA   
-2      2  3.1   3.53  3.82  3.6   3.83  4.25  4.42  5.06 NA    NA   
-3      3  3.85  4.6   4.53  4.71  4.61  4.82  5.1   5.35  5.7   6.74
-4      4  6.6   6.65  7.17  6.82  6.95  7.32  7.76  7.41  7.41  9.45
-5      5  8.51  8.79  9.28 10.2   9.95 10.1  10.3   9.02 10.7  13.5 
-6      6 11.6  11.6  12.0  12.4  12.4  12    12.4  11.1  12.6  15.0 
-7      7 13.6  13.4  13.0  13.3  13.1  13.1  13.4  13.3  13.4  15.9 
-8      8  9.46  9.23  8.68  8.55  8.61  8.61  9.01  8.95  9.03 10.0 </code></pre>
-</div>
-</div>
-
-</div>
-<aside><div>
-<p>Source: <a href="https://bakeoff.netlify.app/">bakeoff</a> R package</p>
-</div></aside></section>
-<section id="last-time-tidying-the-data" class="slide level2">
-<h2>Last Time: <code>tidy</code>ing the data</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" data-code-line-numbers="1|2|3-5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>bakeoff_ratings <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> e1<span class="sc">:</span>e10, <span class="at">names_to =</span> <span class="st">"episode"</span>, <span class="at">values_to =</span> <span class="st">"rating"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-3"><a></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-4"><a></a>    <span class="at">episode =</span> <span class="fu">parse_number</span>(episode) </span>
-<span id="cb2-5"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 80 × 3
-   series episode rating
-    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
- 1      1       1   2.24
- 2      1       2   3   
- 3      1       3   3   
- 4      1       4   2.6 
- 5      1       5   3.03
- 6      1       6   2.75
- 7      1       7  NA   
- 8      1       8  NA   
- 9      1       9  NA   
-10      1      10  NA   
-# ℹ 70 more rows</code></pre>
-</div>
-</div>
-</section>
-<section id="try-it-messyratings2" class="slide level2 scrollable">
-<h2>Try it: <code>messyratings2</code></h2>
-<div class="task">
-<p>Tidy this data set by</p>
-<ol type="1">
-<li>Selecting the <code>series</code> and <code>e*_7day</code> columns</li>
-<li>Pivoting the data to add a column for <code>episode</code> and a column for <code>rating</code> (we’ll clean up the episode column later)</li>
-</ol>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>messy_ratings2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://stat220-s25.github.io/data/messy_ratings2.csv"</span>)</span>
-<span id="cb4-2"><a></a>messy_ratings2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 8 × 21
-  series e1_7day e1_28day e2_7day e2_28day e3_7day e3_28day e4_7day e4_28day
-   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-1      1    2.24    NA       3       NA       3       NA       2.6     NA   
-2      2    3.1     NA       3.53    NA       3.82    NA       3.6     NA   
-3      3    3.85    NA       4.6     NA       4.53    NA       4.71    NA   
-4      4    6.6     NA       6.65    NA       7.17    NA       6.82    NA   
-5      5    8.51    NA       8.79    NA       9.28    NA      10.2     NA   
-6      6   11.6     11.7    11.6     11.8    12.0     NA      12.4     12.7 
-7      7   13.6     13.9    13.4     13.7    13.0     13.4    13.3     13.9 
-8      8    9.46     9.72    9.23     9.53    8.68     9.06    8.55     8.87
-# ℹ 12 more variables: e5_7day &lt;dbl&gt;, e5_28day &lt;dbl&gt;, e6_7day &lt;dbl&gt;,
-#   e6_28day &lt;dbl&gt;, e7_7day &lt;dbl&gt;, e7_28day &lt;dbl&gt;, e8_7day &lt;dbl&gt;,
-#   e8_28day &lt;dbl&gt;, e9_7day &lt;dbl&gt;, e9_28day &lt;dbl&gt;, e10_7day &lt;dbl&gt;,
-#   e10_28day &lt;dbl&gt;</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_fa7f0831" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
-</section>
-<section id="cleaning-episode" class="slide level2">
-<h2>Cleaning <code>episode</code></h2>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-code-line-numbers="2|3-5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>ratings2 <span class="ot">&lt;-</span> messy_ratings2 <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">select</span>(series, <span class="fu">contains</span>(<span class="st">"7day"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a></a>  <span class="fu">pivot_longer</span>(<span class="fu">contains</span>(<span class="st">"7day"</span>), </span>
-<span id="cb6-4"><a></a>               <span class="at">names_to =</span> <span class="st">"episode"</span>, </span>
-<span id="cb6-5"><a></a>               <span class="at">values_to =</span> <span class="st">"rating"</span>)</span>
-<span id="cb6-6"><a></a>ratings2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div><div class="column fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 80 × 3
-   series episode  rating
-    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
- 1      1 e1_7day    2.24
- 2      1 e2_7day    3   
- 3      1 e3_7day    3   
- 4      1 e4_7day    2.6 
- 5      1 e5_7day    3.03
- 6      1 e6_7day    2.75
- 7      1 e7_7day   NA   
- 8      1 e8_7day   NA   
- 9      1 e9_7day   NA   
-10      1 e10_7day  NA   
-# ℹ 70 more rows</code></pre>
-</div>
-</div></div>
-</section>
-<section id="separate" class="slide level2">
-<h2><code>separate()</code></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><code>data</code> (as usual)</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">separate</span>(</span>
-<span id="cb8-2"><a></a>  data, </span>
-<span id="cb8-3"><a></a>  col, </span>
-<span id="cb8-4"><a></a>  <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"col1"</span>, <span class="st">"col2"</span>),</span>
-<span id="cb8-5"><a></a>  sep </span>
-<span id="cb8-6"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div></div>
-</section>
-<section id="separate-1" class="slide level2">
-<h2><code>separate()</code></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><code>data</code> (as usual)</li>
-<li><code>col</code>: column to separate</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">separate</span>(</span>
-<span id="cb9-2"><a></a>  data, </span>
-<span id="cb9-3"><a></a>  col, </span>
-<span id="cb9-4"><a></a>  <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"col1"</span>, <span class="st">"col2"</span>),</span>
-<span id="cb9-5"><a></a>  sep </span>
-<span id="cb9-6"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div></div>
-</section>
-<section id="separate-2" class="slide level2">
-<h2><code>separate()</code></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><code>data</code> (as usual)</li>
-<li><code>col</code>: column to separate</li>
-<li><code>into</code>: names of new columns to create</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">separate</span>(</span>
-<span id="cb10-2"><a></a>  data, </span>
-<span id="cb10-3"><a></a>  col, </span>
-<span id="cb10-4"><a></a>  <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"col1"</span>, <span class="st">"col2"</span>),</span>
-<span id="cb10-5"><a></a>  sep </span>
-<span id="cb10-6"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div></div>
-</section>
-<section id="separate-3" class="slide level2">
-<h2><code>separate()</code></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><code>data</code> (as usual)</li>
-<li><code>col</code>: column to separate</li>
-<li><code>into</code>: names of new columns to create</li>
-<li><code>sep</code>: separator between columns</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">separate</span>(</span>
-<span id="cb11-2"><a></a>  data, </span>
-<span id="cb11-3"><a></a>  col, </span>
-<span id="cb11-4"><a></a>  <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"col1"</span>, <span class="st">"col2"</span>),</span>
-<span id="cb11-5"><a></a>  sep </span>
-<span id="cb11-6"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div></div>
-</section>
-<section id="cleaning-episode-1" class="slide level2">
-<h2>Cleaning <code>episode</code></h2>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" data-code-line-numbers="2|3|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>ratings2 <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a></a>  <span class="fu">separate</span>( </span>
-<span id="cb12-3"><a></a>    <span class="at">col =</span> episode, </span>
-<span id="cb12-4"><a></a>    <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"episode"</span>, <span class="st">"period"</span>) </span>
-<span id="cb12-5"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div><div class="column fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 80 × 4
-   series episode period rating
-    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;
- 1      1 e1      7day     2.24
- 2      1 e2      7day     3   
- 3      1 e3      7day     3   
- 4      1 e4      7day     2.6 
- 5      1 e5      7day     3.03
- 6      1 e6      7day     2.75
- 7      1 e7      7day    NA   
- 8      1 e8      7day    NA   
- 9      1 e9      7day    NA   
-10      1 e10     7day    NA   
-# ℹ 70 more rows</code></pre>
-</div>
-</div></div>
-</section>
-<section id="wrap-it-up" class="slide level2">
-<h2>Wrap it up</h2>
-<div class="task">
-<ul>
-<li>Clean the <code>episode</code> and <code>period</code> column using <code>parse_number</code></li>
-<li>Make a <em>line plot</em> with episode on the x-axis, rating on the y-axis, colored by series. (You may also need to map the <code>group</code> aesthetic to series)</li>
-</ul>
-</div>
-</section>
-<section>
-<section id="code-style" class="title-slide slide level1 maize center">
-<h1>Code Style</h1>
-
-</section>
 <section id="which-is-easier-to-read" class="slide level2">
 <h2>Which is easier to read?</h2>
 <div class="panel-tabset">
@@ -462,7 +218,7 @@ Prof Amanda Luby
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">group_by</span>(colleges,region) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">z_cost=</span>(cost <span class="sc">-</span> <span class="fu">mean</span>(cost, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(cost,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">group_by</span>(colleges,region) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">z_cost=</span>(cost <span class="sc">-</span> <span class="fu">mean</span>(cost, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(cost,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 187 × 14
    unitid school  type  city  state region admission_rate   act undergrads  cost
@@ -485,10 +241,10 @@ Prof Amanda Luby
 </div>
 <div id="tabset-1-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>colleges <span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a></a>  <span class="fu">group_by</span>(region) <span class="sc">%&gt;%</span></span>
-<span id="cb16-3"><a></a>  <span class="fu">mutate</span>(<span class="at">z_cost =</span> (cost <span class="sc">-</span> <span class="fu">mean</span>(cost, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(cost, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb16-4"><a></a>  <span class="fu">ungroup</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>colleges <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a></a>  <span class="fu">group_by</span>(region) <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a></a>  <span class="fu">mutate</span>(<span class="at">z_cost =</span> (cost <span class="sc">-</span> <span class="fu">mean</span>(cost, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(cost, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a></a>  <span class="fu">ungroup</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 187 × 14
    unitid school  type  city  state region admission_rate   act undergrads  cost
@@ -519,24 +275,24 @@ Prof Amanda Luby
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>palmerpenguins<span class="sc">::</span>penguins <span class="sc">|&gt;</span></span>
-<span id="cb18-2"><a></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb18-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
-<span id="cb18-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb18-5"><a></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">"magma"</span>,<span class="at">end =</span> .<span class="dv">75</span>) <span class="sc">+</span> </span>
-<span id="cb18-6"><a></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">"Times"</span>) <span class="sc">+</span> </span>
-<span id="cb18-7"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb18-8"><a></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb18-9"><a></a>        <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb18-10"><a></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"darkred"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>palmerpenguins<span class="sc">::</span>penguins <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb5-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb5-5"><a></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">"magma"</span>,<span class="at">end =</span> .<span class="dv">75</span>) <span class="sc">+</span> </span>
+<span id="cb5-6"><a></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">"Times"</span>) <span class="sc">+</span> </span>
+<span id="cb5-7"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb5-8"><a></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-9"><a></a>        <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-10"><a></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"darkred"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-2-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>palmerpenguins<span class="sc">::</span>penguins <span class="sc">|&gt;</span> <span class="fu">filter</span>(species<span class="sc">==</span><span class="st">"Adelie"</span>) <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span>bill_length_mm, <span class="at">y=</span> bill_depth_mm)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">"magma"</span>,<span class="at">end =</span> .<span class="dv">75</span>) <span class="sc">+</span> </span>
-<span id="cb19-2"><a></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">"Times"</span>) <span class="sc">+</span> </span>
-<span id="cb19-3"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">panel.grid.minor=</span><span class="fu">element_blank</span>(), <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb19-4"><a></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">color=</span><span class="st">"darkred"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>palmerpenguins<span class="sc">::</span>penguins <span class="sc">|&gt;</span> <span class="fu">filter</span>(species<span class="sc">==</span><span class="st">"Adelie"</span>) <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span>bill_length_mm, <span class="at">y=</span> bill_depth_mm)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_viridis_d</span>(<span class="at">option =</span> <span class="st">"magma"</span>,<span class="at">end =</span> .<span class="dv">75</span>) <span class="sc">+</span> </span>
+<span id="cb6-2"><a></a>  <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">"Times"</span>) <span class="sc">+</span> </span>
+<span id="cb6-3"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">panel.grid.minor=</span><span class="fu">element_blank</span>(), <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-4"><a></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">color=</span><span class="st">"darkred"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -554,16 +310,16 @@ Prof Amanda Luby
 <p>|&gt; should always have a space before it, and should usually be followed by a new line. After the first step, each line should be indented by two spaces.</p>
 <p>Good:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>iris <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), mean), <span class="at">.by =</span> Species) <span class="sc">|&gt;</span></span>
-<span id="cb20-3"><a></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>Species, <span class="at">names_to =</span> <span class="st">"measure"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb20-4"><a></a>  <span class="fu">arrange</span>(value)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>iris <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), mean), <span class="at">.by =</span> Species) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>Species, <span class="at">names_to =</span> <span class="st">"measure"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a></a>  <span class="fu">arrange</span>(value)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Bad:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>iris<span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), mean), <span class="at">.by =</span> Species) <span class="sc">|&gt;</span></span>
-<span id="cb21-2"><a></a><span class="fu">pivot_longer</span>(<span class="sc">!</span>Species, <span class="at">names_to =</span> <span class="st">"measure"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)<span class="sc">|&gt;</span></span>
-<span id="cb21-3"><a></a><span class="fu">arrange</span>(value)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>iris<span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), mean), <span class="at">.by =</span> Species) <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a></a><span class="fu">pivot_longer</span>(<span class="sc">!</span>Species, <span class="at">names_to =</span> <span class="st">"measure"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a></a><span class="fu">arrange</span>(value)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="example-long-lines" class="slide level2">
@@ -571,17 +327,17 @@ Prof Amanda Luby
 <p>If the arguments to a function don’t all fit on one line, put each argument on its own line and indent:</p>
 <p>Good:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>iris <span class="sc">|&gt;</span></span>
-<span id="cb22-2"><a></a>  <span class="fu">summarise</span>(</span>
-<span id="cb22-3"><a></a>    <span class="at">Sepal.Length =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb22-4"><a></a>    <span class="at">Sepal.Width =</span> <span class="fu">mean</span>(Sepal.Width, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb22-5"><a></a>    <span class="at">.by =</span> Species</span>
-<span id="cb22-6"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>iris <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-3"><a></a>    <span class="at">Sepal.Length =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-4"><a></a>    <span class="at">Sepal.Width =</span> <span class="fu">mean</span>(Sepal.Width, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-5"><a></a>    <span class="at">.by =</span> Species</span>
+<span id="cb9-6"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Bad:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>iris <span class="sc">|&gt;</span></span>
-<span id="cb23-2"><a></a>  <span class="fu">summarise</span>(<span class="at">Sepal.Length =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">Sepal.Width =</span> <span class="fu">mean</span>(Sepal.Width, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> Species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>iris <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a></a>  <span class="fu">summarise</span>(<span class="at">Sepal.Length =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">Sepal.Width =</span> <span class="fu">mean</span>(Sepal.Width, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> Species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="ggplot2-whitespace-and-indenting" class="slide level2 smaller">
@@ -590,23 +346,23 @@ Prof Amanda Luby
 <p>If you are creating a ggplot off of a dplyr pipeline, there should only be one level of indentation.</p>
 <p>Good:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>iris <span class="sc">|&gt;</span></span>
-<span id="cb24-2"><a></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">"setosa"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb24-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
-<span id="cb24-4"><a></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>iris <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">"setosa"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb11-4"><a></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Bad:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>iris <span class="sc">|&gt;</span></span>
-<span id="cb25-2"><a></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">"setosa"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb25-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
-<span id="cb25-4"><a></a>    <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>iris <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">"setosa"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb12-4"><a></a>    <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Bad:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>iris <span class="sc">|&gt;</span></span>
-<span id="cb26-2"><a></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">"setosa"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb26-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>iris <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">"setosa"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="ggplot2-long-lines" class="slide level2">
@@ -614,21 +370,21 @@ Prof Amanda Luby
 <p>If the arguments to a ggplot2 layer don’t all fit on one line, put each argument on its own line and indent:</p>
 <p>Good:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>iris <span class="sc">|&gt;</span></span>
-<span id="cb27-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb27-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb27-4"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb27-5"><a></a>    <span class="at">x =</span> <span class="st">"Sepal width, in cm"</span>,</span>
-<span id="cb27-6"><a></a>    <span class="at">y =</span> <span class="st">"Sepal length, in cm"</span>,</span>
-<span id="cb27-7"><a></a>    <span class="at">title =</span> <span class="st">"Sepal length vs. width of irises"</span></span>
-<span id="cb27-8"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>iris <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-4"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-5"><a></a>    <span class="at">x =</span> <span class="st">"Sepal width, in cm"</span>,</span>
+<span id="cb14-6"><a></a>    <span class="at">y =</span> <span class="st">"Sepal length, in cm"</span>,</span>
+<span id="cb14-7"><a></a>    <span class="at">title =</span> <span class="st">"Sepal length vs. width of irises"</span></span>
+<span id="cb14-8"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Bad:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>iris <span class="sc">|&gt;</span></span>
-<span id="cb28-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb28-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb28-4"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Sepal width, in cm"</span>, <span class="at">y =</span> <span class="st">"Sepal length, in cm"</span>, <span class="at">title =</span> <span class="st">"Sepal length vs. width of irises"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>iris <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Width, <span class="at">y =</span> Sepal.Length, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb15-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb15-4"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Sepal width, in cm"</span>, <span class="at">y =</span> <span class="st">"Sepal length, in cm"</span>, <span class="at">title =</span> <span class="st">"Sepal length vs. width of irises"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="code-style-summary" class="slide level2">
@@ -650,12 +406,12 @@ Prof Amanda Luby
 <div class="fragment">
 <h3 id="try-it">Try it</h3>
 <div class="task">
-<p>Reformat your code from the flights activity so far according to the tidyverse style guide</p>
+<p>Reformat your code from an activity this week according to the tidyverse style guide</p>
 </div>
 
 
 </div>
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
