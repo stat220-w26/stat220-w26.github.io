@@ -62,15 +62,12 @@ More on wrangling:
 ## Warm up
 
 ::: {.task .nonincremental}
-1.  Find your groupmates, introduce yourselves:
-    -   Name & topic of your first portfolio project
-2.  Choose someone to be the "typer". That person should open the [`10-combining.rmd`](https://stat220-w26.github.io/activities/10-combining.html) activity in RStudio
-    - Can't decide? Choose the person who had the shortest walk to class today
-3.  Take a look at the first 3 pairs of data together and talk through (conceptually! in words!) how you think they should be combined
+1.  Open the [`10-combining.rmd`](https://stat220-w26.github.io/activities/10-combining.html) activity in RStudio
+2.  Take a look at the first 3 pairs of data together and talk through (conceptually! in words! no R code!) how you think they should be combined
 :::
 
 ```{r}
-countdown::countdown(8)
+countdown::countdown(2)
 ```
 
 ## Example 1: Star Wars Characters {.smaller}

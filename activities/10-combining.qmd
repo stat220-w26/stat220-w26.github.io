@@ -31,7 +31,7 @@ starwars_characters
 
 Dataset 2:
 
-The dataset is formatted the same, but includes two characters that were first introduced in *The Last Jedi, a Star Wars movie that came out after the first datset was released. 
+The dataset is formatted the same, but includes two characters that were first introduced in *The Last Jedi*, a Star Wars movie that came out after the first dataset was released. 
 
 ```{r}
 #| echo: true
@@ -122,17 +122,6 @@ tidy_ratings2 <- messy_ratings2 %>%
 tidy_ratings2
 ```
 
-## Task: line plot
-
-Finish the code to make a line plot of `viewers` against `episode`, colored and grouped by `series`. (remember to remove `#| eval: false`)
-
-```{r}
-#| eval: false
-tidy_ratings2 %>%
-  ggplot(aes(x = _____, y = _____, col = _____, group = _____)) +
-  geom_line() + 
-  scale_color_viridis_c(option = "plasma", end = .8)
-```
 
 ## Task: Add series 9-14 to the dataset
 
