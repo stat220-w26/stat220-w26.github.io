@@ -15,7 +15,7 @@ library(ggthemes)
 library(nycflights23)
 ```
 
-Our first lab quiz is scheduled for **Friday of Week 3**. The first half of class will cover new content, and the second half of class you will complete the in-person portion of the lab quiz.
+Our first lab quiz is scheduled for **Friday of Week 3**. The ~~first~~ second half of class will cover new content, and the ~~second~~ first half of class you will complete the in-person portion of the lab quiz.
 
 # Guidelines
 
