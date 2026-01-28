@@ -68,9 +68,8 @@ Step 1: read in the data so it looks like the following:
 ```
 
 ```{r}
-sales <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1NN2S7bHSQbiHgd6gJnMUoJ6_eB-YgqLi_JXckFzTkbc/edit?usp=sharing", 
-                                   skip = 4, 
-                                   col_names = c("id", "n"))
+library(googlesheets4)
+# your code here
 ```
 
 Step 2 (Stretch goal): Manipulate the data so that it looks like the following:
@@ -91,6 +90,15 @@ Step 2 (Stretch goal): Manipulate the data so that it looks like the following:
 ```{r}
 # your code here
 ```
+
+
+::: callout-tip
+## Hints
+
+(1) We need to create a `brand` column. Start by creating this column, filling in the value from the "id" column if `n == "n"` and NA otherwise
+(2) Next, we want to "fill in" all of the NA's in our "brand" column. Look at the help page for the `fill` function
+(3) Use `filter` to remove the redundant rows and `select` to remove the redundant columns
+:::
 
 # `lubridate` practice
 

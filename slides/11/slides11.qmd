@@ -394,7 +394,7 @@ What "data moves" do we need to go from the original, non-tidy data, to this tid
 7 Brand 2 3216  5    
 ```
 
-## Try it {.scrollable}
+## Try it {.scrollable .smaller}
 
 ::: {.task .nonincremental}
 Read in the file at `https://docs.google.com/spreadsheets/d/1NN2S7bHSQbiHgd6gJnMUoJ6_eB-YgqLi_JXckFzTkbc/edit?usp=sharing`.
@@ -421,7 +421,8 @@ Step 1: read in the data so it looks like the following:
 :::
 
 ::: {.column width="50%"}
-Stretch goal: Manipulate the data so it looks like the following:
+Stretch goal: Fully tidy the data. This is tricky! See the hints in the activity file.
+
 
 ```
 # A tibble: 7 × 3
@@ -435,6 +436,7 @@ Stretch goal: Manipulate the data so it looks like the following:
 6 Brand 2 3987  6    
 7 Brand 2 3216  5  
 ```
+
 :::
 :::::
 
