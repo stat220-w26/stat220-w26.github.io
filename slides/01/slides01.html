@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8cab17c520dfb5fd83702a774e8ef3fe.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.23">
 
   <meta name="author" content="Prof Amanda Luby">
   <title>Stat 220 – Welcome to Stat 220</title>
@@ -246,7 +246,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_a1787419" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_301a34df" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -269,18 +269,18 @@ Prof Amanda Luby
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
-   class_year sleep northfield_food       
-   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;                 
- 1 Sophomore      7 Desi Diner            
- 2 Junior         7 Coco's                
- 3 Sophomore      7 New Buffet            
- 4 Senior         6 &lt;NA&gt;                  
- 5 Senior         6 El tri                
- 6 Sophomore      6 Desi Diner            
- 7 Senior         8 El Triunfo            
- 8 Junior         7 Desi diner            
- 9 Senior         7 Desi Diner            
-10 Junior         7 Reunion or Blue Monday</code></pre>
+   class_year sleep northfield_food
+   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;          
+ 1 Junior       8   Desi Diner     
+ 2 Senior       8.5 Reunion        
+ 3 Junior       7   Desi diner     
+ 4 Senior       6   &lt;NA&gt;           
+ 5 First year   8   culvers        
+ 6 Sophomore    9   DoorDash       
+ 7 Senior       8   El Triunfo     
+ 8 Sophomore    7   Desi Diner     
+ 9 Sophomore    7   New Buffet     
+10 First year  NA   Pho            </code></pre>
 </div>
 </div>
 </section>
@@ -330,7 +330,7 @@ Prof Amanda Luby
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides01_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+<p><img data-src="slides01_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -384,7 +384,7 @@ Prof Amanda Luby
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slides01_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+<p><img data-src="slides01_files/figure-html/unnamed-chunk-7-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -472,7 +472,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_00704ddf" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_b4f279da" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -499,7 +499,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_84a5e12b" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_f2c7ee0b" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">04</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -1021,44 +1021,6 @@ Prof Amanda Luby
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
