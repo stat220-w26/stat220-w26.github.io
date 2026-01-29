@@ -57,7 +57,7 @@ unique(castaways$version)
 ```
 
 ```{r}
-unique(castaways$season_name) %>% head()
+unique(castaways$full_name) %>% head()
 ```
  
 . . . 
@@ -69,7 +69,7 @@ class(castaways$version)
 ```
 
 ```{r}
-class(castaways$season_name) 
+class(castaways$full_name) 
 ```
 
 ## Same graph, colored by the same categorical variable
