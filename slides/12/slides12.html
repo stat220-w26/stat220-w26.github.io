@@ -6,9 +6,9 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8cab17c520dfb5fd83702a774e8ef3fe.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.23">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="author" content="Prof Amanda Luby">
 <title>Stat 220 – Working with  Factors</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -95,7 +95,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-99734ba7138dc437be0395c978baeb51.css">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-28dc35fb3852068745e5a0bebc727e0f.css">
 <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -214,25 +214,25 @@ Prof Amanda Luby
 </section><section id="survivor-castaways-data" class="slide level2"><h2>Survivor <code>castaways</code> data</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1,417 × 28
-   version version_season season full_name      castaway_id castaway   age city 
-   &lt;fct&gt;   &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;
- 1 US      US50               50 Angelina Keel… US0554      Angelina    NA &lt;NA&gt; 
- 2 US      US50               50 Aubry Bracco   US0477      Aubry       NA &lt;NA&gt; 
- 3 US      US50               50 Charlie Davis  US0682      Charlie     NA &lt;NA&gt; 
- 4 US      US50               50 Chrissy Hofbe… US0515      Chrissy     NA &lt;NA&gt; 
- 5 US      US50               50 Christian Hub… US0550      Christi…    NA &lt;NA&gt; 
- 6 US      US50               50 Cirie Fields   US0179      Cirie       NA &lt;NA&gt; 
- 7 US      US50               50 Benjamin Wade  US0277      Coach       NA &lt;NA&gt; 
- 8 US      US50               50 Colby Donalds… US0031      Colby       NA &lt;NA&gt; 
- 9 US      US50               50 Dee Valladares US0666      Dee         NA &lt;NA&gt; 
-10 US      US50               50 Emily Flippen  US0668      Emily       NA &lt;NA&gt; 
-# ℹ 1,407 more rows
-# ℹ 20 more variables: state &lt;chr&gt;, episode &lt;dbl&gt;, day &lt;dbl&gt;, order &lt;dbl&gt;,
-#   result &lt;chr&gt;, jury_status &lt;chr&gt;, place &lt;int&gt;, original_tribe &lt;chr&gt;,
-#   jury &lt;lgl&gt;, finalist &lt;lgl&gt;, winner &lt;lgl&gt;, acknowledge &lt;lgl&gt;,
-#   ack_look &lt;lgl&gt;, ack_speak &lt;lgl&gt;, ack_gesture &lt;lgl&gt;, ack_smile &lt;lgl&gt;,
-#   ack_quote &lt;chr&gt;, ack_score &lt;int&gt;, jury1 &lt;dbl&gt;, jury2 &lt;fct&gt;</code></pre>
+<pre><code># A tibble: 1,351 × 29
+   version version_season season_name      season full_name castaway_id castaway
+   &lt;fct&gt;   &lt;chr&gt;          &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   
+ 1 US      US01           Survivor: Borneo      1 Sonja Ch… US0001      Sonja   
+ 2 US      US01           Survivor: Borneo      1 B.B. And… US0002      B.B.    
+ 3 US      US01           Survivor: Borneo      1 Stacey S… US0003      Stacey  
+ 4 US      US01           Survivor: Borneo      1 Ramona G… US0004      Ramona  
+ 5 US      US01           Survivor: Borneo      1 Dirk Been US0005      Dirk    
+ 6 US      US01           Survivor: Borneo      1 Joel Klug US0006      Joel    
+ 7 US      US01           Survivor: Borneo      1 Gretchen… US0007      Gretchen
+ 8 US      US01           Survivor: Borneo      1 Greg Buis US0008      Greg    
+ 9 US      US01           Survivor: Borneo      1 Jenna Le… US0009      Jenna   
+10 US      US01           Survivor: Borneo      1 Gervase … US0010      Gervase 
+# ℹ 1,341 more rows
+# ℹ 22 more variables: age &lt;dbl&gt;, city &lt;chr&gt;, state &lt;chr&gt;, episode &lt;dbl&gt;,
+#   day &lt;dbl&gt;, order &lt;dbl&gt;, result &lt;chr&gt;, place &lt;dbl&gt;, jury_status &lt;chr&gt;,
+#   original_tribe &lt;chr&gt;, jury &lt;lgl&gt;, finalist &lt;lgl&gt;, winner &lt;lgl&gt;,
+#   acknowledge &lt;lgl&gt;, ack_look &lt;lgl&gt;, ack_speak &lt;lgl&gt;, ack_gesture &lt;lgl&gt;,
+#   ack_smile &lt;lgl&gt;, ack_quote &lt;chr&gt;, ack_score &lt;dbl&gt;, jury1 &lt;dbl&gt;, jury2 &lt;fct&gt;</code></pre>
 </div>
 </div>
 </section><section id="both-of-these-are-categorical-variables" class="slide level2"><h2>Both of these are categorical variables</h2>
@@ -246,8 +246,8 @@ Levels: AU NZ SA UK US</code></pre>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">unique</span>(castaways<span class="sc">$</span>full_name) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Angelina Keeley"   "Aubry Bracco"      "Charlie Davis"    
-[4] "Chrissy Hofbeck"   "Christian Hubicki" "Cirie Fields"     </code></pre>
+<pre><code>[1] "Sonja Christopher" "B.B. Andersen"     "Stacey Stillman"  
+[4] "Ramona Gray"       "Dirk Been"         "Joel Klug"        </code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -345,7 +345,7 @@ attr(,"levels")
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_36350fe3" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_e2debc99" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -634,7 +634,7 @@ attr(,"levels")
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_7069edb8" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_bf4e5e81" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -1415,7 +1415,7 @@ attr(,"levels")
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_a35575dc" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_40f2712b" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>

@@ -6,9 +6,9 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8cab17c520dfb5fd83702a774e8ef3fe.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8f4e3aabaa80e3e650ae20f2c24f966b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.23">
+<meta name="generator" content="quarto-1.8.24">
 <meta name="author" content="Prof Amanda Luby">
 <title>Stat 220 – Functions</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -95,7 +95,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-99734ba7138dc437be0395c978baeb51.css">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-28dc35fb3852068745e5a0bebc727e0f.css">
 <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -244,7 +244,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_7fdd906d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_162c0d43" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -403,7 +403,7 @@ Prof Amanda Luby
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>standardize <span class="ot">&lt;-</span> <span class="cf">function</span>() { </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>standardize <span class="ot">&lt;-</span> <span class="cf">function</span>() { </span>
 <span id="cb10-2"><a></a></span>
 <span id="cb10-3"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -420,7 +420,7 @@ Prof Amanda Luby
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>standardize <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>standardize <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { </span>
 <span id="cb11-2"><a></a></span>
 <span id="cb11-3"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -438,7 +438,7 @@ Prof Amanda Luby
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>standardize <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" data-code-line-numbers="1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>standardize <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { </span>
 <span id="cb12-2"><a></a>  (x <span class="sc">-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb12-3"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -473,7 +473,7 @@ Prof Amanda Luby
 <p>You can test your functions on variables from the <code><a href="https://allisonhorst.github.io/palmerpenguins/reference/penguins.html">palmerpenguins::penguins</a></code> dataset (e.g.&nbsp;<code>my_func(penguins$flipper_length_mm)</code>).</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_d58ad813" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_966dda92" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -546,7 +546,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_a9ea63a6" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_3668fcd1" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -661,7 +661,7 @@ Caused by error:
 </div></div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_3d5e8d9e" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_b63288ed" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -897,7 +897,7 @@ Caused by error:
 </div></div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_e1b447f0" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_47b1571e" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
