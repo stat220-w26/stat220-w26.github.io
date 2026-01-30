@@ -12,6 +12,7 @@ format:
     incremental: true
     code-copy: true
     code-link: true
+    scrollable: true
 auto-stretch: false
 editor_options: 
   chunk_output_type: console
@@ -28,6 +29,7 @@ library(patchwork)
 library(ggthemes)
 library(nycflights23)
 library(here)
+library(flextable)
 slides_theme = theme_minimal(
   base_family = "Atkinson Hyperlegible",
   base_size = 16)
