@@ -88,7 +88,7 @@ Portfolio project require you to integrate several smaller computational tasks a
 
 ## Lab Quizzes
 
-Part of being proficient in data science is being able to do basic data analysis "on the fly", without access to class resources. There will be 3 short (\~30 minute) in-class, paper lab quizzes to assess your ability to recall concepts and describe basic data analysis tasks. I recognize that this won't always map closely to other things we do in this class, so you'll also have the opportunity to retake quizzes.
+Part of being proficient in data science is being able to do basic data analysis "on the fly", without access to class resources. There will be 3 short (\~30 minute) in-class, pencil-and-paper lab quizzes to assess your ability to recall concepts and describe basic data analysis tasks. I recognize that this won't always map closely to other things we do in this class, so you'll also have the opportunity to revise quiz answers with access to R.
 
 ## Final Project
 
@@ -169,7 +169,7 @@ If you need to miss a lab quiz due to a planned conflict, please make arrangemen
 
 ## Tokens
 
--   Turning in a token provides either (a) a 72-hour extension on a homework assignment, (b) a revision on a portfolio project, or (c) a retake of a lab quiz
+-   Turning in a token provides either (a) a 72-hour extension on a homework assignment, (b) a revision on a portfolio project, or (c) ~~a retake of a lab quiz~~ a 72-hour extension on the lab quiz revision
 -   Tokens may be used for *extensions* on the final project milestone check-ins, but not for the final due-date. Milestone check-ins cannot be revised
 -   You can revise the same portfolio project multiple times, if needed, but you must spend a token each time.
 -   A portfolio project must be completed with a good-faith effort to be eligible for revision. If I deem a submission to be "not assessable" due to a lack of effort, then it cannot be revised.
