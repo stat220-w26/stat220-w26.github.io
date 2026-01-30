@@ -41,15 +41,6 @@ theme_set(slides_theme)
 2. Local versions of R/RStudio/GitHub
 3. Intro to strings
 
-# Lab Quiz 2 Info {.maize}
-
-<https://stat220-w25/lab-quiz/lab-quiz-02.html>
-
-# Local Versions of R/RStudio/GitHub {.maize}
-
-<https://stat220-w25.github.io/computing/rstudio-stat220.html>
-<https://stat220-w25.github.io/computing/git-stat220.html>
-
 # string {.maize}
 
 any finite sequence of characters (i.e., letters, numerals, symbols and punctuation marks).
