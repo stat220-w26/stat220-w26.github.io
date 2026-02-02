@@ -127,10 +127,10 @@ str_length(cc)
 
 
 building <- "CMC"
-room <- "102"
-begin_time <- "9:50 a.m."
-end_time <- "11:00 a.m."
-days <- "MWF"
+room <- "306"
+begin_time <- "11:10 a.m."
+end_time <- "12:20 p.m."
+days <- "MW"
 class <- "STAT 220"
 str_c(class, "meets from", begin_time, "to", end_time, 
       days, "in", building, room, sep=" ")
@@ -208,7 +208,7 @@ babynames
 ```
 :::
 
-:::{.column .nonincremental .fragment width="50%"}
+:::{.column .nonincremental .fragment width="35%" style="text-align: right;"}
 Example questions: 
 
 - How many names end in a vowel? 

@@ -390,7 +390,7 @@ which are all relatively short and structured. We can extract meaning from them 
 Random (?) sample of 26,882 reviews of coursera courses
 
 ```{r}
-en_coursera_reviews <- read_csv("https://stat220-s25.github.io/data/en_coursera_sample.csv")
+en_coursera_reviews <- read_csv("https://stat220-w26.github.io/data/en_coursera_sample.csv")
 en_coursera_reviews
 ```
 
