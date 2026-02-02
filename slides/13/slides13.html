@@ -216,11 +216,7 @@ Prof Amanda Luby
 <li class="fragment">Lab Quiz 2 Info</li>
 <li class="fragment">Local versions of R/RStudio/GitHub</li>
 <li class="fragment">Intro to strings</li>
-</ol></section><section id="lab-quiz-2-info" class="title-slide slide level1 maize center"><h1>Lab Quiz 2 Info</h1>
-<p><a href="https://stat220-w25/lab-quiz/lab-quiz-02.html" class="uri">https://stat220-w25/lab-quiz/lab-quiz-02.html</a></p>
-</section><section id="local-versions-of-rrstudiogithub" class="title-slide slide level1 maize center"><h1>Local Versions of R/RStudio/GitHub</h1>
-<p><a href="https://stat220-w25.github.io/computing/rstudio-stat220.html" class="uri">https://stat220-w25.github.io/computing/rstudio-stat220.html</a> <a href="https://stat220-w25.github.io/computing/git-stat220.html" class="uri">https://stat220-w25.github.io/computing/git-stat220.html</a></p>
-</section><section><section id="string" class="title-slide slide level1 maize center"><h1>string</h1>
+</ol></section><section><section id="string" class="title-slide slide level1 maize center"><h1>string</h1>
 <p>any finite sequence of characters (i.e., letters, numerals, symbols and punctuation marks).</p>
 </section><section id="strings-in-r" class="slide level2"><h2>Strings in R</h2>
 <p>Anything surrounded by quotes(<code>"</code>) or single quotes(<code>'</code>).</p>
@@ -294,17 +290,17 @@ Prof Amanda Luby
 <p><code>str_c()</code> allows us to easily create strings from variables/vectors.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>building <span class="ot">&lt;-</span> <span class="st">"CMC"</span></span>
-<span id="cb19-2"><a></a>room <span class="ot">&lt;-</span> <span class="st">"102"</span></span>
-<span id="cb19-3"><a></a>begin_time <span class="ot">&lt;-</span> <span class="st">"9:50 a.m."</span></span>
-<span id="cb19-4"><a></a>end_time <span class="ot">&lt;-</span> <span class="st">"11:00 a.m."</span></span>
-<span id="cb19-5"><a></a>days <span class="ot">&lt;-</span> <span class="st">"MWF"</span></span>
+<span id="cb19-2"><a></a>room <span class="ot">&lt;-</span> <span class="st">"306"</span></span>
+<span id="cb19-3"><a></a>begin_time <span class="ot">&lt;-</span> <span class="st">"11:10 a.m."</span></span>
+<span id="cb19-4"><a></a>end_time <span class="ot">&lt;-</span> <span class="st">"12:20 p.m."</span></span>
+<span id="cb19-5"><a></a>days <span class="ot">&lt;-</span> <span class="st">"MW"</span></span>
 <span id="cb19-6"><a></a>class <span class="ot">&lt;-</span> <span class="st">"STAT 220"</span></span>
 <span id="cb19-7"><a></a><span class="fu">str_c</span>(class, <span class="st">"meets from"</span>, begin_time, <span class="st">"to"</span>, end_time, </span>
 <span id="cb19-8"><a></a>      days, <span class="st">"in"</span>, building, room, <span class="at">sep=</span><span class="st">" "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "STAT 220 meets from 9:50 a.m. to 11:00 a.m. MWF in CMC 102"</code></pre>
+<pre><code>[1] "STAT 220 meets from 11:10 a.m. to 12:20 p.m. MW in CMC 306"</code></pre>
 </div>
 </div>
 </section><section id="concatenate-strings" class="slide level2"><h2>Concatenate Strings</h2>
@@ -418,7 +414,7 @@ Prof Amanda Luby
 # ℹ 1,924,655 more rows</code></pre>
 </div>
 </div>
-</div><div class="column fragment" style="width:50%;">
+</div><div class="column fragment" style="text-align: right;">
 <p>Example questions:</p>
 <ul>
 <li>How many names end in a vowel?</li>
@@ -489,7 +485,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_6e885d5f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_c7e83441" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -509,7 +505,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_588b4a41" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_77e80ed9" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -606,7 +602,7 @@ Prof Amanda Luby
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a></a>countdown<span class="sc">::</span><span class="fu">countdown</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="countdown" id="timer_d544fa8b" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_545ee548" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -691,7 +687,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_9bd9246d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_0d617950" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -812,7 +808,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_164f71aa" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_15ac3929" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>

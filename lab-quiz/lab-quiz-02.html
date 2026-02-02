@@ -423,7 +423,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section><section id="format" class="level1"><h1>Format</h1>
 <p>The reason I give lab quizzes is because your life will be easier if you know how to do basic tasks in R “on the fly”. I also want to see what you <strong>know</strong> and not just what you can do with access to your resources. However, I also know this is not how data science works in the real world, and so there are two portions to the lab quiz.</p>
 <ol type="1">
-<li>The required in-class portion</li>
+<li>The required in-class portion (“first pass”)</li>
 </ol>
 <ul>
 <li>Pencil-and-paper questions</li>
@@ -431,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Designed to assess what you know “on the fly” without access to resources</li>
 </ul>
 <ol start="2" type="1">
-<li>An optional R-based revision</li>
+<li>An optional R-based “second pass” at the questions</li>
 </ol>
 <ul>
 <li>.qmd format similar to homework</li>
@@ -481,7 +481,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The in-class portion will be a pencil-and-paper quiz. After class, I will make everyone a repository on github with a <code>.qmd</code> version of the quiz. (The questions will remain essentially the same). The revision is <strong>totally optional</strong>. You will work on the repository just like homework and submit via gradescope if you wish to turn it in.</p>
 <ul>
 <li>The in-class portion is worth 10 points</li>
-<li>The revision is worth 10 points</li>
+<li>The out-of-class “second pass” is worth 10 points</li>
 <li>If you don’t submit the revision on gradescope, your quiz will be out of 10 points and if you do submit the revision your quiz will be out of 20 points.</li>
 </ul>
 <p>The revision is due before class starts on Monday. You <strong>may</strong> use the cheat sheets, materials from our class (slides, activities, notes, your homework, etc.), and the built-in help pages within RStudio. You <strong>may not</strong> use textbooks, LLMs, search engines, stack overflow, etc. to complete the revision. If your submission contains code that did not appear in our course materials, you must include an explanation for where it came from (e.g.&nbsp;in what context you learned that code). Otherwise, you will not receive credit for that problem and may be reported to the Academic Standing Committee.</p>
@@ -583,7 +583,7 @@ $ tzone &lt;chr&gt; "America/New_York", "America/Chicago", "America/New_York", "
 <li>Next, I <code>group</code>ed by airport name and found the median arrival delay with <code>summarize</code>. I then created a new variable called <code>colorby</code> using <code>mutate</code> that I used to color the points. How do you think I computed this variable? Be as specific as possible.</li>
 </ol>
 <p><strong>Given a dataset, describe if it is tidy. If it is not, describe what a tidy format would look like</strong></p>
-<p>The dataset below contains the minimum and maximum wind speed recorded at JFK for each day in the dataset. Is this tidy? If not, how would we make it tidy? (You can either provide R code or sketch the tidy dataset)</p>
+<p>The dataset below contains the minimum and maximum wind speed recorded at JFK for each day in the dataset. Is this tidy? If not, how would we make it tidy? (You should provide R code AND sketch the tidy dataset)</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 728 × 5
