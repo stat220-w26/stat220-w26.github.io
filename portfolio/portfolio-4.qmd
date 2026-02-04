@@ -1,7 +1,6 @@
 ---
 title: "Portfolio Project 4"
 subtitle: "Incorporating Interactivity"
-format: html
 ---
 
 # Overview

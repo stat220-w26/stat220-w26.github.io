@@ -1,7 +1,6 @@
 ---
 title: "Portfolio Project 2"
 subtitle: "Wrangling weather forecasts"
-format: html
 ---
 
 # Overview
@@ -10,9 +9,9 @@ For your second portfolio project, you'll apply what you've learned about wrangl
 
 You should be careful about summarizing and joining data, and be on the lookout for data quality issues! 
 
-You should write a short report describing your ﬁndings. I envision an introductory paragraph that provides some context to your data, and a couple paragraphs outlining your ﬁndings. That’s it. I’m looking for something that is insightful and well-crafted, rather than long and exhaustive.
+You should write a short report in a "blog post" format describing your ﬁndings. I envision an introductory paragraph that provides some context to your data, and a couple paragraphs outlining your ﬁndings. That’s it. I’m looking for something that is insightful and well-crafted, rather than long and exhaustive.
 
-You should write your blog post in R Markdown, create any graphics using `ggplot2`, and use tools from this class for data wrangling. To submit your work, push both your R Markdown (.Rmd) ﬁle and knitted output document to GitHub. Do not forget to give your post an informative title!
+You should write your blog post in quarto, create any graphics using `ggplot2`, and use tools from this class for data wrangling. To submit your work, push both your quarto file and rendered output document to GitHub. Do not forget to give your post an informative title!
 
 # Data 
 
@@ -72,10 +71,10 @@ Your submission will be a short report detailing your findings.
 A **successful** project will:
 
 - [ ] Include all necessary components pushed to GitHub and linked to gradescope
-- [ ] Contain code, plots, and written summary in a single .rmd document
-- [ ] The .rmd has all necessary and no unnecessary code
+- [ ] Contain code, plots, and written summary in a single .qmd document
+- [ ] The .qmd has all necessary and no unnecessary code
 - [ ] Use both `weather_forecasts.csv` and `forecast_cities.csv`
-- [ ] Investigate the accuracy of the forecast
+- [ ] Investigate the accuracy of the forecasts
 - [ ] Investigate possible reasons some areas struggle with accuracy
 - [ ] Data sets were correctly imported 
 - [ ] Data sets were correctly joined
@@ -86,19 +85,26 @@ A **successful** project will:
     -   Informative title for your report is included
     -   Any graphs are readable with appropriate titles and labels
     -   The rendered document does not contain any unnecessary content (package loading messages, warnings, etc.)
+    -   The rendered document *does not* echo your code
+    -   Rendered document is a `gfm` ("github flavored markdown" - this means that it is rendered to markdown output which is formattable by github). Instead of a PDF or html file, your rendered report will be a `.md` file. You can check to see that it worked by opening the rendered file within github. If you can see your plots, it worked! 
 
 An **excellent** project will meet all of the requirements for a successful project, plus
 
-- [ ] Rendered document is a `github_document` (this means that it is rendered to markdown output which is formattable by github). You can check to see that it worked by opening the rendered file within github. If you can see your plots, it worked! 
 - [ ] Identify the data quality issue in `weather_forecasts.csv` (*Hint:* looking through `forecast_cities` first might give you an idea of what to look for)
+    - Please include a section of your report describing the issue and showing it through a table/graph/etc.
 - [ ] Meet high submission quality standards
     -   No grammatical mistakes, spelling mistakes, or typos
-    -   Graphs have been customized (theme, color palette, scales, etc.) 
+    -   Graphs have been customized (theme, color palette, scales, size, xetc.) 
 
+::: callout-note
+## A note on the data quality issue
+
+This is tricky to find and will likely take a lot of time exploring the data. It is not obvious and easy to miss. So if you feel crunched for time and stressed that you can't find it, remember that only 2 out of 4 projects need to meet the "excellent" criteria in order to earn an A - it's OK to say "maybe I'll pass on this one", and you can always submit a revision down the road if you change your mind!
+:::
 
 # Can I work with someone? 
 
-This is an individual portfolio project. You may brainstorm with other people in the class, get feedback on any graphs or output, and get conceptual help with debugging or errors, but you should not be sharing code. All work that you submit should be your own.
+This project can be done individually or in pairs. If you'd like to work with a partner, please notify me by messaging on Ed **before class on Friday** so I can make a joint repo for you. 
 
 From the syllabus: *You are expected to collaborate with your group, but cannot rely on external sources other than to help motivate the questions or provide other background information (including online forums like StackExchange or Reddit). You may use any resources from class and package documentation, but getting answers on significant parts of solutions from outside resources is not allowed.*
 
@@ -106,4 +112,4 @@ A note/reminder on AI: *Large-language models (e.g. ChatGPT, Gemini, etc.) shoul
 
 # FAQ
 
-If you have any questions, please post them to the #portfolio-projects channel on slack.
+If you have any questions, please post them on Ed with a #portfolio-projects tag!

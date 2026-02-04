@@ -1,7 +1,6 @@
 ---
 title: "Portfolio Project 3"
-subtitle: "Billion Dollar Disasters"
-format: html
+subtitle: "Programming: Billion Dollar Disasters"
 ---
 
 # Overview

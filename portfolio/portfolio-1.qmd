@@ -1,7 +1,6 @@
 ---
 title: "Portfolio Project 1"
 subtitle: "Posing and answering research questions"
-format: html
 ---
 
 ```{r}

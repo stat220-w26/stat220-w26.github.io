@@ -47,12 +47,13 @@ theme_set(slides_theme)
 
 Things that are going well: 
 
+- Data viz! 
 - Like getting immediate practice in class
 - Learning a lot on homeworks
-- Becoming more efficient/neater/cleaner/cleverer in R
+- Becoming more confident/comfortable/efficient/neater/cleaner/cleverer in R
 - Building a presence on GitHub
 - Working with peers
-- Building confidence
+- Working with data I'm interested in
 - `ggplot` skills
 - Enjoying coming to class (demos, lectures, group work, activities)
 
@@ -60,19 +61,19 @@ Things that are going well:
 
 [graphs from google]
 
+## Other feedback:
+
+- Showing a "skeleton" of a function isn't helpful; I don't need to know what every single argument does; focus on examples
+- spending more time & emphasis on all of the "extras" within the parentheses of functions, and what they mean step-by-step, would be helpful.
+- the homework is too hard and takes too long
+- I enjoy working on the homeworks because we do a lot of tinkering with R and I'm trying to strengthen my R coding skills.
 
 ## Suggested changes: 
 
-- Grades for in-class activities ✅
-- More time for in-class lab quizzes ﹖
-- Lab quiz revisions after grading ❌
+- I wish more people participated in class ✅
+- Lab quizzes being handwritten isn't ideal ？
+- Lab quiz revisions should happen after grading ❌
 
-
-## Concerns about grading scheme: 
-
-- Time pressures on lab quizzes
-- Still getting comfy with the "buckets" grading scheme
-- Unclear mistakes on homework
 
 ## Goals of the grading scheme: {.smaller}
 
@@ -110,6 +111,17 @@ Things that are going well:
 # Portfolio Project 2 {.maize}
 
 # Regular Expressions (regex) {.maize}
+
+## Regular expressions
+
+- Sometimes the patterns we wish to detect, extract, etc. too complex for exact matching 
+
+    + Extract all time stamps of the form `HH:MM:SS`
+    + Extract the string that comes after the dash (e.g. `hw01-aluby`)
+
+- **Regular expressions** (regexps) are a very terse language that allow you to describe patterns in strings
+
+- Confusing at first, but extremely useful
 
 ## Example
 
@@ -380,7 +392,7 @@ Up to this point, we've been thinking of string data as a column in our dataset:
 
 . . . 
 
-which are all relatively short and structured. We can extract meaning from them using relatively simple functions.
+which are all relatively short and structured. We can extract meaning from them using relatively simple functions and "know what we're looking for".
 
 ## {background-image="../img/coursera-data-sci.png"}
 
@@ -540,7 +552,8 @@ en_coursera_reviews |>
   facet_wrap(~CourseId, scales = "free_y", nrow = 2) + 
   labs(
     y = "Word"
-  )
+  ) + 
+  theme(strip.text = element_text(size = 8))
 ```
 
 ## Make it ~ fancy ~: n-grams
@@ -584,7 +597,8 @@ en_coursera_reviews |>
   facet_wrap(~CourseId, scales = "free_y", nrow = 2) + 
   labs(
     y = "Word"
-  )
+  ) + 
+  theme(strip.text = element_text(size = 8))
 
 ```
 
@@ -724,7 +738,7 @@ en_coursera_reviews |>
 
 ## Your turn
 
-::: task
+::: {.task .nonincremental}
 Explore the `en_coursera_reviews` dataset with the folks around you. Can you replicate my analyses, and try a few of your own? Here are some ideas: 
 
 - Explore another subject (besides `data-science`)
