@@ -400,8 +400,8 @@ ul.task-list li input[type="checkbox"] {
 <h1>Overview</h1>
 <p>For your second portfolio project, you’ll apply what you’ve learned about wrangling data using the <code>tidyverse</code>. Your goal is to learn which areas of the U.S. struggle with weather prediction and explore possible reasons why. Speciﬁcally, you will focus on the error in high and low temperature forecasting, and may wish to also consider precipitation and outlook.</p>
 <p>You should be careful about summarizing and joining data, and be on the lookout for data quality issues!</p>
-<p>You should write a short report describing your ﬁndings. I envision an introductory paragraph that provides some context to your data, and a couple paragraphs outlining your ﬁndings. That’s it. I’m looking for something that is insightful and well-crafted, rather than long and exhaustive.</p>
-<p>You should write your blog post in quarto, create any graphics using <code>ggplot2</code>, and use tools from this class for data wrangling. To submit your work, push both your quarto file and knitted output document to GitHub. Do not forget to give your post an informative title!</p>
+<p>You should write a short report in a “blog post” format describing your ﬁndings. I envision an introductory paragraph that provides some context to your data, and a couple paragraphs outlining your ﬁndings. That’s it. I’m looking for something that is insightful and well-crafted, rather than long and exhaustive.</p>
+<p>You should write your blog post in quarto, create any graphics using <code>ggplot2</code>, and use tools from this class for data wrangling. To submit your work, push both your quarto file and rendered output document to GitHub. Do not forget to give your post an informative title!</p>
 </section>
 <section id="data" class="level1">
 <h1>Data</h1>
@@ -601,16 +601,20 @@ ul.task-list li input[type="checkbox"] {
 <li>Informative title for your report is included</li>
 <li>Any graphs are readable with appropriate titles and labels</li>
 <li>The rendered document does not contain any unnecessary content (package loading messages, warnings, etc.)</li>
+<li>The rendered document <em>does not</em> echo your code</li>
 <li>Rendered document is a <code>gfm</code> (“github flavored markdown” - this means that it is rendered to markdown output which is formattable by github). Instead of a PDF or html file, your rendered report will be a <code>.md</code> file. You can check to see that it worked by opening the rendered file within github. If you can see your plots, it worked!</li>
 </ul></li>
 </ul>
 <p>An <strong>excellent</strong> project will meet all of the requirements for a successful project, plus</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Identify the data quality issue in <code>weather_forecasts.csv</code> (<em>Hint:</em> looking through <code>forecast_cities</code> first might give you an idea of what to look for)</label></li>
+<li><label><input type="checkbox">Identify the data quality issue in <code>weather_forecasts.csv</code> (<em>Hint:</em> looking through <code>forecast_cities</code> first might give you an idea of what to look for)</label>
+<ul>
+<li>Please include a section of your report describing the issue and showing it through a table/graph/etc.</li>
+</ul></li>
 <li><label><input type="checkbox">Meet high submission quality standards</label>
 <ul>
 <li>No grammatical mistakes, spelling mistakes, or typos</li>
-<li>Graphs have been customized (theme, color palette, scales, etc.)</li>
+<li>Graphs have been customized (theme, color palette, scales, size, xetc.)</li>
 </ul></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
