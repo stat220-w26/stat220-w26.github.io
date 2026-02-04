@@ -3538,7 +3538,7 @@
     "href": "index.html",
     "title": "Stat 220: Intro to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n1\nM\nMon, Jan 5\n📝complete welcome survey\n\nWelcome + data, R review\n\nslides01 01-example-unvotes\n\n\n\n\n1\nW\nWed, Jan 7\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus and pass syllabus quiz to activate tokens\nGithub + reproducible reports\n\nslides02 02-example-lego Lego report to replicate\n\n\n\n\n1\nF\nFri, Jan 9\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\n\nggplot\n\nslides03 03-ggplot-intro\n\nHW 1\n\n\n2\nM\nMon, Jan 12\n📚 DataViz 17-21 \n\nTheming + Design\n\nslides04 04-customizing-plots\n\n\n\n\n2\nW\nWed, Jan 14\n📚 DataViz 15 \n\nMaps/spatial data\n\nslides05 05-maps\n\nHW 2\n\n\n2\nF\nFri, Jan 16\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\n\nAccesibility for data viz\nslides06\n\n\n\n3\nM\nMon, Jan 19\n📚 R4DS 3.1-3.4 \n\nVerbs\n\nslides07 07-verbs\n\n\n\n\n3\nW\nWed, Jan 21\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \n\nGroups and summarizing Tidy data\n\nslides08 08-dplyr2\n\nHW 3\n\n\n3\nF\nFri, Jan 23\n📚 R4DS 4 \n\nCode style\n\nslides09 09-tidyr\n\n\nLab Quiz 1 \n\n\n\n4\nM\nMon, Jan 26\n📚 R4DS 19.1-19.3\n\nCombining datasets\n\nslides10 10-combining\n\n\nLab Quiz 1 (postponed from 1/23) \n\n\n\n4\nW\nWed, Jan 28\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \n\nImport data and dates/times\n\nslides11 11-import\n\nHW 4\n\n\n4\nF\nFri, Jan 30\n📚 R4DS 16 \n\nWorking with factors\n\nslides12 12-factors\n\nPortfolio 1\n\n\n5\nM\nMon, Feb 2\n📚 R4DS 14  📚 R4DS 15.1-15.5\n\nWorking with strings and Regex\n\nslides13 13-strings-regex\n\n\n\n\n5\nW\nWed, Feb 4\n📚 MDSR 19.2  🌎 Google ngram viewer\n\nIntro to Text Analysis\ntbd\nHW 5\n\n\n5\nF\nFri, Feb 6\n📚 The Trouble with Sentiment Analysis\n\nSentiment Analysis\ntbd\nLab Quiz 2\n\n\n6\nM\nMon, Feb 9\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n6\nW\nWed, Feb 11\n📚 R4DS 25\n\nFunctions\ntbd\n\nPortfolio 2\n\n\n\n6\nF\nFri, Feb 13\n📚 MDSR 7.1-7.3\n\nIteration\ntbd\nHW6\n\n\n7\nM\nMon, Feb 16\n\nIteration II\ntbd\n\n\n\n7\nW\nWed, Feb 18\n📚What is an API?  📚R4DS 23 (skip case studies)  📝 sign up for a census API key\n\nAPIs\ntbd\n\nHW7 \n\n\n\n7\nF\nFri, Feb 20\n\nScraping I\ntbd\n\nLab Quiz 3 , Final Project Idea Form\n\n\n\n8\nM\nMon, Feb 23\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\n\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nW\nWed, Feb 25\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\n\nIntro to Interactivity\ntbd\n\nHW8 Portfolio 3\n\n\n\n8\nF\nFri, Feb 27\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\n\nShiny 1\ntbd\n\n\n\n9\nM\nMon, Mar 2\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\n\nShiny 2\ntbd\n\n\n\n9\nW\nWed, Mar 4\n\nShiny 3\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, Mar 6\n📚MDSR 15.1-15.4\n\nSQL\ntbd\nPortfolio 4\n\n\n10\nM\nMon, Mar 9\n\nProject Demos\ntbd\n\n\n\n10\nW\nWed, Mar 11\n\nProject Demos\ntbd\nHW9\n\n\n\nNA\nFri, Mar 13\n\n🏝️ Reading days\ntbd\n\n\n\n\nNA\nMon, Mar 16\n\nFinal Project Due @ noon\ntbd\nFinal Project",
+    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n1\nM\nMon, Jan 5\n📝complete welcome survey\n\nWelcome + data, R review\n\nslides01 01-example-unvotes\n\n\n\n\n1\nW\nWed, Jan 7\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus and pass syllabus quiz to activate tokens\nGithub + reproducible reports\n\nslides02 02-example-lego Lego report to replicate\n\n\n\n\n1\nF\nFri, Jan 9\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\n\nggplot\n\nslides03 03-ggplot-intro\n\nHW 1\n\n\n2\nM\nMon, Jan 12\n📚 DataViz 17-21 \n\nTheming + Design\n\nslides04 04-customizing-plots\n\n\n\n\n2\nW\nWed, Jan 14\n📚 DataViz 15 \n\nMaps/spatial data\n\nslides05 05-maps\n\nHW 2\n\n\n2\nF\nFri, Jan 16\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\n\nAccesibility for data viz\nslides06\n\n\n\n3\nM\nMon, Jan 19\n📚 R4DS 3.1-3.4 \n\nVerbs\n\nslides07 07-verbs\n\n\n\n\n3\nW\nWed, Jan 21\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \n\nGroups and summarizing Tidy data\n\nslides08 08-dplyr2\n\nHW 3\n\n\n3\nF\nFri, Jan 23\n📚 R4DS 4 \n\nCode style\n\nslides09 09-tidyr\n\n\nLab Quiz 1 \n\n\n\n4\nM\nMon, Jan 26\n📚 R4DS 19.1-19.3\n\nCombining datasets\n\nslides10 10-combining\n\n\nLab Quiz 1 (postponed from 1/23) \n\n\n\n4\nW\nWed, Jan 28\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \n\nImport data and dates/times\n\nslides11 11-import\n\nHW 4\n\n\n4\nF\nFri, Jan 30\n📚 R4DS 16 \n\nWorking with factors\n\nslides12 12-factors\n\nPortfolio 1\n\n\n5\nM\nMon, Feb 2\n📚 R4DS 14  📚 R4DS 15.1-15.5\n\nWorking with strings and Regex\n\nslides13 13-strings-regex\n\n\n\n\n5\nW\nWed, Feb 4\n📚 MDSR 19.2  🌎 Google ngram viewer\n\nIntro to Text Analysis\n\nslides14 14-text-case-study\n\nHW 5\n\n\n5\nF\nFri, Feb 6\n📚 The Trouble with Sentiment Analysis\n\nSentiment Analysis\ntbd\nLab Quiz 2\n\n\n6\nM\nMon, Feb 9\n\n🏝️ Midterm Break; no class\ntbd\n\n\n\n6\nW\nWed, Feb 11\n📚 R4DS 25\n\nFunctions\ntbd\n\nPortfolio 2\n\n\n\n6\nF\nFri, Feb 13\n📚 MDSR 7.1-7.3\n\nIteration\ntbd\nHW6\n\n\n7\nM\nMon, Feb 16\n\nIteration II\ntbd\n\n\n\n7\nW\nWed, Feb 18\n📚What is an API?  📚R4DS 23 (skip case studies)  📝 sign up for a census API key\n\nAPIs\ntbd\n\nHW7 \n\n\n\n7\nF\nFri, Feb 20\n\nScraping I\ntbd\n\nLab Quiz 3 , Final Project Idea Form\n\n\n\n8\nM\nMon, Feb 23\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\n\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nW\nWed, Feb 25\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\n\nIntro to Interactivity\ntbd\n\nHW8 Portfolio 3\n\n\n\n8\nF\nFri, Feb 27\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\n\nShiny 1\ntbd\n\n\n\n9\nM\nMon, Mar 2\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\n\nShiny 2\ntbd\n\n\n\n9\nW\nWed, Mar 4\n\nShiny 3\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, Mar 6\n📚MDSR 15.1-15.4\n\nSQL\ntbd\nPortfolio 4\n\n\n10\nM\nMon, Mar 9\n\nProject Demos\ntbd\n\n\n\n10\nW\nWed, Mar 11\n\nProject Demos\ntbd\nHW9\n\n\n\nNA\nFri, Mar 13\n\n🏝️ Reading days\ntbd\n\n\n\n\nNA\nMon, Mar 16\n\nFinal Project Due @ noon\ntbd\nFinal Project",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -6262,7 +6262,7 @@
     "href": "slides/14/slides14.html#midterm-check-in",
     "title": "Text Analysis",
     "section": "Midterm check-in",
-    "text": "Midterm check-in\nThings that are going well:\n\nLike getting immediate practice in class\nLearning a lot on homeworks\nBecoming more efficient/neater/cleaner/cleverer in R\nBuilding a presence on GitHub\nWorking with peers\nBuilding confidence\n\nggplot skills\nEnjoying coming to class (demos, lectures, group work, activities)"
+    "text": "Midterm check-in\nThings that are going well:\n\nData viz!\nLike getting immediate practice in class\nLearning a lot on homeworks\nBecoming more confident/comfortable/efficient/neater/cleaner/cleverer in R\nBuilding a presence on GitHub\nWorking with peers\nWorking with data I’m interested in\n\nggplot skills\nEnjoying coming to class (demos, lectures, group work, activities)"
   },
   {
     "objectID": "slides/14/slides14.html#overview-of-responses",
@@ -6272,18 +6272,18 @@
     "text": "Overview of responses\n[graphs from google]"
   },
   {
+    "objectID": "slides/14/slides14.html#other-feedback",
+    "href": "slides/14/slides14.html#other-feedback",
+    "title": "Text Analysis",
+    "section": "Other feedback:",
+    "text": "Other feedback:\n\nShowing a “skeleton” of a function isn’t helpful; I don’t need to know what every single argument does; focus on examples\nspending more time & emphasis on all of the “extras” within the parentheses of functions, and what they mean step-by-step, would be helpful.\nthe homework is too hard and takes too long\nI enjoy working on the homeworks because we do a lot of tinkering with R and I’m trying to strengthen my R coding skills."
+  },
+  {
     "objectID": "slides/14/slides14.html#suggested-changes",
     "href": "slides/14/slides14.html#suggested-changes",
     "title": "Text Analysis",
     "section": "Suggested changes:",
-    "text": "Suggested changes:\n\nGrades for in-class activities ✅\nMore time for in-class lab quizzes ﹖\nLab quiz revisions after grading ❌"
-  },
-  {
-    "objectID": "slides/14/slides14.html#concerns-about-grading-scheme",
-    "href": "slides/14/slides14.html#concerns-about-grading-scheme",
-    "title": "Text Analysis",
-    "section": "Concerns about grading scheme:",
-    "text": "Concerns about grading scheme:\n\nTime pressures on lab quizzes\nStill getting comfy with the “buckets” grading scheme\nUnclear mistakes on homework"
+    "text": "Suggested changes:\n\nI wish more people participated in class ✅\nLab quizzes being handwritten isn’t ideal ？\nLab quiz revisions should happen after grading ❌"
   },
   {
     "objectID": "slides/14/slides14.html#goals-of-the-grading-scheme",
@@ -6291,6 +6291,13 @@
     "title": "Text Analysis",
     "section": "Goals of the grading scheme:",
     "text": "Goals of the grading scheme:\n\n\nHomework\n\nCan you apply techniques from class/readings in new settings?\nCan you read R documentation to figure out new things?\nCan you work through some tricky ideas without a time limit?\n\n\nPortfolio Projects\n\nCan you answer less-structured questions with data?\nAre you learning how to “scope” a data analysis?\nCan you put together a polished final product?\n\n\nLab Quizzes\n\nCan you repeat things we have done in class and on homework with limited access to resources?\nAre you learning how to answer questions with data quickly?\nAre you developing proficiency with R?\n\n\n\nRevision is a key part of this course design!"
+  },
+  {
+    "objectID": "slides/14/slides14.html#regular-expressions",
+    "href": "slides/14/slides14.html#regular-expressions",
+    "title": "Text Analysis",
+    "section": "Regular expressions",
+    "text": "Regular expressions\n\n\nSometimes the patterns we wish to detect, extract, etc. too complex for exact matching\n\nExtract all time stamps of the form HH:MM:SS\n\nExtract the string that comes after the dash (e.g. hw01-aluby)\n\n\nRegular expressions (regexps) are a very terse language that allow you to describe patterns in strings\nConfusing at first, but extremely useful"
   },
   {
     "objectID": "slides/14/slides14.html#example",
@@ -6416,7 +6423,7 @@
     "href": "slides/14/slides14.html#text-analysis",
     "title": "Text Analysis",
     "section": "Text Analysis",
-    "text": "Text Analysis\nUp to this point, we’ve been thinking of string data as a column in our dataset:\n\nNames\nPhone numbers\nAddresses\nCourse titles\netc.\n\n\nwhich are all relatively short and structured. We can extract meaning from them using relatively simple functions."
+    "text": "Text Analysis\nUp to this point, we’ve been thinking of string data as a column in our dataset:\n\nNames\nPhone numbers\nAddresses\nCourse titles\netc.\n\n\nwhich are all relatively short and structured. We can extract meaning from them using relatively simple functions and “know what we’re looking for”."
   },
   {
     "objectID": "slides/14/slides14.html#sometimes-text-data-is-more-unstructured",
@@ -6500,7 +6507,7 @@
     "href": "slides/14/slides14.html#count-the-tokens",
     "title": "Text Analysis",
     "section": "Count the tokens",
-    "text": "Count the tokens\n\nen_coursera_reviews |&gt;\n  unnest_tokens(output = word, input = Review) |&gt;\n  anti_join(get_stopwords(source = \"stopwords-iso\"), by = \"word\") |&gt;\n  filter(str_detect(CourseId, \"data-science\")) |&gt; \n  group_by(CourseId) %&gt;%\n  count(word) %&gt;%\n  slice_max(n, n = 10) %&gt;%\n  ggplot(aes(x = n, y = fct_reorder(word, n))) + \n  geom_col() + \n  facet_wrap(~CourseId, scales = \"free_y\", nrow = 2) + \n  labs(\n    y = \"Word\"\n  )"
+    "text": "Count the tokens\n\nen_coursera_reviews |&gt;\n  unnest_tokens(output = word, input = Review) |&gt;\n  anti_join(get_stopwords(source = \"stopwords-iso\"), by = \"word\") |&gt;\n  filter(str_detect(CourseId, \"data-science\")) |&gt; \n  group_by(CourseId) %&gt;%\n  count(word) %&gt;%\n  slice_max(n, n = 10) %&gt;%\n  ggplot(aes(x = n, y = fct_reorder(word, n))) + \n  geom_col() + \n  facet_wrap(~CourseId, scales = \"free_y\", nrow = 2) + \n  labs(\n    y = \"Word\"\n  ) + \n  theme(strip.text = element_text(size = 8))"
   },
   {
     "objectID": "slides/14/slides14.html#count-the-tokens-output",
@@ -6521,7 +6528,7 @@
     "href": "slides/14/slides14.html#make-it-fancy-n-grams-1",
     "title": "Text Analysis",
     "section": "Make it ~ fancy ~: n-grams",
-    "text": "Make it ~ fancy ~: n-grams\n\nen_coursera_reviews |&gt;\n  unnest_tokens(output = word, input = Review, token = \"ngrams\", n=2) |&gt;\n  anti_join(get_stopwords(source = \"stopwords-iso\"), by = \"word\") |&gt;\n  filter(str_detect(CourseId, \"data-science\")) |&gt; \n  group_by(CourseId) %&gt;%\n  count(word) %&gt;%\n  slice_max(n, n = 10) %&gt;%\n  ggplot(aes(x = n, y = fct_reorder(word, n))) + \n  geom_col() + \n  facet_wrap(~CourseId, scales = \"free_y\", nrow = 2) + \n  labs(\n    y = \"Word\"\n  )"
+    "text": "Make it ~ fancy ~: n-grams\n\nen_coursera_reviews |&gt;\n  unnest_tokens(output = word, input = Review, token = \"ngrams\", n=2) |&gt;\n  anti_join(get_stopwords(source = \"stopwords-iso\"), by = \"word\") |&gt;\n  filter(str_detect(CourseId, \"data-science\")) |&gt; \n  group_by(CourseId) %&gt;%\n  count(word) %&gt;%\n  slice_max(n, n = 10) %&gt;%\n  ggplot(aes(x = n, y = fct_reorder(word, n))) + \n  geom_col() + \n  facet_wrap(~CourseId, scales = \"free_y\", nrow = 2) + \n  labs(\n    y = \"Word\"\n  ) + \n  theme(strip.text = element_text(size = 8))"
   },
   {
     "objectID": "slides/14/slides14.html#make-it-fancy-n-grams-1-output",
@@ -6899,7 +6906,7 @@
     "href": "portfolio/portfolio-2.html",
     "title": "Portfolio Project 2",
     "section": "",
-    "text": "For your second portfolio project, you’ll apply what you’ve learned about wrangling data using the tidyverse. Your goal is to learn which areas of the U.S. struggle with weather prediction and explore possible reasons why. Speciﬁcally, you will focus on the error in high and low temperature forecasting, and may wish to also consider precipitation and outlook.\nYou should be careful about summarizing and joining data, and be on the lookout for data quality issues!\nYou should write a short report describing your ﬁndings. I envision an introductory paragraph that provides some context to your data, and a couple paragraphs outlining your ﬁndings. That’s it. I’m looking for something that is insightful and well-crafted, rather than long and exhaustive.\nYou should write your blog post in R Markdown, create any graphics using ggplot2, and use tools from this class for data wrangling. To submit your work, push both your R Markdown (.Rmd) ﬁle and knitted output document to GitHub. Do not forget to give your post an informative title!"
+    "text": "For your second portfolio project, you’ll apply what you’ve learned about wrangling data using the tidyverse. Your goal is to learn which areas of the U.S. struggle with weather prediction and explore possible reasons why. Speciﬁcally, you will focus on the error in high and low temperature forecasting, and may wish to also consider precipitation and outlook.\nYou should be careful about summarizing and joining data, and be on the lookout for data quality issues!\nYou should write a short report describing your ﬁndings. I envision an introductory paragraph that provides some context to your data, and a couple paragraphs outlining your ﬁndings. That’s it. I’m looking for something that is insightful and well-crafted, rather than long and exhaustive.\nYou should write your blog post in quarto, create any graphics using ggplot2, and use tools from this class for data wrangling. To submit your work, push both your quarto file and knitted output document to GitHub. Do not forget to give your post an informative title!"
   },
   {
     "objectID": "portfolio/portfolio-2.html#weather-forecasts.csv",

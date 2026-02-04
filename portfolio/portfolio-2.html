@@ -401,7 +401,7 @@ ul.task-list li input[type="checkbox"] {
 <p>For your second portfolio project, you’ll apply what you’ve learned about wrangling data using the <code>tidyverse</code>. Your goal is to learn which areas of the U.S. struggle with weather prediction and explore possible reasons why. Speciﬁcally, you will focus on the error in high and low temperature forecasting, and may wish to also consider precipitation and outlook.</p>
 <p>You should be careful about summarizing and joining data, and be on the lookout for data quality issues!</p>
 <p>You should write a short report describing your ﬁndings. I envision an introductory paragraph that provides some context to your data, and a couple paragraphs outlining your ﬁndings. That’s it. I’m looking for something that is insightful and well-crafted, rather than long and exhaustive.</p>
-<p>You should write your blog post in R Markdown, create any graphics using <code>ggplot2</code>, and use tools from this class for data wrangling. To submit your work, push both your R Markdown (.Rmd) ﬁle and knitted output document to GitHub. Do not forget to give your post an informative title!</p>
+<p>You should write your blog post in quarto, create any graphics using <code>ggplot2</code>, and use tools from this class for data wrangling. To submit your work, push both your quarto file and knitted output document to GitHub. Do not forget to give your post an informative title!</p>
 </section>
 <section id="data" class="level1">
 <h1>Data</h1>
@@ -586,10 +586,10 @@ ul.task-list li input[type="checkbox"] {
 <p>A <strong>successful</strong> project will:</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Include all necessary components pushed to GitHub and linked to gradescope</label></li>
-<li><label><input type="checkbox">Contain code, plots, and written summary in a single .rmd document</label></li>
-<li><label><input type="checkbox">The .rmd has all necessary and no unnecessary code</label></li>
+<li><label><input type="checkbox">Contain code, plots, and written summary in a single .qmd document</label></li>
+<li><label><input type="checkbox">The .qmd has all necessary and no unnecessary code</label></li>
 <li><label><input type="checkbox">Use both <code>weather_forecasts.csv</code> and <code>forecast_cities.csv</code></label></li>
-<li><label><input type="checkbox">Investigate the accuracy of the forecast</label></li>
+<li><label><input type="checkbox">Investigate the accuracy of the forecasts</label></li>
 <li><label><input type="checkbox">Investigate possible reasons some areas struggle with accuracy</label></li>
 <li><label><input type="checkbox">Data sets were correctly imported</label></li>
 <li><label><input type="checkbox">Data sets were correctly joined</label></li>
@@ -601,11 +601,11 @@ ul.task-list li input[type="checkbox"] {
 <li>Informative title for your report is included</li>
 <li>Any graphs are readable with appropriate titles and labels</li>
 <li>The rendered document does not contain any unnecessary content (package loading messages, warnings, etc.)</li>
+<li>Rendered document is a <code>gfm</code> (“github flavored markdown” - this means that it is rendered to markdown output which is formattable by github). Instead of a PDF or html file, your rendered report will be a <code>.md</code> file. You can check to see that it worked by opening the rendered file within github. If you can see your plots, it worked!</li>
 </ul></li>
 </ul>
 <p>An <strong>excellent</strong> project will meet all of the requirements for a successful project, plus</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Rendered document is a <code>github_document</code> (this means that it is rendered to markdown output which is formattable by github). You can check to see that it worked by opening the rendered file within github. If you can see your plots, it worked!</label></li>
 <li><label><input type="checkbox">Identify the data quality issue in <code>weather_forecasts.csv</code> (<em>Hint:</em> looking through <code>forecast_cities</code> first might give you an idea of what to look for)</label></li>
 <li><label><input type="checkbox">Meet high submission quality standards</label>
 <ul>
@@ -613,16 +613,29 @@ ul.task-list li input[type="checkbox"] {
 <li>Graphs have been customized (theme, color palette, scales, etc.)</li>
 </ul></li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A note on the data quality issue
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is tricky to find and will likely take a lot of time exploring the data. It is not obvious and easy to miss. So if you feel crunched for time and stressed that you can’t find it, remember that only 2 out of 4 projects need to meet the “excellent” criteria in order to earn an A - it’s OK to say “maybe I’ll pass on this one”, and you can always submit a revision down the road if you change your mind!</p>
+</div>
+</div>
 </section>
 <section id="can-i-work-with-someone" class="level1">
 <h1>Can I work with someone?</h1>
-<p>This is an individual portfolio project. You may brainstorm with other people in the class, get feedback on any graphs or output, and get conceptual help with debugging or errors, but you should not be sharing code. All work that you submit should be your own.</p>
+<p>This project can be done individually or in pairs. If you’d like to work with a partner, please notify me by messaging on Ed <strong>before class on Friday</strong> so I can make a joint repo for you.</p>
 <p>From the syllabus: <em>You are expected to collaborate with your group, but cannot rely on external sources other than to help motivate the questions or provide other background information (including online forums like StackExchange or Reddit). You may use any resources from class and package documentation, but getting answers on significant parts of solutions from outside resources is not allowed.</em></p>
 <p>A note/reminder on AI: <em>Large-language models (e.g.&nbsp;ChatGPT, Gemini, etc.) should only be used for coding or debugging help after you’ve attempted to solve the problem on your own. You should never copy and paste any course materials into a large-language model, and you should never copy and paste anything out of a large-language model into your course materials. Copying, paraphrasing, summarizing, or submitting work generated by anyone but yourself without proper attribution is considered academic dishonesty (this includes output from LLMs). You are not allowed to upload datasets or assignment prompts into a large language model.</em></p>
 </section>
 <section id="faq" class="level1">
 <h1>FAQ</h1>
-<p>If you have any questions, please post them to the #portfolio-projects channel on slack.</p>
+<p>If you have any questions, please post them on Ed with a #portfolio-projects tag!</p>
 
 
 </section>

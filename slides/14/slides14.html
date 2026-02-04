@@ -220,27 +220,29 @@ Prof Amanda Luby
 </ol></section><section id="midterm-check-in" class="slide level2 scrollable"><h2>Midterm check-in</h2>
 <p>Things that are going well:</p>
 <ul>
+<li class="fragment">Data viz!</li>
 <li class="fragment">Like getting immediate practice in class</li>
 <li class="fragment">Learning a lot on homeworks</li>
-<li class="fragment">Becoming more efficient/neater/cleaner/cleverer in R</li>
+<li class="fragment">Becoming more confident/comfortable/efficient/neater/cleaner/cleverer in R</li>
 <li class="fragment">Building a presence on GitHub</li>
 <li class="fragment">Working with peers</li>
-<li class="fragment">Building confidence</li>
+<li class="fragment">Working with data I’m interested in</li>
 <li class="fragment">
 <code>ggplot</code> skills</li>
 <li class="fragment">Enjoying coming to class (demos, lectures, group work, activities)</li>
 </ul></section><section id="overview-of-responses" class="slide level2"><h2>Overview of responses</h2>
 <p>[graphs from google]</p>
-</section><section id="suggested-changes" class="slide level2"><h2>Suggested changes:</h2>
+</section><section id="other-feedback" class="slide level2"><h2>Other feedback:</h2>
 <ul>
-<li class="fragment">Grades for in-class activities ✅</li>
-<li class="fragment">More time for in-class lab quizzes ﹖</li>
-<li class="fragment">Lab quiz revisions after grading ❌</li>
-</ul></section><section id="concerns-about-grading-scheme" class="slide level2"><h2>Concerns about grading scheme:</h2>
+<li class="fragment">Showing a “skeleton” of a function isn’t helpful; I don’t need to know what every single argument does; focus on examples</li>
+<li class="fragment">spending more time &amp; emphasis on all of the “extras” within the parentheses of functions, and what they mean step-by-step, would be helpful.</li>
+<li class="fragment">the homework is too hard and takes too long</li>
+<li class="fragment">I enjoy working on the homeworks because we do a lot of tinkering with R and I’m trying to strengthen my R coding skills.</li>
+</ul></section><section id="suggested-changes" class="slide level2"><h2>Suggested changes:</h2>
 <ul>
-<li class="fragment">Time pressures on lab quizzes</li>
-<li class="fragment">Still getting comfy with the “buckets” grading scheme</li>
-<li class="fragment">Unclear mistakes on homework</li>
+<li class="fragment">I wish more people participated in class ✅</li>
+<li class="fragment">Lab quizzes being handwritten isn’t ideal ？</li>
+<li class="fragment">Lab quiz revisions should happen after grading ❌</li>
 </ul></section><section id="goals-of-the-grading-scheme" class="slide level2 smaller"><h2>Goals of the grading scheme:</h2>
 <div class="columns">
 <div class="column fragment" style="width:33%;">
@@ -272,7 +274,19 @@ Prof Amanda Luby
 
 </section><section><section id="regular-expressions-regex" class="title-slide slide level1 maize center"><h1>Regular Expressions (regex)</h1>
 
-</section><section id="example" class="slide level2"><h2>Example</h2>
+</section><section id="regular-expressions" class="slide level2"><h2>Regular expressions</h2>
+<ul>
+<li class="fragment">
+<p>Sometimes the patterns we wish to detect, extract, etc. too complex for exact matching</p>
+<ul>
+<li class="fragment">Extract all time stamps of the form <code>HH:MM:SS</code>
+</li>
+<li class="fragment">Extract the string that comes after the dash (e.g.&nbsp;<code>hw01-aluby</code>)</li>
+</ul>
+</li>
+<li class="fragment"><p><strong>Regular expressions</strong> (regexps) are a very terse language that allow you to describe patterns in strings</p></li>
+<li class="fragment"><p>Confusing at first, but extremely useful</p></li>
+</ul></section><section id="example" class="slide level2"><h2>Example</h2>
 <p>Suppose we wish to anonymize phone numbers in survey results</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>a1 <span class="ot">&lt;-</span> <span class="st">"Home: 507-645-5489"</span></span>
@@ -335,7 +349,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_60f3a3e2" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_28c9c251" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -457,7 +471,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_d8f895b2" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_83075e81" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -532,7 +546,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_e6ab85ec" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_c8d8c123" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -563,7 +577,7 @@ Prof Amanda Luby
 <li class="fragment">etc.</li>
 </ul>
 <div class="fragment">
-<p>which are all relatively short and structured. We can extract meaning from them using relatively simple functions.</p>
+<p>which are all relatively short and structured. We can extract meaning from them using relatively simple functions and “know what we’re looking for”.</p>
 </div>
 </section><section id="section" class="slide level2" data-background-image="../img/coursera-data-sci.png"><h2></h2>
 </section><section id="sometimes-text-data-is-more-unstructured" class="slide level2"><h2>Sometimes, text data is more unstructured</h2>
@@ -1097,13 +1111,14 @@ Prof Amanda Luby
 <span id="cb53-10"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>CourseId, <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">nrow =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
 <span id="cb53-11"><a></a>  <span class="fu">labs</span>(</span>
 <span id="cb53-12"><a></a>    <span class="at">y =</span> <span class="st">"Word"</span></span>
-<span id="cb53-13"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb53-13"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb53-14"><a></a>  <span class="fu">theme</span>(<span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section><section id="count-the-tokens-output" class="slide level2 output-location-slide"><h2>Count the tokens</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="slides14_files/figure-revealjs/unnamed-chunk-34-1.png" width="960"></p>
+<figure><p><img data-src="slides14_files/figure-html/unnamed-chunk-34-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1142,13 +1157,14 @@ Prof Amanda Luby
 <span id="cb55-10"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>CourseId, <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">nrow =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
 <span id="cb55-11"><a></a>  <span class="fu">labs</span>(</span>
 <span id="cb55-12"><a></a>    <span class="at">y =</span> <span class="st">"Word"</span></span>
-<span id="cb55-13"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb55-13"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb55-14"><a></a>  <span class="fu">theme</span>(<span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section><section id="make-it-fancy-n-grams-1-output" class="slide level2 output-location-slide"><h2>Make it ~ fancy ~: n-grams</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="slides14_files/figure-revealjs/unnamed-chunk-36-1.png" width="960"></p>
+<figure><p><img data-src="slides14_files/figure-html/unnamed-chunk-36-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1222,7 +1238,7 @@ Prof Amanda Luby
 </section><section id="tokens-on-clean-reviews-output" class="slide level2 output-location-slide"><h2>tokens on clean reviews</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="slides14_files/figure-revealjs/unnamed-chunk-43-1.png" width="960"></p>
+<figure><p><img data-src="slides14_files/figure-html/unnamed-chunk-43-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1309,7 +1325,7 @@ Prof Amanda Luby
 </section><section id="section-2-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="slides14_files/figure-revealjs/unnamed-chunk-46-1.png" width="960"></p>
+<figure><p><img data-src="slides14_files/figure-html/unnamed-chunk-46-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1317,10 +1333,10 @@ Prof Amanda Luby
 <div class="task">
 <p>Explore the <code>en_coursera_reviews</code> dataset with the folks around you. Can you replicate my analyses, and try a few of your own? Here are some ideas:</p>
 <ul>
-<li class="fragment">Explore another subject (besides <code>data-science</code>)</li>
-<li class="fragment">
+<li>Explore another subject (besides <code>data-science</code>)</li>
+<li>
 <code>Label</code> contains the numeric rating for the course. How does the review text differ between highly rated and low-rated courses?</li>
-<li class="fragment">
+<li>
 <code><a href="https://rdrr.io/pkg/stopwords/man/stopwords_getsources.html">stopwords::stopwords_getsources()</a></code> gives the available stopword dictionaries. How do these differ, and how do they change your results?</li>
 </ul>
 </div>
@@ -1526,41 +1542,6 @@ Prof Amanda Luby
           RevealZoom
         ]
       });
-    </script><script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
