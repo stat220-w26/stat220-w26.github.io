@@ -377,6 +377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
 <li><a href="#guidelines" id="toc-guidelines" class="nav-link active" data-scroll-target="#guidelines">Guidelines</a></li>
+  <li><a href="#format" id="toc-format" class="nav-link" data-scroll-target="#format">Format</a></li>
   <li>
 <a href="#skills" id="toc-skills" class="nav-link" data-scroll-target="#skills">Skills</a>
   <ul class="collapse">
@@ -388,25 +389,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li>
 <a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a>
   <ul class="collapse">
-<li><a href="#resubmission" id="toc-resubmission" class="nav-link" data-scroll-target="#resubmission">Resubmission</a></li>
+<li><a href="#revision" id="toc-revision" class="nav-link" data-scroll-target="#revision">Revision</a></li>
   </ul>
 </li>
   <li>
-<a href="#practice-quiz" id="toc-practice-quiz" class="nav-link" data-scroll-target="#practice-quiz">Practice Quiz</a>
+<a href="#practice-questions" id="toc-practice-questions" class="nav-link" data-scroll-target="#practice-questions">Practice Questions</a>
   <ul class="collapse">
-<li><a href="#rules" id="toc-rules" class="nav-link" data-scroll-target="#rules">Rules</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li>
-<a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a>
-  <ul class="collapse">
-<li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
-  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
-  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
-  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
-  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
-  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
-  </ul>
-</li>
+<li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -435,17 +425,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header><p>Our third lab quiz is scheduled for <strong>Friday of Week 7</strong>. The first half of class will cover new content, and the second half of class you will complete the in-person portion of the lab quiz. The format of this lab quiz will remain the same as Lab Quiz 2.</p>
 <section id="guidelines" class="level1"><h1>Guidelines</h1>
-<p>This is a <em>limited note</em>, <em>closed internet resources</em>, <em>closed other people</em> lab quiz. I want to see what’s in your brain! You may use the help pages built-in to R (accessed by <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">?ggplot</a></code>), the Posit cheatsheets provided by me, and one side of one 3x5 notecard of your own handwritten notes.</p>
-<p>On the resubmission, you may use my slides and your own notes from class, but you shouldn’t use other internet resources or get help from anybody but me.</p>
-<p>The lab quizzes are not written to be tricky or complex If you’ve been completing the in-class activities and the homework, and putting the time and effort in to understand them, you should do well on the lab quizzes.</p>
+<p>This is a <em>closed note</em>, <em>closed internet resources</em>, <em>closed other people</em> lab quiz. I want to see what’s in your brain! You may use the cheat sheets provided by me, but otherwise you may not use any resources.</p>
+<p>The lab quizzes are not written to be tricky or very difficult. If you’ve been completing the in-class activities and the homework, and putting the time and effort in to understand them, you should do well on the lab quizzes.</p>
+</section><section id="format" class="level1"><h1>Format</h1>
+<p>The reason I give lab quizzes is because your life will be easier if you know how to do basic tasks in R “on the fly”. I also want to see what you <strong>know</strong> and not just what you can do with access to your resources. However, I also know this is not how data science works in the real world, and so there are two portions to the lab quiz.</p>
+<ol type="1">
+<li>The required in-class portion (“first pass”)</li>
+</ol>
+<ul>
+<li>Pencil-and-paper questions</li>
+<li>Cheat sheets provided by me but no other resources</li>
+<li>Designed to assess what you know “on the fly” without access to resources</li>
+</ul>
+<ol start="2" type="1">
+<li>An optional R-based “second pass” at the questions</li>
+</ol>
+<ul>
+<li>.qmd format similar to homework</li>
+<li>Allowed to use materials from class (slides, activities, notes, homework, etc.) but no out-of-class resources (google, textbooks, ChatGPT or other LLMs, StackOverflow, etc.)</li>
+<li>Designed to assess your coding skills and whether you can figure things out with access to class resources and R help pages</li>
+</ul>
+<p>Your score on the quiz will be the average of the two scores, unless you do not submit the revision, in which case your score will only be in your in-class score. If you earn 100% on the in-class portion, your overall score will be 100% and I will not grade your revision.</p>
 </section><section id="skills" class="level1"><h1>Skills</h1>
 <p>The third quiz will assess your proficiency working with strings and with basic programming concepts in R (<code>functions</code>, <code>if</code> statements, <code>for</code> loops, <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code>, and <code>map</code>).</p>
 <section id="strings" class="level2"><h2 class="anchored" data-anchor-id="strings">Strings</h2>
 <ul>
-<li>Given a string, subset some portion of it
+<li>Given a string, subset or detect some portion of it
 <ul>
 <li>
-<code>str_sub</code>, <code>str_subset</code>, <code>str_extract</code>,</li>
+<code>str_sub</code>, <code>str_subset</code>, <code>str_extract</code>, <code>str_detect</code>, etc.</li>
 </ul>
 </li>
 <li>Given two strings, use <code>str_c</code> to concatenate them</li>
@@ -456,7 +464,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 </ul></section><section id="functions" class="level2"><h2 class="anchored" data-anchor-id="functions">Functions</h2>
 <ul>
-<li>Use <code>function()</code> to build an R function</li>
+<li>(In-class) Read and explain what a function is doing / (Take-home) Use <code>function()</code> to build an R function</li>
 <li>Specify required arguments and default values</li>
 <li>Understand how to return a value or object</li>
 <li>Use a logical statement to control the flow of the function</li>
@@ -473,39 +481,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Explain what a <code>map</code> command is doing</li>
 <li>Write a basic <code>map</code> command for group-wise data operations</li>
 </ul></section></section><section id="grading" class="level1"><h1>Grading</h1>
-<p>For the in-class portion, I will grade your .rmd’s and be looking directly at your code. You’ll earn points through the following:</p>
+<p>For the in-class portion, each question is worth 1 point, graded as “successful” (almost entirely correct), “not successful” (missing a key component), or “half credit” (mostly correct).</p>
+<p>For the out-of-class revision, each question is worth 1 point, graded as “successful” (correct), “not successful” (missing a key component), or “half credit” (mostly correct). Since you will be able to run the code, you will only receive full credit for fully correct solutions.</p>
+<section id="revision" class="level2"><h2 class="anchored" data-anchor-id="revision">Revision</h2>
+<p>The in-class portion will be a pencil-and-paper quiz. After class, I will make everyone a repository on github with a <code>.qmd</code> version of the quiz. (The questions will remain essentially the same). The revision is <strong>totally optional</strong>. You will work on the repository just like homework and submit via gradescope if you wish to turn it in.</p>
 <ul>
-<li>1 point per question (successful or not successful)</li>
-<li>1 point if I can successfully knit your file</li>
-<li>1 point for submitting via GitHub</li>
+<li>The in-class portion is worth 10 points</li>
+<li>The out-of-class “second pass” is worth 10 points</li>
+<li>If you don’t submit the revision on gradescope, your quiz will be out of 10 points and if you do submit the revision your quiz will be out of 20 points.</li>
 </ul>
-<p>If you have trouble knitting or submitting via GitHub, submit your .rmd via email. There will be a 5 minute grace period past the end of class to submit, but I will not accept submissions beyond that point. You can always check and see if your submission worked by looking at your repo on gitub.com</p>
-<p>If you have code that is not working, you can tell R not to run that chunk of code with:</p>
-<pre><code>#| eval: false
-
-code_attempt_here</code></pre>
-<p>It’s perfectly OK to submit code that isn’t working properly! When I grade the in-class quizzes, I am primarily looking to see that you <em>understood the problem</em> and <em>tried to use the right technique</em> to solve it.</p>
-<section id="resubmission" class="level2"><h2 class="anchored" data-anchor-id="resubmission">Resubmission</h2>
-<p>You may resubmit the lab quiz by <strong>11am on Sunday (48 hours)</strong>. Resubmissions will be submitted through Gradescope.</p>
-</section></section><section id="practice-quiz" class="level1"><h1>Practice Quiz</h1>
-<section id="rules" class="level2"><h2 class="anchored" data-anchor-id="rules">Rules</h2>
-<ol type="1">
-<li><p>Your solutions must be written up in the R Markdown (Rmd) file called lab-quiz-03.Rmd. This file must include your code and write up for each task. Your “submission” will be whatever is in your exam repository at the deadline. Commit and push the Rmd and outputs of that file.</p></li>
-<li><p>This exam is limited notes, closed internet, closed other people.</p></li>
-<li>
-<p>You have until 10:45am to complete this exam and turn it in via your personal Github repo - late work will not be accepted. Once you leave the classroom, you cannot make any changes to your in-class submission. Technical difficulties are not an excuse for late work - do not wait until the last minute to knit / commit / push.</p>
-<ul>
-<li>If you do have technical issues, you will be able to solve them for the resubmission, but if you do not turn in the in-class portion you will not receive any points
-<ul>
-<li>Example: I run into a knitting issue and don’t leave myself time to commit to github, so I’m not able to turn anything in for the in-class portion. I work hard over the weekend to make sure everything is correct for the resubmission. I earn 0/10 on the in-class and 10/10 on the resubmission, so my score for the lab quiz is 10/20.</li>
-<li>Example: I run into a knitting issue 2 minutes before the deadline, but make sure to commit my .rmd and submit to gradescope before trying to solve the issue. I fix the knitting issue over over the weekend, and also find an error in one of my problems I submitted. I earn 8/10 on the in-class (1 unsuccessful problem + no output file) and 10/10 on the resubmission, so my score for the lab quiz is 18/20.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Even if the answer seems obvious from the R output, make sure to state it in your narrative as well. For example, if the question is asking what is 2 + 2, and you have the code in your document, you should additionally have a sentence that states “2 + 2 is 4.”</p></li>
-<li><p>You may only use the packages provided in the initial .rmd file for this assignment. Your solutions may not use any other R packages.</p></li>
-</ol></section><section id="data" class="level2"><h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>The revision is due before class starts on Monday. You <strong>may</strong> use the cheat sheets, materials from our class (slides, activities, notes, your homework, etc.), and the built-in help pages within RStudio. You <strong>may not</strong> use textbooks, LLMs, search engines, stack overflow, etc. to complete the revision. If your submission contains code that did not appear in our course materials, you must include an explanation for where it came from (e.g.&nbsp;in what context you learned that code). Otherwise, you will not receive credit for that problem and may be reported to the Academic Standing Committee.</p>
+</section></section><section id="practice-questions" class="level1"><h1>Practice Questions</h1>
+<section id="data" class="level2"><h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>The <code>nycflights23</code> package contains information about all flights that departed from NYC (e.g.&nbsp;EWR, JFK and LGA) in 2023. The main data is in the <code>flights</code> data frame, but there are additional data sets which may help understand what causes delays, specifically:</p>
 <ul>
 <li>
@@ -518,45 +505,88 @@ code_attempt_here</code></pre>
 <code>airlines</code>: translation between two letter carrier codes and names</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://moderndive.github.io/nycflights23/">nycflights23</a></span><span class="op">)</span></span>
 <span><span class="va">q</span> <span class="op">&lt;-</span> <span class="fl">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="questions" class="level2"><h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<section id="question-1" class="level3"><h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
-<p>One of the columns in the <code>airport</code> dataset is the <code>name</code> of the airport. Most airports with international flights have the word “International” in them. Create a new logical column called <code>international</code> based on whether the <code>name</code> of the airport contains the word “international”.</p>
-</section><section id="question-2" class="level3"><h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
+<p><strong>Given a string, subset some portion of it</strong></p>
+<p>One of the columns in the <code>airports</code> dataset is the <code>name</code> of the airport. Most airports with international flights have the word “International” in them.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">airport_names</span> <span class="op">&lt;-</span> <span class="va">airports</span><span class="op">$</span><span class="va">name</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">airports</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,251 × 8
+   faa   name                                 lat    lon   alt    tz dst   tzone
+   &lt;chr&gt; &lt;chr&gt;                              &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
+ 1 AAF   Apalachicola Regional Airport       29.7  -85.0    20    -5 A     Amer…
+ 2 AAP   Andrau Airpark                      29.7  -95.6    79    -6 A     Amer…
+ 3 ABE   Lehigh Valley International Airpo…  40.7  -75.4   393    -5 A     Amer…
+ 4 ABI   Abilene Regional Airport            32.4  -99.7  1791    -6 A     Amer…
+ 5 ABL   Ambler Airport                      67.1 -158.    334    -9 A     Amer…
+ 6 ABQ   Albuquerque International Sunport   35.0 -107.   5355    -7 A     Amer…
+ 7 ABR   Aberdeen Regional Airport           45.4  -98.4  1302    -6 A     Amer…
+ 8 ABY   Southwest Georgia Regional Airport  31.5  -84.2   197    -5 A     Amer…
+ 9 ACK   Nantucket Memorial Airport          41.3  -70.1    47    -5 A     Amer…
+10 ACT   Waco Regional Airport               31.6  -97.2   516    -6 A     Amer…
+# ℹ 1,241 more rows</code></pre>
 </div>
-<p>Your output document should print the words, don’t use the viewer to show them. For example, if I was looking for every word in the <code>words</code> vector that contained a “q”, my output would look like:</p>
-<pre><code> [1] "equal"    "quality"  "quarter"  "question" "quick"    "quid"     "quiet"   
- [8] "quite"    "require"  "square"  </code></pre>
-<section id="a" class="level4"><h4 class="anchored" data-anchor-id="a">a</h4>
-<p>Find all airport names that contain a “Z”</p>
-</section><section id="b" class="level4"><h4 class="anchored" data-anchor-id="b">b</h4>
-<p>Find all airport names that start with the word “Red”</p>
-</section><section id="c" class="level4"><h4 class="anchored" data-anchor-id="c">c</h4>
-<p>Find all airport names that contain a period (<code>.</code>)</p>
-</section></section><section id="question-3" class="level3"><h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
-<p>Use <code>across</code> to find the minimum and maximum for each of the quantitative columns in <code>airports</code>.</p>
-</section><section id="question-4" class="level3"><h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
-<section id="a-1" class="level4"><h4 class="anchored" data-anchor-id="a-1">a</h4>
+</div>
+<p>Fill in the code to create a new logical column called <code>international</code> based on whether the <code>name</code> of the airport contains the word “international”.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>airports <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">international =</span> _______________________________________</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Given two strings, use <code>str_c</code> to concatenate them</strong></p>
+<p>TODO</p>
+<p><strong>Given a <em>simple</em> regular expression, state what will be matched</strong></p>
+<p>The following code creates a vector of all of the airport names. Explain what each of the following <code>str_subset</code> commands will return.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">airport_names</span> <span class="op">&lt;-</span> <span class="va">airports</span><span class="op">$</span><span class="va">name</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol type="a">
+<li><p><code>str_subset(airport_names, "Z")</code></p></li>
+<li><p><code>str_subset(airport_names, "^Red")</code></p></li>
+<li><p><code>str_subset(airport_names, "\\.")</code></p></li>
+</ol>
+<p><strong>Read and explain what a function is doing</strong></p>
 <p>Give a 1 sentence description of what the following function does.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_function</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_function</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="va">flights</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dest</span> <span class="op">==</span> <span class="va">x</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section><section id="b-1" class="level4"><h4 class="anchored" data-anchor-id="b-1">b</h4>
-<p>Edit this function so that the default value of x is “MSP”.</p>
-</section></section><section id="question-5" class="level3"><h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
+<p><strong>Specify required arguments and default values</strong></p>
+<p>Edit <code>my_function</code> so that the default value of x is “MSP”.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_function</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="va">flights</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dest</span> <span class="op">==</span> <span class="va">x</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Understand how to return a value or object</strong></p>
+<p>Explain what the following <code>mystery_function</code> will return. How could you edit the code so it will return <code>mean(flights$dep_delay)</code>?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mystery_function</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">flights</span><span class="op">$</span><span class="va">dep_delay</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">flights</span><span class="op">$</span><span class="va">dep_delay</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">flights</span><span class="op">$</span><span class="va">dep_delay</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Use a logical statement to control the flow of the function</strong></p>
+<p>TODO</p>
+<p><strong>Use across() and where() to apply {dplyr} functions to columns in a dataset</strong></p>
+<p>Write R code that uses <code>across</code> to find the minimum and maximum for each of the quantitative columns in <code>airports</code>.</p>
+<p><strong>Be able to read a for loop and determine what it’s doing</strong></p>
 <p>The following code chunk creates a vector of some airports in Minnesota.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mn_airports</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Bemidji Regional Airport"</span>, </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mn_airports</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Bemidji Regional Airport"</span>, </span>
 <span>                <span class="st">"Brainerd Lakes Regional Airport"</span>, </span>
 <span>                <span class="st">"Duluth International Airport"</span>, </span>
 <span>                <span class="st">"Ely Municipal Airport"</span>, </span>
@@ -565,14 +595,14 @@ code_attempt_here</code></pre>
 <span>                <span class="st">"Thief River Falls Regional Airport"</span>,</span>
 <span>                <span class="st">"Minneapolis-St Paul International/Wold-Chamberlain Airport"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<ul>
+<ol type="a">
 <li>What is the purpose of <code>results = numeric(length(mn_airports))</code> in the code chunk below?</li>
 <li>What does <code>seq_along(mn_airports)</code> do?</li>
 <li>What is saved in the <code>x</code> object?</li>
 <li>What is saved in the <code>results</code> object?</li>
-</ul>
+</ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">results</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">mn_airports</span><span class="op">)</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">results</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">mn_airports</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw">for</span><span class="op">(</span><span class="va">k</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">mn_airports</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="va">x</span> <span class="op">&lt;-</span> <span class="va">airports</span> <span class="op">|&gt;</span></span>
@@ -587,10 +617,10 @@ code_attempt_here</code></pre>
 <pre><code>[1]    0    0    0    0    0    0    0 5938</code></pre>
 </div>
 </div>
-</section><section id="question-6" class="level3"><h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
+<p><strong>Explain what a map command is doing</strong></p>
 <p>I’m attempting to use a <code>map</code> solution instead of my <code>for</code> loop above. Does the <code>map</code> code below accomplish the task? If yes, explain how you can tell. If no, explain what you think the issue is.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">mn_airports</span>, <span class="va">my_function</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">mn_airports</span>, <span class="va">my_function</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] 0
@@ -619,7 +649,7 @@ code_attempt_here</code></pre>
 </div>
 
 
-</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
