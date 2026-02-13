@@ -14,11 +14,25 @@ Our third lab quiz is scheduled for **Friday of Week 7**. The first half of clas
 
 # Guidelines
 
-This is a *limited note*, *closed internet resources*, *closed other people* lab quiz. I want to see what's in your brain! You may use the help pages built-in to R (accessed by `?ggplot`), the Posit cheatsheets provided by me, and one side of one 3x5 notecard of your own handwritten notes. 
+This is a *closed note*, *closed internet resources*, *closed other people* lab quiz. I want to see what's in your brain! You may use the cheat sheets provided by me, but otherwise you may not use any resources.
 
-On the resubmission, you may use my slides and your own notes from class, but you shouldn't use other internet resources or get help from anybody but me.
+The lab quizzes are not written to be tricky or very difficult. If you've been completing the in-class activities and the homework, and putting the time and effort in to understand them, you should do well on the lab quizzes.
 
-The lab quizzes are not written to be tricky or complex If you've been completing the in-class activities and the homework, and putting the time and effort in to understand them, you should do well on the lab quizzes.
+# Format
+
+The reason I give lab quizzes is because your life will be easier if you know how to do basic tasks in R "on the fly". I also want to see what you **know** and not just what you can do with access to your resources. However, I also know this is not how data science works in the real world, and so there are two portions to the lab quiz. 
+
+1. The required in-class portion ("first pass")
+  - Pencil-and-paper questions
+  - Cheat sheets provided by me but no other resources
+  - Designed to assess what you know "on the fly" without access to resources
+
+2. An optional R-based "second pass" at the questions
+  - .qmd format similar to homework
+  - Allowed to use materials from class (slides, activities, notes, homework, etc.) but no out-of-class resources (google, textbooks, ChatGPT or other LLMs, StackOverflow, etc.)
+  - Designed to assess your coding skills and whether you can figure things out with access to class resources and R help pages
+
+Your score on the quiz will be the average of the two scores, unless you do not submit the revision, in which case your score will only be in your in-class score. If you earn 100% on the in-class portion, your overall score will be 100% and I will not grade your revision.
 
 # Skills
 
@@ -26,15 +40,15 @@ The third quiz will assess your proficiency working with strings and with basic 
 
 ## Strings
 
--   Given a string, subset some portion of it
-    - `str_sub`, `str_subset`, `str_extract`, 
+-   Given a string, subset or detect some portion of it
+    - `str_sub`, `str_subset`, `str_extract`, `str_detect`, etc.
 - Given two strings, use `str_c` to concatenate them
 - Given a *simple* regular expression, state what will be matched
     - Literal characters, special characters (`\\d`, `\\w`, `[:alpha:]`, `\\n`, `\\`), anchors for start/end characters (`^` and `$`), quantifiers (`+`, `*`, `{n}`, `{n,}`, `{n,m}`)
 
 ## Functions
 
--   Use `function()` to build an R function
+-   (In-class) Read and explain what a function is doing / (Take-home) Use `function()` to build an R function
 -   Specify required arguments and default values
 -   Understand how to return a value or object
 -   Use a logical statement to control the flow of the function
@@ -52,45 +66,21 @@ The third quiz will assess your proficiency working with strings and with basic 
 
 # Grading
 
-For the in-class portion, I will grade your .rmd's and be looking directly at your code. You'll earn points through the following:
+For the in-class portion, each question is worth 1 point, graded as "successful" (almost entirely correct), "not successful" (missing a key component), or "half credit" (mostly correct). 
 
--   1 point per question (successful or not successful)
--   1 point if I can successfully knit your file
--   1 point for submitting via GitHub
+For the out-of-class revision, each question is worth 1 point, graded as "successful" (correct), "not successful" (missing a key component), or "half credit" (mostly correct). Since you will be able to run the code, you will only receive full credit for fully correct solutions.
 
-If you have trouble knitting or submitting via GitHub, submit your .rmd via email. There will be a 5 minute grace period past the end of class to submit, but I will not accept submissions beyond that point. You can always check and see if your submission worked by looking at your repo on gitub.com
+## Revision
 
-If you have code that is not working, you can tell R not to run that chunk of code with: 
+The in-class portion will be a pencil-and-paper quiz. After class, I will make everyone a repository on github with a `.qmd` version of the quiz. (The questions will remain essentially the same). The revision is **totally optional**. You will work on the repository just like homework and submit via gradescope if you wish to turn it in.
 
-```
-#| eval: false
+- The in-class portion is worth 10 points
+- The out-of-class "second pass" is worth 10 points
+- If you don't submit the revision on gradescope, your quiz will be out of 10 points and if you do submit the revision your quiz will be out of 20 points. 
 
-code_attempt_here
-```
+The revision is due before class starts on Monday. You **may** use the cheat sheets, materials from our class (slides, activities, notes, your homework, etc.), and the built-in help pages within RStudio. You **may not** use textbooks, LLMs, search engines, stack overflow, etc. to complete the revision. If your submission contains code that did not appear in our course materials, you must include an explanation for where it came from (e.g. in what context you learned that code). Otherwise, you will not receive credit for that problem and may be reported to the Academic Standing Committee. 
 
-It's perfectly OK to submit code that isn't working properly! When I grade the in-class quizzes, I am primarily looking to see that you *understood the problem* and *tried to use the right technique* to solve it. 
-
-## Resubmission
-
-You may resubmit the lab quiz by **11am on Sunday (48 hours)**. Resubmissions will be submitted through Gradescope. 
-
-# Practice Quiz
-
-## Rules
-
-1.  Your solutions must be written up in the R Markdown (Rmd) file called lab-quiz-03.Rmd. This file must include your code and write up for each task. Your "submission" will be whatever is in your exam repository at the deadline. Commit and push the Rmd and outputs of that file.
-
-2.  This exam is limited notes, closed internet, closed other people.
-
-3.  You have until 10:45am to complete this exam and turn it in via your personal Github repo - late work will not be accepted. Once you leave the classroom, you cannot make any changes to your in-class submission. Technical difficulties are not an excuse for late work - do not wait until the last minute to knit / commit / push.
-
-    -   If you do have technical issues, you will be able to solve them for the resubmission, but if you do not turn in the in-class portion you will not receive any points
-        -   Example: I run into a knitting issue and don't leave myself time to commit to github, so I'm not able to turn anything in for the in-class portion. I work hard over the weekend to make sure everything is correct for the resubmission. I earn 0/10 on the in-class and 10/10 on the resubmission, so my score for the lab quiz is 10/20.
-        -   Example: I run into a knitting issue 2 minutes before the deadline, but make sure to commit my .rmd and submit to gradescope before trying to solve the issue. I fix the knitting issue over over the weekend, and also find an error in one of my problems I submitted. I earn 8/10 on the in-class (1 unsuccessful problem + no output file) and 10/10 on the resubmission, so my score for the lab quiz is 18/20.
-
-4.  Even if the answer seems obvious from the R output, make sure to state it in your narrative as well. For example, if the question is asking what is 2 + 2, and you have the code in your document, you should additionally have a sentence that states "2 + 2 is 4."
-
-5.  You may only use the packages provided in the initial .rmd file for this assignment. Your solutions may not use any other R packages.
+# Practice Questions
 
 ## Data
 
@@ -110,50 +100,45 @@ q <- 0
 
 ## Questions
 
-### Question `r (q<- q+1)`
+**Given a string, subset some portion of it**
 
-One of the columns in the `airport` dataset is the `name` of the airport. Most airports with international flights have the word "International" in them. Create a new logical column called `international` based on whether the `name` of the airport contains the word "international". 
+One of the columns in the `airports` dataset is the `name` of the airport. Most airports with international flights have the word "International" in them. 
 
-### Question `r (q<- q+1)`
+```{r}
+airports 
+```
+
+Fill in the code to create a new logical column called `international` based on whether the `name` of the airport contains the word "international". 
+
+```{r}
+#| eval: false
+airports |>
+  mutate(
+    international = _______________________________________
+  )
+```
+
+**Given two strings, use `str_c` to concatenate them** 
+
+TODO
+
+
+**Given a *simple* regular expression, state what will be matched**
+
+The following code creates a vector of all of the airport names. Explain what each of the following `str_subset` commands will return. 
 
 ```{r}
 airport_names <- airports$name
 ```
 
-Your output document should print the words, don’t use the viewer to show them. For example, if I was looking for every word in the `words` vector that contained a "q", my output would look like: 
-
-```
- [1] "equal"    "quality"  "quarter"  "question" "quick"    "quid"     "quiet"   
- [8] "quite"    "require"  "square"  
-```
-
-#### a
-
-Find all airport names that contain a "Z"
-
-#### b
-
-Find all airport names that start with the word "Red"
-
-#### c
-
-Find all airport names that contain a period (`.`)
-
-```{r}
-#| include: false
-str_subset(airport_names, "Z")
-str_subset(airport_names, "^Red")
-str_subset(airport_names, "\\.")
-```
+(a) `str_subset(airport_names, "Z")`
 
 
-### Question `r (q<- q+1)`
+(b) `str_subset(airport_names, "^Red")`
 
-Use `across` to find the minimum and maximum for each of the quantitative columns in `airports`. 
+(c) `str_subset(airport_names, "\\.")`
 
-### Question `r (q<- q+1)`
-
-#### a
+**Read and explain what a function is doing**
 
 Give a 1 sentence description of what the following function does. 
 
@@ -166,11 +151,41 @@ my_function = function(x){
 }
 ```
 
-#### b 
+**Specify required arguments and default values**
 
-Edit this function so that the default value of x is "MSP". 
+Edit `my_function` so that the default value of x is "MSP". 
 
-### Question `r (q<- q+1)`
+```{r}
+my_function = function(x){
+  flights |>
+    filter(dest == x) |>
+    count() |>
+    pull(n)
+}
+```
+
+**Understand how to return a value or object**
+
+Explain what the following `mystery_function` will return. How could you edit the code so it will return `mean(flights$dep_delay)`?
+
+```{r}
+mystery_function = function(x){
+  mean(flights$dep_delay)
+  median(flights$dep_delay)
+  sd(flights$dep_delay)
+}
+```
+
+**Use a logical statement to control the flow of the function**
+
+TODO 
+
+**Use across() and where() to apply {dplyr} functions to columns in a dataset**
+
+Write R code that uses `across` to find the minimum and maximum for each of the quantitative columns in `airports`. 
+
+
+**Be able to read a for loop and determine what it’s doing**
 
 The following code chunk creates a vector of some airports in Minnesota. 
 
@@ -185,10 +200,10 @@ mn_airports = c("Bemidji Regional Airport",
                 "Minneapolis-St Paul International/Wold-Chamberlain Airport")
 ```
 
-- What is the purpose of `results = numeric(length(mn_airports))` in the code chunk below? 
-- What does `seq_along(mn_airports)` do? 
-- What is saved in the `x` object? 
-- What is saved in the `results` object?
+(a) What is the purpose of `results = numeric(length(mn_airports))` in the code chunk below? 
+(b) What does `seq_along(mn_airports)` do? 
+(c) What is saved in the `x` object? 
+(d)  What is saved in the `results` object?
 
 ```{r}
 results = numeric(length(mn_airports))
@@ -204,7 +219,7 @@ for(k in seq_along(mn_airports)){
 results
 ```
 
-### Question `r (q<- q+1)`
+**Explain what a map command is doing**
 
 I'm attempting to use a `map` solution instead of my `for` loop above. Does the `map` code below accomplish the task? If yes, explain how you can tell. If no, explain what you think the issue is. 
 
