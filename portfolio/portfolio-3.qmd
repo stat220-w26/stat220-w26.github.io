@@ -63,9 +63,9 @@ Your submission will be an .Rmd file that creates your two graphs. You should in
 A **successful** project will:
 
 -   [ ] Include all necessary components pushed to GitHub and linked to gradescope
--   [ ] **Demonstrate a history of work in progress and revision through your git commit history**
--   [ ] Contain code, plots, and written summary in a single .rmd document
--   [ ] The .rmd has all necessary and no unnecessary code
+-   [ ] Demonstrate a history of work in progress and revision through your git commit history
+-   [ ] Contain code, plots, and written summary in a single .qmd document
+-   [ ] The .qmd has all necessary and no unnecessary code
 -   [ ] Create the bar plot and time-series plot
 -   [ ] Your file contains a function called `read_disaster_data` that: 
       - [ ] Imports a user-specified file
@@ -84,7 +84,7 @@ A **successful** project will:
 
 An **excellent** project will meet all of the requirements for a successful project, plus
 
--   [ ] Includes your knitted report as the GitHub readme of your repo (e.g. when I open your repo, the initial page should be your final report) -- see [github_document](https://rmarkdown.rstudio.com/github_document_format.html)
+-   [ ] Includes your knitted report as the GitHub readme of your repo (e.g. when I open your repo, the initial page should be your final report). You will need to render to `gfm` and then rename the rendered file as  `README.md`
 - [ ] Improved graphs make substantial changes to `geom` or `aesthetic` layers. Think major overhaul rather than replicating the original. Your improvements should be creative, but still faithfully represent the underlying data.
 - [ ] Meet high submission quality standards
     -   [ ] No grammatical mistakes, spelling mistakes, or typos

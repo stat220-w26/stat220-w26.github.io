@@ -56,7 +56,7 @@ Whatever product form you choose, I'll be looking for a high degree of professio
 
 # Rubric
 
-See [google sheet](https://docs.google.com/spreadsheets/d/1M1K7k6YkfuZNjgJ_lV-ZCAj21ijUXO2Jt5K9rCVjP9I/edit?usp=sharing) for current rubric
+🚧 Under construction 🚧
 
 # Final Project Submission
 
@@ -88,6 +88,35 @@ You should submit your final GitHub repo to gradescope by noon on the last day o
 -   Final project due: end of finals period
 
 Meeting these milestones will make up part of your final grade. If you do not fill out the google forms, I may or may not assign you to a group. If you are not assigned to a group, you won't be able to demonstrate that you're able to work collaboratively on GitHub, which will impact your final grade.
+
+## Final Project Ideas + Rankings
+
+By Friday of Week 7, submit a project idea via the google form linked on the schedule. This does *not* need to be a fully-baked and polished idea. Here are some examples of project ideas that have worked well in the past: 
+  - I'd like to do more with text analysis
+  - I am interested in exploring the relationships between mental health disorders and other factors such as treatments, substance abuse, societal factors, and other patient information. I was thinking of starting with this dataset found here: (URL), and maybe merging further datasets when found.
+  - I'm familiar with a twitter account that used to track when the NYT would have a new word included in an article for the first time. I'd be interested in either getting data directly from the NYT or twitter and exploring that somehow.
+  - We want to explore D1 NCAA sports data, specifically comparisons between womens and mens sports. We're interested in performance, coverage, funding, recruitment, etc.
+  - I really like the idea of using an interactive map that the user can change. 
+  
+
+Everybody should fill out the form individually, but you can prepare the idea with someone you'd like to work with and submit the same proposal. Just make sure to indicate that you plan to work together. 
+
+I will post a new form on Monday of Week 8 that compiles all of the ideas and give you time in class to "rank" final project ideas and share partner/group preferences. 
+
+*Both* forms contribute to your final grade (~5%). Please make sure to fill them out on time. 
+
+## Sketch draft
+
+In Week 9, you'll submit a "sketch draft" to me on gradescope. This should include a .qmd and rendered .pdf with the following: 
+
+  - reads in at least one dataset
+  - includes 5 possible research questions
+  - includes at least one EDA graph
+  - outline of what you plan to do for the remainder of your project
+
+I will give you feedback about whether your dataset(s) meets the expectations for the project and some feedback on your research questions. 
+
+This sketch will make up ~5% of your final grade. 
 
 ## Project progress demos
 
@@ -129,15 +158,7 @@ You are welcome to provide feedback to all of the groups, but are only required 
 
 If your group would like to switch with another group, just let me know. If your group *needs* to present on the other day but you do not have a group to switch with, let me know ASAP.
 
-|           |               |                    |
-|-----------|---------------|--------------------|
-|           | **Monday**    | **Wednesday**      |
-| **10:00** | spotify-group-1    | spotify-au-da-ni |
-| **10:10** | data-divas   | jos  |
-| **10:20** | board-game-geek | march-madness   |
-| **10:30** | rice-county | nyt-new-word  |
-| **10:40** | mighty-icy-elephants | mental-health  |
-| **10:50** | crc-baseball  |  mystery-project |
+🚧 Under construction 🚧
 
 # FAQs
 
