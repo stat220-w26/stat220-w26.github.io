@@ -66,7 +66,7 @@ A **successful** project will:
 -   [ ] Demonstrate a history of work in progress and revision through your git commit history
 -   [ ] Contain code, plots, and written summary in a single .qmd document
 -   [ ] The .qmd has all necessary and no unnecessary code
--   [ ] Create the bar plot and time-series plot
+-   [ ] Replicate the bar plot and time-series plot (separately!!)
 -   [ ] Your file contains a function called `read_disaster_data` that: 
       - [ ] Imports a user-specified file
       - [ ] Parses all variable types correctly (e.g. dates are treated as dates, factors are treated as factors)
@@ -80,6 +80,7 @@ A **successful** project will:
     -   [ ] Very few grammatical mistakes, spelling mistakes, or typos
     -   [ ] Informative title for your report is included
     -   [ ] Any graphs are readable with appropriate titles and labels
+    -   [ ] The rendered document is `pdf` or `gfm` format (so I can see the rendered report via github)
     -   [ ] The rendered document does not contain any unnecessary content (package loading messages, warnings, etc.)
 
 An **excellent** project will meet all of the requirements for a successful project, plus

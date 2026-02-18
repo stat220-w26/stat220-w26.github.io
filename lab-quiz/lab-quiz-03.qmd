@@ -120,8 +120,16 @@ airports |>
 
 **Given two strings, use `str_c` to concatenate them** 
 
-TODO
+The flights dataset contains a carrier column (e.g. "UA") and a flight number column (e.g. 1480). Fill in the code below to create a new column called flight_code that combines these two columns separated by a hyphen (e.g. "UA-1480").
 
+```{r}
+#| eval: false
+flights |> 
+  select(carrier, flight) |> 
+  mutate(
+    flight_code = ______(___________, ___________, sep = ____)
+  )
+```
 
 **Given a *simple* regular expression, state what will be matched**
 
@@ -178,7 +186,33 @@ mystery_function = function(x){
 
 **Use a logical statement to control the flow of the function**
 
-TODO 
+Complete the function below called summarize_delays. It takes a vector of numbers x and a string metric.
+
+  - If metric is equal to "mean", return the mean of `x` (remove NAs).
+  - If metric is equal to "median", return the median of `x` (remove NAs).
+  - Otherwise, return the string "Metric not supported".
+
+```{r}
+#| eval: false
+summarize_delays <- function(x, metric){
+  
+  if(metric == "mean"){
+    
+    _______________________
+    
+    
+  } else if (___________) {
+    
+    _______________________
+    
+    
+  } else {
+    
+    _______________________
+    
+  }
+}
+```
 
 **Use across() and where() to apply {dplyr} functions to columns in a dataset**
 

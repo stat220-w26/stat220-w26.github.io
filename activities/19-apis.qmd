@@ -77,10 +77,19 @@ acs_mn_2020 |>
 
 <https://www.census.gov/acs/www/data/data-tables-and-tools/subject-tables/>
 
+## Try it
+
+Add "educational attainment" to the topic filters and take a look at the first table. What is it showing you?
+
 ## Your turn
 
-- Search for two new variables using `load_variables` (Can you explain what they are?)
-- Run another call to `tidycensus::get_acs` using your two variables
+- Search for the "Median earnings in the past 12 months by major" table that we looked at on the census website using `load_variables`
+- Run another call to `tidycensus::get_acs` to access this variable
+
+```{r}
+acs_vars <- load_variables(2020, "acs5", cache = TRUE) 
+acs_vars 
+```
 
 # httr2
 
@@ -104,7 +113,7 @@ hmong_state_request <- request("https://api.census.gov/data") %>%
     req_url_path_append("2019") %>% 
     req_url_path_append("acs") %>% 
     req_url_path_append("acs1") %>% 
-    req_url_query(get = c("NAME", "B02015_009E", "B02015_009M"), `for` = I("state:*"), key = census_api_key, .multi = "comma")
+    req_url_query(get = c("NAME", "B02015_009E", "B02015_009M"), `for` = I("state:*"), key = my_key, .multi = "comma")
 ```
 
 ```{r}
@@ -125,13 +134,12 @@ hmong_state_tbl
 
 ## Your Turn
 
-
-
-- Edit the `httr` code to access a new variable of your choice
-- Make a `httr` request to access the 1-year ACS data from 2018, 2019, 2021, and 2022. Make sure to save your results from each call! 
-- Combine all years into a single dataset
-- Make a time series plot with your chosen variable on the `y-axis`, year on the `x-axis`, colored by `state.` 
-    - You may want to first filter to only a few states
+- Edit the `httr` code to access the `B15013_002E` variable from 2024 (median income for "computers, math, statistics" majors)
+  - To get US level estimates, use `I("us:1")` in the `for` argument
+  - To check your answer, copy the URL into a browser and make sure you get `"102338"`
+- Make a `httr` request to access the 1-year ACS data from 2022 and 2023. Make sure to save your results from each call! 
+- Combine all years into a single dataset (you may need to create a column for `year`)
+- Make a time series plot with your chosen variable on the `y-axis` and year on the `x-axis`
     - You will need to do some cleaning of the data
-    
+- Brainstorm some ways to make the graph more interesting through gathering more data from the census API, and implement those ideas if you have time!
 
