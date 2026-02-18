@@ -475,10 +475,10 @@ ul.task-list li input[type="checkbox"] {
 <p>A <strong>successful</strong> project will:</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Include all necessary components pushed to GitHub and linked to gradescope</label></li>
-<li><label><input type="checkbox"><strong>Demonstrate a history of work in progress and revision through your git commit history</strong></label></li>
-<li><label><input type="checkbox">Contain code, plots, and written summary in a single .rmd document</label></li>
-<li><label><input type="checkbox">The .rmd has all necessary and no unnecessary code</label></li>
-<li><label><input type="checkbox">Create the bar plot and time-series plot</label></li>
+<li><label><input type="checkbox">Demonstrate a history of work in progress and revision through your git commit history</label></li>
+<li><label><input type="checkbox">Contain code, plots, and written summary in a single .qmd document</label></li>
+<li><label><input type="checkbox">The .qmd has all necessary and no unnecessary code</label></li>
+<li><label><input type="checkbox">Replicate the bar plot and time-series plot (separately!!)</label></li>
 <li><label><input type="checkbox">Your file contains a function called <code>read_disaster_data</code> that:</label>
 <ul class="task-list">
 <li><label><input type="checkbox">Imports a user-specified file</label></li>
@@ -495,12 +495,13 @@ ul.task-list li input[type="checkbox"] {
 <li><label><input type="checkbox">Very few grammatical mistakes, spelling mistakes, or typos</label></li>
 <li><label><input type="checkbox">Informative title for your report is included</label></li>
 <li><label><input type="checkbox">Any graphs are readable with appropriate titles and labels</label></li>
+<li><label><input type="checkbox">The rendered document is <code>pdf</code> or <code>gfm</code> format (so I can see the rendered report via github)</label></li>
 <li><label><input type="checkbox">The rendered document does not contain any unnecessary content (package loading messages, warnings, etc.)</label></li>
 </ul></li>
 </ul>
 <p>An <strong>excellent</strong> project will meet all of the requirements for a successful project, plus</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Includes your knitted report as the GitHub readme of your repo (e.g.&nbsp;when I open your repo, the initial page should be your final report) – see <a href="https://rmarkdown.rstudio.com/github_document_format.html">github_document</a></label></li>
+<li><label><input type="checkbox">Includes your knitted report as the GitHub readme of your repo (e.g.&nbsp;when I open your repo, the initial page should be your final report). You will need to render to <code>gfm</code> and then rename the rendered file as <code>README.md</code></label></li>
 <li><label><input type="checkbox">Improved graphs make substantial changes to <code>geom</code> or <code>aesthetic</code> layers. Think major overhaul rather than replicating the original. Your improvements should be creative, but still faithfully represent the underlying data.</label></li>
 <li><label><input type="checkbox">Meet high submission quality standards</label>
 <ul class="task-list">

@@ -705,8 +705,8 @@ Prof Amanda Luby
 </div>
 </section><section id="storing-your-api-key" class="slide level2 scrollable"><h2>Storing your API key</h2>
 <ol type="1">
-<li>Create a new text file in the same folder as your .rmd</li>
-<li>Copy and paste your census key into the empty file</li>
+<li>Create a new text file in the same folder as your .qmd</li>
+<li>Copy and paste your census key into the empty file, followed by an empty line</li>
 <li>Save the file as <code>census_api_key.txt</code>
 </li>
 </ol>
@@ -735,7 +735,7 @@ Prof Amanda Luby
 </div><div class="column" style="width:50%;">
 <ul>
 <li>
-<code>geography = "tract"</code>: What level of detail to get summary statistics. Other options include “state”, “county”, “combined statistical area”, etc.</li>
+<code>geography = "county"</code>: What level of detail to get summary statistics. Other options include “state”, “tract”, “combined statistical area”, etc.</li>
 <li>
 <code>variables = c("B01003_001", "B19013_001")</code>: Which survey questions should we get responses to?</li>
 </ul>
@@ -781,8 +781,11 @@ First 10 features:
 </section><section id="more-info-about-how-censusacs-data-is-reported" class="slide level2"><h2>More info about how census/ACS data is reported</h2>
 <p><a href="https://data.census.gov/" class="uri">https://data.census.gov/</a></p>
 <p><a href="https://www.census.gov/acs/www/data/data-tables-and-tools/subject-tables/" class="uri">https://www.census.gov/acs/www/data/data-tables-and-tools/subject-tables/</a></p>
+<p><strong>Example:</strong> Look at “income” topic</p>
+</section><section id="try-it" class="slide level2 task nonincremental"><h2>Try it</h2>
+<p>Add “educational attainment” to the topic filters and take a look at the first table. What is it showing you?</p>
 </section><section id="searching-for-variables" class="slide level2"><h2>Searching for variables</h2>
-<p>Getting variables from the Census or ACS requires knowing the variable ID - and there are thousands of these IDs across the different Census files.</p>
+<p>Getting variables from the Census or ACS requires knowing the variable ID - and there are thousands of these IDs across the different Census files. You can search for these online using <code>data.census.gov/table/</code> or with <code>load_variables</code> from the {tidycensus} package</p>
 <div class="fragment">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>acs_vars <span class="ot">&lt;-</span> <span class="fu">load_variables</span>(<span class="dv">2020</span>, <span class="st">"acs5"</span>, <span class="at">cache =</span> <span class="cn">TRUE</span>) </span>
@@ -845,14 +848,15 @@ First 10 features:
 </div>
 <div class="task">
 <ul>
-<li>Search for two new variables using <code>load_variables</code> (Can you explain what they are?)</li>
-<li>Run another call to <code><a href="https://walker-data.com/tidycensus/reference/get_acs.html">tidycensus::get_acs</a></code> using your two variables</li>
+<li>Search for the “Median earnings in the past 12 months by major” table that we looked at on the census website using <code>load_variables</code>
+</li>
+<li>Run another call to <code><a href="https://walker-data.com/tidycensus/reference/get_acs.html">tidycensus::get_acs</a></code> to access this variable</li>
 </ul>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">countdown</span>(<span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="countdown" id="timer_18aa61f9" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_a05e2a49" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -1398,7 +1402,7 @@ First 10 features:
         return(dat2)
     }
 }
-&lt;bytecode: 0x126979040&gt;
+&lt;bytecode: 0x10cca2b48&gt;
 &lt;environment: namespace:tidycensus&gt;</code></pre>
 </div>
 </div>
@@ -1458,7 +1462,7 @@ Census API call: https://api.census.gov/data/2020/acs/acs5?get=B01003_001E%2CB01
 <span id="cb28-2"><a></a>    <span class="fu">req_url_path_append</span>(<span class="st">"2019"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb28-3"><a></a>    <span class="fu">req_url_path_append</span>(<span class="st">"acs"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb28-4"><a></a>    <span class="fu">req_url_path_append</span>(<span class="st">"acs1"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-5"><a></a>    <span class="fu">req_url_query</span>(<span class="at">get =</span> <span class="fu">c</span>(<span class="st">"NAME"</span>, <span class="st">"B02015_009E"</span>, <span class="st">"B02015_009M"</span>), <span class="st">`</span><span class="at">for</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">I</span>(<span class="st">"state:*"</span>), <span class="at">key =</span> census_api_key, <span class="at">.multi =</span> <span class="st">"comma"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb28-5"><a></a>    <span class="fu">req_url_query</span>(<span class="at">get =</span> <span class="fu">c</span>(<span class="st">"NAME"</span>, <span class="st">"B02015_009E"</span>, <span class="st">"B02015_009M"</span>), <span class="st">`</span><span class="at">for</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">I</span>(<span class="st">"state:*"</span>), <span class="at">key =</span> my_key, <span class="at">.multi =</span> <span class="st">"comma"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>request</code> sets the host name</p>
 </section><section id="sending-our-census-query-1" class="slide level2"><h2>Sending our census query</h2>
@@ -1467,7 +1471,7 @@ Census API call: https://api.census.gov/data/2020/acs/acs5?get=B01003_001E%2CB01
 <span id="cb29-2"><a></a>    <span class="fu">req_url_path_append</span>(<span class="st">"2019"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb29-3"><a></a>    <span class="fu">req_url_path_append</span>(<span class="st">"acs"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb29-4"><a></a>    <span class="fu">req_url_path_append</span>(<span class="st">"acs1"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-5"><a></a>    <span class="fu">req_url_query</span>(<span class="at">get =</span> <span class="fu">c</span>(<span class="st">"NAME"</span>, <span class="st">"B02015_009E"</span>, <span class="st">"B02015_009M"</span>), <span class="st">`</span><span class="at">for</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">I</span>(<span class="st">"state:*"</span>), <span class="at">key =</span> census_api_key, <span class="at">.multi =</span> <span class="st">"comma"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb29-5"><a></a>    <span class="fu">req_url_query</span>(<span class="at">get =</span> <span class="fu">c</span>(<span class="st">"NAME"</span>, <span class="st">"B02015_009E"</span>, <span class="st">"B02015_009M"</span>), <span class="st">`</span><span class="at">for</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">I</span>(<span class="st">"state:*"</span>), <span class="at">key =</span> my_key, <span class="at">.multi =</span> <span class="st">"comma"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>req_url_path_append</code> adds the year and dataset that we are trying to access</p>
 </section><section id="sending-our-census-query-2" class="slide level2"><h2>Sending our census query</h2>
@@ -1478,7 +1482,7 @@ Census API call: https://api.census.gov/data/2020/acs/acs5?get=B01003_001E%2CB01
 <span id="cb30-4"><a></a>    <span class="fu">req_url_path_append</span>(<span class="st">"acs1"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb30-5"><a></a>    <span class="fu">req_url_query</span>(<span class="at">get =</span> <span class="fu">c</span>(<span class="st">"NAME"</span>, <span class="st">"B02015_009E"</span>, <span class="st">"B02015_009M"</span>), </span>
 <span id="cb30-6"><a></a>                  <span class="st">`</span><span class="at">for</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">I</span>(<span class="st">"state:*"</span>), </span>
-<span id="cb30-7"><a></a>                  <span class="at">key =</span> census_api_key, </span>
+<span id="cb30-7"><a></a>                  <span class="at">key =</span> my_key, </span>
 <span id="cb30-8"><a></a>                  <span class="at">.multi =</span> <span class="st">"comma"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>req_url_query</code> is where we specify what to return:</p>
@@ -1540,32 +1544,38 @@ Body: In memory (1691 bytes)</code></pre>
 </section><section id="your-turn-1" class="slide level2"><h2>Your turn</h2>
 <div class="task">
 <ul>
-<li>Edit the <code>httr</code> code to access a new variable of your choice</li>
-<li>Make a <code>httr</code> request to access the 1-year ACS data from 2018, 2019, 2021, and 2022. Make sure to save your results from each call!</li>
-<li>Combine all years into a single dataset</li>
-<li>Make a time series plot with your chosen variable on the <code>y-axis</code>, year on the <code>x-axis</code>, colored by <code>state.</code>
+<li>Edit the <code>httr</code> code to access the <code>B15013_002E</code> variable from 2024 (median income for “computers, math, statistics” majors)
 <ul>
-<li>You may want to first filter to only a few states</li>
+<li>To get US level estimates, use <code>I("us:1")</code> in the <code>for</code> argument</li>
+<li>To check your answer, copy the URL into a browser and make sure you get <code>"102338"</code>
+</li>
+</ul>
+</li>
+<li>Make a <code>httr</code> request to access the 1-year ACS data from 2022 and 2023. Make sure to save your results from each call!</li>
+<li>Combine all years into a single dataset (you may need to create a column for <code>year</code>)</li>
+<li>Make a time series plot with your chosen variable on the <code>y-axis</code> and year on the <code>x-axis</code>
+<ul>
 <li>You will need to do some cleaning of the data</li>
 </ul>
 </li>
+<li>Brainstorm some ways to make the graph more interesting through gathering more data from the census API, and implement those ideas if you have time!</li>
 </ul>
 </div>
 </section><section id="neat-wrapper-packages-or-apis" class="slide level2"><h2>Neat Wrapper packages or APIs</h2>
 <ul>
-<li class="fragment">
+<li>
 <a href="https://www.sportsdataverse.org/">SportsDataverse</a> has a ton of R packages for accessing a variety of sports data</li>
-<li class="fragment"><a href="https://github.com/public-apis/public-apis">Public APIs</a></li>
-<li class="fragment">
+<li><a href="https://github.com/public-apis/public-apis">Public APIs</a></li>
+<li>
 <a href="https://educationdata.urban.org/documentation/">Urban Institute’s Education Data Portal</a> and <a href="https://github.com/UrbanInstitute/education-data-package-r">R package</a><br>
 </li>
-<li class="fragment"><a href="https://ropensci.org/packages/data-access/">ROpenSci</a></li>
+<li><a href="https://ropensci.org/packages/data-access/">ROpenSci</a></li>
 </ul></section><section id="creditsfurther-resources" class="slide level2"><h2>Credits/Further resources</h2>
 <ul>
-<li class="fragment"><a href="https://stat545.com/api-wrappers.html">Jenny Bryan’s Stat545</a></li>
-<li class="fragment"><a href="https://lmyint.github.io/212_spring_2024/13-apis.html">Leslie Myint’s Stat/Comp 212</a></li>
-<li class="fragment"><a href="https://www.census.gov/data/developers/guidance/api-user-guide.Example_API_Queries.html#list-tab-559651575">Census API User Guide</a></li>
-<li class="fragment"><a href="https://walker-data.com/tidycensus/articles/basic-usage.html">TidyCensus vignette</a></li>
+<li><a href="https://stat545.com/api-wrappers.html">Jenny Bryan’s Stat545</a></li>
+<li><a href="https://lmyint.github.io/212_spring_2024/13-apis.html">Leslie Myint’s Stat/Comp 212</a></li>
+<li><a href="https://www.census.gov/data/developers/guidance/api-user-guide.Example_API_Queries.html#list-tab-559651575">Census API User Guide</a></li>
+<li><a href="https://walker-data.com/tidycensus/articles/basic-usage.html">TidyCensus vignette</a></li>
 </ul>
 
 
