@@ -28,7 +28,9 @@ The lab quizzes are not written to be tricky or very difficult. If you've been c
 
 The reason I give lab quizzes is because your life will be easier if you know how to do basic tasks in R "on the fly". I also want to see what you **know** and not just what you can do with access to your resources. 
 
-1. The required in-class portion ("first pass")
+This makeup will only include a required in-class portion:
+
+
   - Pencil-and-paper questions
   - Cheat sheets provided by me but no other resources
   - Designed to assess what you know "on the fly" without access to resources
@@ -36,7 +38,7 @@ The reason I give lab quizzes is because your life will be easier if you know ho
 
 # Skills
 
-All skills from the first 3 lab quizzes are "fair game" for this makeup, along with the following additional topics: 
+**All skills from the first 3 lab quizzes are "fair game" for this makeup**, along with the following new topics. Since this quiz can replace a previous one, I'm looking for growth and proficiency with *all* topics from the course. 
 
 ## APIs and Web Scraping
 
