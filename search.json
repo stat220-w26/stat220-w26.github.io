@@ -11,7 +11,7 @@
     "href": "lab-quiz/lab-quiz-makeup.html#apis-and-web-scraping",
     "title": "Makeup Lab Quiz Info",
     "section": "APIs and Web Scraping",
-    "text": "APIs and Web Scraping\n\nKnow and explain the difference between using an API and web scraping\nRead simple {httr} requests and identify specific portions\nExplain HTML scraping code"
+    "text": "APIs and Web Scraping\n\nKnow and explain the difference between using an API and web scraping\nExplain simple HTML scraping code"
   },
   {
     "objectID": "lab-quiz/lab-quiz-makeup.html#shiny",
@@ -3641,20 +3641,6 @@
     "text": "Ways to access data from the web:\n\nWeb APIs (application programming interface): website offers a set of structured http requests that return JSON or XML files.\nScreen scraping: extract data from source code of website, with html parser (easy) or regular expression matching (less easy)."
   },
   {
-    "objectID": "slides/20/slides20.html#api-httr-request-from-last-class",
-    "href": "slides/20/slides20.html#api-httr-request-from-last-class",
-    "title": "Intro to Web Scraping",
-    "section": "API httr request from last class",
-    "text": "API httr request from last class\n\nrequest(\"https://api.census.gov/data\") %&gt;% \n    req_url_path_append(\"2019\") %&gt;% \n    req_url_path_append(\"acs\") %&gt;% \n    req_url_path_append(\"acs1\") %&gt;% \n    req_url_query(get = c(\"NAME\", \"B02015_009E\", \"B02015_009M\"), \n                  `for` = I(\"state:*\"), \n                  key = census_api_key, \n                  .multi = \"comma\")\n\n&lt;httr2_request&gt;\nGET\nhttps://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&for=state:*&key=4a2344XXXXXXXXXXXXXXXXXXXXXXXXXXXXX\nBody: empty\nCan use your browser to go to the URL address and see what will be returned"
-  },
-  {
-    "objectID": "slides/20/slides20.html#section",
-    "href": "slides/20/slides20.html#section",
-    "title": "Intro to Web Scraping",
-    "section": "",
-    "text": "When debugging, you can also test a single URL and build up your pipeline from there\n\nrequest(\"https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&for=state:*\") \n\n&lt;httr2_request&gt;\nGET\nhttps://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&for=state:*\nBody: empty"
-  },
-  {
     "objectID": "slides/20/slides20.html#api-vs-screen-scraping",
     "href": "slides/20/slides20.html#api-vs-screen-scraping",
     "title": "Intro to Web Scraping",
@@ -3673,7 +3659,7 @@
     "href": "slides/20/slides20.html#checking-for-permission-to-scrape",
     "title": "Intro to Web Scraping",
     "section": "Checking for permission to scrape",
-    "text": "Checking for permission to scrape\nUse robotstxt::paths_allowed() to see if you can scrape the web page.\n\nYou can scrape Zillow\n\nlibrary(robotstxt)\npaths_allowed(\"http://www.zillow.com\")\n\n[1] TRUE\n\n\n\n\nBut not Facebook\n\npaths_allowed(\"http://www.facebook.com\")\n\n[1] FALSE\n\n\n\n\n\nWhat websites have data about you? Think of 1-2 and see if scraping is allowed on those sites."
+    "text": "Checking for permission to scrape\nUse robotstxt::paths_allowed() to see if you can scrape the web page.\n\nYou can scrape Zillow\n\nlibrary(robotstxt)\npaths_allowed(\"http://www.zillow.com\")\n\n[1] TRUE\n\n\n\n\nBut not Facebook\n\npaths_allowed(\"http://www.facebook.com\")\n\n[1] FALSE"
   },
   {
     "objectID": "slides/20/slides20.html#hypertext-markup-language",
@@ -3695,13 +3681,6 @@
     "title": "Intro to Web Scraping",
     "section": "{rvest}",
     "text": "{rvest}\n\n\n\n\n\nPronounced like “harvest”\nProcessing and manipulation of HTML data\nInstalled with the {tidyverse} but not loaded automatically\n\n\nlibrary(rvest)"
-  },
-  {
-    "objectID": "slides/20/slides20.html#core-rvest-functions",
-    "href": "slides/20/slides20.html#core-rvest-functions",
-    "title": "Intro to Web Scraping",
-    "section": "Core rvest functions",
-    "text": "Core rvest functions\n\n\nFunction\nDescription\n\n\n\nread_html\nRead HTML data from a url or character string\n\n\nhtml_element\nSelect a specified element from HTML document\n\n\nhtml_elements\nSelect specified elements from HTML document\n\n\nhtml_table\nParse an HTML table into a data frame\n\n\nhtml_text\nExtract tag pairs’ content\n\n\nhtml_name\nExtract tags’ names\n\n\nhtml_attrs\nExtract all of each tag’s attributes\n\n\nhtml_attr\nExtract tags’ attribute value by name"
   },
   {
     "objectID": "slides/20/slides20.html#example-box-office-mojo",
@@ -3732,13 +3711,6 @@
     "text": "Extract tables\nUse html_element() or html_elements() to extract pieces out of HTML documents\n\ntables &lt;- page %&gt;% html_elements(\"table\")\nstr(tables)\n\nList of 1\n $ :List of 2\n  ..$ node:&lt;externalptr&gt; \n  ..$ doc :&lt;externalptr&gt; \n  ..- attr(*, \"class\")= chr \"xml_node\"\n - attr(*, \"class\")= chr \"xml_nodeset\""
   },
   {
-    "objectID": "slides/20/slides20.html#html_element-vs-html_elements",
-    "href": "slides/20/slides20.html#html_element-vs-html_elements",
-    "title": "Intro to Web Scraping",
-    "section": "\nhtml_element() vs html_elements()\n",
-    "text": "html_element() vs html_elements()\n\n\nhtml_elements() returns all matching elements beneath any of the inputs, flattening results into a new node set\nhtml_element() always returns a vector the same length as the input, using a “missing” element where needed.\n\n\nTypically, we’ll use html_elements to get the overall structure for our data, followed by something else (sometimes html_element, sometimes html_table) to access what we need"
-  },
-  {
     "objectID": "slides/20/slides20.html#check-that-its-the-right-table",
     "href": "slides/20/slides20.html#check-that-its-the-right-table",
     "title": "Intro to Web Scraping",
@@ -3751,13 +3723,6 @@
     "title": "Intro to Web Scraping",
     "section": "Parse a table into a data frame",
     "text": "Parse a table into a data frame\n\ntop2024 &lt;- html_table(tables[[1]])\nglimpse(top2024)\n\nRows: 200\nColumns: 11\n$ Rank           &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …\n$ Release        &lt;chr&gt; \"Inside Out 2\", \"Deadpool & Wolverine\", \"Wicked\", \"Moan…\n$ Genre          &lt;chr&gt; \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", …\n$ Budget         &lt;chr&gt; \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", …\n$ `Running Time` &lt;chr&gt; \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", \"-\", …\n$ Gross          &lt;chr&gt; \"$652,980,194\", \"$636,745,858\", \"$432,943,285\", \"$404,0…\n$ Theaters       &lt;chr&gt; \"4,440\", \"4,330\", \"3,888\", \"4,200\", \"4,449\", \"4,575\", \"…\n$ `Total Gross`  &lt;chr&gt; \"$652,980,194\", \"$636,745,858\", \"$474,983,975\", \"$460,4…\n$ `Release Date` &lt;chr&gt; \"Jun 14\", \"Jul 26\", \"Nov 22\", \"Nov 27\", \"Jul 3\", \"Sep 6…\n$ Distributor    &lt;chr&gt; \"Walt Disney Studios Motion Pictures\", \"Walt Disney Stu…\n$ Estimated      &lt;chr&gt; \"false\", \"false\", \"false\", \"false\", \"false\", \"false\", \"…"
-  },
-  {
-    "objectID": "slides/20/slides20.html#parse-tables-into-data-frames",
-    "href": "slides/20/slides20.html#parse-tables-into-data-frames",
-    "title": "Intro to Web Scraping",
-    "section": "Parse tables into data frames",
-    "text": "Parse tables into data frames\nIf there had been multiple tables on the webpage, then we could parse them all at once using html_table()\nIt returns a list of data frames\n\ntable_list &lt;- html_table(tables)\nstr(table_list)\n\nList of 1\n $ : tibble [200 × 11] (S3: tbl_df/tbl/data.frame)\n  ..$ Rank        : int [1:200] 1 2 3 4 5 6 7 8 9 10 ...\n  ..$ Release     : chr [1:200] \"Inside Out 2\" \"Deadpool & Wolverine\" \"Wicked\" \"Moana 2\" ...\n  ..$ Genre       : chr [1:200] \"-\" \"-\" \"-\" \"-\" ...\n  ..$ Budget      : chr [1:200] \"-\" \"-\" \"-\" \"-\" ...\n  ..$ Running Time: chr [1:200] \"-\" \"-\" \"-\" \"-\" ...\n  ..$ Gross       : chr [1:200] \"$652,980,194\" \"$636,745,858\" \"$432,943,285\" \"$404,017,489\" ...\n  ..$ Theaters    : chr [1:200] \"4,440\" \"4,330\" \"3,888\" \"4,200\" ...\n  ..$ Total Gross : chr [1:200] \"$652,980,194\" \"$636,745,858\" \"$474,983,975\" \"$460,405,297\" ...\n  ..$ Release Date: chr [1:200] \"Jun 14\" \"Jul 26\" \"Nov 22\" \"Nov 27\" ...\n  ..$ Distributor : chr [1:200] \"Walt Disney Studios Motion Pictures\" \"Walt Disney Studios Motion Pictures\" \"Universal Pictures\" \"Walt Disney Studios Motion Pictures\" ...\n  ..$ Estimated   : chr [1:200] \"false\" \"false\" \"false\" \"false\" ..."
   },
   {
     "objectID": "slides/20/slides20.html#scrape-then-wrangle",
@@ -3781,8 +3746,8 @@
     "text": "Scraped data will almost always need wrangling/cleaning\n\nAre numeric columns numeric?\nAre date columns dates?\nAre factor and string columns treated correctly?"
   },
   {
-    "objectID": "slides/20/slides20.html#section-1",
-    "href": "slides/20/slides20.html#section-1",
+    "objectID": "slides/20/slides20.html#section",
+    "href": "slides/20/slides20.html#section",
     "title": "Intro to Web Scraping",
     "section": "",
     "text": "Source: Playing the Whole Game, Kim & Hardin"
@@ -4132,7 +4097,7 @@
     "href": "index.html",
     "title": "Stat 220: Intro to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n1\nM\nMon, Jan 5\n📝complete welcome survey\n\nWelcome + data, R review\n\nslides01 01-example-unvotes\n\n\n\n\n1\nW\nWed, Jan 7\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus and pass syllabus quiz to activate tokens\nGithub + reproducible reports\n\nslides02 02-example-lego Lego report to replicate\n\n\n\n\n1\nF\nFri, Jan 9\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\n\nggplot\n\nslides03 03-ggplot-intro\n\nHW 1\n\n\n2\nM\nMon, Jan 12\n📚 DataViz 17-21 \n\nTheming + Design\n\nslides04 04-customizing-plots\n\n\n\n\n2\nW\nWed, Jan 14\n📚 DataViz 15 \n\nMaps/spatial data\n\nslides05 05-maps\n\nHW 2\n\n\n2\nF\nFri, Jan 16\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\n\nAccesibility for data viz\nslides06\n\n\n\n3\nM\nMon, Jan 19\n📚 R4DS 3.1-3.4 \n\nVerbs\n\nslides07 07-verbs\n\n\n\n\n3\nW\nWed, Jan 21\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \n\nGroups and summarizing Tidy data\n\nslides08 08-dplyr2\n\nHW 3\n\n\n3\nF\nFri, Jan 23\n📚 R4DS 4 \n\nCode style\n\nslides09 09-tidyr\n\n\nLab Quiz 1 \n\n\n\n4\nM\nMon, Jan 26\n📚 R4DS 19.1-19.3\n\nCombining datasets\n\nslides10 10-combining\n\n\nLab Quiz 1 (postponed from 1/23) \n\n\n\n4\nW\nWed, Jan 28\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \n\nImport data and dates/times\n\nslides11 11-import\n\nHW 4\n\n\n4\nF\nFri, Jan 30\n📚 R4DS 16 \n\nWorking with factors\n\nslides12 12-factors\n\nPortfolio 1\n\n\n5\nM\nMon, Feb 2\n📚 R4DS 14  📚 R4DS 15.1-15.5\n\nWorking with strings and Regex\n\nslides13 13-strings-regex\n\n\n\n\n5\nW\nWed, Feb 4\n📚 MDSR 19.2  🌎 Google ngram viewer\n\nIntro to Text Analysis\n\nslides14 14-text-case-study\n\nHW 5\n\n\n5\nF\nFri, Feb 6\n📚 The Trouble with Sentiment Analysis\n\nText Analysis\n\nslides15 15-sentiment\n\nLab Quiz 2\n\n\n6\nM\nMon, Feb 9\n\n🏝️ Midterm Break; no class\n\n\n\n\n6\nW\nWed, Feb 11\n📚 R4DS 25\n\nFunctions\n\nslides16 16-functions Week 6/7 groups\n\n\nPortfolio 2\n\n\n\n6\nF\nFri, Feb 13\n📚 MDSR 7.1-7.3\n\nIteration\n\nslides17 17-iteration\n\nHW6\n\n\n7\nM\nMon, Feb 16\n\nIteration II\n\nslides18 18-iteration-2\n\n\n\n\n7\nW\nWed, Feb 18\n📚What is an API?  📚R4DS 23 (skip case studies)  📝 sign up for a census API key\n\nAPIs\n\nslides19 19-apis\n\n\nHW7 \n\n\n\n7\nF\nFri, Feb 20\n\nScraping I\n\n\nLab Quiz 3 , Final Project Idea Form\n\n\n\n8\nM\nMon, Feb 23\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\n\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nW\nWed, Feb 25\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\n\nIntro to Interactivity\ntbd\n\nHW8 Portfolio 3\n\n\n\n8\nF\nFri, Feb 27\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\n\nShiny 1\ntbd\n\n\n\n9\nM\nMon, Mar 2\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\n\nShiny 2\ntbd\n\n\n\n9\nW\nWed, Mar 4\n\nShiny 3\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, Mar 6\n📚MDSR 15.1-15.4\n\nSQL\ntbd\nPortfolio 4\n\n\n10\nM\nMon, Mar 9\n\nProject Demos\ntbd\n\nMakeup lab quiz (Optional!)\n\n\n10\nW\nWed, Mar 11\n\nProject Demos\ntbd\n\nHW9 Makeup lab quiz (Optional!)\n\n\n\nNA\nFri, Mar 13\n\n🏝️ Reading days\ntbd\n\n\n\n\nNA\nMon, Mar 16\n\nFinal Project Due @ noon\ntbd\nFinal Project",
+    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n1\nM\nMon, Jan 5\n📝complete welcome survey\n\nWelcome + data, R review\n\nslides01 01-example-unvotes\n\n\n\n\n1\nW\nWed, Jan 7\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus and pass syllabus quiz to activate tokens\nGithub + reproducible reports\n\nslides02 02-example-lego Lego report to replicate\n\n\n\n\n1\nF\nFri, Jan 9\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\n\nggplot\n\nslides03 03-ggplot-intro\n\nHW 1\n\n\n2\nM\nMon, Jan 12\n📚 DataViz 17-21 \n\nTheming + Design\n\nslides04 04-customizing-plots\n\n\n\n\n2\nW\nWed, Jan 14\n📚 DataViz 15 \n\nMaps/spatial data\n\nslides05 05-maps\n\nHW 2\n\n\n2\nF\nFri, Jan 16\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\n\nAccesibility for data viz\nslides06\n\n\n\n3\nM\nMon, Jan 19\n📚 R4DS 3.1-3.4 \n\nVerbs\n\nslides07 07-verbs\n\n\n\n\n3\nW\nWed, Jan 21\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \n\nGroups and summarizing Tidy data\n\nslides08 08-dplyr2\n\nHW 3\n\n\n3\nF\nFri, Jan 23\n📚 R4DS 4 \n\nCode style\n\nslides09 09-tidyr\n\n\nLab Quiz 1 \n\n\n\n4\nM\nMon, Jan 26\n📚 R4DS 19.1-19.3\n\nCombining datasets\n\nslides10 10-combining\n\n\nLab Quiz 1 (postponed from 1/23) \n\n\n\n4\nW\nWed, Jan 28\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \n\nImport data and dates/times\n\nslides11 11-import\n\nHW 4\n\n\n4\nF\nFri, Jan 30\n📚 R4DS 16 \n\nWorking with factors\n\nslides12 12-factors\n\nPortfolio 1\n\n\n5\nM\nMon, Feb 2\n📚 R4DS 14  📚 R4DS 15.1-15.5\n\nWorking with strings and Regex\n\nslides13 13-strings-regex\n\n\n\n\n5\nW\nWed, Feb 4\n📚 MDSR 19.2  🌎 Google ngram viewer\n\nIntro to Text Analysis\n\nslides14 14-text-case-study\n\nHW 5\n\n\n5\nF\nFri, Feb 6\n📚 The Trouble with Sentiment Analysis\n\nText Analysis\n\nslides15 15-sentiment\n\nLab Quiz 2\n\n\n6\nM\nMon, Feb 9\n\n🏝️ Midterm Break; no class\n\n\n\n\n6\nW\nWed, Feb 11\n📚 R4DS 25\n\nFunctions\n\nslides16 16-functions Week 6/7 groups\n\n\nPortfolio 2\n\n\n\n6\nF\nFri, Feb 13\n📚 MDSR 7.1-7.3\n\nIteration\n\nslides17 17-iteration\n\nHW6\n\n\n7\nM\nMon, Feb 16\n\nIteration II\n\nslides18 18-iteration-2\n\n\n\n\n7\nW\nWed, Feb 18\n📚What is an API?  📚R4DS 23 (skip case studies)  📝 sign up for a census API key\n\nAPIs\n\nslides19 19-apis\n\n\nHW7 \n\n\n\n7\nF\nFri, Feb 20\n\nScraping I\n\nslides20 \n\n\nLab Quiz 3 , Final Project Idea Form\n\n\n\n8\nM\nMon, Feb 23\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\n\nScraping II\ntbd\nFinal Project Ranking Form\n\n\n8\nW\nWed, Feb 25\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\n\nIntro to Interactivity\ntbd\n\nHW8 Portfolio 3\n\n\n\n8\nF\nFri, Feb 27\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\n\nShiny 1\ntbd\n\n\n\n9\nM\nMon, Mar 2\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\n\nShiny 2\ntbd\n\n\n\n9\nW\nWed, Mar 4\n\nShiny 3\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, Mar 6\n📚MDSR 15.1-15.4\n\nSQL\ntbd\nPortfolio 4\n\n\n10\nM\nMon, Mar 9\n\nProject Demos\ntbd\n\nMakeup lab quiz (Optional!)\n\n\n10\nW\nWed, Mar 11\n\nProject Demos\ntbd\n\nHW9 Makeup lab quiz (Optional!)\n\n\n\nNA\nFri, Mar 13\n\n🏝️ Reading days\ntbd\n\n\n\n\nNA\nMon, Mar 16\n\nFinal Project Due @ noon\ntbd\nFinal Project",
     "crumbs": [
       "Course information",
       "Schedule"
