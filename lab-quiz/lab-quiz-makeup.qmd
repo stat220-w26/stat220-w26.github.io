@@ -1,0 +1,79 @@
+---
+title: Makeup Lab Quiz Info
+author: Stat220 -- W25
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(ggthemes)
+library(nycflights23)
+```
+
+There will be a **make-up lab quiz** offered during Week 10. You can take this in-class makeup and replace your lowest in-class lab quiz (provided your score on the makeup is higher). There will be no take-home portion. 
+
+ - Must schedule a 30 minute block outside of class during the following times: 
+    - Monday 12:30-2:30pm
+    - Tuesday 10:30a-12p
+    - Wednesday 9-11am
+    
+
+# Guidelines
+
+This is a *closed note*, *closed internet resources*, *closed other people* lab quiz. I want to see what's in your brain! You may use the cheat sheets provided by me, but otherwise you may not use any resources.
+
+The lab quizzes are not written to be tricky or very difficult. If you've been completing the in-class activities and the homework, and putting the time and effort in to understand them, you should do well on the lab quizzes.
+
+# Format
+
+The reason I give lab quizzes is because your life will be easier if you know how to do basic tasks in R "on the fly". I also want to see what you **know** and not just what you can do with access to your resources. 
+
+1. The required in-class portion ("first pass")
+  - Pencil-and-paper questions
+  - Cheat sheets provided by me but no other resources
+  - Designed to assess what you know "on the fly" without access to resources
+
+
+# Skills
+
+All skills from the first 3 lab quizzes are "fair game" for this makeup, along with the following additional topics: 
+
+## APIs and Web Scraping
+
+- Know and explain the difference between using an API and web scraping
+- Read *simple* {httr} requests and identify specific portions
+- Explain HTML scraping code
+
+## Shiny
+
+TBD
+
+## SQL
+
+TBD
+
+# Grading
+
+For the in-class portion, each question is worth 1 point, graded as "successful" (almost entirely correct), "not successful" (missing a key component), or "half credit" (mostly correct). 
+
+# Practice Questions
+
+## Data
+
+The `nycflights23` package contains information about all flights that departed from NYC (e.g. EWR, JFK and LGA) in 2023. The main data is in the `flights` data frame, but there are additional data sets which may help understand what causes delays, specifically:
+
+-   `weather`: hourly meteorological data for each airport
+-   `planes`: construction information about each plane
+-   `airports`: airport names and locations
+-   `airlines`: translation between two letter carrier codes and names
+
+
+```{r}
+library(tidyverse)
+library(nycflights23)
+q <- 0
+```
+
+## Questions
+
+TBD
