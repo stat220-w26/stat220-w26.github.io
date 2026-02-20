@@ -43,8 +43,7 @@ This makeup will only include a required in-class portion:
 ## APIs and Web Scraping
 
 - Know and explain the difference between using an API and web scraping
-- Read *simple* {httr} requests and identify specific portions
-- Explain HTML scraping code
+- Explain *simple* HTML scraping code
 
 ## Shiny
 

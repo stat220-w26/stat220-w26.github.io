@@ -43,49 +43,6 @@ theme_set(slides_theme)
 
 2. Screen scraping:<br> extract data from source code of website, with html parser (easy) or regular expression matching (less easy).
 
-## API `httr` request from last class
-
-```{r}
-#| echo: true
-#| eval: false
-request("https://api.census.gov/data") %>% 
-    req_url_path_append("2019") %>% 
-    req_url_path_append("acs") %>% 
-    req_url_path_append("acs1") %>% 
-    req_url_query(get = c("NAME", "B02015_009E", "B02015_009M"), 
-                  `for` = I("state:*"), 
-                  key = census_api_key, 
-                  .multi = "comma")
-```
-
-```
-<httr2_request>
-GET
-https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&for=state:*&key=4a2344XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-Body: empty
-```
-
-Can use your browser to go to the URL address and see what will be returned
-
-
-## 
-
-When debugging, you can also test a single URL and build up your pipeline from there
-
-```{r}
-#| echo: true
-#| eval: false
-request("https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&for=state:*") 
-
-```
-
-```
-<httr2_request>
-GET
-https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&for=state:*
-Body: empty
-```
-
 ## API vs Screen Scraping
 
 ::::: columns
@@ -142,11 +99,7 @@ But not Facebook
 paths_allowed("http://www.facebook.com")
 ```
 
-. . . 
 
-::: {.task}
-What websites have data about *you*? Think of 1-2 and see if scraping is allowed on those sites.
-:::
 
 ## Hypertext Markup Language
 
@@ -205,18 +158,7 @@ library(rvest)
 :::
 :::::
 
-## Core `rvest` functions {.smaller}
 
-Function       | Description
----------------|---------------------------------------------
-`read_html`    | Read HTML data from a url or character string
-`html_element` | Select a specified element from HTML document
-`html_elements`| Select specified elements from HTML document
-`html_table`   | Parse an HTML table into a data frame
-`html_text`    | Extract tag pairs' content
-`html_name`    | Extract tags' names
-`html_attrs`   | Extract all of each tag's attributes
-`html_attr`    | Extract tags' attribute value by name
 
 ## Example: box office mojo
 
@@ -275,15 +217,6 @@ tables <- page %>% html_elements("table")
 str(tables)
 ```
 
-## `html_element()` vs `html_elements()` 
-
-* `html_elements()` **returns all matching elements** beneath any of the inputs, flattening results into a new node set
-
-* `html_element()` **always returns a vector the same length as the input**, using a "missing" element where needed.
-
-. . . 
-
-Typically, we'll use `html_elements` to get the overall structure for our data, followed by something else (sometimes `html_element`, sometimes `html_table`) to access what we need
 
 ## Check that it's the right table
 
@@ -308,16 +241,6 @@ top2024 <- html_table(tables[[1]])
 glimpse(top2024)
 ```
 
-## Parse tables into data frames
-
-If there had been multiple tables on the webpage, then we could parse them all at once using `html_table()`
-
-It returns a list of data frames
-
-```{r}
-table_list <- html_table(tables)
-str(table_list)
-```
 
 ## Scrape then wrangle
 
