@@ -344,7 +344,7 @@ Prof Amanda Luby
 </tr>
 </tbody>
 </table></section><section id="example-box-office-mojo" class="slide level2"><h2>Example: box office mojo</h2>
-<p><a href="https://www.boxofficemojo.com/year/2024/" class="uri">https://www.boxofficemojo.com/year/2024/</a></p>
+<p><a href="https://www.boxofficemojo.com/year/2026/" class="uri">https://www.boxofficemojo.com/year/2026/</a></p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -359,13 +359,13 @@ Prof Amanda Luby
 </div></div>
 </section><section id="read-html-into-r" class="slide level2"><h2>Read HTML into R</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"https://www.boxofficemojo.com/year/2024/"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>page <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"https://www.boxofficemojo.com/year/2026/"</span>)</span>
 <span id="cb7-2"><a></a>page</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{html_document}
 &lt;html class="a-no-js" data-19ax5a9jf="dingo"&gt;
 [1] &lt;head&gt;\n&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8 ...
-[2] &lt;body id="body" class="mojo-page-id-yld a-m-us a-aui_72554-c a-aui_killsw ...</code></pre>
+[2] &lt;body id="body" class="mojo-page-id-yld a-m-us a-aui_72554-c a-aui_templa ...</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">str</span>(page)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -403,27 +403,27 @@ Prof Amanda Luby
 </div>
 </section><section id="parse-a-table-into-a-data-frametibble" class="slide level2"><h2>Parse a table into a data frame/tibble</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>top2024 <span class="ot">&lt;-</span> <span class="fu">html_table</span>(tables[[<span class="dv">1</span>]])</span>
-<span id="cb13-2"><a></a><span class="fu">glimpse</span>(top2024)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>top2026 <span class="ot">&lt;-</span> <span class="fu">html_table</span>(tables[[<span class="dv">1</span>]])</span>
+<span id="cb13-2"><a></a><span class="fu">glimpse</span>(top2026)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 200
+<pre><code>Rows: 154
 Columns: 11
 $ Rank           &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
-$ Release        &lt;chr&gt; "Inside Out 2", "Deadpool &amp; Wolverine", "Wicked", "Moan…
+$ Release        &lt;chr&gt; "Avatar: Fire and Ash", "Zootopia 2", "The Housemaid", …
 $ Genre          &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
 $ Budget         &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
 $ `Running Time` &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
-$ Gross          &lt;chr&gt; "$652,980,194", "$636,745,858", "$432,943,285", "$404,0…
-$ Theaters       &lt;chr&gt; "4,440", "4,330", "3,888", "4,200", "4,449", "4,575", "…
-$ `Total Gross`  &lt;chr&gt; "$652,980,194", "$636,745,858", "$474,983,975", "$460,4…
-$ `Release Date` &lt;chr&gt; "Jun 14", "Jul 26", "Nov 22", "Nov 27", "Jul 3", "Sep 6…
-$ Distributor    &lt;chr&gt; "Walt Disney Studios Motion Pictures", "Walt Disney Stu…
+$ Gross          &lt;chr&gt; "$149,087,531", "$86,017,976", "$69,901,528", "$60,012,…
+$ Theaters       &lt;chr&gt; "3,835", "4,000", "3,123", "3,682", "3,863", "2,887", "…
+$ `Total Gross`  &lt;chr&gt; "$388,033,850", "$410,506,721", "$121,852,280", "$60,01…
+$ `Release Date` &lt;chr&gt; "Dec 19", "Nov 26", "Dec 19", "Feb 13", "Feb 13", "Dec …
+$ Distributor    &lt;chr&gt; "20th Century Studios", "Walt Disney Studios Motion Pic…
 $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false", "…</code></pre>
 </div>
 </div>
 </section><section id="scrape-then-wrangle" class="slide level2"><h2>Scrape then wrangle</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>top2024 <span class="ot">&lt;-</span> top2024 <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>top2026 <span class="ot">&lt;-</span> top2026 <span class="sc">%&gt;%</span></span>
 <span id="cb15-2"><a></a>  <span class="fu">mutate</span>(</span>
 <span id="cb15-3"><a></a>    <span class="at">Gross =</span> <span class="fu">parse_number</span>(Gross),</span>
 <span id="cb15-4"><a></a>    <span class="at">Theaters =</span> <span class="fu">parse_number</span>(Theaters),</span>
@@ -431,21 +431,21 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 <span id="cb15-6"><a></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb15-7"><a></a>  <span class="fu">separate</span>(<span class="st">`</span><span class="at">Release Date</span><span class="st">`</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"Month"</span>, <span class="st">"Day"</span>))</span>
 <span id="cb15-8"><a></a></span>
-<span id="cb15-9"><a></a><span class="fu">glimpse</span>(top2024)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-9"><a></a><span class="fu">glimpse</span>(top2026)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 200
+<pre><code>Rows: 154
 Columns: 12
 $ Rank           &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
-$ Release        &lt;chr&gt; "Inside Out 2", "Deadpool &amp; Wolverine", "Wicked", "Moan…
+$ Release        &lt;chr&gt; "Avatar: Fire and Ash", "Zootopia 2", "The Housemaid", …
 $ Genre          &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
 $ Budget         &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
 $ `Running Time` &lt;chr&gt; "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", …
-$ Gross          &lt;dbl&gt; 652980194, 636745858, 432943285, 404017489, 361004205, …
-$ Theaters       &lt;dbl&gt; 4440, 4330, 3888, 4200, 4449, 4575, 4074, 4170, 3948, 4…
-$ `Total Gross`  &lt;dbl&gt; 652980194, 636745858, 474983975, 460405297, 361004205, …
-$ Month          &lt;chr&gt; "Jun", "Jul", "Nov", "Nov", "Jul", "Sep", "Mar", "Jul",…
-$ Day            &lt;chr&gt; "14", "26", "22", "27", "3", "6", "1", "19", "29", "8",…
-$ Distributor    &lt;chr&gt; "Walt Disney Studios Motion Pictures", "Walt Disney Stu…
+$ Gross          &lt;dbl&gt; 149087531, 86017976, 69901528, 60012668, 58301328, 5602…
+$ Theaters       &lt;dbl&gt; 3835, 4000, 3123, 3682, 3863, 2887, 3475, 3509, 2964, 3…
+$ `Total Gross`  &lt;dbl&gt; 388033850, 410506721, 121852280, 60012668, 58301328, 95…
+$ Month          &lt;chr&gt; "Dec", "Nov", "Dec", "Feb", "Feb", "Dec", "Jan", "Dec",…
+$ Day            &lt;chr&gt; "19", "26", "19", "13", "13", "19", "30", "25", "9", "1…
+$ Distributor    &lt;chr&gt; "20th Century Studios", "Walt Disney Studios Motion Pic…
 $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false", "…</code></pre>
 </div>
 </div>
@@ -463,7 +463,7 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 <aside><div>
 <p>Source: <a href="https://www.tandfonline.com/doi/full/10.1080/10691898.2020.1799728#abstract">Playing the Whole Game</a>, Kim &amp; Hardin</p>
 </div></aside></section><section id="data-arent-always-stored-as-tables" class="slide level2"><h2>Data aren’t always stored as tables</h2>
-<p><a href="https://www.carleton.edu/catalog/current/search/?subject=STAT&amp;term=25WI" class="uri">https://www.carleton.edu/catalog/current/search/?subject=STAT&amp;term=25WI</a></p>
+<p><a href="https://www.carleton.edu/catalog/current/search/?subject=STAT&amp;term=26SP" class="uri">https://www.carleton.edu/catalog/current/search/?subject=STAT&amp;term=26SP</a></p>
 <p><img data-src="../img/stat220-catalog-listing.png"></p>
 </section><section id="where-is-the-data-stored" class="slide level2"><h2>Where is the data stored?</h2>
 <div class="task">
@@ -479,7 +479,7 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_d584e5e2" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_667f844f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -489,13 +489,13 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 </div>
 </section><section id="section-1" class="slide level2"><h2></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>listings <span class="ot">=</span> <span class="fu">read_html</span>(<span class="st">"https://www.carleton.edu/catalog/current/search/?subject=STAT&amp;term=25WI"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>listings <span class="ot">=</span> <span class="fu">read_html</span>(<span class="st">"https://www.carleton.edu/catalog/current/search/?subject=STAT&amp;term=26SP"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>listings <span class="sc">|&gt;</span></span>
 <span id="cb18-2"><a></a>  <span class="fu">html_elements</span>(<span class="st">"h3"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{xml_nodeset (21)}
+<pre><code>{xml_nodeset (19)}
  [1] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
  [2] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
  [3] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
@@ -504,8 +504,8 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
  [6] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
  [7] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
  [8] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
- [9] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
-[10] &lt;h3 class="courseSearchResultsHeading relatedCourses" id="relatedCourses ...
+ [9] &lt;h3 class="courseSearchResultsHeading relatedCourses" id="relatedCourses ...
+[10] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
 [11] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
 [12] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
 [13] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
@@ -513,10 +513,8 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 [15] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
 [16] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
 [17] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
-[18] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
-[19] &lt;h3 class="courseTitleBar"&gt;\n            &lt;span class="courseNumber" data ...
-[20] &lt;h3&gt;Liberal Arts Requirements&lt;/h3&gt;
-...</code></pre>
+[18] &lt;h3&gt;Liberal Arts Requirements&lt;/h3&gt;
+[19] &lt;h3&gt;Other Course Tags&lt;/h3&gt;</code></pre>
 </div>
 </div>
 </section><section id="section-2" class="slide level2"><h2></h2>
@@ -525,27 +523,25 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 <span id="cb20-2"><a></a>  <span class="fu">html_elements</span>(<span class="st">"h3"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb20-3"><a></a>  <span class="fu">html_text</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "\n            STAT 120\n            Introduction to Statistics\n            \n                            6 credits\n                        \n        "            
- [2] "\n            STAT 220\n            Introduction to Data Science\n            \n                            6 credits\n                        \n        "          
- [3] "\n            STAT 230\n            Applied Regression Analysis\n            \n                            6 credits\n                        \n        "           
- [4] "\n            STAT 250\n            Introduction to Statistical Inference\n            \n                            6 credits\n                        \n        " 
- [5] "\n            STAT 285\n            Statistical Consulting\n            \n                            2 credits\n                        \n        "                
- [6] "\n            STAT 330\n            Advanced Statistical Modeling\n            \n                            6 credits\n                        \n        "         
- [7] "\n            STAT 394\n            Directed Research in Statistics\n            \n                            1 – 6 credits\n                        \n        "   
- [8] "\n            STAT 399\n            Senior Seminar\n            \n                            6 credits\n                        \n        "                        
- [9] "\n            STAT 400\n            Integrative Exercise\n            \n                            3 – 6 credits\n                        \n        "              
-[10] "Related Courses"                                                                                                                                                    
-[11] "\n            CS 111\n            Introduction to Computer Science\n            \n                            6 credits\n                        \n        "        
-[12] "\n            CS 314\n            Data Visualization\n            \n                            6 credits\n                        \n        "                      
-[13] "\n            MATH 101\n            Calculus with Problem Solving\n            \n                            6 credits\n                        \n        "         
-[14] "\n            MATH 111\n            Introduction to Calculus\n            \n                            6 credits\n                        \n        "              
-[15] "\n            MATH 120\n            Calculus 2\n            \n                            6 credits\n                        \n        "                            
-[16] "\n            MATH 210\n            Calculus 3\n            \n                            6 credits\n                        \n        "                            
-[17] "\n            MATH 211\n            Introduction to Multivariable Calculus\n            \n                            6 credits\n                        \n        "
-[18] "\n            MATH 232\n            Linear Algebra\n            \n                            6 credits\n                        \n        "                        
-[19] "\n            MATH 240\n            Probability\n            \n                            6 credits\n                        \n        "                           
-[20] "Liberal Arts Requirements"                                                                                                                                          
-[21] "Other Course Tags"                                                                                                                                                  </code></pre>
+<pre><code> [1] "\n            STAT 120\n            Introduction to Statistics\n            \n                            6 credits\n                        \n        "                                   
+ [2] "\n            STAT 220\n            Introduction to Data Science\n            \n                            6 credits\n                        \n        "                                 
+ [3] "\n            STAT 230\n            Applied Regression Analysis\n            \n                            6 credits\n                        \n        "                                  
+ [4] "\n            STAT 250\n            Introduction to Statistical Inference\n            \n                            6 credits\n                        \n        "                        
+ [5] "\n            STAT 285\n            Statistical Consulting\n            \n                            2 credits\n                        \n        "                                       
+ [6] "\n            STAT 297\n            Assessment and Communication of External Statistical Activity\n            \n                            1 credits\n                        \n        "
+ [7] "\n            STAT 330\n            Advanced Statistical Modeling\n            \n                            6 credits\n                        \n        "                                
+ [8] "\n            STAT 400\n            Integrative Exercise\n            \n                            3 credits\n                        \n        "                                         
+ [9] "Related Courses"                                                                                                                                                                           
+[10] "\n            CS 111\n            Introduction to Computer Science\n            \n                            6 credits\n                        \n        "                               
+[11] "\n            CS 314*\n            Data Visualization (*=Junior Seminar)\n            \n                            6 credits\n                        \n        "                         
+[12] "\n            CS 362\n            Computational Biology\n            \n                            6 credits\n                        \n        "                                          
+[13] "\n            MATH 120\n            Calculus 2\n            \n                            6 credits\n                        \n        "                                                   
+[14] "\n            MATH 134\n            Linear Algebra with Applications\n            \n                            6 credits\n                        \n        "                             
+[15] "\n            MATH 210\n            Calculus 3\n            \n                            6 credits\n                        \n        "                                                   
+[16] "\n            MATH 232\n            Linear Algebra\n            \n                            6 credits\n                        \n        "                                               
+[17] "\n            MATH 271\n            Optimization\n            \n                            6 credits\n                        \n        "                                                 
+[18] "Liberal Arts Requirements"                                                                                                                                                                 
+[19] "Other Course Tags"                                                                                                                                                                         </code></pre>
 </div>
 </div>
 </section><section id="section-3" class="slide level2"><h2></h2>
@@ -555,27 +551,25 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 <span id="cb22-3"><a></a>  <span class="fu">html_text</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb22-4"><a></a>  <span class="fu">str_squish</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "STAT 120 Introduction to Statistics 6 credits"            
- [2] "STAT 220 Introduction to Data Science 6 credits"          
- [3] "STAT 230 Applied Regression Analysis 6 credits"           
- [4] "STAT 250 Introduction to Statistical Inference 6 credits" 
- [5] "STAT 285 Statistical Consulting 2 credits"                
- [6] "STAT 330 Advanced Statistical Modeling 6 credits"         
- [7] "STAT 394 Directed Research in Statistics 1 – 6 credits"   
- [8] "STAT 399 Senior Seminar 6 credits"                        
- [9] "STAT 400 Integrative Exercise 3 – 6 credits"              
-[10] "Related Courses"                                          
-[11] "CS 111 Introduction to Computer Science 6 credits"        
-[12] "CS 314 Data Visualization 6 credits"                      
-[13] "MATH 101 Calculus with Problem Solving 6 credits"         
-[14] "MATH 111 Introduction to Calculus 6 credits"              
-[15] "MATH 120 Calculus 2 6 credits"                            
-[16] "MATH 210 Calculus 3 6 credits"                            
-[17] "MATH 211 Introduction to Multivariable Calculus 6 credits"
-[18] "MATH 232 Linear Algebra 6 credits"                        
-[19] "MATH 240 Probability 6 credits"                           
-[20] "Liberal Arts Requirements"                                
-[21] "Other Course Tags"                                        </code></pre>
+<pre><code> [1] "STAT 120 Introduction to Statistics 6 credits"                                   
+ [2] "STAT 220 Introduction to Data Science 6 credits"                                 
+ [3] "STAT 230 Applied Regression Analysis 6 credits"                                  
+ [4] "STAT 250 Introduction to Statistical Inference 6 credits"                        
+ [5] "STAT 285 Statistical Consulting 2 credits"                                       
+ [6] "STAT 297 Assessment and Communication of External Statistical Activity 1 credits"
+ [7] "STAT 330 Advanced Statistical Modeling 6 credits"                                
+ [8] "STAT 400 Integrative Exercise 3 credits"                                         
+ [9] "Related Courses"                                                                 
+[10] "CS 111 Introduction to Computer Science 6 credits"                               
+[11] "CS 314* Data Visualization (*=Junior Seminar) 6 credits"                         
+[12] "CS 362 Computational Biology 6 credits"                                          
+[13] "MATH 120 Calculus 2 6 credits"                                                   
+[14] "MATH 134 Linear Algebra with Applications 6 credits"                             
+[15] "MATH 210 Calculus 3 6 credits"                                                   
+[16] "MATH 232 Linear Algebra 6 credits"                                               
+[17] "MATH 271 Optimization 6 credits"                                                 
+[18] "Liberal Arts Requirements"                                                       
+[19] "Other Course Tags"                                                               </code></pre>
 </div>
 </div>
 </section><section><section id="css-selectors" class="title-slide slide level1 maize center"><h1>CSS selectors</h1>
@@ -587,25 +581,23 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>listings <span class="sc">%&gt;%</span> </span>
 <span id="cb24-2"><a></a>  <span class="fu">html_elements</span>(<span class="st">".courseNumber"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{xml_nodeset (18)}
- [1] &lt;span class="courseNumber" data-terms="25/WI"&gt;STAT 120&lt;/span&gt;
- [2] &lt;span class="courseNumber" data-terms="25/WI"&gt;STAT 220&lt;/span&gt;
- [3] &lt;span class="courseNumber" data-terms="25/WI"&gt;STAT 230&lt;/span&gt;
- [4] &lt;span class="courseNumber" data-terms="25/WI"&gt;STAT 250&lt;/span&gt;
- [5] &lt;span class="courseNumber" data-terms="25/WI"&gt;STAT 285&lt;/span&gt;
- [6] &lt;span class="courseNumber" data-terms="25/WI"&gt;STAT 330&lt;/span&gt;
- [7] &lt;span class="courseNumber" data-terms="25/WI 25/FA 26/WI 26/SP"&gt;STAT 394 ...
- [8] &lt;span class="courseNumber" data-terms="25/WI"&gt;STAT 399&lt;/span&gt;
- [9] &lt;span class="courseNumber" data-terms="25/WI"&gt;STAT 400&lt;/span&gt;
-[10] &lt;span class="courseNumber" data-terms="25/WI"&gt;CS 111&lt;/span&gt;
-[11] &lt;span class="courseNumber" data-terms="25/WI"&gt;CS 314&lt;/span&gt;
-[12] &lt;span class="courseNumber" data-terms="25/WI"&gt;MATH 101&lt;/span&gt;
-[13] &lt;span class="courseNumber" data-terms="25/WI"&gt;MATH 111&lt;/span&gt;
-[14] &lt;span class="courseNumber" data-terms="25/WI"&gt;MATH 120&lt;/span&gt;
-[15] &lt;span class="courseNumber" data-terms="25/WI"&gt;MATH 210&lt;/span&gt;
-[16] &lt;span class="courseNumber" data-terms="25/WI"&gt;MATH 211&lt;/span&gt;
-[17] &lt;span class="courseNumber" data-terms="25/WI"&gt;MATH 232&lt;/span&gt;
-[18] &lt;span class="courseNumber" data-terms="25/WI"&gt;MATH 240&lt;/span&gt;</code></pre>
+<pre><code>{xml_nodeset (16)}
+ [1] &lt;span class="courseNumber" data-terms="26/SP"&gt;STAT 120&lt;/span&gt;
+ [2] &lt;span class="courseNumber" data-terms="26/SP"&gt;STAT 220&lt;/span&gt;
+ [3] &lt;span class="courseNumber" data-terms="26/SP"&gt;STAT 230&lt;/span&gt;
+ [4] &lt;span class="courseNumber" data-terms="26/SP"&gt;STAT 250&lt;/span&gt;
+ [5] &lt;span class="courseNumber" data-terms="26/SP"&gt;STAT 285&lt;/span&gt;
+ [6] &lt;span class="courseNumber" data-terms="26/SP"&gt;STAT 297&lt;/span&gt;
+ [7] &lt;span class="courseNumber" data-terms="26/SP"&gt;STAT 330&lt;/span&gt;
+ [8] &lt;span class="courseNumber" data-terms="26/SP"&gt;STAT 400&lt;/span&gt;
+ [9] &lt;span class="courseNumber" data-terms="26/SP"&gt;CS 111&lt;/span&gt;
+[10] &lt;span class="courseNumber" data-terms="26/SP"&gt;CS 314*&lt;/span&gt;
+[11] &lt;span class="courseNumber" data-terms="26/SP"&gt;CS 362&lt;/span&gt;
+[12] &lt;span class="courseNumber" data-terms="26/SP"&gt;MATH 120&lt;/span&gt;
+[13] &lt;span class="courseNumber" data-terms="26/SP"&gt;MATH 134&lt;/span&gt;
+[14] &lt;span class="courseNumber" data-terms="26/SP"&gt;MATH 210&lt;/span&gt;
+[15] &lt;span class="courseNumber" data-terms="26/SP"&gt;MATH 232&lt;/span&gt;
+[16] &lt;span class="courseNumber" data-terms="26/SP"&gt;MATH 271&lt;/span&gt;</code></pre>
 </div>
 </div>
 </section><section id="scraping-coursenumbers" class="slide level2"><h2>Scraping courseNumbers</h2>
@@ -614,9 +606,9 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 <span id="cb26-2"><a></a>  <span class="fu">html_elements</span>(<span class="st">".courseNumber"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb26-3"><a></a>  <span class="fu">html_text</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "STAT 120" "STAT 220" "STAT 230" "STAT 250" "STAT 285" "STAT 330"
- [7] "STAT 394" "STAT 399" "STAT 400" "CS 111"   "CS 314"   "MATH 101"
-[13] "MATH 111" "MATH 120" "MATH 210" "MATH 211" "MATH 232" "MATH 240"</code></pre>
+<pre><code> [1] "STAT 120" "STAT 220" "STAT 230" "STAT 250" "STAT 285" "STAT 297"
+ [7] "STAT 330" "STAT 400" "CS 111"   "CS 314*"  "CS 362"   "MATH 120"
+[13] "MATH 134" "MATH 210" "MATH 232" "MATH 271"</code></pre>
 </div>
 </div>
 </section><section id="scraping-credits" class="slide level2"><h2>Scraping credits</h2>
@@ -625,24 +617,22 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 <span id="cb28-2"><a></a>  <span class="fu">html_elements</span>(<span class="st">".credits"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb28-3"><a></a>  <span class="fu">html_text</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "\n                            6 credits\n                        "    
- [2] "\n                            6 credits\n                        "    
- [3] "\n                            6 credits\n                        "    
- [4] "\n                            6 credits\n                        "    
- [5] "\n                            2 credits\n                        "    
- [6] "\n                            6 credits\n                        "    
- [7] "\n                            1 – 6 credits\n                        "
- [8] "\n                            6 credits\n                        "    
- [9] "\n                            3 – 6 credits\n                        "
-[10] "\n                            6 credits\n                        "    
-[11] "\n                            6 credits\n                        "    
-[12] "\n                            6 credits\n                        "    
-[13] "\n                            6 credits\n                        "    
-[14] "\n                            6 credits\n                        "    
-[15] "\n                            6 credits\n                        "    
-[16] "\n                            6 credits\n                        "    
-[17] "\n                            6 credits\n                        "    
-[18] "\n                            6 credits\n                        "    </code></pre>
+<pre><code> [1] "\n                            6 credits\n                        "
+ [2] "\n                            6 credits\n                        "
+ [3] "\n                            6 credits\n                        "
+ [4] "\n                            6 credits\n                        "
+ [5] "\n                            2 credits\n                        "
+ [6] "\n                            1 credits\n                        "
+ [7] "\n                            6 credits\n                        "
+ [8] "\n                            3 credits\n                        "
+ [9] "\n                            6 credits\n                        "
+[10] "\n                            6 credits\n                        "
+[11] "\n                            6 credits\n                        "
+[12] "\n                            6 credits\n                        "
+[13] "\n                            6 credits\n                        "
+[14] "\n                            6 credits\n                        "
+[15] "\n                            6 credits\n                        "
+[16] "\n                            6 credits\n                        "</code></pre>
 </div>
 </div>
 </section><section id="scraping-credits-1" class="slide level2"><h2>Scraping credits</h2>
@@ -652,45 +642,41 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 <span id="cb30-3"><a></a>  <span class="fu">html_text</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb30-4"><a></a>  <span class="fu">str_squish</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "6 credits"     "6 credits"     "6 credits"     "6 credits"    
- [5] "2 credits"     "6 credits"     "1 – 6 credits" "6 credits"    
- [9] "3 – 6 credits" "6 credits"     "6 credits"     "6 credits"    
-[13] "6 credits"     "6 credits"     "6 credits"     "6 credits"    
-[17] "6 credits"     "6 credits"    </code></pre>
+<pre><code> [1] "6 credits" "6 credits" "6 credits" "6 credits" "2 credits" "1 credits"
+ [7] "6 credits" "3 credits" "6 credits" "6 credits" "6 credits" "6 credits"
+[13] "6 credits" "6 credits" "6 credits" "6 credits"</code></pre>
 </div>
 </div>
 </section><section id="section-4" class="slide level2"><h2></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>stat_winter2025 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>stat_sp26 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb32-2"><a></a>  <span class="at">course =</span> listings <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">".courseNumber"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(),</span>
 <span id="cb32-3"><a></a>  <span class="at">title =</span> listings <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">".courseTitle"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>(),</span>
 <span id="cb32-4"><a></a>  <span class="at">credits =</span> listings <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">".credits"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>() <span class="sc">%&gt;%</span> <span class="fu">str_squish</span>(),</span>
 <span id="cb32-5"><a></a>  <span class="at">description =</span> listings <span class="sc">%&gt;%</span> <span class="fu">html_elements</span>(<span class="st">".courseDetailWrapper"</span>) <span class="sc">%&gt;%</span> <span class="fu">html_text</span>() <span class="sc">%&gt;%</span> <span class="fu">str_squish</span>()</span>
 <span id="cb32-6"><a></a>)</span>
 <span id="cb32-7"><a></a></span>
-<span id="cb32-8"><a></a>stat_winter2025</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb32-8"><a></a>stat_sp26</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 18 × 4
-   course   title                                  credits       description    
-   &lt;chr&gt;    &lt;chr&gt;                                  &lt;chr&gt;         &lt;chr&gt;          
- 1 STAT 120 Introduction to Statistics             6 credits     Introduction t…
- 2 STAT 220 Introduction to Data Science           6 credits     This course wi…
- 3 STAT 230 Applied Regression Analysis            6 credits     A second cours…
- 4 STAT 250 Introduction to Statistical Inference  6 credits     Introduction t…
- 5 STAT 285 Statistical Consulting                 2 credits     Students will …
- 6 STAT 330 Advanced Statistical Modeling          6 credits     Topics include…
- 7 STAT 394 Directed Research in Statistics        1 – 6 credits Students work …
- 8 STAT 399 Senior Seminar                         6 credits     As part of the…
- 9 STAT 400 Integrative Exercise                   3 – 6 credits Either a super…
-10 CS 111   Introduction to Computer Science       6 credits     This course wi…
-11 CS 314   Data Visualization                     6 credits     Understanding …
-12 MATH 101 Calculus with Problem Solving          6 credits     An introductio…
-13 MATH 111 Introduction to Calculus               6 credits     An introductio…
-14 MATH 120 Calculus 2                             6 credits     Inverse functi…
-15 MATH 210 Calculus 3                             6 credits     Vectors, curve…
-16 MATH 211 Introduction to Multivariable Calculus 6 credits     Vectors, curve…
-17 MATH 232 Linear Algebra                         6 credits     Linear algebra…
-18 MATH 240 Probability                            6 credits     Introduction t…</code></pre>
+<pre><code># A tibble: 16 × 4
+   course   title                                            credits description
+   &lt;chr&gt;    &lt;chr&gt;                                            &lt;chr&gt;   &lt;chr&gt;      
+ 1 STAT 120 Introduction to Statistics                       6 cred… "Introduct…
+ 2 STAT 220 Introduction to Data Science                     6 cred… "This cour…
+ 3 STAT 230 Applied Regression Analysis                      6 cred… "A second …
+ 4 STAT 250 Introduction to Statistical Inference            6 cred… "Introduct…
+ 5 STAT 285 Statistical Consulting                           2 cred… "Students …
+ 6 STAT 297 Assessment and Communication of External Statis… 1 cred… "An indepe…
+ 7 STAT 330 Advanced Statistical Modeling                    6 cred… "Topics in…
+ 8 STAT 400 Integrative Exercise                             3 cred… "A supervi…
+ 9 CS 111   Introduction to Computer Science                 6 cred… "This cour…
+10 CS 314*  Data Visualization (*=Junior Seminar)            6 cred… "Though th…
+11 CS 362   Computational Biology                            6 cred… "Recent ad…
+12 MATH 120 Calculus 2                                       6 cred… "Inverse f…
+13 MATH 134 Linear Algebra with Applications                 6 cred… "Linear al…
+14 MATH 210 Calculus 3                                       6 cred… "Vectors, …
+15 MATH 232 Linear Algebra                                   6 cred… "Linear al…
+16 MATH 271 Optimization                                     6 cred… "Optimizat…</code></pre>
 </div>
 </div>
 </section><section id="what-about-sections" class="slide level2"><h2>What about sections?</h2>
@@ -701,21 +687,17 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 <span id="cb34-4"><a></a>  <span class="fu">html_text</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb34-5"><a></a>  <span class="fu">str_squish</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "STAT 120.01 Winter 2025" "STAT 120.02 Winter 2025"
- [3] "STAT 120.03 Winter 2025" "STAT 220.00 Winter 2025"
- [5] "STAT 230.00 Winter 2025" "STAT 250.00 Winter 2025"
- [7] "STAT 285.00 Winter 2025" "STAT 330.00 Winter 2025"
- [9] "STAT 394.11 Winter 2025" "STAT 394.12 Winter 2025"
-[11] "STAT 399.00 Winter 2025" "STAT 400.01 Winter 2025"
-[13] "STAT 400.02 Winter 2025" "STAT 400.03 Winter 2025"
-[15] "CS 111.01 Winter 2025"   "CS 111.02 Winter 2025"  
-[17] "CS 314.00 Winter 2025"   "MATH 101.00 Winter 2025"
-[19] "MATH 111.00 Winter 2025" "MATH 120.01 Winter 2025"
-[21] "MATH 120.02 Winter 2025" "MATH 120.03 Winter 2025"
-[23] "MATH 210.01 Winter 2025" "MATH 210.02 Winter 2025"
-[25] "MATH 211.00 Winter 2025" "MATH 232.01 Winter 2025"
-[27] "MATH 232.02 Winter 2025" "MATH 240.00 Winter 2025"
-[29] "MATH 240.02 Winter 2025"</code></pre>
+<pre><code> [1] "STAT 120.01 Spring 2026" "STAT 120.02 Spring 2026"
+ [3] "STAT 120.03 Spring 2026" "STAT 120.04 Spring 2026"
+ [5] "STAT 220.01 Spring 2026" "STAT 230.01 Spring 2026"
+ [7] "STAT 230.02 Spring 2026" "STAT 250.01 Spring 2026"
+ [9] "STAT 285.01 Spring 2026" "STAT 297.01 Spring 2026"
+[11] "STAT 330.01 Spring 2026" "STAT 400.01 Spring 2026"
+[13] "CS 111.01 Spring 2026"   "CS 111.02 Spring 2026"  
+[15] "CS 314*.01 Spring 2026"  "CS 362.01 Spring 2026"  
+[17] "MATH 120.01 Spring 2026" "MATH 134.01 Spring 2026"
+[19] "MATH 210.01 Spring 2026" "MATH 232.01 Spring 2026"
+[21] "MATH 232.02 Spring 2026" "MATH 271.01 Spring 2026"</code></pre>
 </div>
 </div>
 </section><section id="sometimes-we-cant-get-around-regex" class="slide level2"><h2>Sometimes, we can’t get around regex :(</h2>
@@ -725,35 +707,28 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 <span id="cb36-3"><a></a>  <span class="fu">html_text</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb36-4"><a></a>  <span class="fu">str_squish</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "STAT 120.01 Winter 2025 Faculty:Claire Kelling 🏫 👤 Size:32 M, WCMC 102 11:10am-12:20pm FCMC 102 12:00pm-1:00pm Sophomore Priority; Not open to students who have already received credit for Psychology 200/201, Sociology/Anthropology 239 or Statistics 250"
- [2] "STAT 120.02 Winter 2025 Faculty:Spencer Wadsworth 🏫 Size:32 M, WCMC 102 12:30pm-1:40pm FCMC 102 1:10pm-2:10pm"                                                                                                                                                 
- [3] "STAT 120.03 Winter 2025 Faculty:Rebecca Terry 🏫 👤 Size:32 M, WCMC 102 1:50pm-3:00pm FCMC 102 2:20pm-3:20pm"                                                                                                                                                   
- [4] "STAT 220.00 Winter 2025 Faculty:Amanda Luby 🏫 👤 Size:30 M, WCMC 102 9:50am-11:00am FCMC 102 9:40am-10:40am"                                                                                                                                                   
- [5] "STAT 230.00 Winter 2025 Faculty:Claire Kelling 🏫 👤 Size:28 M, WCMC 306 1:50pm-3:00pm FCMC 306 2:20pm-3:20pm"                                                                                                                                                  
- [6] "STAT 250.00 Winter 2025 Faculty:Adam Loy 🏫 👤 Size:28 M, WCMC 301 1:50pm-3:00pm FCMC 301 2:20pm-3:20pm"                                                                                                                                                        
- [7] "STAT 285.00 Winter 2025 Faculty:Katie St. Clair 🏫 👤 Grading:S/CR/NC TCMC 304 10:10am-11:55am"                                                                                                                                                                 
- [8] "STAT 330.00 Winter 2025 Faculty:Katie St. Clair 🏫 👤 Size:20 M, WCMC 306 9:50am-11:00am FCMC 306 9:40am-10:40am"                                                                                                                                               
- [9] "STAT 394.11 Winter 2025 Faculty:Claire Kelling 🏫 👤 Grading:S/CR/NC Credits:2"                                                                                                                                                                                 
-[10] "STAT 394.12 Winter 2025 Faculty:Claire Kelling 🏫 👤 Grading:S/CR/NC"                                                                                                                                                                                           
-[11] "STAT 399.00 Winter 2025 Faculty:Amanda Luby 🏫 👤 Size:4 Grading:S/CR/NC THCMC 328 10:10am-11:55am"                                                                                                                                                             
-[12] "STAT 400.01 Winter 2025 Faculty:Katie St. Clair 🏫 👤 Size:10 Grading:S/NC Credits:6 This section is for the STAT Comps Independent Project: STAT 400 (6 credits)."                                                                                             
-[13] "STAT 400.02 Winter 2025 Faculty:Adam Loy 🏫 👤 Size:12 Grading:S/NC Credits:3 T, THCMC 304 1:15pm-3:00pm This section is for the STAT Comps Group Project: STAT 399 (6 credits), then STAT 400 (3 credits)."                                                    
-[14] "STAT 400.03 Winter 2025 Faculty:Katie St. Clair 🏫 👤 Size:8 Grading:S/NC Credits:3 TCMC 328 1:15pm-3:00pm This section is for the STAT Comps Group Project: STAT 400 (3 credits), then STAT 400 (3 credits)."                                                  
-[15] "CS 111.01 Winter 2025 Faculty:Tom Finzell 🏫 Size:38 M, WOlin 310 8:30am-9:40am FOlin 310 8:30am-9:30am"                                                                                                                                                        
-[16] "CS 111.02 Winter 2025 Faculty:Tom Finzell 🏫 Size:38 M, WOlin 310 11:10am-12:20pm FOlin 310 12:00pm-1:00pm Sophomore Priority"                                                                                                                                  
-[17] "CS 314.00 Winter 2025 Faculty:Bridger Herman 🏫 Size:34 M, WLeighton 304 12:30pm-1:40pm FLeighton 304 1:10pm-2:10pm"                                                                                                                                            
-[18] "MATH 101.00 Winter 2025 Faculty:Deanna Haunsperger 🏫 👤 Size:30 M, WCMC 209 9:50am-11:00am FCMC 209 9:40am-10:40am"                                                                                                                                            
-[19] "MATH 111.00 Winter 2025 Faculty:Rob Thompson 🏫 👤 Size:30 M, WCMC 210 11:10am-12:20pm FCMC 210 12:00pm-1:00pm"                                                                                                                                                 
-[20] "MATH 120.01 Winter 2025 Faculty:Rebecca Terry 🏫 👤 Size:30 M, WCMC 301 11:10am-12:20pm FCMC 301 12:00pm-1:00pm"                                                                                                                                                
-[21] "MATH 120.02 Winter 2025 Faculty:Corey Brooke 🏫 👤 Size:30 M, WCMC 210 12:30pm-1:40pm FCMC 210 1:10pm-2:10pm"                                                                                                                                                   
-[22] "MATH 120.03 Winter 2025 Faculty:Mike Adams [C] (Contract Ended) 🏫 Size:30 M, WCMC 209 1:50pm-3:00pm FCMC 209 2:20pm-3:20pm"                                                                                                                                    
-[23] "MATH 210.01 Winter 2025 Faculty:Corey Brooke 🏫 👤 Size:30 M, WCMC 210 9:50am-11:00am FCMC 210 9:40am-10:40am"                                                                                                                                                  
-[24] "MATH 210.02 Winter 2025 Faculty:Caroline Turnage-Butterbaugh 🏫 👤 Size:30 M, WCMC 209 11:10am-12:20pm FCMC 209 12:00pm-1:00pm"                                                                                                                                 
-[25] "MATH 211.00 Winter 2025 Faculty:Kate Meyer 🏫 👤 Size:30 M, WCMC 206 8:30am-9:40am FCMC 206 8:30am-9:30am"                                                                                                                                                      
-[26] "MATH 232.01 Winter 2025 Faculty:Rafe Jones 🏫 👤 Size:30 M, WCMC 206 11:10am-12:20pm FCMC 206 12:00pm-1:00pm"                                                                                                                                                   
-[27] "MATH 232.02 Winter 2025 Faculty:MurphyKate Montee 🏫 👤 Size:30 M, WCMC 209 12:30pm-1:40pm FCMC 209 1:10pm-2:10pm"                                                                                                                                              
-[28] "MATH 240.00 Winter 2025 Faculty:Adam Loy 🏫 👤 Size:30 M, WCMC 306 12:30pm-1:40pm FCMC 306 1:10pm-2:10pm"                                                                                                                                                       
-[29] "MATH 240.02 Winter 2025 Faculty:Rob Thompson 🏫 👤 Size:30 M, WCMC 301 12:30pm-1:40pm FCMC 301 1:10pm-2:10pm"                                                                                                                                                   </code></pre>
+<pre><code> [1] "STAT 120.01 Spring 2026 Faculty:Emily Kurtz 🏫 👤 Size:32 M, WCMC 102 9:50am-11:00am FCMC 102 9:40am-10:40am"                                                                                                                                                                                                                                                                                                                                                                   
+ [2] "STAT 120.02 Spring 2026 Faculty:Amanda Luby 🏫 👤 Size:32 M, WCMC 102 11:10am-12:20pm FCMC 102 12:00pm-1:00pm Not open to students who have already received credit for Psychology 200/201, Sociology/Anthropology 239 or Statistics 250 Sophomore Priority"                                                                                                                                                                                                                    
+ [3] "STAT 120.03 Spring 2026 Faculty:Andy Poppick 🏫 👤 Size:32 M, WCMC 306 12:30pm-1:40pm FCMC 306 1:10pm-2:10pm"                                                                                                                                                                                                                                                                                                                                                                   
+ [4] "STAT 120.04 Spring 2026 Faculty:Adam Loy 🏫 👤 Size:32 M, WCMC 102 1:50pm-3:00pm FCMC 102 2:20pm-3:20pm Not open to students who have already received credit for Psychology 200/201, Sociology/Anthropology 239 or Statistics 250 Sophomore Priority"                                                                                                                                                                                                                          
+ [5] "STAT 220.01 Spring 2026 Faculty:Emily Kurtz 🏫 👤 Size:30 M, WCMC 102 12:30pm-1:40pm FCMC 102 1:10pm-2:10pm"                                                                                                                                                                                                                                                                                                                                                                    
+ [6] "STAT 230.01 Spring 2026 Faculty:Adam Loy 🏫 👤 Size:28 M, WCMC 306 11:10am-12:20pm FCMC 306 12:00pm-1:00pm"                                                                                                                                                                                                                                                                                                                                                                     
+ [7] "STAT 230.02 Spring 2026 Faculty:Amanda Luby 🏫 👤 Size:28 M, WCMC 306 1:50pm-3:00pm FCMC 306 2:20pm-3:20pm Sophomore Priority"                                                                                                                                                                                                                                                                                                                                                  
+ [8] "STAT 250.01 Spring 2026 Faculty:Andy Poppick 🏫 👤 Size:28 M, WCMC 306 9:50am-11:00am FCMC 306 9:40am-10:40am"                                                                                                                                                                                                                                                                                                                                                                  
+ [9] "STAT 285.01 Spring 2026 Faculty:Andy Poppick 🏫 👤 Grading:S/CR/NC TCMC 304 10:10am-11:55am All interested students are encouraged to add to the waitlist and the instructor will reach out after registration. This course is repeatable, but if the instructor cannot admit every student on the waitlist, priority will be given first to Statistics majors who have not previously taken the course and then to other students who have not taken the course. Waitlist Only"
+[10] "STAT 297.01 Spring 2026 Faculty:Katie St. Clair 🏫 👤 · Rafe Jones 🏫 👤 Grading:S/CR/NC"                                                                                                                                                                                                                                                                                                                                                                                       
+[11] "STAT 330.01 Spring 2026 Faculty:Katie St. Clair 🏫 👤 Size:20 M, WCMC 319 9:50am-11:00am FCMC 319 9:40am-10:40am"                                                                                                                                                                                                                                                                                                                                                               
+[12] "STAT 400.01 Spring 2026 Faculty:Amanda Luby 🏫 👤 Size:9 Grading:S/NC This section is for the STAT Comps Group Project: STAT 399 (6 credits), then STAT 400 (3 credits)."                                                                                                                                                                                                                                                                                                       
+[13] "CS 111.01 Spring 2026 Faculty:Anna Meyer 🏫 👤 Size:48 M, WOlin 310 9:50am-11:00am FOlin 310 9:40am-10:40am Sophomore Priority"                                                                                                                                                                                                                                                                                                                                                 
+[14] "CS 111.02 Spring 2026 Faculty:Jean Salac 🏫 👤 Size:48 M, WOlin 310 12:30pm-1:40pm FOlin 310 1:10pm-2:10pm Sophomore Priority"                                                                                                                                                                                                                                                                                                                                                  
+[15] "CS 314*.01 Spring 2026 Faculty:Eric Alexander 🏫 👤 Size:16 M, WAnderson Hall 223 12:30pm-1:40pm FAnderson Hall 223 1:10pm-2:10pm 16 seats held for CS Match until the day after junior priority registration."                                                                                                                                                                                                                                                                 
+[16] "CS 362.01 Spring 2026 Faculty:Layla Oesper 🏫 👤 Size:28 M, WLeighton 305 11:10am-12:20pm FLeighton 305 12:00pm-1:00pm 16 seats held for CS Match until the day after sophomore only priority registration."                                                                                                                                                                                                                                                                    
+[17] "MATH 120.01 Spring 2026 Faculty:Deewang Bhamidipati 🏫 👤 Size:30 M, WCMC 206 9:50am-11:00am FCMC 206 9:40am-10:40am"                                                                                                                                                                                                                                                                                                                                                           
+[18] "MATH 134.01 Spring 2026 Faculty:Kate Meyer 🏫 👤 Size:30 M, WCMC 209 11:10am-12:20pm FCMC 209 12:00pm-1:00pm"                                                                                                                                                                                                                                                                                                                                                                   
+[19] "MATH 210.01 Spring 2026 Faculty:Deewang Bhamidipati 🏫 👤 Size:30 M, WCMC 209 12:30pm-1:40pm FCMC 209 1:10pm-2:10pm"                                                                                                                                                                                                                                                                                                                                                            
+[20] "MATH 232.01 Spring 2026 Faculty:Corey Brooke 🏫 👤 Size:30 M, WCMC 206 11:10am-12:20pm FCMC 206 12:00pm-1:00pm"                                                                                                                                                                                                                                                                                                                                                                 
+[21] "MATH 232.02 Spring 2026 Faculty:Corey Brooke 🏫 👤 Size:30 M, WCMC 206 1:50pm-3:00pm FCMC 206 2:20pm-3:20pm This course is not open to students who have received credit for MATH 134. Sophomore Priority"                                                                                                                                                                                                                                                                      
+[22] "MATH 271.01 Spring 2026 Faculty:Joseph Johnson 🏫 👤 Size:25 M, WCMC 206 12:30pm-1:40pm FCMC 206 1:10pm-2:10pm"                                                                                                                                                                                                                                                                                                                                                                 </code></pre>
 </div>
 </div>
 </section><section id="selectorgadget" class="slide level2"><h2>selectorGadget</h2>
@@ -782,13 +757,13 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 </section><section id="try-it" class="slide level2"><h2>Try it</h2>
 <div class="task">
 <ul>
-<li><p>Use the SelectorGadget to explore http://www.imdb.com/chart/top</p></li>
+<li><p>Use the SelectorGadget to explore <a href="http://www.imdb.com/chart/top" class="uri">http://www.imdb.com/chart/top</a></p></li>
 <li><p>What should the columns of our target dataset be? Do they correspond to any specific css selectors?</p></li>
 </ul>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_f83028f9" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_bf625dd7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -798,105 +773,362 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 </div>
 </section><section id="extract-title" class="slide level2"><h2>Extract title</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>imdb <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"http://www.imdb.com/chart/top"</span>)</span>
-<span id="cb38-2"><a></a>titles <span class="ot">&lt;-</span> imdb <span class="sc">%&gt;%</span></span>
-<span id="cb38-3"><a></a>  <span class="fu">html_elements</span>(<span class="st">".with-margin .ipc-title__text"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb38-4"><a></a>  <span class="fu">html_text</span>()</span>
-<span id="cb38-5"><a></a></span>
-<span id="cb38-6"><a></a><span class="fu">head</span>(titles)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>imdb <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"http://www.imdb.com/chart/top"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in read_xml.raw(raw, encoding = encoding, base_url = base_url, as_html = as_html, : Failed to parse text</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>titles <span class="ot">&lt;-</span> imdb <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a></a>  <span class="fu">html_elements</span>(<span class="st">".ipc-title-link-wrapper .ipc-title__text"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a></a>  <span class="fu">html_text</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: object 'imdb' not found</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">head</span>(titles)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: object 'titles' not found</code></pre>
+</div>
+</div>
+</section><section id="with-local-version-of-website" class="slide level2"><h2>With local version of website</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>imdb_local <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"IMDb Top 250 Movies.html"</span>)</span>
+<span id="cb44-2"><a></a>titles <span class="ot">&lt;-</span> imdb_local <span class="sc">%&gt;%</span></span>
+<span id="cb44-3"><a></a>  <span class="fu">html_elements</span>(<span class="st">".with-margin .ipc-title__text"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb44-4"><a></a>  <span class="fu">html_text</span>()</span>
+<span id="cb44-5"><a></a></span>
+<span id="cb44-6"><a></a></span>
+<span id="cb44-7"><a></a>titles</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "The Shawshank Redemption"                     
-[2] "The Godfather"                                
-[3] "The Dark Knight"                              
-[4] "The Godfather Part II"                        
-[5] "12 Angry Men"                                 
-[6] "The Lord of the Rings: The Return of the King"</code></pre>
+<pre><code>  [1] "The Shawshank Redemption"                                            
+  [2] "The Godfather"                                                       
+  [3] "The Dark Knight"                                                     
+  [4] "The Godfather Part II"                                               
+  [5] "12 Angry Men"                                                        
+  [6] "The Lord of the Rings: The Return of the King"                       
+  [7] "Schindler's List"                                                    
+  [8] "The Lord of the Rings: The Fellowship of the Ring"                   
+  [9] "Pulp Fiction"                                                        
+ [10] "The Good, the Bad and the Ugly"                                      
+ [11] "The Lord of the Rings: The Two Towers"                               
+ [12] "Forrest Gump"                                                        
+ [13] "Fight Club"                                                          
+ [14] "Inception"                                                           
+ [15] "Star Wars: Episode V - The Empire Strikes Back"                      
+ [16] "The Matrix"                                                          
+ [17] "Goodfellas"                                                          
+ [18] "Interstellar"                                                        
+ [19] "One Flew Over the Cuckoo's Nest"                                     
+ [20] "Se7en"                                                               
+ [21] "It's a Wonderful Life"                                               
+ [22] "The Silence of the Lambs"                                            
+ [23] "Seven Samurai"                                                       
+ [24] "Saving Private Ryan"                                                 
+ [25] "The Green Mile"                                                      
+ [26] "City of God"                                                         
+ [27] "Life Is Beautiful"                                                   
+ [28] "Terminator 2: Judgment Day"                                          
+ [29] "Star Wars: Episode IV - A New Hope"                                  
+ [30] "Back to the Future"                                                  
+ [31] "Spirited Away"                                                       
+ [32] "The Pianist"                                                         
+ [33] "Gladiator"                                                           
+ [34] "Parasite"                                                            
+ [35] "Grave of the Fireflies"                                              
+ [36] "Psycho"                                                              
+ [37] "The Lion King"                                                       
+ [38] "Harakiri"                                                            
+ [39] "The Departed"                                                        
+ [40] "Whiplash"                                                            
+ [41] "The Prestige"                                                        
+ [42] "American History X"                                                  
+ [43] "Léon: The Professional"                                              
+ [44] "Spider-Man: Across the Spider-Verse"                                 
+ [45] "Cinema Paradiso"                                                     
+ [46] "Kill Bill: The Whole Bloody Affair"                                  
+ [47] "Casablanca"                                                          
+ [48] "The Intouchables"                                                    
+ [49] "The Usual Suspects"                                                  
+ [50] "Alien"                                                               
+ [51] "Django Unchained"                                                    
+ [52] "Modern Times"                                                        
+ [53] "Rear Window"                                                         
+ [54] "Once Upon a Time in the West"                                        
+ [55] "City Lights"                                                         
+ [56] "Apocalypse Now"                                                      
+ [57] "WALL·E"                                                              
+ [58] "Memento"                                                             
+ [59] "Dune: Part Two"                                                      
+ [60] "Raiders of the Lost Ark"                                             
+ [61] "Avengers: Infinity War"                                              
+ [62] "The Lives of Others"                                                 
+ [63] "Spider-Man: Into the Spider-Verse"                                   
+ [64] "Sunset Boulevard"                                                    
+ [65] "Witness for the Prosecution"                                         
+ [66] "Paths of Glory"                                                      
+ [67] "The Shining"                                                         
+ [68] "The Great Dictator"                                                  
+ [69] "Inglourious Basterds"                                                
+ [70] "12th Fail"                                                           
+ [71] "Aliens"                                                              
+ [72] "High and Low"                                                        
+ [73] "The Dark Knight Rises"                                               
+ [74] "Avengers: Endgame"                                                   
+ [75] "Good Will Hunting"                                                   
+ [76] "Coco"                                                                
+ [77] "Amadeus"                                                             
+ [78] "Toy Story"                                                           
+ [79] "Your Name."                                                          
+ [80] "Das Boot"                                                            
+ [81] "Oldboy"                                                              
+ [82] "Braveheart"                                                          
+ [83] "Princess Mononoke"                                                   
+ [84] "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb"
+ [85] "3 Idiots"                                                            
+ [86] "American Beauty"                                                     
+ [87] "Capernaum"                                                           
+ [88] "Singin' in the Rain"                                                 
+ [89] "Joker"                                                               
+ [90] "Once Upon a Time in America"                                         
+ [91] "Come and See"                                                        
+ [92] "Star Wars: Episode VI - Return of the Jedi"                          
+ [93] "Requiem for a Dream"                                                 
+ [94] "Toy Story 3"                                                         
+ [95] "Ikiru"                                                               
+ [96] "The Hunt"                                                            
+ [97] "Incendies"                                                           
+ [98] "Eternal Sunshine of the Spotless Mind"                               
+ [99] "The Apartment"                                                       
+[100] "Lawrence of Arabia"                                                  
+[101] "2001: A Space Odyssey"                                               
+[102] "Reservoir Dogs"                                                      
+[103] "Heat"                                                                
+[104] "Scarface"                                                            
+[105] "Double Indemnity"                                                    
+[106] "Up"                                                                  
+[107] "North by Northwest"                                                  
+[108] "Like Stars on Earth"                                                 
+[109] "Full Metal Jacket"                                                   
+[110] "M"                                                                   
+[111] "Citizen Kane"                                                        
+[112] "Amélie"                                                              
+[113] "Vertigo"                                                             
+[114] "A Separation"                                                        
+[115] "Die Hard"                                                            
+[116] "To Kill a Mockingbird"                                               
+[117] "The Sting"                                                           
+[118] "Indiana Jones and the Last Crusade"                                  
+[119] "A Clockwork Orange"                                                  
+[120] "Metropolis"                                                          
+[121] "1917"                                                                
+[122] "Snatch"                                                              
+[123] "L.A. Confidential"                                                   
+[124] "Downfall"                                                            
+[125] "The Wolf of Wall Street"                                             
+[126] "Dangal"                                                              
+[127] "Bicycle Thieves"                                                     
+[128] "The Truman Show"                                                     
+[129] "Oppenheimer"                                                         
+[130] "Green Book"                                                          
+[131] "Shutter Island"                                                      
+[132] "Judgment at Nuremberg"                                               
+[133] "Batman Begins"                                                       
+[134] "Hamilton"                                                            
+[135] "For a Few Dollars More"                                              
+[136] "Taxi Driver"                                                         
+[137] "Jurassic Park"                                                       
+[138] "Some Like It Hot"                                                    
+[139] "There Will Be Blood"                                                 
+[140] "The Kid"                                                             
+[141] "The Father"                                                          
+[142] "All About Eve"                                                       
+[143] "The Sixth Sense"                                                     
+[144] "Ran"                                                                 
+[145] "Casino"                                                              
+[146] "No Country for Old Men"                                              
+[147] "The Thing"                                                           
+[148] "Top Gun: Maverick"                                                   
+[149] "Prisoners"                                                           
+[150] "Kill Bill: Vol. 1"                                                   
+[151] "Pan's Labyrinth"                                                     
+[152] "Unforgiven"                                                          
+[153] "A Beautiful Mind"                                                    
+[154] "The Treasure of the Sierra Madre"                                    
+[155] "Howl's Moving Castle"                                                
+[156] "Finding Nemo"                                                        
+[157] "Yojimbo"                                                             
+[158] "Klaus"                                                               
+[159] "The Great Escape"                                                    
+[160] "The Elephant Man"                                                    
+[161] "Monty Python and the Holy Grail"                                     
+[162] "The Best of Youth"                                                   
+[163] "Dial M for Murder"                                                   
+[164] "Demon Slayer: Kimetsu no Yaiba Infinity Castle"                      
+[165] "The Secret in Their Eyes"                                            
+[166] "Gone with the Wind"                                                  
+[167] "Chinatown"                                                           
+[168] "Lock, Stock and Two Smoking Barrels"                                 
+[169] "V for Vendetta"                                                      
+[170] "Catch Me If You Can"                                                 
+[171] "Inside Out"                                                          
+[172] "Rashomon"                                                            
+[173] "The Chaos Class Failed the Class"                                    
+[174] "Three Billboards Outside Ebbing, Missouri"                           
+[175] "Trainspotting"                                                       
+[176] "The Bridge on the River Kwai"                                        
+[177] "Harry Potter and the Deathly Hallows: Part 2"                        
+[178] "Dead Poets Society"                                                  
+[179] "The Wild Robot"                                                      
+[180] "Warrior"                                                             
+[181] "Fargo"                                                               
+[182] "Barry Lyndon"                                                        
+[183] "Raging Bull"                                                         
+[184] "Ben-Hur"                                                             
+[185] "Million Dollar Baby"                                                 
+[186] "Mad Max: Fury Road"                                                  
+[187] "Children of Heaven"                                                  
+[188] "Hacksaw Ridge"                                                       
+[189] "Gran Torino"                                                         
+[190] "My Neighbor Totoro"                                                  
+[191] "12 Years a Slave"                                                    
+[192] "The Grand Budapest Hotel"                                            
+[193] "Ratatouille"                                                         
+[194] "Before Sunrise"                                                      
+[195] "Memories of Murder"                                                  
+[196] "Blade Runner"                                                        
+[197] "How to Train Your Dragon"                                            
+[198] "Spider-Man: No Way Home"                                             
+[199] "Gone Girl"                                                           
+[200] "Monsters, Inc."                                                      
+[201] "Jaws"                                                                
+[202] "In the Name of the Father"                                           
+[203] "Ford v Ferrari"                                                      
+[204] "Wild Tales"                                                          
+[205] "The Gold Rush"                                                       
+[206] "Mary and Max"                                                        
+[207] "Sherlock Jr."                                                        
+[208] "The Deer Hunter"                                                     
+[209] "The Wages of Fear"                                                   
+[210] "The General"                                                         
+[211] "Logan"                                                               
+[212] "Rocky"                                                               
+[213] "Mr. Smith Goes to Washington"                                        
+[214] "On the Waterfront"                                                   
+[215] "Tokyo Story"                                                         
+[216] "Pirates of the Caribbean: The Curse of the Black Pearl"              
+[217] "Wild Strawberries"                                                   
+[218] "Spotlight"                                                           
+[219] "La haine"                                                            
+[220] "A Silent Voice: The Movie"                                           
+[221] "The Terminator"                                                      
+[222] "The Third Man"                                                       
+[223] "Maharaja"                                                            
+[224] "The Sound of Music"                                                  
+[225] "Jai Bhim"                                                            
+[226] "The Big Lebowski"                                                    
+[227] "The Best Years of Our Lives"                                         
+[228] "The Seventh Seal"                                                    
+[229] "Room"                                                                
+[230] "Before Sunset"                                                       
+[231] "Hotel Rwanda"                                                        
+[232] "Platoon"                                                             
+[233] "The Incredibles"                                                     
+[234] "Chainsaw Man - The Movie: Reze Arc"                                  
+[235] "Hachi: A Dog's Tale"                                                 
+[236] "The Exorcist"                                                        
+[237] "Rush"                                                                
+[238] "The Wizard of Oz"                                                    
+[239] "Stand by Me"                                                         
+[240] "The Iron Giant"                                                      
+[241] "The Passion of Joan of Arc"                                          
+[242] "My Father and My Son"                                                
+[243] "The Battle of Algiers"                                               
+[244] "The Handmaiden"                                                      
+[245] "Network"                                                             
+[246] "To Be or Not to Be"                                                  
+[247] "Gangs of Wasseypur"                                                  
+[248] "The Grapes of Wrath"                                                 
+[249] "Drishyam"                                                            
+[250] "The Help"                                                            </code></pre>
 </div>
 </div>
 </section><section id="extract-year" class="slide level2"><h2>Extract year</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>years <span class="ot">&lt;-</span> imdb <span class="sc">%&gt;%</span></span>
-<span id="cb40-2"><a></a>  <span class="fu">html_elements</span>(<span class="st">".cli-title-metadata-item:nth-child(1)"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb40-3"><a></a>  <span class="fu">html_text</span>()</span>
-<span id="cb40-4"><a></a></span>
-<span id="cb40-5"><a></a><span class="fu">head</span>(years)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>years <span class="ot">&lt;-</span> imdb_local <span class="sc">%&gt;%</span></span>
+<span id="cb46-2"><a></a>  <span class="fu">html_elements</span>(<span class="st">".cli-title-metadata-item:nth-child(1)"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb46-3"><a></a>  <span class="fu">html_text</span>()</span>
+<span id="cb46-4"><a></a></span>
+<span id="cb46-5"><a></a><span class="fu">head</span>(years)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1994" "1972" "2008" "1974" "1957" "2003"</code></pre>
 </div>
 </div>
 </section><section id="extract-runtime" class="slide level2"><h2>Extract runtime</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>runtimes <span class="ot">&lt;-</span> imdb <span class="sc">%&gt;%</span></span>
-<span id="cb42-2"><a></a>  <span class="fu">html_elements</span>(<span class="st">".cli-title-metadata-item:nth-child(2)"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb42-3"><a></a>  <span class="fu">html_text</span>()</span>
-<span id="cb42-4"><a></a></span>
-<span id="cb42-5"><a></a><span class="fu">head</span>(runtimes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>runtimes <span class="ot">&lt;-</span> imdb_local <span class="sc">%&gt;%</span></span>
+<span id="cb48-2"><a></a>  <span class="fu">html_elements</span>(<span class="st">".cli-title-metadata-item:nth-child(2)"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb48-3"><a></a>  <span class="fu">html_text</span>()</span>
+<span id="cb48-4"><a></a></span>
+<span id="cb48-5"><a></a><span class="fu">head</span>(runtimes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "2h 22m" "2h 55m" "2h 32m" "3h 22m" "1h 36m" "3h 21m"</code></pre>
 </div>
 </div>
 </section><section id="extract-mpaa-rating" class="slide level2"><h2>Extract MPAA rating</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>mpaas <span class="ot">&lt;-</span> imdb <span class="sc">%&gt;%</span></span>
-<span id="cb44-2"><a></a>  <span class="fu">html_elements</span>(<span class="st">".cli-title-metadata-item:nth-child(3)"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb44-3"><a></a>  <span class="fu">html_text</span>()</span>
-<span id="cb44-4"><a></a></span>
-<span id="cb44-5"><a></a><span class="fu">head</span>(mpaas)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>mpaas <span class="ot">&lt;-</span> imdb_local <span class="sc">%&gt;%</span></span>
+<span id="cb50-2"><a></a>  <span class="fu">html_elements</span>(<span class="st">".cli-title-metadata-item:nth-child(3)"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb50-3"><a></a>  <span class="fu">html_text</span>()</span>
+<span id="cb50-4"><a></a></span>
+<span id="cb50-5"><a></a><span class="fu">head</span>(mpaas)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "R"        "R"        "PG-13"    "R"        "Approved" "PG-13"   </code></pre>
 </div>
 </div>
 </section><section id="put-the-pieces-together" class="slide level2"><h2>Put the pieces together</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>imdb_top_250 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb46-2"><a></a>  <span class="at">title =</span> titles, </span>
-<span id="cb46-3"><a></a>  <span class="at">year =</span> years, </span>
-<span id="cb46-4"><a></a>  <span class="at">runtime =</span> runtimes,</span>
-<span id="cb46-5"><a></a>  <span class="at">mpaa =</span> mpaas</span>
-<span id="cb46-6"><a></a>  )</span>
-<span id="cb46-7"><a></a></span>
-<span id="cb46-8"><a></a>imdb_top_250</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 25 × 4
-   title                                             year  runtime mpaa    
-   &lt;chr&gt;                                             &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   
- 1 The Shawshank Redemption                          1994  2h 22m  R       
- 2 The Godfather                                     1972  2h 55m  R       
- 3 The Dark Knight                                   2008  2h 32m  PG-13   
- 4 The Godfather Part II                             1974  3h 22m  R       
- 5 12 Angry Men                                      1957  1h 36m  Approved
- 6 The Lord of the Rings: The Return of the King     2003  3h 21m  PG-13   
- 7 Schindler's List                                  1993  3h 15m  R       
- 8 The Lord of the Rings: The Fellowship of the Ring 2001  2h 58m  PG-13   
- 9 Pulp Fiction                                      1994  2h 34m  R       
-10 The Good, the Bad and the Ugly                    1966  2h 58m  R       
-# ℹ 15 more rows</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a>imdb_top_250 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb52-2"><a></a>  <span class="at">title =</span> titles, </span>
+<span id="cb52-3"><a></a>  <span class="at">year =</span> years, </span>
+<span id="cb52-4"><a></a>  <span class="at">runtime =</span> runtimes,</span>
+<span id="cb52-5"><a></a>  <span class="at">mpaa =</span> mpaas</span>
+<span id="cb52-6"><a></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `tibble()`:
+! Tibble columns must have compatible sizes.
+• Size 250: Existing data.
+• Size 245: Column `mpaa`.
+ℹ Only values of size one are recycled.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a>imdb_top_250</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: object 'imdb_top_250' not found</code></pre>
 </div>
 </div>
-</section><section id="wait-a-second.-theres-not-250-movies-here" class="slide level2"><h2>Wait a second…. there’s not 250 movies here</h2>
+</section><section id="scraping-mpaas-directly-doesnt-catch-the-nas" class="slide level2"><h2>Scraping <code>mpaas</code> directly doesn’t catch the NA’s</h2>
+<p>There are 250 movies but only 245 MPAA ratings</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>imdb_top_250</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a><span class="fu">length</span>(mpaas)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 25 × 4
-   title                                             year  runtime mpaa    
-   &lt;chr&gt;                                             &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   
- 1 The Shawshank Redemption                          1994  2h 22m  R       
- 2 The Godfather                                     1972  2h 55m  R       
- 3 The Dark Knight                                   2008  2h 32m  PG-13   
- 4 The Godfather Part II                             1974  3h 22m  R       
- 5 12 Angry Men                                      1957  1h 36m  Approved
- 6 The Lord of the Rings: The Return of the King     2003  3h 21m  PG-13   
- 7 Schindler's List                                  1993  3h 15m  R       
- 8 The Lord of the Rings: The Fellowship of the Ring 2001  2h 58m  PG-13   
- 9 Pulp Fiction                                      1994  2h 34m  R       
-10 The Good, the Bad and the Ugly                    1966  2h 58m  R       
-# ℹ 15 more rows</code></pre>
+<pre><code>[1] 245</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a><span class="fu">length</span>(titles)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 250</code></pre>
 </div>
 </div>
-<div class="fragment">
-<p>Most modern tables in webpages are <em>dynamically loaded</em> (they wait for you to scroll down to load more rows). <code>rvest</code> can’t scroll, so it can only see the initial data that’s loaded</p>
+<p>Solution: scrape movies first, and then extract elements:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a>movies <span class="ot">&lt;-</span> imdb_local <span class="sc">|&gt;</span></span>
+<span id="cb60-2"><a></a>  <span class="fu">html_elements</span>(<span class="st">".cli-children"</span>) </span>
+<span id="cb60-3"><a></a></span>
+<span id="cb60-4"><a></a>movies <span class="sc">|&gt;</span></span>
+<span id="cb60-5"><a></a>  <span class="fu">html_element</span>(<span class="st">".cli-title-metadata-item:nth-child(3)"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb60-6"><a></a>  <span class="fu">html_text</span>() <span class="sc">|&gt;</span></span>
+<span id="cb60-7"><a></a>  <span class="fu">length</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 250</code></pre>
 </div>
-</section><section id="what-do-we-do" class="slide level2 scrollable"><h2>What do we do?</h2>
+</div>
+</section><section id="what-do-we-do-if-scraping-doesnt-work" class="slide level2 scrollable"><h2>What do we do if scraping doesn’t work?</h2>
 <ol type="1">
 <li class="fragment">Is there an API available? Can I access it as a student/researcher at no/low cost?
 <ul>
@@ -919,269 +1151,7 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
 <li class="fragment">In this case, yes, but might not always work</li>
 </ul>
 </li>
-</ol></section><section id="with-local-copy-of-website" class="slide level2"><h2>With local copy of website</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>imdb_local <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"IMDb Top 250 Movies.html"</span>)</span>
-<span id="cb50-2"><a></a>titles <span class="ot">&lt;-</span> imdb_local <span class="sc">%&gt;%</span></span>
-<span id="cb50-3"><a></a>  <span class="fu">html_elements</span>(<span class="st">".with-margin .ipc-title__text"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb50-4"><a></a>  <span class="fu">html_text</span>()</span>
-<span id="cb50-5"><a></a></span>
-<span id="cb50-6"><a></a></span>
-<span id="cb50-7"><a></a>titles</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  [1] "1. The Shawshank Redemption"                                             
-  [2] "2. The Godfather"                                                        
-  [3] "3. The Dark Knight"                                                      
-  [4] "4. The Godfather Part II"                                                
-  [5] "5. 12 Angry Men"                                                         
-  [6] "6. The Lord of the Rings: The Return of the King"                        
-  [7] "7. Schindler's List"                                                     
-  [8] "8. Pulp Fiction"                                                         
-  [9] "9. The Lord of the Rings: The Fellowship of the Ring"                    
- [10] "10. The Good, the Bad and the Ugly"                                      
- [11] "11. Forrest Gump"                                                        
- [12] "12. The Lord of the Rings: The Two Towers"                               
- [13] "13. Fight Club"                                                          
- [14] "14. Inception"                                                           
- [15] "15. Star Wars: Episode V - The Empire Strikes Back"                      
- [16] "16. The Matrix"                                                          
- [17] "17. Goodfellas"                                                          
- [18] "18. One Flew Over the Cuckoo's Nest"                                     
- [19] "19. Interstellar"                                                        
- [20] "20. Se7en"                                                               
- [21] "21. It's a Wonderful Life"                                               
- [22] "22. Seven Samurai"                                                       
- [23] "23. The Silence of the Lambs"                                            
- [24] "24. Saving Private Ryan"                                                 
- [25] "25. City of God"                                                         
- [26] "26. The Green Mile"                                                      
- [27] "27. Life Is Beautiful"                                                   
- [28] "28. Terminator 2: Judgment Day"                                          
- [29] "29. Star Wars: Episode IV - A New Hope"                                  
- [30] "30. Back to the Future"                                                  
- [31] "31. Spirited Away"                                                       
- [32] "32. The Pianist"                                                         
- [33] "33. Gladiator"                                                           
- [34] "34. Parasite"                                                            
- [35] "35. Psycho"                                                              
- [36] "36. The Lion King"                                                       
- [37] "37. Grave of the Fireflies"                                              
- [38] "38. The Departed"                                                        
- [39] "39. Whiplash"                                                            
- [40] "40. Harakiri"                                                            
- [41] "41. American History X"                                                  
- [42] "42. The Prestige"                                                        
- [43] "43. Léon: The Professional"                                              
- [44] "44. Spider-Man: Across the Spider-Verse"                                 
- [45] "45. Casablanca"                                                          
- [46] "46. The Usual Suspects"                                                  
- [47] "47. The Intouchables"                                                    
- [48] "48. Cinema Paradiso"                                                     
- [49] "49. Modern Times"                                                        
- [50] "50. Alien"                                                               
- [51] "51. Rear Window"                                                         
- [52] "52. Once Upon a Time in the West"                                        
- [53] "53. Django Unchained"                                                    
- [54] "54. City Lights"                                                         
- [55] "55. Dune: Part Two"                                                      
- [56] "56. Apocalypse Now"                                                      
- [57] "57. Memento"                                                             
- [58] "58. WALL·E"                                                              
- [59] "59. Raiders of the Lost Ark"                                             
- [60] "60. The Lives of Others"                                                 
- [61] "61. Avengers: Infinity War"                                              
- [62] "62. Sunset Boulevard"                                                    
- [63] "63. Spider-Man: Into the Spider-Verse"                                   
- [64] "64. Paths of Glory"                                                      
- [65] "65. Witness for the Prosecution"                                         
- [66] "66. The Shining"                                                         
- [67] "67. The Great Dictator"                                                  
- [68] "68. 12th Fail"                                                           
- [69] "69. Aliens"                                                              
- [70] "70. Inglourious Basterds"                                                
- [71] "71. The Dark Knight Rises"                                               
- [72] "72. Coco"                                                                
- [73] "73. Amadeus"                                                             
- [74] "74. Toy Story"                                                           
- [75] "75. Avengers: Endgame"                                                   
- [76] "76. Oldboy"                                                              
- [77] "77. Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb"
- [78] "78. Good Will Hunting"                                                   
- [79] "79. American Beauty"                                                     
- [80] "80. Das Boot"                                                            
- [81] "81. Braveheart"                                                          
- [82] "82. Princess Mononoke"                                                   
- [83] "83. Your Name."                                                          
- [84] "84. High and Low"                                                        
- [85] "85. 3 Idiots"                                                            
- [86] "86. Joker"                                                               
- [87] "87. Once Upon a Time in America"                                         
- [88] "88. Capernaum"                                                           
- [89] "89. Singin' in the Rain"                                                 
- [90] "90. Come and See"                                                        
- [91] "91. Requiem for a Dream"                                                 
- [92] "92. Toy Story 3"                                                         
- [93] "93. Star Wars: Episode VI - Return of the Jedi"                          
- [94] "94. The Hunt"                                                            
- [95] "95. Eternal Sunshine of the Spotless Mind"                               
- [96] "96. Ikiru"                                                               
- [97] "97. 2001: A Space Odyssey"                                               
- [98] "98. Reservoir Dogs"                                                      
- [99] "99. The Apartment"                                                       
-[100] "100. Lawrence of Arabia"                                                 
-[101] "101. Incendies"                                                          
-[102] "102. Scarface"                                                           
-[103] "103. Double Indemnity"                                                   
-[104] "104. North by Northwest"                                                 
-[105] "105. Heat"                                                               
-[106] "106. Citizen Kane"                                                       
-[107] "107. M"                                                                  
-[108] "108. Up"                                                                 
-[109] "109. Full Metal Jacket"                                                  
-[110] "110. Vertigo"                                                            
-[111] "111. Amélie"                                                             
-[112] "112. A Clockwork Orange"                                                 
-[113] "113. Oppenheimer"                                                        
-[114] "114. To Kill a Mockingbird"                                              
-[115] "115. A Separation"                                                       
-[116] "116. Die Hard"                                                           
-[117] "117. The Sting"                                                          
-[118] "118. Like Stars on Earth"                                                
-[119] "119. Indiana Jones and the Last Crusade"                                 
-[120] "120. Metropolis"                                                         
-[121] "121. I'm Still Here"                                                     
-[122] "122. Snatch"                                                             
-[123] "123. 1917"                                                               
-[124] "124. L.A. Confidential"                                                  
-[125] "125. Bicycle Thieves"                                                    
-[126] "126. Downfall"                                                           
-[127] "127. Dangal"                                                             
-[128] "128. Taxi Driver"                                                        
-[129] "129. Hamilton"                                                           
-[130] "130. The Wolf of Wall Street"                                            
-[131] "131. Batman Begins"                                                      
-[132] "132. Green Book"                                                         
-[133] "133. For a Few Dollars More"                                             
-[134] "134. Some Like It Hot"                                                   
-[135] "135. The Truman Show"                                                    
-[136] "136. Judgment at Nuremberg"                                              
-[137] "137. The Kid"                                                            
-[138] "138. The Father"                                                         
-[139] "139. Shutter Island"                                                     
-[140] "140. All About Eve"                                                      
-[141] "141. There Will Be Blood"                                                
-[142] "142. Jurassic Park"                                                      
-[143] "143. Casino"                                                             
-[144] "144. The Sixth Sense"                                                    
-[145] "145. Ran"                                                                
-[146] "146. Top Gun: Maverick"                                                  
-[147] "147. No Country for Old Men"                                             
-[148] "148. The Thing"                                                          
-[149] "149. Pan's Labyrinth"                                                    
-[150] "150. Unforgiven"                                                         
-[151] "151. A Beautiful Mind"                                                   
-[152] "152. Kill Bill: Vol. 1"                                                  
-[153] "153. The Treasure of the Sierra Madre"                                   
-[154] "154. Yojimbo"                                                            
-[155] "155. Prisoners"                                                          
-[156] "156. Finding Nemo"                                                       
-[157] "157. The Great Escape"                                                   
-[158] "158. Monty Python and the Holy Grail"                                    
-[159] "159. Howl's Moving Castle"                                               
-[160] "160. The Elephant Man"                                                   
-[161] "161. Dial M for Murder"                                                  
-[162] "162. Gone with the Wind"                                                 
-[163] "163. Rashomon"                                                           
-[164] "164. The Wild Robot"                                                     
-[165] "165. Chinatown"                                                          
-[166] "166. Klaus"                                                              
-[167] "167. The Secret in Their Eyes"                                           
-[168] "168. Lock, Stock and Two Smoking Barrels"                                
-[169] "169. V for Vendetta"                                                     
-[170] "170. Inside Out"                                                         
-[171] "171. Three Billboards Outside Ebbing, Missouri"                          
-[172] "172. Trainspotting"                                                      
-[173] "173. The Bridge on the River Kwai"                                       
-[174] "174. Raging Bull"                                                        
-[175] "175. Catch Me If You Can"                                                
-[176] "176. Fargo"                                                              
-[177] "177. Warrior"                                                            
-[178] "178. Harry Potter and the Deathly Hallows: Part 2"                       
-[179] "179. Gran Torino"                                                        
-[180] "180. Million Dollar Baby"                                                
-[181] "181. Spider-Man: No Way Home"                                            
-[182] "182. My Neighbor Totoro"                                                 
-[183] "183. Mad Max: Fury Road"                                                 
-[184] "184. Ben-Hur"                                                            
-[185] "185. Children of Heaven"                                                 
-[186] "186. Barry Lyndon"                                                       
-[187] "187. 12 Years a Slave"                                                   
-[188] "188. Before Sunrise"                                                     
-[189] "189. Blade Runner"                                                       
-[190] "190. The Grand Budapest Hotel"                                           
-[191] "191. Dead Poets Society"                                                 
-[192] "192. Hacksaw Ridge"                                                      
-[193] "193. Gone Girl"                                                          
-[194] "194. Memories of Murder"                                                 
-[195] "195. In the Name of the Father"                                          
-[196] "196. Monsters, Inc."                                                     
-[197] "197. Ratatouille"                                                        
-[198] "198. The Gold Rush"                                                      
-[199] "199. Wild Tales"                                                         
-[200] "200. How to Train Your Dragon"                                           
-[201] "201. Sherlock Jr."                                                       
-[202] "202. Jaws"                                                               
-[203] "203. The Deer Hunter"                                                    
-[204] "204. Mary and Max"                                                       
-[205] "205. The General"                                                        
-[206] "206. Ford v Ferrari"                                                     
-[207] "207. The Wages of Fear"                                                  
-[208] "208. On the Waterfront"                                                  
-[209] "209. Mr. Smith Goes to Washington"                                       
-[210] "210. Wild Strawberries"                                                  
-[211] "211. Maharaja"                                                           
-[212] "212. Logan"                                                              
-[213] "213. The Third Man"                                                      
-[214] "214. Rocky"                                                              
-[215] "215. Tokyo Story"                                                        
-[216] "216. The Big Lebowski"                                                   
-[217] "217. Spotlight"                                                          
-[218] "218. The Seventh Seal"                                                   
-[219] "219. The Terminator"                                                     
-[220] "220. Room"                                                               
-[221] "221. Pirates of the Caribbean: The Curse of the Black Pearl"             
-[222] "222. Hotel Rwanda"                                                       
-[223] "223. La haine"                                                           
-[224] "224. Platoon"                                                            
-[225] "225. Demon Slayer: Kimetsu no Yaiba - Tsuzumi Mansion Arc"               
-[226] "226. Jai Bhim"                                                           
-[227] "227. Before Sunset"                                                      
-[228] "228. The Best Years of Our Lives"                                        
-[229] "229. The Exorcist"                                                       
-[230] "230. The Passion of Joan of Arc"                                         
-[231] "231. The Wizard of Oz"                                                   
-[232] "232. The Incredibles"                                                    
-[233] "233. Rush"                                                               
-[234] "234. The Sound of Music"                                                 
-[235] "235. Hachi: A Dog's Tale"                                                
-[236] "236. Stand by Me"                                                        
-[237] "237. Network"                                                            
-[238] "238. My Father and My Son"                                               
-[239] "239. The Handmaiden"                                                     
-[240] "240. The Iron Giant"                                                     
-[241] "241. To Be or Not to Be"                                                 
-[242] "242. The Battle of Algiers"                                              
-[243] "243. Into the Wild"                                                      
-[244] "244. The Grapes of Wrath"                                                
-[245] "245. Groundhog Day"                                                      
-[246] "246. The Help"                                                           
-[247] "247. A Silent Voice: The Movie"                                          
-[248] "248. Amores Perros"                                                      
-[249] "249. Rebecca"                                                            
-[250] "250. A Man Escaped"                                                      </code></pre>
-</div>
-</div>
-</section></section><section><section id="rmd-vs-.r" class="title-slide slide level1 maize center"><h1>.rmd vs .R</h1>
+</ol></section></section><section><section id="qmd-vs-.r" class="title-slide slide level1 maize center"><h1>.qmd vs .R</h1>
 
 </section><section id="section-5" class="slide level2"><h2></h2>
 <div class="columns">
@@ -1453,41 +1423,6 @@ $ Estimated      &lt;chr&gt; "false", "false", "false", "false", "false", "false
           RevealZoom
         ]
       });
-    </script><script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
