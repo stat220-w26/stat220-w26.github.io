@@ -48,6 +48,9 @@ listings = read_html("https://www.carleton.edu/catalog/current/search/?subject=S
 # Scraping IMDb Movie Page 
 
 ```{r}
+#| error: true
+
+
 imdb <- read_html("http://www.imdb.com/chart/top")
 ```
 

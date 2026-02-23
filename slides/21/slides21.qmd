@@ -433,6 +433,9 @@ countdown(3)
 ## Extract title
 
 ```{r}
+#| error: true
+
+
 imdb <- read_html("http://www.imdb.com/chart/top")
 titles <- imdb %>%
   html_elements(".ipc-title-link-wrapper .ipc-title__text") %>%
@@ -442,10 +445,22 @@ head(titles)
 
 ```
 
+## With local version of website
+
+```{r}
+imdb_local <- read_html("IMDb Top 250 Movies.html")
+titles <- imdb_local %>%
+  html_elements(".with-margin .ipc-title__text") %>%
+  html_text()
+
+
+titles
+```
+
 ## Extract year
 
 ```{r}
-years <- imdb %>%
+years <- imdb_local %>%
   html_elements(".cli-title-metadata-item:nth-child(1)") %>%
   html_text()
 
@@ -458,7 +473,7 @@ head(years)
 ## Extract runtime
 
 ```{r}
-runtimes <- imdb %>%
+runtimes <- imdb_local %>%
   html_elements(".cli-title-metadata-item:nth-child(2)") %>%
   html_text()
 
@@ -466,10 +481,14 @@ head(runtimes)
 
 ```
 
+
+
+
 ## Extract MPAA rating
 
+
 ```{r}
-mpaas <- imdb %>%
+mpaas <- imdb_local %>%
   html_elements(".cli-title-metadata-item:nth-child(3)") %>%
   html_text()
 
@@ -481,6 +500,9 @@ head(mpaas)
 ## Put the pieces together
 
 ```{r}
+#| error: true
+
+
 imdb_top_250 <- tibble(
   title = titles, 
   year = years, 
@@ -491,18 +513,28 @@ imdb_top_250 <- tibble(
 imdb_top_250
 ```
 
+## Scraping `mpaas` directly doesn't catch the NA's
 
-## Wait a second.... there's not 250 movies here
+There are 250 movies but only 245 MPAA ratings
 
 ```{r}
-imdb_top_250
+length(mpaas)
+length(titles)
 ```
 
-. . . 
+Solution: scrape movies first, and then extract elements: 
 
-Most modern tables in webpages are *dynamically loaded* (they wait for you to scroll down to load more rows). `rvest` can't scroll, so it can only see the initial data that's loaded
+```{r}
+movies <- imdb_local |>
+  html_elements(".cli-children") 
 
-## What do we do? 
+movies |>
+  html_element(".cli-title-metadata-item:nth-child(3)") |>
+  html_text() |>
+  length()
+```
+
+## What do we do if scraping doesn't work? 
 
 1. Is there an API available? Can I access it as a student/researcher at no/low cost?
    - IMDb: Yes, but cost prohibitive
@@ -515,20 +547,8 @@ Most modern tables in webpages are *dynamically loaded* (they wait for you to sc
 
 4. If I download the page, is more information available? 
    - In this case, yes, but might not always work
-  
-## With local copy of website
 
-```{r}
-imdb_local <- read_html("IMDb Top 250 Movies.html")
-titles <- imdb_local %>%
-  html_elements(".with-margin .ipc-title__text") %>%
-  html_text()
-
-
-titles
-```
-
-# .rmd vs .R {.maize}
+# .qmd vs .R {.maize}
 
 ## 
 
