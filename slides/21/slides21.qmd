@@ -153,7 +153,7 @@ Function       | Description
 
 ## Example: box office mojo
 
-<https://www.boxofficemojo.com/year/2024/>
+<https://www.boxofficemojo.com/year/2026/>
 
 ::::: columns
 ::: {.column .nonincremental width="50%"}
@@ -178,7 +178,7 @@ Function       | Description
 ## Read HTML into R
 
 ```{r}
-page <- read_html("https://www.boxofficemojo.com/year/2024/")
+page <- read_html("https://www.boxofficemojo.com/year/2026/")
 page
 str(page)
 ```
@@ -214,8 +214,8 @@ str(tables)
 ## Parse a table into a data frame/tibble
 
 ```{r top2022-df}
-top2024 <- html_table(tables[[1]])
-glimpse(top2024)
+top2026 <- html_table(tables[[1]])
+glimpse(top2026)
 ```
 
 
@@ -223,7 +223,7 @@ glimpse(top2024)
 ## Scrape then wrangle
 
 ```{r}
-top2024 <- top2024 %>%
+top2026 <- top2026 %>%
   mutate(
     Gross = parse_number(Gross),
     Theaters = parse_number(Theaters),
@@ -231,7 +231,7 @@ top2024 <- top2024 %>%
   ) %>%
   separate(`Release Date`, into = c("Month", "Day"))
 
-glimpse(top2024)
+glimpse(top2026)
 ```
 
 ## Scraped data will almost always need wrangling/cleaning
@@ -256,7 +256,7 @@ Source: [Playing the Whole Game](https://www.tandfonline.com/doi/full/10.1080/10
 
 ## Data aren't always stored as tables
 
-<https://www.carleton.edu/catalog/current/search/?subject=STAT&term=25WI>
+<https://www.carleton.edu/catalog/current/search/?subject=STAT&term=26SP>
 
 ![](../img/stat220-catalog-listing.png)
 
@@ -281,7 +281,7 @@ countdown(3)
 ## 
 
 ```{r}
-listings = read_html("https://www.carleton.edu/catalog/current/search/?subject=STAT&term=25WI")
+listings = read_html("https://www.carleton.edu/catalog/current/search/?subject=STAT&term=26SP")
 ```
 
 ```{r}
@@ -349,14 +349,14 @@ listings %>%
 ## 
 
 ```{r}
-stat_winter2025 <- tibble(
+stat_sp26 <- tibble(
   course = listings %>% html_elements(".courseNumber") %>% html_text(),
   title = listings %>% html_elements(".courseTitle") %>% html_text(),
   credits = listings %>% html_elements(".credits") %>% html_text() %>% str_squish(),
   description = listings %>% html_elements(".courseDetailWrapper") %>% html_text() %>% str_squish()
 )
 
-stat_winter2025
+stat_sp26
 ```
 
 ## What about sections?
@@ -421,7 +421,7 @@ click on an unhighlighted element to add it to the selector
 ## Try it 
 
 ::: {.task .nonincremental}
-- Use the SelectorGadget to explore http://www.imdb.com/chart/top
+- Use the SelectorGadget to explore <http://www.imdb.com/chart/top>
 
 - What should the columns of our target dataset be? Do they correspond to any specific css selectors?
 :::
@@ -435,7 +435,7 @@ countdown(3)
 ```{r}
 imdb <- read_html("http://www.imdb.com/chart/top")
 titles <- imdb %>%
-  html_elements(".with-margin .ipc-title__text") %>%
+  html_elements(".ipc-title-link-wrapper .ipc-title__text") %>%
   html_text()
 
 head(titles)
