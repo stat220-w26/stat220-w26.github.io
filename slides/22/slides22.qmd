@@ -53,7 +53,7 @@ gapminder2021 <- gapminder %>%
 - Dashboards
 - Intro to interactive toolkit
 
-## rmarkdown outputs: pdf 
+## quarto outputs: pdf 
 
 ::::: columns
 ::: {.column .nonincremental width="50%"}
@@ -63,8 +63,8 @@ gapminder2021 <- gapminder %>%
 title: "Example Document"
 author: "Amanda Luby"
 date: "2025-02-26"
-output:
-  pdf_document
+format:
+  pdf: default
 ---
 
 ```
@@ -78,7 +78,7 @@ output:
 :::
 :::::
 
-## rmarkdown outputs: html 
+## quarto outputs: html 
 
 ::::: columns
 ::: {.column .nonincremental width="50%"}
@@ -88,8 +88,8 @@ output:
 title: "Example Document"
 author: "Amanda Luby"
 date: "2025-02-26"
-output:
-  html_document
+format:
+  html: default
 ---
 
 ```
@@ -102,7 +102,7 @@ output:
 :::
 :::::
 
-## rmarkdown outputs: html, custom theme 
+## quarto outputs: html, custom theme 
 
 ::::: columns
 ::: {.column .nonincremental width="50%"}
@@ -112,8 +112,8 @@ output:
 title: "Example Document"
 author: "Amanda Luby"
 date: "2025-02-26"
-output:
-  html_document:
+format:
+  html: 
     theme: darkly
 ---
 
@@ -127,7 +127,7 @@ output:
 :::
 :::::
 
-## rmarkdown outputs: github-flavored markdown
+## quarto outputs: github-flavored markdown
 
 ::::: columns
 ::: {.column .nonincremental width="50%"}
@@ -137,8 +137,7 @@ output:
 title: "Example Document"
 author: "Amanda Luby"
 date: "2025-02-26"
-output:
-  github_document
+format: gfm
 ---
 
 ```
@@ -152,30 +151,6 @@ output:
 :::
 :::::
 
-## rmarkdown outputs: html theme in a package
-
-::::: columns
-::: {.column .nonincremental width="50%"}
-```{r}
-#| eval: false
----
-title: "Example Document"
-author: "Amanda Luby"
-date: "2025-02-26"
-output:
- prettydoc::html_pretty:
-    theme: hpstr
----
-
-```
-
-:::
-
-:::{.column .nonincremental width="50%"}
-
-![](../img/rmd-prettydoc-example.png)
-:::
-:::::
 
 ## Dashboards
 
@@ -189,10 +164,10 @@ library(flexdashboard)
 ---
 title: "Recent Earthquakes in Aotearoa New Zealand"
 subtitle: "Of Weak Intensity or Greater"
-output: 
-  flex_dashboard:
+format: 
+  dashboard:
     orientation: columns
-    vertical_layout: fill
+    theme: yeti
 ---
 ```
 
@@ -219,78 +194,63 @@ output:
 ---
 title: "Palmer Penguins"
 author: "Amanda Luby"
-output: 
-  flexdashboard::flex_dashboard:
+format: 
+  dashboard:
     orientation: columns
-    vertical_layout: fill
-    navbar:
-      - { title: "Data Source", href: "https://allisonhorst.github.io/palmerpenguins/", align: right }
+    logo: https://allisonhorst.github.io/palmerpenguins/logo.png
+    nav-buttons:
+      - text: "Data Source"
+        href: https://allisonhorst.github.io/palmerpenguins/
 ---
 
-Graphs
-===================================== 
-      
-Data 
-=====================================  
 ```
 
 ![](../img/dashboard-header.png)
 
-## Rows and columns
-
-::::: columns
-::: {.column .nonincremental width="50%"}
-```
-
-Graphs
-===================================== 
-
-Column {data-width=650}
------------------------------------------------------------------------
-
-### Chart 1
-
-Column {data-width=350}
------------------------------------------------------------------------
-
-### Chart 2
-
-### Chart 3
+## Rows 
 
 ```
-:::
-::: {.column .nonincremental width="50%"}
-![](../img/chart-layout.png)
-:::
-:::::
+---
+title: "Palmer Penguins"
+format: dashboard
+---
+    
+## Row {height=70%}
 
-## Sections 
 
-::::: columns
-::: {.column .nonincremental width="50%"}
-```
+## Row {height=30%}
 
-Column {data-width=350}
------------------------------------------------------------------------
-
-### Chart 2
-
-### Chart 3
 
 ```
-:::
-::: {.column .nonincremental width="50%"}
-![](../img/dashboards-sections.png)
-:::
-:::::
+
+![](https://quarto.org/docs/dashboards/images/chart-focal-top.png)
+
+
+## Columns
+
+```
+---
+title: "Palmer Penguins"
+format: 
+  dashboard:
+    orientation: columns
+---
+    
+## Column {width=60%}
+
+
+## Column {width=40%}
+
+```
+
+![](https://quarto.org/docs/dashboards/images/chart-focal-left.png)
+
 
 # [html Widgets Showcase](https://testing-apps.shinyapps.io/flexdashboard-storyboard/)
 
 # [Earthquake Explorer](https://pub.demo.posit.team/public/nz-quakes/quakes.html) + [Source Code](https://github.com/cwickham/quakes/blob/main/quakes.qmd)
 
-# Interactive Graphics
-
-## Interactive Graphics add dimensions to static visualizations via features that the user controls
+# Interactive Graphics {.maize}
 
 ## Features we'll focus on in this class: 
 
@@ -356,8 +316,6 @@ gap2021
 ## Static $\to$ interactive 
 
 ```{r plotyl1}
-#| fig-width: 8
-#| fig-height: 4
 library(plotly)
 ggplotly(gap2021)
 ```
@@ -369,8 +327,6 @@ ggplotly(gap2021)
 ```{r}
 #| code-line-numbers: "7"
 #| output-location: slide
-#| fig-width: 8
-#| fig-height: 4
 
 gap2021 <- gapminder %>% 
   filter(year == 2021) %>%
@@ -396,8 +352,6 @@ ggplotly(gap2021)
 . . . 
 
 ```{r}
-#| fig-width: 8
-#| fig-height: 4
 ggplotly(gap2021, tooltip = "text")
 ```
 
@@ -565,13 +519,13 @@ countdown(2)
 ## Putting it all together
 
 ::: {.task .nonincremental}
-Let's improve the `flexdashboard-example.Rmd` Penguins data explorer:
+Let's improve the `22-dashboard-example.qmd` Penguins data explorer:
 
   - Make all graphs plotly's with appropriate tooltips
   - Replace the data output with your {DT} datatable
   - Include your leaflet map on a new *page* 
-  - Add [value boxes](https://rstudio.github.io/flexdashboard/articles/using.html#value-boxes) on the same page as your map that show the number of penguins that live on each island
-  - Change the [theme](https://pkgs.rstudio.com/flexdashboard/articles/using.html#appearance) of the dashboard
+  - Add [value boxes](https://quarto.org/docs/dashboards/data-display.html#value-boxes) on the same page as your map that show the number of penguins that live on each island
+  - Change the [theme](https://quarto.org/docs/dashboards/theming.html) of the dashboard
 :::
 
 

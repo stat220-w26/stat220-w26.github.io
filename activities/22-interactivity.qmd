@@ -43,12 +43,12 @@ Create a bar chart of species from the penguins data set, then convert it to an 
 
 # Putting it all together 
 
-new file --> rmarkdown --> from template --> flexdashboard (with bslib theme)
+Let's improve the `22-dashboard-example.qmd` Penguins data explorer:
 
   - Make all graphs plotly's with appropriate tooltips
   - Replace the data output with your {DT} datatable
   - Include your leaflet map on a new *page* 
-  - Add [value boxes](https://rstudio.github.io/flexdashboard/articles/using.html#value-boxes) on the same page as your map that show the number of penguins that live on each island
-  - Change the [theme](https://pkgs.rstudio.com/flexdashboard/articles/using.html#appearance) of the dashboard
+  - Add [value boxes](https://quarto.org/docs/dashboards/data-display.html#value-boxes) on the same page as your map that show the number of penguins that live on each island
+  - Change the [theme](https://quarto.org/docs/dashboards/theming.html) of the dashboard
   
 
