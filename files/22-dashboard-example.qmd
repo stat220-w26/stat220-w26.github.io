@@ -1,0 +1,64 @@
+---
+title: "Palmer Penguins"
+author: "Amanda Luby"
+format: 
+  dashboard:
+    orientation: columns
+    logo: https://allisonhorst.github.io/palmerpenguins/logo.png
+    nav-buttons:
+      - text: "Data Source"
+        href: https://allisonhorst.github.io/palmerpenguins/
+---
+
+```{r setup, include=FALSE}
+library(palmerpenguins)
+library(ggthemes)
+library(tidyverse)
+```
+
+# Graphs
+
+## Column {width=65%}
+
+
+```{r}
+#| fig-width: 8
+#| fig-height: 6
+#| fig-align: 'center'
+#| title: Graph 1
+ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, col = species)) + 
+  geom_point() + 
+  scale_color_colorblind()
+```
+
+## Column {width=35%}
+
+```{r}
+#| fig-width: 6
+#| fig-height: 3
+#| title: Graph 2
+ggplot(penguins, aes(x = flipper_length_mm, fill = species)) + 
+  geom_histogram(col = "white") + 
+  facet_wrap(vars(species)) + 
+  scale_fill_colorblind() + 
+  theme(legend.position = "none")
+```
+
+```{r}
+#| fig-width: 6
+#| fig-height: 3
+#| title: Graph 3
+ggplot(penguins, aes(x = body_mass_g, fill = species)) + 
+  geom_histogram(col = "white") + 
+  facet_wrap(vars(species)) + 
+  scale_fill_colorblind() + 
+  theme(legend.position = "none")
+```
+
+# Data
+
+Data were collected and made available by [Dr. Kristen Gorman](https://www.uaf.edu/cfos/people/faculty/detail/kristen-gorman.php) and the [Palmer Station, Antarctica LTER](https://pallter.marine.rutgers.edu), a member of the Long Term Ecological Research Network.
+
+```{r}
+penguins
+```
