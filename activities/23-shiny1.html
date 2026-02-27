@@ -436,13 +436,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="editing-a-shiny-app-part-1" class="level1 page-columns page-full">
 <h1>Editing a shiny app: Part 1</h1>
-<p><code>23-app-1.R</code> in the activities repo contains a starter app. Your tasks for today are:</p>
+<p><a href="https://github.com/stat220-w26/stat220-w26.github.io/blob/main/slides/23/manager-survey-app/app-w26.R"><code>app-w26.R</code></a> contains a starter shiny app. Your tasks for today are:</p>
 <ol type="1">
-<li><p>Run the app! See what we already have working, and what still needs to be done.</p></li>
-<li><p>Read the code: Where are the plots/tables being made vs displayed? What pieces are showing up in the app, and what have yet to be displayed?</p></li>
-<li><p>Create the appropriate <code>ggplots</code> to match the original app</p></li>
-<li><p>Now, edit the <code>tabsetPanel</code> code in the <code>ui()</code> function to output the ggplots.</p></li>
-<li><p>What elements from the original app do we still have to implement? Try to get the remainder of the <code>ui()</code> function set up. What other inputs could we add? Are there any other outputs?</p></li>
+<li><p>Run the app! What does it show us?</p></li>
+<li><p>Read the code: find the inputs and the outputs</p></li>
+<li><p>Adapt the app to allow the user to specify what variable maps to the point color in the scatterplot</p></li>
+<li><p>Adapt the app to allow the user to filter the data by <code>annual_salary</code>. Allow values between the minimum and maximum <code>annual_salary</code> selected.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>use <code>sliderInput</code> and specify a vector of lenth 2 for <code>value</code></p>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Adapt the app to allow the user to select whether the plot should have a white background</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>use <code>checkBoxInput</code> for the user input and <code>theme_minimal()</code> with an <code>if</code> statement to control the theme of the plot</p>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Create an interactive histogram that allows the user to select what quantitative variable should be displayed and what categorical variable should be used to fill the bars. Add any other interactive elements (e.g., binwidth adjustments) that you want to.</li>
 </ol>
 
 
@@ -925,22 +956,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># Editing a shiny app: Part 1</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">`23-app-1.R`</span> in the activities repo contains a starter app. Your tasks for today are: </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">`app-w26.R`</span><span class="co">](https://github.com/stat220-w26/stat220-w26.github.io/blob/main/slides/23/manager-survey-app/app-w26.R)</span> contains a starter shiny app. Your tasks for today are: </span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Run the app! See what we already have working, and what still needs to be done. </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Run the app! What does it show us?</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Read the code: Where are the plots/tables being made vs displayed? What pieces are showing up in the app, and what have yet to be displayed?</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Read the code: find the inputs and the outputs</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Create the appropriate <span class="in">`ggplots`</span> to match the original app</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Adapt the app to allow the user to specify what variable maps to the point color in the scatterplot</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Now, edit the <span class="in">`tabsetPanel`</span> code in the <span class="in">`ui()`</span> function to output the ggplots. </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Adapt the app to allow the user to filter the data by <span class="in">`annual_salary`</span>. Allow values between the minimum and maximum <span class="in">`annual_salary`</span> selected. </span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>What elements from the original app do we still have to implement? Try to get the remainder of the <span class="in">`ui()`</span> function set up. What other inputs could we add? Are there any other outputs?</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>::: aside</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Credit: <span class="co">[</span><span class="ot">Mine Çetinkaya-Rundel's</span><span class="co">](https://vizdata.org/)</span> Ask a Manager application exercise</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>use <span class="in">`sliderInput`</span> and specify a vector of lenth 2 for <span class="in">`value`</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Adapt the app to allow the user to select whether the plot should have a white background</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>use <span class="in">`checkBoxInput`</span> for the user input and <span class="in">`theme_minimal()`</span> with an <span class="in">`if`</span> statement to control the theme of the plot</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Create an interactive histogram that allows the user to select what quantitative variable should be displayed and what categorical variable should be used to fill the bars. Add any other interactive elements (e.g., binwidth adjustments) that you want to.</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>::: aside</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>Credit: <span class="co">[</span><span class="ot">Mine Çetinkaya-Rundel's</span><span class="co">](https://vizdata.org/)</span> Ask a Manager application exercise</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
