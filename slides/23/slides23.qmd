@@ -138,6 +138,81 @@ shinyApp(
 :::
 :::
 
+## Defining inputs 
+
+
+```{r eval=FALSE}
+ui <- fluidPage(
+  inputPanel(
+        selectInput('xcol', 
+                    label = 'X Variable', 
+                    choices = colnames(manager_survey), 
+                    selected = names(manager_survey)[16]),
+      )
+)
+```
+
+- `inputPanel()` creates an `input` list consisting of the user's selections
+- `selectInput()` makes a dropdown select menu
+- `xcol` is the name of the input variable. Make sure input names are unique!
+
+## Render output 
+
+```{r eval=FALSE}
+server <- function(input, output) {
+    output$scatterPlot <- renderPlot({
+    manager_survey |>
+      filter(industry %in% input$industry) |>
+      ggplot( aes_string(x = input$xcol, y = "annual_salary")) +
+      geom_jitter(size = 2, alpha = 0.6, aes(color = industry)) +
+      theme(legend.position = "top")
+  })
+}
+```
+
+- Access input values with `input$input_name`
+- Save objects to display to `output$object_name`
+- Build objects to display with `renderSomething()`
+
+## Add output to the UI function
+
+```{r eval=FALSE}
+ui <- fluidPage(
+      inputPanel(
+        selectInput('xcol', 
+                    label = 'X Variable', 
+                    choices = colnames(manager_survey), 
+                    selected = names(manager_survey)[16]),
+      ),
+    
+   plotOutput(outputId = "scatterPlot")
+)
+```
+
+- `typeofOutput("object_name")` will try to pull off the `object_name` element of the `output` list
+- Make sure output names are unique
+
+## Add a title 
+
+```{r eval=FALSE}
+ui <- fluidPage(
+  
+    titlePanel(title = "Exploring the Ask a Manager data"),
+
+      inputPanel(
+        selectInput('xcol', 
+                    label = 'X Variable', 
+                    choices = colnames(manager_survey), 
+                    selected = names(manager_survey)[16]),
+      ),
+    
+   plotOutput(outputId = "scatterPlot")
+)
+```
+
+- `typeofOutput("object_name")` will try to pull off the `object_name` element of the `output` list
+- Make sure output names are unique
+
 
 ## Data: Ask a manager
 
@@ -156,28 +231,18 @@ manager
 ```
 
 
+## Your turn 
 
-## Ultimate goal
-
-[https://minecr.shinyapps.io/manager-survey](https://minecr.shinyapps.io/manager-survey/)
-
-
-
-
-# Your turn {.maize}
-
-```{r}
-#| echo: false
-
-countdown::countdown(10)
-```
+::: {.task .nonincremental}
+1. Run the app! What does it show us?
+2. Read the code: find the inputs and the outputs
+3. Adapt the app to allow the user to specify what variable maps to the point color in the scatterplot
+4. Adapt the app to allow the user to filter the data by `annual_salary`. Allow values between the minimum and maximum `annual_salary` selected. 
+5. Adapt the app to allow the user to select whether the plot should have a white background
+6. Add a histogram that allows the user to select what quantitative variable should be displayed. Add any other interactive elements (e.g., binwidth adjustments) that you want to.
+:::
 
 
-## Final details
 
-- Shiny apps need to be "connected" to RStudio or a remote RStudio server
 
-- You can deploy shiny apps online
-    + using Posit's cloud server (free/fee) - https://www.shinyapps.io/
-    + creating a shiny server
 

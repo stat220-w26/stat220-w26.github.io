@@ -5,7 +5,7 @@ title: "23-shiny"
 
 # Editing a shiny app: Part 1
 
-`23-app-1.R` in the activities repo contains a starter app. Your tasks for today are: 
+[`app-w26.R`](https://github.com/stat220-w26/stat220-w26.github.io/blob/main/slides/23/manager-survey-app/app-w26.R) contains a starter shiny app. Your tasks for today are: 
 
 1. Run the app! What does it show us?
 

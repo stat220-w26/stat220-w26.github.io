@@ -4,11 +4,10 @@ library(shiny)
 library(tidyverse)
 library(ggthemes)
 library(scales)
-library(countrycode)
 
 # Load data --------------------------------------------------------------------
 
-manager_survey <- read_rds("manager-survey-processed.rds") |>
+manager_survey <- read_rds("https://github.com/stat220-w26/stat220-w26.github.io/raw/refs/heads/main/slides/23/manager-survey-app/manager-survey-processed.rds") |>
   select(age = how_old_are_you,
          industry = industry_other,
          annual_salary, 
