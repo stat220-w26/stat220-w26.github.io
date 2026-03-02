@@ -419,14 +419,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header><p>There will be a <strong>make-up lab quiz</strong> offered during Week 10. You can take this in-class makeup and replace your lowest in-class lab quiz (provided your score on the makeup is higher). There will be no take-home portion.</p>
-<ul>
-<li>Must schedule a 30 minute block outside of class during the following times:
+<p>Must schedule a 30 minute block outside of class during the following times:</p>
 <ul>
 <li>Monday 12:30-2:30pm</li>
 <li>Tuesday 10:30a-12p</li>
+<li>Tuesday 3-4pm</li>
 <li>Wednesday 9-11am</li>
-</ul>
-</li>
 </ul>
 <section id="guidelines" class="level1"><h1>Guidelines</h1>
 <p>This is a <em>closed note</em>, <em>closed internet resources</em>, <em>closed other people</em> lab quiz. I want to see what’s in your brain! You may use the cheat sheets provided by me, but otherwise you may not use any resources.</p>
@@ -445,8 +443,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Know and explain the difference between using an API and web scraping</li>
 <li>Explain <em>simple</em> HTML scraping code</li>
 </ul></section><section id="shiny" class="level2"><h2 class="anchored" data-anchor-id="shiny">Shiny</h2>
-<p>TBD</p>
-</section><section id="sql" class="level2"><h2 class="anchored" data-anchor-id="sql">SQL</h2>
+<ul>
+<li>Distinguish which code belongs in the <code>ui()</code> function and which belongs in the <code>server()</code> function</li>
+<li>Correctly track how an <code>input$id</code> flows from the UI into a reactive/rendering function in the server, and how it connects back to an <code>output$id</code> in the UI</li>
+<li>Know the matching pairs for displaying content (eg <code>plotOutput</code> matches <code>renderPlot</code>)</li>
+</ul></section><section id="sql" class="level2"><h2 class="anchored" data-anchor-id="sql">SQL</h2>
 <p>TBD</p>
 </section></section><section id="grading" class="level1"><h1>Grading</h1>
 <p>For the in-class portion, each question is worth 1 point, graded as “successful” (almost entirely correct), “not successful” (missing a key component), or “half credit” (mostly correct).</p>
@@ -469,7 +470,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="va">q</span> <span class="op">&lt;-</span> <span class="fl">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="questions" class="level2"><h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<p>TBD</p>
+<p><strong>Know and explain the difference between using an API and web scraping</strong></p>
+<p>You are tasked with collecting daily temperature data for NYC airports.</p>
+<ol type="a">
+<li>Provide one reason why accessing an official weather API would be preferable to scraping a weather website’s HTML</li>
+<li>If the weather website does <em>not</em> have an API</li>
+</ol>
+<p><strong>Explain <em>simple</em> HTML scraping code</strong></p>
+<p>Read the following {rvest} code and explain</p>
+<ol type="a">
+<li>What <code>html_elements("table.wikitable")</code> does</li>
+<li>What <code><a href="https://rvest.tidyverse.org/reference/html_table.html">html_table()</a></code> does</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_busiest_airports_by_passenger_traffic"</span></span>
+<span></span>
+<span><span class="va">busiest_airports</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_html</a></span><span class="op">(</span><span class="va">url</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_element.html">html_elements</a></span><span class="op">(</span><span class="st">"table.wikitable"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_table.html">html_table</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/pluck.html">pluck</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Shiny</strong></p>
+<p>Below is a very simple Shiny app. I’ve noted 3 errors related to reactivity and app structure. For each error, identify what is wrong and how to fix it.</p>
+<ol type="a">
+<li><p>Error 1:</p></li>
+<li><p>Error 2:</p></li>
+<li><p>Error 3:</p></li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">fluidPage</span><span class="op">(</span></span>
+<span>  <span class="fu">selectInput</span><span class="op">(</span><span class="st">"airport_choice"</span>, <span class="st">"Choose an Airport:"</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"JFK"</span>, <span class="st">"LGA"</span>, <span class="st">"EWR"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  <span class="fu">renderPlot</span><span class="op">(</span><span class="st">"delay_plot"</span><span class="op">)</span> <span class="co"># Error 1</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">delay_plot</span> <span class="op">&lt;-</span> <span class="fu">plotOutput</span><span class="op">(</span><span class="op">{</span> <span class="co"># Error 2</span></span>
+<span>    </span>
+<span>    <span class="va">plot_data</span> <span class="op">&lt;-</span> <span class="va">flights</span> <span class="op">|&gt;</span> </span>
+<span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">origin</span> <span class="op">==</span> <span class="va">airport_choice</span><span class="op">)</span> <span class="co"># Error 3</span></span>
+<span>      </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">plot_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">dep_delay</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu">shinyApp</span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
