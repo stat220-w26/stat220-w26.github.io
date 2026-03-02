@@ -42,7 +42,7 @@ theme_set(slides_theme)
 ## Warm Up: on your own
 
 ::: {.task .nonincremental}
-Start by opening `24-reactivity.R` 
+Start by opening [`24-reactivity.R`](https://stat220-w26.github.io/files/24-reactivity.R)
 
 1.  To begin, you need to understand what the Shiny app is doing. Run the Shiny app. What output changes when you change...
 
@@ -263,3 +263,4 @@ countdown(10)
     + using Posit's cloud server (free/fee) - https://www.shinyapps.io/
     + creating a shiny server
 
+- Make sure that your app lives in its own **folder** and there are no other .R/.qmd/.rmd files in that folder. The folder is what gets "deployed"
