@@ -12,10 +12,12 @@ library(nycflights23)
 
 There will be a **make-up lab quiz** offered during Week 10. You can take this in-class makeup and replace your lowest in-class lab quiz (provided your score on the makeup is higher). There will be no take-home portion. 
 
- - Must schedule a 30 minute block outside of class during the following times: 
-    - Monday 12:30-2:30pm
-    - Tuesday 10:30a-12p
-    - Wednesday 9-11am
+ Must schedule a 30 minute block outside of class during the following times: 
+ 
+  - Monday 12:30-2:30pm
+  - Tuesday 10:30a-12p
+  - Tuesday 3-4pm
+  - Wednesday 9-11am
     
 
 # Guidelines
@@ -47,7 +49,9 @@ This makeup will only include a required in-class portion:
 
 ## Shiny
 
-TBD
+- Distinguish which code belongs in the `ui()` function and which belongs in the `server()` function
+- Correctly track how an `input$id` flows from the UI into a reactive/rendering function in the server, and how it connects back to an `output$id` in the UI
+- Know the matching pairs for displaying content (eg `plotOutput` matches `renderPlot`)
 
 ## SQL
 
@@ -77,4 +81,65 @@ q <- 0
 
 ## Questions
 
-TBD
+**Know and explain the difference between using an API and web scraping**
+
+
+You are tasked with collecting daily temperature data for NYC airports. 
+
+(a) Provide one reason why accessing an official weather API would be preferable to scraping a weather website's HTML
+(b) If the weather website does *not* have an API
+
+**Explain *simple* HTML scraping code**
+
+Read the following {rvest} code and explain 
+
+(a) What `html_elements("table.wikitable")` does
+(b) What `html_table()` does
+
+```{r}
+#| eval: false
+
+
+library(rvest)
+
+url <- "https://en.wikipedia.org/wiki/List_of_busiest_airports_by_passenger_traffic"
+
+busiest_airports <- read_html(url) |>
+  html_elements("table.wikitable") |>
+  html_table() |>
+  pluck(1)
+```
+
+**Shiny**
+
+Below is a very simple Shiny app. I've noted 3 errors related to reactivity and app structure. For each error, identify what is wrong and how to fix it. 
+
+(a) Error 1: 
+
+(b) Error 2: 
+
+(c) Error 3: 
+
+```{r}
+#| eval: false 
+
+
+ui <- fluidPage(
+  selectInput("airport_choice", "Choose an Airport:", choices = c("JFK", "LGA", "EWR")),
+  renderPlot("delay_plot") # Error 1
+)
+
+server <- function(input, output, session) {
+  
+  output$delay_plot <- plotOutput({ # Error 2
+    
+    plot_data <- flights |> 
+      filter(origin == airport_choice) # Error 3
+      
+    ggplot(plot_data, aes(x = dep_delay)) + 
+      geom_histogram()
+  })
+}
+
+shinyApp(ui, server)
+```
