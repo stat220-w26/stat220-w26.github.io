@@ -9,7 +9,7 @@ library(countrycode)
 # Load and prep data -----------------------------------------------------------
 
 manager_survey <- read_csv(
-  "https://stat220-s25.github.io/data/manager-survey.csv",
+  "https://stat220-w26.github.io/data/manager-survey.csv",
   na = c("", "NA"),
   show_col_types = FALSE
 )

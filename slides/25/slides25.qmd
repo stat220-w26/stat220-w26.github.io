@@ -1,5 +1,5 @@
 ---
-title: "Shiny Design"
+title: "Collaborating on <br>GitHub + <br>Shiny Design"
 subtitle: Day 25
 title-slide-attributes:
   data-background-image: ../img/shiny-logo.png
@@ -39,7 +39,64 @@ slides_theme = theme_minimal(
 theme_set(slides_theme)
 ```
 
-## Warm up{.smaller}
+## GitHub collaboration activity
+
+When you and your teammates work on the lines of code within a document and both try to push your changes, you will run into issues.
+
+Merge conflicts happen when you merge branches that have competing changes, and Git needs your help to decide which changes to incorporate in the final merge.
+
+Our first task today is to walk you through a merge conflict!
+
+## Git review
+
+-   Pushing to a repo replaces the code on GitHub with the code you have on your computer.
+-   If a collaborator has made a change to your repo and pushed it to your collaborative GitHub repository, GitHub will stop you from pushing your changes to the repo because this could overwrite your collaborator's work!
+-   So you need to explicitly "merge" your collaborator's work before you can **push**.
+-   If your and your collaborator's changes are in different files or in different parts of the same file, git merges the work for you automatically when you **pull**.
+-   If you both changed the same part of a file, git will produce a **merge conflict** because it doesn't know how which change you want to keep and which change you want to overwrite.
+
+## Merge conflicts {.smaller}
+
+::::: {.columns}
+
+::: {.column width="50%"}
+
+```text
+<<<<<<< HEAD 
+
+See also: [dplyr documentation](https://dplyr.tidyverse.org/)   
+
+======= 
+
+See also [ggplot2 documentation](https://ggplot2.tidyverse.org/)  
+
+>>>>>>> some1alpha2numeric3string4
+```
+
+:::
+
+::: {.column width="50%" .nonincremental}
+
+- The `===` separate *your* changes (top) from *their* changes (bottom).
+- Note that on top you see the word `HEAD`, which indicates that these are your changes.
+- And at the bottom you see `some1alpha2numeric3string4`. This is the **hash** (a unique identifier) of the commit your collaborator made with the conflicting change.
+- Your job is to *reconcile* the changes: edit the file so that it incorporates the best of both versions and delete the `<<<`, `===`, and `>>>` lines.
+- Then you can stage and commit the result.
+
+:::
+
+:::::
+
+## Setup
+
+::: {.task .nonincremental}
+- Clone the `day25-yourgroup` repo and open `app.R`
+- Assign the numbers 1, 2, and 3 to each team member. If your team has fewer than 3 people, some will need to have multiple numbers
+- If your partner(s) aren't here and you are currently a group of 1, join up with a group of 2 (Amanda will add you to their repo)
+- Then, follow the instructions in the activity file to cause and then resolve merge conflicts
+:::
+
+## Shiny: warm-up {.smaller}
 
 ::: {.task .nonincremental}
 Open the following shinyapps and explore a little bit. 
@@ -63,95 +120,21 @@ With the folks around you, discuss:
 countdown::countdown(6)
 ```
 
-# AskAManager app 
-
-<https://minecr.shinyapps.io/manager-survey/>
-
 ## Your turn
 
-I've posted a new version of the app at <https://stat220-s25.github.io/files/25-starter-app.R>
-
 ::: {.task .nonincremental}
-- Move the initial data preparation code to an R **script** called `data-prep.R`
-- Write the cleaned dataset to a CSV or .Rds file
-    + `write_rds(manager_survey, "manager-survey/data/manager-survey.rds")`
+Choose one person to do the following in your repo: 
+
+- Move the initial data preparation code to an R **script** called `data-prep.R` in the home folder
+- Write the cleaned dataset to a CSV or .Rds file in a `data/` folder within the `app` folder
+    + `write_rds(manager_survey, "/data/manager-survey.rds")`
 - In the `app.R` file, load the data with `read_csv`
     + `manager_survey <- read_rds("data/manager-survey.rds")`
 :::
 
 ```{r}
 #| echo: false
-countdown::countdown(3)
-```
- 
-## Shiny inputs
-
-:::: {.columns}
-
-::: {.column width="50%"}
-```{r}
-#| eval: false
-
-xxxxInput("id", 
-          "Label", 
-          value,
-          choices)
-```
-:::
-
-::: {.column width="50%"}
-- `"id"` is how you refer to the input in the server function (`input$id`)
-- `"Label"` is how the input is labeled in the app
-- `value` refers to the default value (not all inputs have this option)
-- `choices` refers to the possible options that are listed (not all inputs have this option)
-:::
-
-::::
-
-
-## Shiny inputs
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-```{r}
-#| eval: false
-ui <- fluidPage(
-  numericInput("num", "Number one", value = 0, min = 0, max = 100),
-  sliderInput("num2", "Number two", value = 50, min = 0, max = 100),
-  selectInput("state", "What's your favourite state?", state.name)
-)
-```
-
-:::
-
-::: {.column width="40%"}
-![](../img/shiny-inputs.png)
-:::
-::::
-
-## Your turn
-
-::: {.task .nonincremental}
-- Add a `sliderInput` to the appropriate tab panel
-```{r}
-#| eval: false
-sliderInput(
-  inputId = "ylim",
-  label = _______ ,
-  min = 0,
-  value = c(0, 1000000),
-  max = __________,
-  width = "100%"
-)
-```
-- Edit your ggplot code for the individual salary plot to display only the data points that are within these slider values
-:::
-
-```{r}
-#| echo: false
-countdown::countdown(4)
+countdown::countdown(5)
 ```
 
 # Layouts {.maize}
@@ -315,6 +298,18 @@ ui <- navbarPage(
 :::
 ::::
 
+## Your turn
+
+::: {.task .nonincremental}
+(1 per group) Reorganize the app so that the two graphs show up on different panels, tabsets, or pages in a navlist. Commit and push the changes so everybody has the new version.
+:::
+
+```{r}
+#| echo: false
+
+countdown::countdown(5)
+```
+
 # Theming {.maize}
 
 ## Theming: built-in themes
@@ -374,8 +369,12 @@ Add `theme = bslib::bs_theme()` to your `ui()` function, and `bslib::bs_themer()
 ## Your turn
 
 ::: {.task .nonincremental}
+One person per group should: 
+
 - Add a custom theme to the AskAManager app
 - Update the ggplot themes to match
+
+Run the app, commit, and push so everybody has the updated version.
 :::
 
 ```{r}
