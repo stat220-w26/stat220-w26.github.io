@@ -346,35 +346,49 @@
   {
     "objectID": "activities/25-shiny-design.html",
     "href": "activities/25-shiny-design.html",
-    "title": "25-shiny-design",
+    "title": "25: GitHub collaboration and shiny design",
     "section": "",
     "text": "library(tidyverse)"
   },
   {
+    "objectID": "activities/25-shiny-design.html#setup",
+    "href": "activities/25-shiny-design.html#setup",
+    "title": "25: GitHub collaboration and shiny design",
+    "section": "Setup",
+    "text": "Setup\n\nClone the day25-yourgroup repo and open app.R\n\nAssign the numbers 1, 2, and 3 to each team member. If your team has fewer than 3 people, some will need to have multiple numbers\nIf your partner(s) aren’t here and you are currently a group of 1, join up with a group of 2 (Amanda will add you to their repo)"
+  },
+  {
+    "objectID": "activities/25-shiny-design.html#lets-cause-a-merge-conflict",
+    "href": "activities/25-shiny-design.html#lets-cause-a-merge-conflict",
+    "title": "25: GitHub collaboration and shiny design",
+    "section": "Let’s cause a merge conflict!",
+    "text": "Let’s cause a merge conflict!\nOur goal is to see two different types of merges: first we’ll see a type of merge that git can’t figure out on its own how to do on its own (a merge conflict) and requires human intervention, then another type of where that git can figure out how to do without human intervention.\nDoing this will require some tight choreography, so pay attention!\nTake turns in completing the exercise, only one member at a time. Others should just watch, not doing anything on their own projects (this includes not even pulling changes!) until they are instructed to. If you feel like you won’t be able to resist the urge to touch your computer when it’s not your turn, we recommend putting your hands in your pockets or sitting on them!\nBefore starting\nEveryone should have the repo cloned and know which role number(s) they are.\nRole 1\n\nGo to app.R in your project repo. Change the [team name] to your actual team name.\nRun the app, commit (all changed files), and push.\n\n\n\n\n\n\n\nImportant\n\n\n\nMake sure the previous role has finished before moving on to the next step.\n\n\nRole 2\n\nChange the team name to some other word.\nRun the app, and commit all changed files\nNow, try to push your changes. You should get an error.\n\n\n\nPull. Take a look at the document (app.R) with the merge conflict\nResolve the conflict by editing app.R to choose the correct/preferred change. Remove the merge conflict decorators (&lt;&lt;&lt;&lt;&lt;&lt; HEAD, ======, and &gt;&gt;&gt;&gt;&gt;&gt;&gt; 97e290f39f197467b5563ea8f81187b760c95aa2, the commit hash)\nThen, run the app\nClick the stage checkbox for all files in your git tab. Make sure they have checkmarks, not filled in boxes\nCommit and push\n\n\n\n\n\n\n\nImportant\n\n\n\nMake sure the previous role has finished before moving on to the next step.\n\n\nRole 3\n\nChange the name of the title in the app\nRun the app, commit and push. You should get an error.\nPull. No merge conflicts should occur, but you should see a message about merging\nNow push.\n\n\n\n\n\n\n\nImportant\n\n\n\nMake sure the previous role has finished before moving on to the next step.\n\n\nRole 1 (if you have 3 people) / Role 2 (if you have 2 people)\n\nPull all changes from the remote repo\nChange something in the app\nRun the app, commit, and push. You should not get an error because you pulled first. This is “good” collaborative behavior: start with pulling before doing any work\n\n\n\n\n\n\n\nImportant\n\n\n\nMake sure the previous role has finished before moving on to the next step."
+  },
+  {
     "objectID": "activities/25-shiny-design.html#part-1",
     "href": "activities/25-shiny-design.html#part-1",
-    "title": "25-shiny-design",
+    "title": "25: GitHub collaboration and shiny design",
     "section": "Part 1",
     "text": "Part 1\n\nMove the initial data preparation code to an R script called data-prep.R\n\nWrite the cleaned dataset to a CSV or .Rds file\n\nwrite_rds(manager_survey, \"manager-survey/data/manager-survey.rds\")\n\n\nIn the app.R file, load the data with read_csv\n\nmanager_survey &lt;- read_rds(\"data/manager-survey.rds\")"
   },
   {
     "objectID": "activities/25-shiny-design.html#part-2",
     "href": "activities/25-shiny-design.html#part-2",
-    "title": "25-shiny-design",
+    "title": "25: GitHub collaboration and shiny design",
     "section": "Part 2",
     "text": "Part 2\n\nAdd a sliderInput to the appropriate tab panel\n\n\nsliderInput(\n  inputId = \"ylim\",\n  label = _______ ,\n  min = 0,\n  value = c(0, 1000000),\n  max = __________,\n  width = \"100%\"\n)\n\n\nEdit your ggplot code for the individual salary plot to display only the data points that are within these slider values"
   },
   {
     "objectID": "activities/25-shiny-design.html#part-3",
     "href": "activities/25-shiny-design.html#part-3",
-    "title": "25-shiny-design",
+    "title": "25: GitHub collaboration and shiny design",
     "section": "Part 3",
     "text": "Part 3\n\nAdd a custom theme to the AskAManager app\nUpdate the ggplot themes to match"
   },
   {
     "objectID": "activities/25-shiny-design.html#if-time",
     "href": "activities/25-shiny-design.html#if-time",
-    "title": "25-shiny-design",
+    "title": "25: GitHub collaboration and shiny design",
     "section": "(If Time)",
     "text": "(If Time)\nSet up shinyapps.io account and deploy either (a) Portfolio 4 or (b) the AskAManager app\n\nYou can deploy shiny apps online\n\nusing Posit’s cloud server (free/fee) - https://www.shinyapps.io/\n\n\n“Getting started” guide will walk you through connecting RStudio to your shinyapps.io account\nnote: there is also now an option to deploy via Connect Cloud from your github. Feel free to try it!\n\n\ncreating a shiny server\n\n\nYour app and files should be in their own folder and the entire folder is what you “deploy”. You do not want multiple app.R or .Rmd files in that folder!\n\n\n\n\n\n\n\nCredit: Mine Çetinkaya-Rundel’s Ask a Manager application exercise"
   },
@@ -1009,114 +1023,128 @@
     "text": "Your turn\nTry the exercises in the 25-databases activity. We’ll start Friday off by talking about them"
   },
   {
-    "objectID": "slides/25/slides25.html#warm-up",
-    "href": "slides/25/slides25.html#warm-up",
-    "title": "Shiny Design",
-    "section": "Warm up",
-    "text": "Warm up\n\nOpen the following shinyapps and explore a little bit.\n\nData Wrangling\nBiodiversity in NPS\nHex Memory Game\nLake Profile Dashboard\nClassification Trees\n\nWith the folks around you, discuss:\n\nDid any apps stand out as enjoyable or useful?\nWhat features or design choices make an app stand out?\nAre there any small tweaks you could make to make them more usable?\n\n\n\n\n\n\n−&plus;\n\n06:00"
+    "objectID": "slides/25/slides25.html#github-collaboration-activity",
+    "href": "slides/25/slides25.html#github-collaboration-activity",
+    "title": "Collaborating on GitHub + Shiny Design",
+    "section": "GitHub collaboration activity",
+    "text": "GitHub collaboration activity\nWhen you and your teammates work on the lines of code within a document and both try to push your changes, you will run into issues.\nMerge conflicts happen when you merge branches that have competing changes, and Git needs your help to decide which changes to incorporate in the final merge.\nOur first task today is to walk you through a merge conflict!"
+  },
+  {
+    "objectID": "slides/25/slides25.html#git-review",
+    "href": "slides/25/slides25.html#git-review",
+    "title": "Collaborating on GitHub + Shiny Design",
+    "section": "Git review",
+    "text": "Git review\n\nPushing to a repo replaces the code on GitHub with the code you have on your computer.\nIf a collaborator has made a change to your repo and pushed it to your collaborative GitHub repository, GitHub will stop you from pushing your changes to the repo because this could overwrite your collaborator’s work!\nSo you need to explicitly “merge” your collaborator’s work before you can push.\nIf your and your collaborator’s changes are in different files or in different parts of the same file, git merges the work for you automatically when you pull.\nIf you both changed the same part of a file, git will produce a merge conflict because it doesn’t know how which change you want to keep and which change you want to overwrite."
+  },
+  {
+    "objectID": "slides/25/slides25.html#merge-conflicts",
+    "href": "slides/25/slides25.html#merge-conflicts",
+    "title": "Collaborating on GitHub + Shiny Design",
+    "section": "Merge conflicts",
+    "text": "Merge conflicts\n\n\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD \n\nSee also: [dplyr documentation](https://dplyr.tidyverse.org/)   \n\n======= \n\nSee also [ggplot2 documentation](https://ggplot2.tidyverse.org/)  \n\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; some1alpha2numeric3string4\n\n\nThe === separate your changes (top) from their changes (bottom).\nNote that on top you see the word HEAD, which indicates that these are your changes.\nAnd at the bottom you see some1alpha2numeric3string4. This is the hash (a unique identifier) of the commit your collaborator made with the conflicting change.\nYour job is to reconcile the changes: edit the file so that it incorporates the best of both versions and delete the &lt;&lt;&lt;, ===, and &gt;&gt;&gt; lines.\nThen you can stage and commit the result."
+  },
+  {
+    "objectID": "slides/25/slides25.html#setup",
+    "href": "slides/25/slides25.html#setup",
+    "title": "Collaborating on GitHub + Shiny Design",
+    "section": "Setup",
+    "text": "Setup\n\n\nClone the day25-yourgroup repo and open app.R\n\nAssign the numbers 1, 2, and 3 to each team member. If your team has fewer than 3 people, some will need to have multiple numbers\nIf your partner(s) aren’t here and you are currently a group of 1, join up with a group of 2 (Amanda will add you to their repo)\nThen, follow the instructions in the activity file to cause and then resolve merge conflicts"
+  },
+  {
+    "objectID": "slides/25/slides25.html#shiny-warm-up",
+    "href": "slides/25/slides25.html#shiny-warm-up",
+    "title": "Collaborating on GitHub + Shiny Design",
+    "section": "Shiny: warm-up",
+    "text": "Shiny: warm-up\n\nOpen the following shinyapps and explore a little bit.\n\nData Wrangling\nBiodiversity in NPS\nHex Memory Game\nLake Profile Dashboard\nClassification Trees\n\nWith the folks around you, discuss:\n\nDid any apps stand out as enjoyable or useful?\nWhat features or design choices make an app stand out?\nAre there any small tweaks you could make to make them more usable?\n\n\n\n\n\n\n−&plus;\n\n06:00"
   },
   {
     "objectID": "slides/25/slides25.html#your-turn",
     "href": "slides/25/slides25.html#your-turn",
-    "title": "Shiny Design",
+    "title": "Collaborating on GitHub + Shiny Design",
     "section": "Your turn",
-    "text": "Your turn\nI’ve posted a new version of the app at https://stat220-s25.github.io/files/25-starter-app.R\n\n\nMove the initial data preparation code to an R script called data-prep.R\n\nWrite the cleaned dataset to a CSV or .Rds file\n\nwrite_rds(manager_survey, \"manager-survey/data/manager-survey.rds\")\n\n\nIn the app.R file, load the data with read_csv\n\nmanager_survey &lt;- read_rds(\"data/manager-survey.rds\")\n\n\n\n\n\n\n\n\n−&plus;\n\n03:00"
-  },
-  {
-    "objectID": "slides/25/slides25.html#shiny-inputs",
-    "href": "slides/25/slides25.html#shiny-inputs",
-    "title": "Shiny Design",
-    "section": "Shiny inputs",
-    "text": "Shiny inputs\n\n\n\nxxxxInput(\"id\", \n          \"Label\", \n          value,\n          choices)\n\n\n\n\n\"id\" is how you refer to the input in the server function (input$id)\n\n\"Label\" is how the input is labeled in the app\n\nvalue refers to the default value (not all inputs have this option)\n\nchoices refers to the possible options that are listed (not all inputs have this option)"
-  },
-  {
-    "objectID": "slides/25/slides25.html#shiny-inputs-1",
-    "href": "slides/25/slides25.html#shiny-inputs-1",
-    "title": "Shiny Design",
-    "section": "Shiny inputs",
-    "text": "Shiny inputs\n\n\n\nui &lt;- fluidPage(\n  numericInput(\"num\", \"Number one\", value = 0, min = 0, max = 100),\n  sliderInput(\"num2\", \"Number two\", value = 50, min = 0, max = 100),\n  selectInput(\"state\", \"What's your favourite state?\", state.name)\n)"
-  },
-  {
-    "objectID": "slides/25/slides25.html#your-turn-1",
-    "href": "slides/25/slides25.html#your-turn-1",
-    "title": "Shiny Design",
-    "section": "Your turn",
-    "text": "Your turn\n\n\nAdd a sliderInput to the appropriate tab panel\n\n\nsliderInput(\n  inputId = \"ylim\",\n  label = _______ ,\n  min = 0,\n  value = c(0, 1000000),\n  max = __________,\n  width = \"100%\"\n)\n\n\nEdit your ggplot code for the individual salary plot to display only the data points that are within these slider values\n\n\n\n\n\n\n−&plus;\n\n04:00"
+    "text": "Your turn\n\nChoose one person to do the following in your repo:\n\nMove the initial data preparation code to an R script called data-prep.R in the home folder\nWrite the cleaned dataset to a CSV or .Rds file in a data/ folder within the app folder\n\nwrite_rds(manager_survey, \"/data/manager-survey.rds\")\n\n\nIn the app.R file, load the data with read_csv\n\nmanager_survey &lt;- read_rds(\"data/manager-survey.rds\")\n\n\n\n\n\n\n\n\n−&plus;\n\n05:00"
   },
   {
     "objectID": "slides/25/slides25.html#page-with-sidebar",
     "href": "slides/25/slides25.html#page-with-sidebar",
-    "title": "Shiny Design",
+    "title": "Collaborating on GitHub + Shiny Design",
     "section": "Page with sidebar",
     "text": "Page with sidebar\n\n\n\nfluidPage(\n  titlePanel(\n    # app title/description\n  ),\n  sidebarLayout(\n    sidebarPanel(\n      # inputs\n    ),\n    mainPanel(\n      # outputs\n    )\n  )\n)"
   },
   {
     "objectID": "slides/25/slides25.html#multi-row",
     "href": "slides/25/slides25.html#multi-row",
-    "title": "Shiny Design",
+    "title": "Collaborating on GitHub + Shiny Design",
     "section": "Multi-row",
     "text": "Multi-row\n\n\n\nfluidPage(\n  fluidRow(\n    column(4, \n      ...\n    ),\n    column(8, \n      ...\n    )\n  ),\n  fluidRow(\n    column(6, \n      ...\n    ),\n    column(6, \n      ...\n    )\n  )\n)"
   },
   {
     "objectID": "slides/25/slides25.html#multi-page-tabsets",
     "href": "slides/25/slides25.html#multi-page-tabsets",
-    "title": "Shiny Design",
+    "title": "Collaborating on GitHub + Shiny Design",
     "section": "Multi-page: Tabsets",
     "text": "Multi-page: Tabsets\n\n\n\nui &lt;- fluidPage(\n  sidebarLayout(\n    sidebarPanel(\n      textOutput(\"panel\")\n    ),\n    mainPanel(\n      tabsetPanel(\n        id = \"tabset\",\n        tabPanel(\"panel 1\", \"one\"),\n        tabPanel(\"panel 2\", \"two\"),\n        tabPanel(\"panel 3\", \"three\")\n      )\n    )\n  )\n)\nserver &lt;- function(input, output, session) {\n  output$panel &lt;- renderText({\n    paste(\"Current panel: \", input$tabset)\n  })\n}"
   },
   {
     "objectID": "slides/25/slides25.html#multi-page-nav-list",
     "href": "slides/25/slides25.html#multi-page-nav-list",
-    "title": "Shiny Design",
+    "title": "Collaborating on GitHub + Shiny Design",
     "section": "Multi-page: nav list",
     "text": "Multi-page: nav list\n\n\n\nui &lt;- fluidPage(\n  navlistPanel(\n    id = \"tabset\",\n    \"Heading 1\",\n    tabPanel(\"panel 1\", \"Panel one contents\"),\n    \"Heading 2\",\n    tabPanel(\"panel 2\", \"Panel two contents\"),\n    tabPanel(\"panel 3\", \"Panel three contents\")\n  )\n)"
   },
   {
     "objectID": "slides/25/slides25.html#multi-page-nav-bar",
     "href": "slides/25/slides25.html#multi-page-nav-bar",
-    "title": "Shiny Design",
+    "title": "Collaborating on GitHub + Shiny Design",
     "section": "Multi-page: nav bar",
     "text": "Multi-page: nav bar\n\n\n\nui &lt;- navbarPage(\n  \"Page title\",   \n  tabPanel(\"panel 1\", \"one\"),\n  tabPanel(\"panel 2\", \"two\"),\n  tabPanel(\"panel 3\", \"three\"),\n  navbarMenu(\"subpanels\", \n    tabPanel(\"panel 4a\", \"four-a\"),\n    tabPanel(\"panel 4b\", \"four-b\"),\n    tabPanel(\"panel 4c\", \"four-c\")\n  )\n)"
   },
   {
+    "objectID": "slides/25/slides25.html#your-turn-1",
+    "href": "slides/25/slides25.html#your-turn-1",
+    "title": "Collaborating on GitHub + Shiny Design",
+    "section": "Your turn",
+    "text": "Your turn\n\n(1 per group) Reorganize the app so that the two graphs show up on different panels, tabsets, or pages in a navlist. Commit and push the changes so everybody has the new version.\n\n\n\n\n\n−&plus;\n\n05:00"
+  },
+  {
     "objectID": "slides/25/slides25.html#theming-built-in-themes",
     "href": "slides/25/slides25.html#theming-built-in-themes",
-    "title": "Shiny Design",
+    "title": "Collaborating on GitHub + Shiny Design",
     "section": "Theming: built-in themes",
     "text": "Theming: built-in themes\n\nfluidPage(\n  theme = bslib::bs_theme(...)\n)"
   },
   {
     "objectID": "slides/25/slides25.html#theming-customize",
     "href": "slides/25/slides25.html#theming-customize",
-    "title": "Shiny Design",
+    "title": "Collaborating on GitHub + Shiny Design",
     "section": "Theming: customize",
     "text": "Theming: customize\n\nfluidPage(\n  theme = bslib::bs_theme(\n    bg = \"#003069\", \n    fg = \"#ffd24f\", \n    base_font = \"Montserrat\",\n    heading_font = \"Playfair Display SemiBold\"\n)"
   },
   {
     "objectID": "slides/25/slides25.html#plot-theming",
     "href": "slides/25/slides25.html#plot-theming",
-    "title": "Shiny Design",
+    "title": "Collaborating on GitHub + Shiny Design",
     "section": "Plot theming",
     "text": "Plot theming\n\nserver &lt;- function(input, output, session) {\n  thematic::thematic_shiny()\n  \n  output$distPlot &lt;- renderPlot({\n    ggplot(...)\n  })\n}"
   },
   {
     "objectID": "slides/25/slides25.html#section",
     "href": "slides/25/slides25.html#section",
-    "title": "Shiny Design",
+    "title": "Collaborating on GitHub + Shiny Design",
     "section": "",
     "text": "Add theme = bslib::bs_theme() to your ui() function, and bslib::bs_themer() to your server function to try out different options interactively"
   },
   {
     "objectID": "slides/25/slides25.html#your-turn-2",
     "href": "slides/25/slides25.html#your-turn-2",
-    "title": "Shiny Design",
+    "title": "Collaborating on GitHub + Shiny Design",
     "section": "Your turn",
-    "text": "Your turn\n\n\nAdd a custom theme to the AskAManager app\nUpdate the ggplot themes to match\n\n\n\n\n\n\n−&plus;\n\n04:00"
+    "text": "Your turn\n\nOne person per group should:\n\nAdd a custom theme to the AskAManager app\nUpdate the ggplot themes to match\n\nRun the app, commit, and push so everybody has the updated version.\n\n\n\n\n\n−&plus;\n\n04:00"
   },
   {
     "objectID": "slides/25/slides25.html#deploying-an-app",
     "href": "slides/25/slides25.html#deploying-an-app",
-    "title": "Shiny Design",
+    "title": "Collaborating on GitHub + Shiny Design",
     "section": "Deploying an app",
     "text": "Deploying an app\n\nShiny apps need to be “connected” to RStudio or a remote RStudio server\n\nYou can deploy shiny apps online\n\nusing Posit’s cloud server (free/fee) - https://www.shinyapps.io/\n\n\n“Getting started” guide will walk you through connecting RStudio to your shinyapps.io account\nnote: there is also now an option to deploy via Connect Cloud from your github. Feel free to try it!\n\n\ncreating a shiny server\n\n\nYour app and files should be in their own folder and the entire folder is what you “deploy”. You do not want multiple app.R or .Rmd files in that folder!"
   },
@@ -3953,7 +3981,7 @@
     "href": "index.html",
     "title": "Stat 220: Intro to Data Science",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n1\nM\nMon, Jan 5\n📝complete welcome survey\n\nWelcome + data, R review\n\nslides01 01-example-unvotes\n\n\n\n\n1\nW\nWed, Jan 7\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus and pass syllabus quiz to activate tokens\nGithub + reproducible reports\n\nslides02 02-example-lego Lego report to replicate\n\n\n\n\n1\nF\nFri, Jan 9\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\n\nggplot\n\nslides03 03-ggplot-intro\n\nHW 1\n\n\n2\nM\nMon, Jan 12\n📚 DataViz 17-21 \n\nTheming + Design\n\nslides04 04-customizing-plots\n\n\n\n\n2\nW\nWed, Jan 14\n📚 DataViz 15 \n\nMaps/spatial data\n\nslides05 05-maps\n\nHW 2\n\n\n2\nF\nFri, Jan 16\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\n\nAccesibility for data viz\nslides06\n\n\n\n3\nM\nMon, Jan 19\n📚 R4DS 3.1-3.4 \n\nVerbs\n\nslides07 07-verbs\n\n\n\n\n3\nW\nWed, Jan 21\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \n\nGroups and summarizing Tidy data\n\nslides08 08-dplyr2\n\nHW 3\n\n\n3\nF\nFri, Jan 23\n📚 R4DS 4 \n\nCode style\n\nslides09 09-tidyr\n\n\nLab Quiz 1 \n\n\n\n4\nM\nMon, Jan 26\n📚 R4DS 19.1-19.3\n\nCombining datasets\n\nslides10 10-combining\n\n\nLab Quiz 1 (postponed from 1/23) \n\n\n\n4\nW\nWed, Jan 28\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \n\nImport data and dates/times\n\nslides11 11-import\n\nHW 4\n\n\n4\nF\nFri, Jan 30\n📚 R4DS 16 \n\nWorking with factors\n\nslides12 12-factors\n\nPortfolio 1\n\n\n5\nM\nMon, Feb 2\n📚 R4DS 14  📚 R4DS 15.1-15.5\n\nWorking with strings and Regex\n\nslides13 13-strings-regex\n\n\n\n\n5\nW\nWed, Feb 4\n📚 MDSR 19.2  🌎 Google ngram viewer\n\nIntro to Text Analysis\n\nslides14 14-text-case-study\n\nHW 5\n\n\n5\nF\nFri, Feb 6\n📚 The Trouble with Sentiment Analysis\n\nText Analysis\n\nslides15 15-sentiment\n\nLab Quiz 2\n\n\n6\nM\nMon, Feb 9\n\n🏝️ Midterm Break; no class\n\n\n\n\n6\nW\nWed, Feb 11\n📚 R4DS 25\n\nFunctions\n\nslides16 16-functions Week 6/7 groups\n\n\nPortfolio 2\n\n\n\n6\nF\nFri, Feb 13\n📚 MDSR 7.1-7.3\n\nIteration\n\nslides17 17-iteration\n\nHW6\n\n\n7\nM\nMon, Feb 16\n\nIteration II\n\nslides18 18-iteration-2\n\n\n\n\n7\nW\nWed, Feb 18\n📚What is an API?  📚R4DS 23 (skip case studies)  📝 sign up for a census API key\n\nAPIs\n\nslides19 19-apis\n\n\nHW7 \n\n\n\n7\nF\nFri, Feb 20\n\nScraping I\n\nslides20 \n\n\nLab Quiz 3 , Final Project Idea Form\n\n\n\n8\nM\nMon, Feb 23\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\n\nScraping II\n\nslides21 21-scraping\n\nFinal Project Ranking Form\n\n\n8\nW\nWed, Feb 25\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\n\nIntro to Interactivity\n\nslides22 22-interactivity 22-dashboard-example\n\n\nHW8 Portfolio 3\n\n\n\n8\nF\nFri, Feb 27\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\n\nShiny 1\n\nslides23 23-shiny\n\n\n\n\n9\nM\nMon, Mar 2\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\n\nShiny 2\n\nslides24 24-shiny2\n\n\n\n\n9\nW\nWed, Mar 4\n\nShiny 3\ntbd\nFinal Project sketch\n\n\n9\nF\nFri, Mar 6\n📚MDSR 15.1-15.4\n\nSQL\ntbd\nPortfolio 4\n\n\n10\nM\nMon, Mar 9\n\nProject Demos\ntbd\n\nMakeup lab quiz (Optional!)\n\n\n10\nW\nWed, Mar 11\n\nProject Demos\ntbd\n\nHW9 Makeup lab quiz (Optional!)\n\n\n\nNA\nFri, Mar 13\n\n🏝️ Reading days\ntbd\n\n\n\n\nNA\nMon, Mar 16\n\nFinal Project Due @ noon\ntbd\nFinal Project",
+    "text": "This page contains an outline of the topics, content, and assignments for the term. Note that this schedule will be updated as the term progresses and the timeline of topics and assignments might be updated. Any major changes to due dates will be announced in class and indicated in bold here.\n\n\n\n\n\n\nWEEK\nDOW\nDATE\nPREPARE\nTOPIC\nMATERIALS\nDUE\n\n\n\n1\nM\nMon, Jan 5\n📝complete welcome survey\n\nWelcome + data, R review\n\nslides01 01-example-unvotes\n\n\n\n\n1\nW\nWed, Jan 7\n📚 R basics  📚 R4DS 28.1-28.5  📺 git and GitHub for poets  📝 Read syllabus and pass syllabus quiz to activate tokens\nGithub + reproducible reports\n\nslides02 02-example-lego Lego report to replicate\n\n\n\n\n1\nF\nFri, Jan 9\n📝 10 minute activity on markdown  📚 R4DS Ch1  📺 intro to ggplot\n\nggplot\n\nslides03 03-ggplot-intro\n\nHW 1\n\n\n2\nM\nMon, Jan 12\n📚 DataViz 17-21 \n\nTheming + Design\n\nslides04 04-customizing-plots\n\n\n\n\n2\nW\nWed, Jan 14\n📚 DataViz 15 \n\nMaps/spatial data\n\nslides05 05-maps\n\nHW 2\n\n\n2\nF\nFri, Jan 16\n📺 first 15 minutes of Accessible Data Science Beyond Visual Models  📚 Skim Writing Alt Text to Communicate the Meaning in Data Visualizations\n\nAccesibility for data viz\nslides06\n\n\n\n3\nM\nMon, Jan 19\n📚 R4DS 3.1-3.4 \n\nVerbs\n\nslides07 07-verbs\n\n\n\n\n3\nW\nWed, Jan 21\n📚 R4DS 3.5  📚 R4DS 5.1-5.4 \n\nGroups and summarizing Tidy data\n\nslides08 08-dplyr2\n\nHW 3\n\n\n3\nF\nFri, Jan 23\n📚 R4DS 4 \n\nCode style\n\nslides09 09-tidyr\n\n\nLab Quiz 1 \n\n\n\n4\nM\nMon, Jan 26\n📚 R4DS 19.1-19.3\n\nCombining datasets\n\nslides10 10-combining\n\n\nLab Quiz 1 (postponed from 1/23) \n\n\n\n4\nW\nWed, Jan 28\n📚 R4DS 7.1-7.4  📚 R4DS 17.1-17.3 \n\nImport data and dates/times\n\nslides11 11-import\n\nHW 4\n\n\n4\nF\nFri, Jan 30\n📚 R4DS 16 \n\nWorking with factors\n\nslides12 12-factors\n\nPortfolio 1\n\n\n5\nM\nMon, Feb 2\n📚 R4DS 14  📚 R4DS 15.1-15.5\n\nWorking with strings and Regex\n\nslides13 13-strings-regex\n\n\n\n\n5\nW\nWed, Feb 4\n📚 MDSR 19.2  🌎 Google ngram viewer\n\nIntro to Text Analysis\n\nslides14 14-text-case-study\n\nHW 5\n\n\n5\nF\nFri, Feb 6\n📚 The Trouble with Sentiment Analysis\n\nText Analysis\n\nslides15 15-sentiment\n\nLab Quiz 2\n\n\n6\nM\nMon, Feb 9\n\n🏝️ Midterm Break; no class\n\n\n\n\n6\nW\nWed, Feb 11\n📚 R4DS 25\n\nFunctions\n\nslides16 16-functions Week 6/7 groups\n\n\nPortfolio 2\n\n\n\n6\nF\nFri, Feb 13\n📚 MDSR 7.1-7.3\n\nIteration\n\nslides17 17-iteration\n\nHW6\n\n\n7\nM\nMon, Feb 16\n\nIteration II\n\nslides18 18-iteration-2\n\n\n\n\n7\nW\nWed, Feb 18\n📚What is an API?  📚R4DS 23 (skip case studies)  📝 sign up for a census API key\n\nAPIs\n\nslides19 19-apis\n\n\nHW7 \n\n\n\n7\nF\nFri, Feb 20\n\nScraping I\n\nslides20 \n\n\nLab Quiz 3 , Final Project Idea Form\n\n\n\n8\nM\nMon, Feb 23\n📚 R4DS 24.2;24.5  📝 install and test selectorGadget\n\nScraping II\n\nslides21 21-scraping\n\nFinal Project Ranking Form\n\n\n8\nW\nWed, Feb 25\n🌎 Explore htmlWidgets gallery + source code  🌎 Explore NZ Earthquakes and source code\n\nIntro to Interactivity\n\nslides22 22-interactivity 22-dashboard-example\n\n\nHW8 Portfolio 3\n\n\n\n8\nF\nFri, Feb 27\nPick one:  📺 Shiny basics playlist  📚Ch 1-2 of Mastering Shiny\n\nShiny 1\n\nslides23 23-shiny\n\n\n\n\n9\nM\nMon, Mar 2\nPick one:  📺 Reactivity in shiny playlist  📚Ch 3 of Mastering Shiny\n\nShiny 2\n\nslides24 24-shiny2\n\n\n\n\n9\nW\nWed, Mar 4\n\nShiny 3\n\nslides25 25-shiny-design\n\nFinal Project sketch\n\n\n9\nF\nFri, Mar 6\n📚MDSR 15.1-15.4\n\nSQL\ntbd\nPortfolio 4\n\n\n10\nM\nMon, Mar 9\n\nProject Demos\ntbd\n\nMakeup lab quiz (Optional!)\n\n\n10\nW\nWed, Mar 11\n\nProject Demos\ntbd\n\nHW9 Makeup lab quiz (Optional!)\n\n\n\nNA\nFri, Mar 13\n\n🏝️ Reading days\ntbd\n\n\n\n\nNA\nMon, Mar 16\n\nFinal Project Due @ noon\ntbd\nFinal Project",
     "crumbs": [
       "Course information",
       "Schedule"
