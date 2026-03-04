@@ -56,13 +56,55 @@ Whatever product form you choose, I'll be looking for a high degree of professio
 
 # Rubric
 
-🚧 Under construction 🚧
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(googlesheets4)
+library(gt)
+library(tidyverse)
+gs4_deauth()
+d <- read_sheet("https://docs.google.com/spreadsheets/d/1M1K7k6YkfuZNjgJ_lV-ZCAj21ijUXO2Jt5K9rCVjP9I/edit?usp=sharing")
+```
+
+```{r}
+#| echo: false
+
+d |> 
+  gt() |>
+  sub_missing(columns = c(Category, Criterion, Points, `Point Breakdown`), missing_text = "") |>
+  cols_align(
+    align = "left", 
+    columns = c(Category, Criterion, Points, `Point Breakdown`)
+  ) |>
+  tab_style(
+    style = cell_borders(
+      sides = "right",
+      color = "#D3D3D3",
+      style = "solid"
+    ),
+    locations = cells_body(
+      columns = c(Category, Criterion, Points, `Point Breakdown`)
+    )
+  ) |>
+  fmt_markdown(
+    columns = c(Category, Criterion, Points, `Point Breakdown`)
+  ) |>
+  cols_width(
+    Category ~ px(100),
+    Criterion ~ px(100), 
+    Points ~ px(50),
+    `Point Breakdown` ~ px(300)
+  ) |>
+  tab_options(table.font.size = 13) |>
+  opt_row_striping()
+```
 
 # Final Project Submission
 
 You should submit your final GitHub repo to gradescope by noon on the last day of the finals period. I will start by looking at your README.md, which should contain: 
 
-1. A link to your published project (rpubs or shinyapps)
+1. A link to your published project (quarto pub or shinyapps)
 2. A technical overview of what you did for your project
     - Please indicate to me what your primary accomplishments were for each of the "acquire", "wrangle", "visualize", and "communicate" goals. 
     - If there are any specific features that you would like me to look at when grading, please tell me if it is not already clearly indicated in your app
@@ -76,7 +118,7 @@ You should submit your final GitHub repo to gradescope by noon on the last day o
 -   Week 8 Monday: Submit final project ranking form (everyone should submit a form, but you can indicate a partner)
 -   Week 8 Wednesday: I will notify groups and create repos
 -   Week 9 Wednesday: "Sketch" drafts:
-    -   This should be a .rmd file that:
+    -   This should be a .qmd file that:
         1.  Reads in at least one dataset
         2.  Makes at least one graph or summary table
         3.  Lists at least 5 research questions
@@ -120,7 +162,7 @@ This sketch will make up ~5% of your final grade.
 
 ## Project progress demos
 
-You should prepare a 6 minute presentation of your progress so far on the final projects. This presentation will make up 15-20% of your final project grade. Please focus on:
+You should prepare a 6 minute presentation of your progress so far on the final projects. This presentation will make up 15% of your final project grade. Please focus on:
 
 -   The data you've gathered/will gather
 -   Your research questions
