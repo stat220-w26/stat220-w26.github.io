@@ -369,14 +369,14 @@
     "href": "activities/25-shiny-design.html#part-1",
     "title": "25: GitHub collaboration and shiny design",
     "section": "Part 1",
-    "text": "Part 1\n\nMove the initial data preparation code to an R script called data-prep.R\n\nWrite the cleaned dataset to a CSV or .Rds file\n\nwrite_rds(manager_survey, \"manager-survey/data/manager-survey.rds\")\n\n\nIn the app.R file, load the data with read_csv\n\nmanager_survey &lt;- read_rds(\"data/manager-survey.rds\")"
+    "text": "Part 1\n\nMove the initial data preparation code to an R script called data-prep.R\n\nWrite the cleaned dataset to a CSV or .Rds file\n\nwrite_rds(manager_survey, \"/data/manager-survey.rds\")\n\n\nIn the app.R file, load the data with read_csv\n\nmanager_survey &lt;- read_rds(\"data/manager-survey.rds\")"
   },
   {
     "objectID": "activities/25-shiny-design.html#part-2",
     "href": "activities/25-shiny-design.html#part-2",
     "title": "25: GitHub collaboration and shiny design",
     "section": "Part 2",
-    "text": "Part 2\n\nAdd a sliderInput to the appropriate tab panel\n\n\nsliderInput(\n  inputId = \"ylim\",\n  label = _______ ,\n  min = 0,\n  value = c(0, 1000000),\n  max = __________,\n  width = \"100%\"\n)\n\n\nEdit your ggplot code for the individual salary plot to display only the data points that are within these slider values"
+    "text": "Part 2\n\nReorganize the app layout so that the two graphs show up on different panels, tabsets, or pages within a navlist\nCommit and push the changes so everybody has the new version"
   },
   {
     "objectID": "activities/25-shiny-design.html#part-3",
@@ -390,7 +390,7 @@
     "href": "activities/25-shiny-design.html#if-time",
     "title": "25: GitHub collaboration and shiny design",
     "section": "(If Time)",
-    "text": "(If Time)\nSet up shinyapps.io account and deploy either (a) Portfolio 4 or (b) the AskAManager app\n\nYou can deploy shiny apps online\n\nusing Posit’s cloud server (free/fee) - https://www.shinyapps.io/\n\n\n“Getting started” guide will walk you through connecting RStudio to your shinyapps.io account\nnote: there is also now an option to deploy via Connect Cloud from your github. Feel free to try it!\n\n\ncreating a shiny server\n\n\nYour app and files should be in their own folder and the entire folder is what you “deploy”. You do not want multiple app.R or .Rmd files in that folder!\n\n\n\n\n\n\n\nCredit: Mine Çetinkaya-Rundel’s Ask a Manager application exercise"
+    "text": "(If Time)\nSet up shinyapps.io account and deploy either (a) Portfolio 4 or (b) the AskAManager app\n\nYou can deploy shiny apps online\n\nusing Posit’s cloud server (free/fee) - https://www.shinyapps.io/\n\n\n“Getting started” guide will walk you through connecting RStudio to your shinyapps.io account\nnote: there is also now an option to deploy via Connect Cloud from your github. Feel free to try it!\n\n\ncreating a shiny server\n\n\nYour app and files should be in their own folder and the entire folder is what you “deploy”. You do not want multiple app.R or .Rmd files in that folder!\n\n\n\n\n\n\n\nCredit: Mine Çetinkaya-Rundel’s Ask a Manager application exercise and GitHub collaboration exercise"
   },
   {
     "objectID": "activities/14-text-case-study.html",
