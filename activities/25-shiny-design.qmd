@@ -149,27 +149,14 @@ Use the version you've been working on, or use a new starter app at [https://sta
 
 - Move the initial data preparation code to an R **script** called `data-prep.R`
 - Write the cleaned dataset to a CSV or .Rds file
-    + `write_rds(manager_survey, "manager-survey/data/manager-survey.rds")`
+    + `write_rds(manager_survey, "/data/manager-survey.rds")`
 - In the `app.R` file, load the data with `read_csv`
     + `manager_survey <- read_rds("data/manager-survey.rds")`
 
 ## Part 2
 
-- Add a `sliderInput` to the appropriate tab panel
-
-```{r}
-#| eval: false
-sliderInput(
-  inputId = "ylim",
-  label = _______ ,
-  min = 0,
-  value = c(0, 1000000),
-  max = __________,
-  width = "100%"
-)
-```
-
-- Edit your ggplot code for the individual salary plot to display only the data points that are within these slider values
+- Reorganize the app layout so that the two graphs show up on different panels, tabsets, or pages within a navlist
+- Commit and push the changes so everybody has the new version
 
 ## Part 3
 
@@ -191,5 +178,5 @@ Set up shinyapps.io account and deploy either (a) Portfolio 4 or (b) the AskAMan
 
 
 ::: aside
-Credit: [Mine Çetinkaya-Rundel's](https://vizdata.org/) Ask a Manager application exercise
+Credit: [Mine Çetinkaya-Rundel's](https://vizdata.org/) Ask a Manager application exercise and GitHub collaboration exercise
 :::
