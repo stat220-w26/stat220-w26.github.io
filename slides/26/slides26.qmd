@@ -577,7 +577,7 @@ which means "select everything from the flights dataset".
 
 . . . 
 
-**DO NOT EXECUTE THIS QUERY!** This will cause all 169 million records to be dumped! This will not only crash your computer, but also tie up the server for everyone else. 
+**DO NOT EXECUTE THIS QUERY!** This will cause all 180 million records to be dumped! This will not only crash your computer, but also tie up the server for everyone else. 
 
 A safe version is: 
 
@@ -638,10 +638,71 @@ What `kind_type` number corresponds to "movies"?
 countdown::countdown(1)
 ```
 
+
+## Two tables: 
+
+::::: columns
+
+::: {.column width="40%"}
+
+`kind_type` is a "lookup table" for the `kind_id` variable
+
+```{r}
+#| eval: false
+
+db %>%
+  dbGetQuery("SELECT * FROM kind_type
+             LIMIT 0,10;")
+```
+
+```
+  id           kind
+1  1          movie
+2  2      tv series
+3  3       tv movie
+4  4    video movie
+5  5 tv mini series
+6  6     video game
+7  7        episode
+```
+
+:::
+
+::: {.column width="60%"}
+
+`title` has information about "titles" in imdb
+
+```{r}
+#| eval: false
+
+db %>%
+  dbGetQuery("SELECT * FROM title
+             LIMIT 0,10;")
+```
+
+- `id`
+- `title`
+- `imdb_index`
+- `kind_id`
+- `production_year`
+- etc.
+
+:::
+
+:::::
+
 ## `WHERE` is similar to `filter()`
 
 ::::: columns
+
+::: {.column width="40%"}
+
+![](../img/empire-poster.jpg){width="80%"}
+
+:::
+
 ::: {.column width="60%"}
+
 ```{r}
 #| eval: false
 
@@ -650,6 +711,7 @@ db %>%
               FROM title
               WHERE title = 'The Empire Strikes Back';")
 ```
+
 ```
         id                   title imdb_index kind_id production_year  
 1   476823 The Empire Strikes Back       <NA>       7            1980      
@@ -663,13 +725,10 @@ db %>%
 9  2916719 The Empire Strikes Back       <NA>       7            2012  
 10 4346960 The Empire Strikes Back       <NA>       6            1992   
 ```
+
 :::
 
-::: {.column width="40%"}
-![](../img/empire-poster.jpg){width="80%"}
-:::
-
-::::
+:::::
 
 ## Restricting to `kind_id = 1`
 
@@ -709,11 +768,8 @@ db %>%
 
 ```
        id                                          title imdb_index kind_id production_year imdb_id phonetic_code
-1 4260164 Star Wars: Episode V - The Empire Strikes Back       <NA>       1            1980      NA         S3621
-2 4346961       The Empire Strikes Back Part II (Parody)       <NA>       1            2016      NA         E5162
-  episode_of_id season_nr episode_nr series_years                           md5sum
-1            NA        NA         NA         <NA> 99c3b6266cd096147b1d7af2b8353edb
-2            NA        NA         NA         <NA> 759372cfa023e3f7485dfe0db5bdc13d
+1 4260164 Star Wars: Episode V - The Empire Strikes Back       <NA>       1            
+2 4346961       The Empire Strikes Back Part II (Parody)       <NA>       1 
 ```
 
 ## `ORDER BY` is like `arrange()` 
@@ -721,19 +777,16 @@ db %>%
 ```{r}
 #| eval: false
 db %>%
-  dbGetQuery("SELECT *
+  dbGetQuery("SELECT title, kind_id, production_year
               FROM title
               WHERE title LIKE '%The Empire Strikes Back%'
                 AND kind_id = 1
              ORDER BY production_year;")
 ```
 ```
-       id                                          title imdb_index kind_id production_year imdb_id phonetic_code
-1 4260164 Star Wars: Episode V - The Empire Strikes Back       <NA>       1            1980      NA         S3621
-2 4346961       The Empire Strikes Back Part II (Parody)       <NA>       1            2016      NA         E5162
-  episode_of_id season_nr episode_nr series_years                           md5sum
-1            NA        NA         NA         <NA> 99c3b6266cd096147b1d7af2b8353edb
-2            NA        NA         NA         <NA> 759372cfa023e3f7485dfe0db5bdc13d
+                                           title kind_id production_year
+1 Star Wars: Episode V - The Empire Strikes Back       1            1980
+2       The Empire Strikes Back Part II (Parody)       1            2016
 ```
 
 ## Your turn
