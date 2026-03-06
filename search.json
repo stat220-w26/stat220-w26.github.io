@@ -355,7 +355,7 @@
     "href": "activities/25-shiny-design.html#setup",
     "title": "25: GitHub collaboration and shiny design",
     "section": "Setup",
-    "text": "Setup\n\nClone the day25-yourgroup repo and open app.R\n\nAssign the numbers 1, 2, and 3 to each team member. If your team has fewer than 3 people, some will need to have multiple numbers\nIf your partner(s) aren’t here and you are currently a group of 1, join up with a group of 2 (Amanda will add you to their repo)"
+    "text": "Setup\n\nClone the day25-yourgroup repo and open app.R\n\nAssign the numbers 1, 2, and 3 to each team member. If your team has fewer than 3 people, some will need to have multiple numbers\nIf your partner(s) aren’t here and you are currently a group of 1, join up with a group of 2 (Amanda will add you to their repo)\n\n\n\n\n\n\n\nTipHint\n\n\n\nIf the conflict markers are not appearing in your files (=====, &gt;&gt;&gt;&gt;&gt;, etc.) try clicking “Terminal” in Rstudio and running the command:\ngit merge --no-ff"
   },
   {
     "objectID": "activities/25-shiny-design.html#lets-cause-a-merge-conflict",
@@ -2581,7 +2581,7 @@
     "href": "slides/26/slides26.html#select-and-from",
     "title": "Intro toDatabases",
     "section": "\nSELECT and FROM\n",
-    "text": "SELECT and FROM\n\nare required for every query. The simplest query we can write is:\n\nSELECT * FROM flights;\n\nwhich means “select everything from the flights dataset”.\n\nDO NOT EXECUTE THIS QUERY! This will cause all 169 million records to be dumped! This will not only crash your computer, but also tie up the server for everyone else.\nA safe version is:\n\nSELECT * FROM flights LIMIT 0,10;"
+    "text": "SELECT and FROM\n\nare required for every query. The simplest query we can write is:\n\nSELECT * FROM flights;\n\nwhich means “select everything from the flights dataset”.\n\nDO NOT EXECUTE THIS QUERY! This will cause all 180 million records to be dumped! This will not only crash your computer, but also tie up the server for everyone else.\nA safe version is:\n\nSELECT * FROM flights LIMIT 0,10;"
   },
   {
     "objectID": "slides/26/slides26.html#limit",
@@ -2598,11 +2598,18 @@
     "text": "Your turn\n\nRun the following code to connect to the imdb database. This data lives in the basement of Bass Hall at Smith College.\n\nlibrary(mdsr)\nlibrary(DBI)\ndb &lt;- dbConnect_scidb(dbname = \"imdb\")\n\nCheck that your connection works by running the following “query”\n\ndb %&gt;%\n  dbGetQuery(\"SELECT * FROM kind_type\n             LIMIT 0,10;\")\n\nWhat kind_type number corresponds to “movies”?\n\n\n\n\n\n−&plus;\n\n01:00"
   },
   {
+    "objectID": "slides/26/slides26.html#two-tables",
+    "href": "slides/26/slides26.html#two-tables",
+    "title": "Intro toDatabases",
+    "section": "Two tables:",
+    "text": "Two tables:\n\n\nkind_type is a “lookup table” for the kind_id variable\n\ndb %&gt;%\n  dbGetQuery(\"SELECT * FROM kind_type\n             LIMIT 0,10;\")\n\n  id           kind\n1  1          movie\n2  2      tv series\n3  3       tv movie\n4  4    video movie\n5  5 tv mini series\n6  6     video game\n7  7        episode\n\ntitle has information about “titles” in imdb\n\ndb %&gt;%\n  dbGetQuery(\"SELECT * FROM title\n             LIMIT 0,10;\")\n\n\nid\ntitle\nimdb_index\nkind_id\nproduction_year\netc."
+  },
+  {
     "objectID": "slides/26/slides26.html#where-is-similar-to-filter",
     "href": "slides/26/slides26.html#where-is-similar-to-filter",
     "title": "Intro toDatabases",
     "section": "\nWHERE is similar to filter()\n",
-    "text": "WHERE is similar to filter()\n\n\n\n\ndb %&gt;%\n  dbGetQuery(\"SELECT *\n              FROM title\n              WHERE title = 'The Empire Strikes Back';\")\n\n        id                   title imdb_index kind_id production_year  \n1   476823 The Empire Strikes Back       &lt;NA&gt;       7            1980      \n2   461950 The Empire Strikes Back       &lt;NA&gt;       7            2015     \n3   919851 The Empire Strikes Back       &lt;NA&gt;       7            2015    \n4   924929 The Empire Strikes Back       &lt;NA&gt;       7            2017   \n5  1751199 The Empire Strikes Back       &lt;NA&gt;       7            2003   \n6  1890901 The Empire Strikes Back       &lt;NA&gt;       7            2016   \n7  2530173 The Empire Strikes Back       &lt;NA&gt;       7            2005   \n8  2780701 The Empire Strikes Back       &lt;NA&gt;       7            1986   \n9  2916719 The Empire Strikes Back       &lt;NA&gt;       7            2012  \n10 4346960 The Empire Strikes Back       &lt;NA&gt;       6            1992"
+    "text": "WHERE is similar to filter()\n\n\n\n\n\n\ndb %&gt;%\n  dbGetQuery(\"SELECT *\n              FROM title\n              WHERE title = 'The Empire Strikes Back';\")\n\n        id                   title imdb_index kind_id production_year  \n1   476823 The Empire Strikes Back       &lt;NA&gt;       7            1980      \n2   461950 The Empire Strikes Back       &lt;NA&gt;       7            2015     \n3   919851 The Empire Strikes Back       &lt;NA&gt;       7            2015    \n4   924929 The Empire Strikes Back       &lt;NA&gt;       7            2017   \n5  1751199 The Empire Strikes Back       &lt;NA&gt;       7            2003   \n6  1890901 The Empire Strikes Back       &lt;NA&gt;       7            2016   \n7  2530173 The Empire Strikes Back       &lt;NA&gt;       7            2005   \n8  2780701 The Empire Strikes Back       &lt;NA&gt;       7            1986   \n9  2916719 The Empire Strikes Back       &lt;NA&gt;       7            2012  \n10 4346960 The Empire Strikes Back       &lt;NA&gt;       6            1992"
   },
   {
     "objectID": "slides/26/slides26.html#restricting-to-kind_id-1",
@@ -2616,14 +2623,14 @@
     "href": "slides/26/slides26.html#soften-search-so-no-longer-need-exact-match-with-like",
     "title": "Intro toDatabases",
     "section": "Soften search so no longer need exact match with LIKE\n",
-    "text": "Soften search so no longer need exact match with LIKE\n\n\nSimilar to regex\n\n% is the “wildcard” character in SQL\n\n\n\ndb %&gt;%\n  dbGetQuery(\"SELECT *\n              FROM title\n              WHERE title LIKE '%The Empire Strikes Back%'\n                AND kind_id = 1;\")\n\n\n\n       id                                          title imdb_index kind_id production_year imdb_id phonetic_code\n1 4260164 Star Wars: Episode V - The Empire Strikes Back       &lt;NA&gt;       1            1980      NA         S3621\n2 4346961       The Empire Strikes Back Part II (Parody)       &lt;NA&gt;       1            2016      NA         E5162\n  episode_of_id season_nr episode_nr series_years                           md5sum\n1            NA        NA         NA         &lt;NA&gt; 99c3b6266cd096147b1d7af2b8353edb\n2            NA        NA         NA         &lt;NA&gt; 759372cfa023e3f7485dfe0db5bdc13d"
+    "text": "Soften search so no longer need exact match with LIKE\n\n\nSimilar to regex\n\n% is the “wildcard” character in SQL\n\n\n\ndb %&gt;%\n  dbGetQuery(\"SELECT *\n              FROM title\n              WHERE title LIKE '%The Empire Strikes Back%'\n                AND kind_id = 1;\")\n\n\n\n       id                                          title imdb_index kind_id production_year imdb_id phonetic_code\n1 4260164 Star Wars: Episode V - The Empire Strikes Back       &lt;NA&gt;       1            \n2 4346961       The Empire Strikes Back Part II (Parody)       &lt;NA&gt;       1"
   },
   {
     "objectID": "slides/26/slides26.html#order-by-is-like-arrange",
     "href": "slides/26/slides26.html#order-by-is-like-arrange",
     "title": "Intro toDatabases",
     "section": "\nORDER BY is like arrange()\n",
-    "text": "ORDER BY is like arrange()\n\n\ndb %&gt;%\n  dbGetQuery(\"SELECT *\n              FROM title\n              WHERE title LIKE '%The Empire Strikes Back%'\n                AND kind_id = 1\n             ORDER BY production_year;\")\n\n       id                                          title imdb_index kind_id production_year imdb_id phonetic_code\n1 4260164 Star Wars: Episode V - The Empire Strikes Back       &lt;NA&gt;       1            1980      NA         S3621\n2 4346961       The Empire Strikes Back Part II (Parody)       &lt;NA&gt;       1            2016      NA         E5162\n  episode_of_id season_nr episode_nr series_years                           md5sum\n1            NA        NA         NA         &lt;NA&gt; 99c3b6266cd096147b1d7af2b8353edb\n2            NA        NA         NA         &lt;NA&gt; 759372cfa023e3f7485dfe0db5bdc13d"
+    "text": "ORDER BY is like arrange()\n\n\ndb %&gt;%\n  dbGetQuery(\"SELECT title, kind_id, production_year\n              FROM title\n              WHERE title LIKE '%The Empire Strikes Back%'\n                AND kind_id = 1\n             ORDER BY production_year;\")\n\n                                           title kind_id production_year\n1 Star Wars: Episode V - The Empire Strikes Back       1            1980\n2       The Empire Strikes Back Part II (Parody)       1            2016"
   },
   {
     "objectID": "slides/26/slides26.html#your-turn-1",

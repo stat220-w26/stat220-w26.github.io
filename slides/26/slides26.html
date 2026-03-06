@@ -222,7 +222,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_757da6f7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_aa3906bf" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -724,7 +724,7 @@ Prof Amanda Luby
 </div>
 <p>which means “select everything from the flights dataset”.</p>
 <div class="fragment">
-<p><strong>DO NOT EXECUTE THIS QUERY!</strong> This will cause all 169 million records to be dumped! This will not only crash your computer, but also tie up the server for everyone else.</p>
+<p><strong>DO NOT EXECUTE THIS QUERY!</strong> This will cause all 180 million records to be dumped! This will not only crash your computer, but also tie up the server for everyone else.</p>
 <p>A safe version is:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>SELECT <span class="sc">*</span> FROM flights LIMIT <span class="dv">0</span>,<span class="dv">10</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -762,7 +762,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_10c70bae" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_e72dec8d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -770,16 +770,51 @@ Prof Amanda Luby
 </div>
 </div>
 </div>
+</section><section id="two-tables" class="slide level2"><h2>Two tables:</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><code>kind_type</code> is a “lookup table” for the <code>kind_id</code> variable</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>db <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a></a>  <span class="fu">dbGetQuery</span>(<span class="st">"SELECT * FROM kind_type</span></span>
+<span id="cb25-3"><a></a><span class="st">             LIMIT 0,10;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>  id           kind
+1  1          movie
+2  2      tv series
+3  3       tv movie
+4  4    video movie
+5  5 tv mini series
+6  6     video game
+7  7        episode</code></pre>
+</div><div class="column" style="width:60%;">
+<p><code>title</code> has information about “titles” in imdb</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>db <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a></a>  <span class="fu">dbGetQuery</span>(<span class="st">"SELECT * FROM title</span></span>
+<span id="cb27-3"><a></a><span class="st">             LIMIT 0,10;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li class="fragment"><code>id</code></li>
+<li class="fragment"><code>title</code></li>
+<li class="fragment"><code>imdb_index</code></li>
+<li class="fragment"><code>kind_id</code></li>
+<li class="fragment"><code>production_year</code></li>
+<li class="fragment">etc.</li>
+</ul>
+</div></div>
 </section><section id="where-is-similar-to-filter" class="slide level2"><h2>
 <code>WHERE</code> is similar to <code>filter()</code>
 </h2>
 <div class="columns">
-<div class="column" style="width:60%;">
+<div class="column" style="width:40%;">
+<p><img data-src="../img/empire-poster.jpg" style="width:80.0%"></p>
+</div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>db <span class="sc">%&gt;%</span></span>
-<span id="cb25-2"><a></a>  <span class="fu">dbGetQuery</span>(<span class="st">"SELECT *</span></span>
-<span id="cb25-3"><a></a><span class="st">              FROM title</span></span>
-<span id="cb25-4"><a></a><span class="st">              WHERE title = 'The Empire Strikes Back';"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>db <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a></a>  <span class="fu">dbGetQuery</span>(<span class="st">"SELECT *</span></span>
+<span id="cb28-3"><a></a><span class="st">              FROM title</span></span>
+<span id="cb28-4"><a></a><span class="st">              WHERE title = 'The Empire Strikes Back';"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <pre><code>        id                   title imdb_index kind_id production_year  
 1   476823 The Empire Strikes Back       &lt;NA&gt;       7            1980      
@@ -792,17 +827,15 @@ Prof Amanda Luby
 8  2780701 The Empire Strikes Back       &lt;NA&gt;       7            1986   
 9  2916719 The Empire Strikes Back       &lt;NA&gt;       7            2012  
 10 4346960 The Empire Strikes Back       &lt;NA&gt;       6            1992   </code></pre>
-</div><div class="column" style="width:40%;">
-<p><img data-src="../img/empire-poster.jpg" style="width:80.0%"></p>
 </div></div>
 </section><section id="restricting-to-kind_id-1" class="slide level2"><h2>Restricting to <code>kind_id = 1</code>
 </h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>db <span class="sc">%&gt;%</span></span>
-<span id="cb27-2"><a></a>  <span class="fu">dbGetQuery</span>(<span class="st">"SELECT *</span></span>
-<span id="cb27-3"><a></a><span class="st">              FROM title</span></span>
-<span id="cb27-4"><a></a><span class="st">              WHERE title = 'The Empire Strikes Back'</span></span>
-<span id="cb27-5"><a></a><span class="st">                AND kind_id = 1;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>db <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a></a>  <span class="fu">dbGetQuery</span>(<span class="st">"SELECT *</span></span>
+<span id="cb30-3"><a></a><span class="st">              FROM title</span></span>
+<span id="cb30-4"><a></a><span class="st">              WHERE title = 'The Empire Strikes Back'</span></span>
+<span id="cb30-5"><a></a><span class="st">                AND kind_id = 1;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <pre><code> [1] id              title           imdb_index      kind_id         production_year imdb_id         phonetic_code  
  [8] episode_of_id   season_nr       episode_nr      series_years    md5sum         
@@ -817,38 +850,32 @@ Prof Amanda Luby
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>db <span class="sc">%&gt;%</span></span>
-<span id="cb29-2"><a></a>  <span class="fu">dbGetQuery</span>(<span class="st">"SELECT *</span></span>
-<span id="cb29-3"><a></a><span class="st">              FROM title</span></span>
-<span id="cb29-4"><a></a><span class="st">              WHERE title LIKE '%The Empire Strikes Back%'</span></span>
-<span id="cb29-5"><a></a><span class="st">                AND kind_id = 1;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>db <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a></a>  <span class="fu">dbGetQuery</span>(<span class="st">"SELECT *</span></span>
+<span id="cb32-3"><a></a><span class="st">              FROM title</span></span>
+<span id="cb32-4"><a></a><span class="st">              WHERE title LIKE '%The Empire Strikes Back%'</span></span>
+<span id="cb32-5"><a></a><span class="st">                AND kind_id = 1;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment">
 <pre><code>       id                                          title imdb_index kind_id production_year imdb_id phonetic_code
-1 4260164 Star Wars: Episode V - The Empire Strikes Back       &lt;NA&gt;       1            1980      NA         S3621
-2 4346961       The Empire Strikes Back Part II (Parody)       &lt;NA&gt;       1            2016      NA         E5162
-  episode_of_id season_nr episode_nr series_years                           md5sum
-1            NA        NA         NA         &lt;NA&gt; 99c3b6266cd096147b1d7af2b8353edb
-2            NA        NA         NA         &lt;NA&gt; 759372cfa023e3f7485dfe0db5bdc13d</code></pre>
+1 4260164 Star Wars: Episode V - The Empire Strikes Back       &lt;NA&gt;       1            
+2 4346961       The Empire Strikes Back Part II (Parody)       &lt;NA&gt;       1 </code></pre>
 </div>
 </section><section id="order-by-is-like-arrange" class="slide level2"><h2>
 <code>ORDER BY</code> is like <code>arrange()</code>
 </h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>db <span class="sc">%&gt;%</span></span>
-<span id="cb31-2"><a></a>  <span class="fu">dbGetQuery</span>(<span class="st">"SELECT *</span></span>
-<span id="cb31-3"><a></a><span class="st">              FROM title</span></span>
-<span id="cb31-4"><a></a><span class="st">              WHERE title LIKE '%The Empire Strikes Back%'</span></span>
-<span id="cb31-5"><a></a><span class="st">                AND kind_id = 1</span></span>
-<span id="cb31-6"><a></a><span class="st">             ORDER BY production_year;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>db <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a></a>  <span class="fu">dbGetQuery</span>(<span class="st">"SELECT title, kind_id, production_year</span></span>
+<span id="cb34-3"><a></a><span class="st">              FROM title</span></span>
+<span id="cb34-4"><a></a><span class="st">              WHERE title LIKE '%The Empire Strikes Back%'</span></span>
+<span id="cb34-5"><a></a><span class="st">                AND kind_id = 1</span></span>
+<span id="cb34-6"><a></a><span class="st">             ORDER BY production_year;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<pre><code>       id                                          title imdb_index kind_id production_year imdb_id phonetic_code
-1 4260164 Star Wars: Episode V - The Empire Strikes Back       &lt;NA&gt;       1            1980      NA         S3621
-2 4346961       The Empire Strikes Back Part II (Parody)       &lt;NA&gt;       1            2016      NA         E5162
-  episode_of_id season_nr episode_nr series_years                           md5sum
-1            NA        NA         NA         &lt;NA&gt; 99c3b6266cd096147b1d7af2b8353edb
-2            NA        NA         NA         &lt;NA&gt; 759372cfa023e3f7485dfe0db5bdc13d</code></pre>
+<pre><code>                                           title kind_id production_year
+1 Star Wars: Episode V - The Empire Strikes Back       1            1980
+2       The Empire Strikes Back Part II (Parody)       1            2016</code></pre>
 </section><section id="your-turn-1" class="slide level2 scrollable"><h2>Your turn</h2>
 <div class="task">
 <ol type="1">
@@ -869,7 +896,7 @@ Prof Amanda Luby
 7   779            A., Narayana Rao       &lt;NA&gt;      NA      m         A5656</code></pre>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_955acec7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_f991848e" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -880,8 +907,8 @@ Prof Amanda Luby
 </section><section id="extracting-table-info" class="slide level2"><h2>Extracting table info</h2>
 <p>The following code chunk lists all of the tables available in the IMDB</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>table_names <span class="ot">&lt;-</span> <span class="fu">dbListTables</span>(db)</span>
-<span id="cb34-2"><a></a>table_names</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>table_names <span class="ot">&lt;-</span> <span class="fu">dbListTables</span>(db)</span>
+<span id="cb37-2"><a></a>table_names</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <pre><code> [1] "title"           "link_type"       "person_info"     "movie_info"     
  [5] "movie_companies" "complete_cast"   "movie_keyword"   "company_type"   
@@ -891,7 +918,7 @@ Prof Amanda Luby
 [21] "movie_info_idx" </code></pre>
 <p>and we can pull out fields (columns) in each table with <code>dbListFields</code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">dbListFields</span>(db, <span class="st">"title"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">dbListFields</span>(db, <span class="st">"title"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <pre><code> [1] "id"              "title"           "imdb_index"      "kind_id"        
  [5] "production_year" "imdb_id"         "phonetic_code"   "episode_of_id"  
@@ -902,7 +929,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_ede9d68d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_7c8ca37d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -913,10 +940,10 @@ Prof Amanda Luby
 </section><section id="finding-cast-info-for-the-empire-strikes-back" class="slide level2"><h2>Finding cast info for <em>The Empire Strikes Back</em>
 </h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>db <span class="sc">%&gt;%</span></span>
-<span id="cb38-2"><a></a>  <span class="fu">dbGetQuery</span>(<span class="st">"SELECT *</span></span>
-<span id="cb38-3"><a></a><span class="st">              FROM cast_info</span></span>
-<span id="cb38-4"><a></a><span class="st">              WHERE movie_id = 4260164;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>db <span class="sc">%&gt;%</span></span>
+<span id="cb41-2"><a></a>  <span class="fu">dbGetQuery</span>(<span class="st">"SELECT *</span></span>
+<span id="cb41-3"><a></a><span class="st">              FROM cast_info</span></span>
+<span id="cb41-4"><a></a><span class="st">              WHERE movie_id = 4260164;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <pre><code>          id person_id movie_id person_role_id
 1     456375     64737  4260164          77625
@@ -942,8 +969,8 @@ Prof Amanda Luby
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>nycflights23<span class="sc">::</span>flights <span class="sc">%&gt;%</span></span>
-<span id="cb40-2"><a></a>  <span class="fu">select</span>(origin, dest, arr_delay, sched_arr_time)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>nycflights23<span class="sc">::</span>flights <span class="sc">%&gt;%</span></span>
+<span id="cb43-2"><a></a>  <span class="fu">select</span>(origin, dest, arr_delay, sched_arr_time)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 435,352 × 4
    origin dest  arr_delay sched_arr_time
@@ -963,8 +990,8 @@ Prof Amanda Luby
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>nycflights23<span class="sc">::</span>airports <span class="sc">%&gt;%</span></span>
-<span id="cb42-2"><a></a>  <span class="fu">select</span>(faa, name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>nycflights23<span class="sc">::</span>airports <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a></a>  <span class="fu">select</span>(faa, name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,251 × 2
    faa   name                               
@@ -988,7 +1015,7 @@ Prof Amanda Luby
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>survivoR<span class="sc">::</span>castaways</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>survivoR<span class="sc">::</span>castaways</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -1010,7 +1037,7 @@ Prof Amanda Luby
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>survivoR<span class="sc">::</span>confessionals</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>survivoR<span class="sc">::</span>confessionals</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -1044,9 +1071,9 @@ Prof Amanda Luby
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb48-1"><a></a><span class="kw">SELECT</span> <span class="op">*</span></span>
-<span id="cb48-2"><a></a><span class="kw">FROM</span> table1</span>
-<span id="cb48-3"><a></a><span class="kw">JOIN</span> table2 <span class="kw">ON</span> table1.<span class="kw">key</span><span class="op">=</span>table2.<span class="kw">key</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb51-1"><a></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb51-2"><a></a><span class="kw">FROM</span> table1</span>
+<span id="cb51-3"><a></a><span class="kw">JOIN</span> table2 <span class="kw">ON</span> table1.<span class="kw">key</span><span class="op">=</span>table2.<span class="kw">key</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <ul>
@@ -1058,11 +1085,11 @@ Prof Amanda Luby
 </section><section id="joining-cast_info-with-name" class="slide level2"><h2>Joining <code>cast_info</code> with <code>name</code>
 </h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>db <span class="sc">%&gt;%</span></span>
-<span id="cb49-2"><a></a>  <span class="fu">dbGetQuery</span>(<span class="st">"SELECT name.name, cast_info.role_id, cast_info.id</span></span>
-<span id="cb49-3"><a></a><span class="st">              FROM cast_info </span></span>
-<span id="cb49-4"><a></a><span class="st">              JOIN name ON name.id = cast_info.person_id</span></span>
-<span id="cb49-5"><a></a><span class="st">              WHERE cast_info.movie_id = 4260164;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a>db <span class="sc">%&gt;%</span></span>
+<span id="cb52-2"><a></a>  <span class="fu">dbGetQuery</span>(<span class="st">"SELECT name.name, cast_info.role_id, cast_info.id</span></span>
+<span id="cb52-3"><a></a><span class="st">              FROM cast_info </span></span>
+<span id="cb52-4"><a></a><span class="st">              JOIN name ON name.id = cast_info.person_id</span></span>
+<span id="cb52-5"><a></a><span class="st">              WHERE cast_info.movie_id = 4260164;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <pre><code>                    name role_id       id
 1          Anderson, Bob       1   456375
@@ -1238,7 +1265,7 @@ Prof Amanda Luby
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_311a9a69" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_983473fd" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
