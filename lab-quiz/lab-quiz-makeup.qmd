@@ -55,7 +55,8 @@ This makeup will only include a required in-class portion:
 
 ## SQL
 
-TBD
+- Given a SQL query, explain what output will be produced
+- Translate between SQL queries and {dplyr} code
 
 # Grading
 
@@ -143,3 +144,36 @@ server <- function(input, output, session) {
 
 shinyApp(ui, server)
 ```
+
+**Given a SQL query, explain what output will be produced**
+
+Below is a SQL query using the `flights` and `airlines` tables in the SQL databse. (you can assume all tables/datasets and variable names are the same as {nycflights23}). Describe the output in 1-2 sentences. Your answer should include what each row and each column represent.
+
+```
+SELECT airlines.name, COUNT(flights.flight) AS total_flights
+FROM flights
+INNER JOIN airlines 
+  ON flights.carrier = airlines.carrier
+WHERE flights.origin = 'JFK'
+GROUP BY airlines.name
+ORDER BY total_flights DESC
+LIMIT 5;
+```
+
+
+**Translate between SQL queries and {dplyr} code**
+
+Below is a SQL query: 
+
+```
+SELECT origin, AVG(dep_delay) AS avg_delay
+FROM flights
+WHERE month = 1
+GROUP BY origin
+ORDER BY avg_delay DESC;
+```
+
+Write down a {dplyr} pipeline to accomplish the same task (you can assume all tables/datasets and variable names are the same)
+
+
+
