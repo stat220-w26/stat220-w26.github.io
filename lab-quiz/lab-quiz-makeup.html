@@ -448,8 +448,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Correctly track how an <code>input$id</code> flows from the UI into a reactive/rendering function in the server, and how it connects back to an <code>output$id</code> in the UI</li>
 <li>Know the matching pairs for displaying content (eg <code>plotOutput</code> matches <code>renderPlot</code>)</li>
 </ul></section><section id="sql" class="level2"><h2 class="anchored" data-anchor-id="sql">SQL</h2>
-<p>TBD</p>
-</section></section><section id="grading" class="level1"><h1>Grading</h1>
+<ul>
+<li>Given a SQL query, explain what output will be produced</li>
+<li>Translate between SQL queries and {dplyr} code</li>
+</ul></section></section><section id="grading" class="level1"><h1>Grading</h1>
 <p>For the in-class portion, each question is worth 1 point, graded as “successful” (almost entirely correct), “not successful” (missing a key component), or “half credit” (mostly correct).</p>
 </section><section id="practice-questions" class="level1"><h1>Practice Questions</h1>
 <section id="data" class="level2"><h2 class="anchored" data-anchor-id="data">Data</h2>
@@ -519,6 +521,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span></span>
 <span><span class="fu">shinyApp</span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p><strong>Given a SQL query, explain what output will be produced</strong></p>
+<p>Below is a SQL query using the <code>flights</code> and <code>airlines</code> tables in the SQL databse. (you can assume all tables/datasets and variable names are the same as {nycflights23}). Describe the output in 1-2 sentences. Your answer should include what each row and each column represent.</p>
+<pre><code>SELECT airlines.name, COUNT(flights.flight) AS total_flights
+FROM flights
+INNER JOIN airlines 
+  ON flights.carrier = airlines.carrier
+WHERE flights.origin = 'JFK'
+GROUP BY airlines.name
+ORDER BY total_flights DESC
+LIMIT 5;</code></pre>
+<p><strong>Translate between SQL queries and {dplyr} code</strong></p>
+<p>Below is a SQL query:</p>
+<pre><code>SELECT origin, AVG(dep_delay) AS avg_delay
+FROM flights
+WHERE month = 1
+GROUP BY origin
+ORDER BY avg_delay DESC;</code></pre>
+<p>Write down a {dplyr} pipeline to accomplish the same task (you can assume all tables/datasets and variable names are the same)</p>
 
 
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
