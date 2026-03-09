@@ -40,14 +40,14 @@ theme_set(slides_theme)
 ```
 
 
-## End of Term Reminders: 
+## End of Term Reminders: {.smaller}
 
 - I am almost through with Portfolio 4's that were submitted by Friday. You won't get an automated email but can check gradescope to see if I've done yours
 - All portfolio revisions, HW9 submissions, regrade requests etc. must be submitted by 10pm on the last day of class 
 - Check moodle gradebook for current grades on Lab Quiz 1-3, Portfolio 1-3. Any issues must be brought to me by 10pm on the last day of class. 
 - Final project repos are due on the last day of finals (Monday) at noon
 - Please see final project website description: <https://stat220-w26.github.io/portfolio/final.html> for most up-to-date information
-- Keep an eye on your email for a final project group evaluation and course evaluation. If we hit a 90% response rate, everybody gets a little EC on your average lab quiz score! 
+- Keep an eye on your email for a final project group evaluation (part of your project grade) and anonymous course evaluation form. If we hit a 90% response rate, everybody gets a little EC on your average lab quiz score! 
 
 ## Today's presentation schedule
 
