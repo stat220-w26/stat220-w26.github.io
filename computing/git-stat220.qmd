@@ -161,6 +161,46 @@ If you get an error about conflict after pulling or pushing, don't freak out! Th
 
 ------------------------------------------------------------------------
 
+### Git errors on group repos
+
+If you try to push and get an error, git will tell you to try pulling. If you pull and receive the following error: 
+
+```
+Hint: You have divergent branches and need to specify how to reconcile them.
+Hint: You can do so by running one of the following commands sometime before
+Hint: your next pull:
+Hint: 
+Hint:   git config pull.rebase false  # merge
+Hint:   git config pull.rebase true   # rebase
+Hint:   git config pull.ff only       # fast-forward only
+```
+
+Try these steps: 
+
+(1) Open up the `Terminal` (next to `Console`)
+
+```{r echo=FALSE, fig.align='center'}
+knitr::include_graphics("images/maize-git-config.png")
+```
+
+(2) Type the first suggestion from git (`git config pull.rebase false`) and hit enter
+
+(3) Try pulling from github again. This should either work as expected, or create a merge conflict as outlined in the class activity from week 9
+
+::: callout-warning
+## Warning!
+
+Be careful about running git commands in the terminal if you don't know what you are doing. Ask for help from your group and Amanda before trying a bunch of random commands!
+:::
+
+::: callout-tip
+## Burn it all down
+
+If you get stuck with git and these fixes don't work, you can always follow the directions to [burn it all down](https://happygitwithr.com/burn.html?q=burn%20it#burn) and restart your repo from the current github version. 
+
+:::
+
+
 ## Additional resources
 
 -   [Happy Git and GitHub for the useR](http://happygitwithr.com/)
